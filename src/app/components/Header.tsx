@@ -1,19 +1,21 @@
 import Link from 'next/link';
 
-const Header = () => (<header>
-<div>ChrisClaude.</div>
+const Header = () => (<header className='px-80 pt-10 flex justify-between'>
+<div>
+  <Link href="/">ChrisClaude.</Link>
+</div>
 <nav>
-  <ul>
-    <li>
+  <ul className='flex'>
+    <li className='mr-9'>
       <Link href="/">Home</Link>
     </li>
-    <li>
+    <li className='mr-9'>
       <Link href="/about">About</Link>
     </li>
-    <li>
+    <li className='mr-9'>
       <Link href="/portfolio">Portfolio</Link>
     </li>
-    <li>
+    <li className='mr-9'>
       <Link href="/news">News</Link>
     </li>
     <li>
