@@ -17,7 +17,7 @@ const Footer = () => (<footer className='md:px-20 px-40 py-2 flex justify-betwee
       <a href="https://twitter.com/ChrisClaude_" className="text-2xl" target="_blank"><FaTwitter /></a>
     </li>
     <li className='mr-4'>
-      <a href="https://www.instagram.com/chrisclaude" className="text-2xl" target="_blank"><FaInstagram /></a>
+      <a href="https://www.instagram.com/chrisclaude__" className="text-2xl" target="_blank"><FaInstagram /></a>
     </li>
     <li className='mr-4'>
       <a href="https://www.youtube.com/@chrisclaude" className="text-2xl" target="_blank"><FaYoutube /></a>
