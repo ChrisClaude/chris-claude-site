@@ -1,4 +1,4 @@
-import { Header, Main } from './components'
+import { Footer, Header, Main } from './components'
 import './globals.css'
 import { Inter } from 'next/font/google'
 
@@ -21,6 +21,7 @@ export default function RootLayout({
         <Main>
           {children}
         </Main>
+        <Footer />
       </body>
     </html>
   )

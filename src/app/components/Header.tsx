@@ -1,17 +1,10 @@
-import Image from 'next/image';
 import Link from 'next/link';
+import Logo from './Logo';
 
-const Header = () => (<header className='px-80 pt-10 flex justify-between'>
+const Header = () => (<header className='md:px-20 px-40 py-2 flex justify-between items-center'>
 <div>
   <Link href="/" className='flex items-center'>
-  <Image
-      src="/ChrisClaudeLogo_.jpeg"
-      width={90}
-      height={90}
-      alt="Chris Claude Logo"
-      className='mr-2'
-    />
-    <span>Chris Claude</span>
+  <Logo />
   </Link>
 </div>
 <nav className='flex items-center'>
