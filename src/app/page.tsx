@@ -11,7 +11,7 @@ export default function Home() {
         Full-stack project based tutorials for beginners and intermediate, and advanced developers.
         </p>
         <p>
-          <button className='bg-blue-800 text-white px-4 py-3 rounded-lg text-sm font-semibold hover:bg-blue-600'>Get in touch</button>
+          <Link href="/courses" className='bg-blue-800 text-white px-4 py-3 rounded-lg text-sm font-semibold hover:bg-blue-600'>Get started</Link>
         </p>
       </section>
     </>
