@@ -5,7 +5,7 @@ import Link from 'next/link';
 export default function Home() {
   return (
     <>
-      <section className='text-center'>
+      <section className='text-center pb-16'>
         <p className='text-xl font-semibold mb-3'>Chris Claude</p>
         <p className='text-5xl font-semibold mb-3'>Software Development</p>
         <p className='text-5xl font-semibold mb-3'>Training</p>
@@ -13,16 +13,16 @@ export default function Home() {
         Full-stack project based tutorials for beginners and intermediate, and advanced developers.
         </p>
         <p>
-          <Link href="/courses" className='bg-blue-800 text-white px-4 py-3 rounded-lg text-sm font-semibold hover:bg-blue-600'>Get started</Link>
+          <Link href="/courses" className='bg-blue-800 text-white px-6 py-4 rounded-lg text-lg font-semibold hover:bg-blue-600 focus:ring'>Get started</Link>
         </p>
       </section>
-      <section>
-        <p>
+      <section className='flex justify-between items-center py-8'>
+        <p className='text-lg uppercase'>
           Notify me when new courses are available
         </p>
         <div>
-          <input type="email" />
-          <button>Notify Me</button>
+          <input type="email" placeholder='Email' className='mr-6 outline outline-1 outline-gray-400 rounded p-1 w-60 focus:outline-blue-600' />
+          <button className='bg-blue-800 text-white px-3 py-2 rounded text-sm font-semibold focus:ring hover:bg-blue-600' type='submit'>Notify me</button>
         </div>
       </section>
       <section>
