@@ -5,16 +5,16 @@ import Link from 'next/link';
 export default function Home() {
   return (
     <>
-      <section className='text-center pb-16'>
+      <section className='landing-section relative text-center pb-40 pt-14 sm:pt-20 lg:pt-32'>
         <p className='text-xl font-semibold mb-3'>Chris Claude</p>
-        <p className='text-5xl font-semibold mb-3'>Software Development</p>
-        <p className='text-5xl font-semibold mb-3'>Training</p>
-        <p className='mb-6'>
+        <p className='text-7xl font-semibold mb-3'>Software Development</p>
+        <p className='text-7xl font-semibold mb-3'>Training</p>
+        <p className='text-2xl mb-6'>
         Full-stack project based tutorials for beginners and intermediate, and advanced developers.
         </p>
-        <p>
+        <div>
           <Link href="/courses" className='bg-blue-800 text-white px-6 py-4 rounded-lg text-lg font-semibold hover:bg-blue-600 focus:ring'>Get started</Link>
-        </p>
+        </div>
       </section>
       <section className='flex justify-between items-center py-8'>
         <p className='text-lg uppercase'>
