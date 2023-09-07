@@ -1,19 +1,33 @@
 import Link from 'next/link';
+import { SiCsharp, SiMicrosoftazure, SiMicrosoftsqlserver, SiDotnet } from 'react-icons/si';
+import { FaReact } from 'react-icons/fa';
+import { TbBrandNextjs } from 'react-icons/tb';
 
-// TODO: Example websites: https://preview.themeforest.net/item/edrea-tailwind-css-personal-portfolio-react-template/full_screen_preview/42914502
 //https://www.traversymedia.com/
 export default function Home() {
   return (
     <>
-      <section className='landing-section relative text-center pb-40 pt-14 sm:pt-20 lg:pt-32'>
-        <p className='text-xl font-semibold mb-3'>Chris Claude</p>
-        <p className='text-7xl font-semibold mb-3'>Software Development</p>
-        <p className='text-7xl font-semibold mb-3'>Training</p>
-        <p className='text-2xl mb-6'>
+      <section className='landing-section h-screen relative pb-40 pt-14 sm:pt-20 lg:pt-32'>
+        <p className='text-xl font-semibold mb-3 text-center '>Chris Claude</p>
+        <h1 className='text-7xl font-semibold leading-tight text-center mb-7'>Learn & Improve Your <br/>Software Development Skills</h1>
+        <p className='text-2xl max-w-xl mb-10 mx-auto text-center'>
         Full-stack project based tutorials for beginners and intermediate, and advanced developers.
         </p>
+        <div className='text-center sm:mb-16 mb-14 md:mb-20 lg:mb-24 xl:mb-28'>
+          <Link href="/courses" className='bg-white text-blue-600 px-6 py-4 rounded-lg text-lg font-semibold hover:bg-gray-200 focus:ring'>Get started</Link>
+        </div>
         <div>
-          <Link href="/courses" className='bg-blue-800 text-white px-6 py-4 rounded-lg text-lg font-semibold hover:bg-blue-600 focus:ring'>Get started</Link>
+          <h2>
+            Learn valuable and in demand skills
+          </h2>
+          <div>
+            <SiCsharp />
+            <SiMicrosoftazure />
+            <SiMicrosoftsqlserver />
+            <SiDotnet />
+            <FaReact />
+            <TbBrandNextjs />
+          </div>
         </div>
       </section>
       <section className='flex justify-between items-center py-8'>
@@ -22,7 +36,7 @@ export default function Home() {
         </p>
         <div>
           <input type="email" placeholder='Email' className='mr-6 outline outline-1 outline-gray-400 rounded p-1 w-60 focus:outline-blue-600' />
-          <button className='bg-blue-800 text-white px-3 py-2 rounded text-sm font-semibold focus:ring hover:bg-blue-600' type='submit'>Notify me</button>
+          <button className='bg-white text-black px-3 py-2 rounded text-sm font-semibold focus:ring hover:bg-gray-200' type='submit'>Notify me</button>
         </div>
       </section>
       <section>
