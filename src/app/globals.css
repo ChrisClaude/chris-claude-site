@@ -14,11 +14,11 @@ body {
   bottom: 10%;
   width: 150%;
   left: -25%;
-  background: linear-gradient(83.21deg,#3245ff 100%,#bc52ee 50%);
-  mask-image: radial-gradient(rgba(0,0,0,.45),transparent 70%);
-  -webkit-mask-image: radial-gradient(rgba(0,0,0,.45),transparent 70%);
+  background: linear-gradient(83.21deg,#3245ff 80%, #7740ff 20%);
+  mask-image: radial-gradient(rgba(0,0,0,.47),transparent 70%);
+  -webkit-mask-image: radial-gradient(rgba(0,0,0,.47),transparent 70%);
 }
 
-.landing {
-  @apply overflow-visible;
+.landing-section {
+  @apply overflow-hidden;
 }

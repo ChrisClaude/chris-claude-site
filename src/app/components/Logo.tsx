@@ -2,9 +2,9 @@ import Image from 'next/image';
 
 const Logo = () => (<>
   <Image
-      src="/ChrisClaudeLogo_.jpeg"
-      width={40}
-      height={40}
+      src="/ChrisClaude_logo.svg"
+      width={55}
+      height={55}
       alt="Chris Claude Logo"
       className='mr-2'
     />
