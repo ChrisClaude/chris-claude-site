@@ -8,6 +8,7 @@ import { TbBrandNextjs } from 'react-icons/tb';
 export default function Home() {
   return (
     <>
+    {/* Banner */}
       <section className='landing-section flex flex-col items-center h-screen relative pb-40 pt-14 sm:pt-20 lg:pt-32'>
         <p className='text-xl font-semibold mb-3'>Chris Claude</p>
         <h1 className='text-7xl font-semibold text-center leading-tight mb-7'>Learn & Improve Your <br/>Software Development Skills</h1>
@@ -33,12 +34,13 @@ export default function Home() {
       </section>
       <div className='relative'>
         <div className='absolute bg-grid inset-0'/>
-        <section>
+        {/* Article */}
+        <section className='mb-36'>
           <div className='flex items-center flex-col mb-14'>
             <span className='block uppercase mb-3'>Recent Posts Of</span>
             <h1 className='text-5xl'>The <span className='text-blue-500'>Dev</span> Weekly</h1>
           </div>
-          <div className='flex justify-center grid-cols-1 gap-6 mb-36 max-w-screen-xl mx-auto sm:grid-cols-2 lg:grid-cols-3'>
+          <div className='flex justify-center grid-cols-1 gap-6 max-w-screen-xl mx-auto sm:grid-cols-2 lg:grid-cols-3'>
             {/* TODO: This should come from a directory with files (.md files) that we can parse and loop through */}
             <article>
               <div  className='card mb-3'>
@@ -77,16 +79,22 @@ export default function Home() {
           </div>
         </section>
 
-        <section>
-          <div>
-            Image
+
+        <section className='max-w-screen-xl mx-auto bg-blue-purple-gradient mb-36 rounded-lg flex flex-1 flex-col lg:flex-row'>
+          <div className='flex flex-1 flex-col gap-6 p-6 text-left'>
+            <aside className='code'>
+              Community
+            </aside>
+            <div className='flex flex-col flex-1 justify-center gap-6 lg:px-8 lg:pb-12'>
+              <h3 className='text-6xl font-semibold text-gray-100'>Join Us On Youtube</h3>
+              <p className='text-gray-100'>Join our YouTube community and subscribe to stay updated about the latest published content.</p>
+              <a href="https://www.youtube.com/@chrisclaude" target='_blank' className='bloc bg-white text-blue-600 px-6 py-4 rounded-lg text-lg font-semibold hover:bg-gray-200 focus:ring w-48'>Join on YouTube</a>
+            </div>
           </div>
-          <div>
-            <h1>Chris Claude on YouTube</h1>
-            <p>Subscribe to my YouTube channel for more tutorials</p>
-            <button>
-              View channel
-            </button>
+          <div className='flex-1 flex justify-center items-center'>
+
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/e-4FzpecBns?si=IEPjBqtDlFDb-I82" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+
           </div>
         </section>
       </div>
