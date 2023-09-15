@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { SiCsharp, SiMicrosoftazure, SiMicrosoftsqlserver, SiDotnet } from 'react-icons/si';
 import { BsArrowRightShort } from 'react-icons/bs';
-import { FaReact } from 'react-icons/fa';
+import { FaReact, FaLinkedinIn, FaYoutube, FaTwitter, FaInstagram, FaGithub } from 'react-icons/fa';
 import { TbBrandNextjs } from 'react-icons/tb';
 
 //https://www.traversymedia.com/
@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <>
     {/* Banner */}
-      <section className='landing-section flex flex-col items-center h-screen relative pb-40 pt-14 sm:pt-20 lg:pt-32'>
+      <section className='landing-section flex flex-col items-center h-screen relative pb-40 mb-28 pt-14 sm:pt-20 lg:pt-32'>
         <p className='text-xl font-semibold mb-3'>Chris Claude</p>
         <h1 className='text-7xl font-semibold text-center leading-tight mb-7'>Learn & Improve Your <br/>Software Development Skills</h1>
         <p className='text-2xl max-w-xl mb-10 mx-auto text-center'>
@@ -96,6 +96,32 @@ export default function Home() {
             <iframe width="560" height="315" src="https://www.youtube.com/embed/e-4FzpecBns?si=IEPjBqtDlFDb-I82" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
 
           </div>
+        </section>
+
+        <section className='mb-48 max-w-screen-xl mx-auto'>
+          <div className='flex flex-col items-center'>
+            <h2 className='text-5xl mb-6'>Let&apos;s Connect</h2>
+            <p className='max-w-lg mb-12'>
+            We publish different types of software engineering content on multiple Social Media platforms. Reach out and let&apos;s connect.
+            </p>
+          </div>
+          <ul className='flex flex-1 justify-center text-7xl gap-x-12'>
+            <li>
+              <a href="https://www.youtube.com/@chrisclaude" target="_blank"><FaYoutube /></a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/claude-de-tchambila-a720ba143" target="_blank"><FaLinkedinIn /></a>
+            </li>
+            <li>
+              <a href="https://twitter.com/ChrisClaude_" target="_blank"><FaTwitter /></a>
+            </li>
+            <li>
+              <a href="https://github.com/ChrisClaude" target="_blank"><FaGithub /></a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/chrisclaude__" target="_blank"><FaInstagram /></a>
+            </li>
+          </ul>
         </section>
       </div>
     </>
