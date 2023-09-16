@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { SiCsharp, SiMicrosoftazure, SiMicrosoftsqlserver, SiDotnet } from 'react-icons/si';
 import { BsArrowRightShort } from 'react-icons/bs';
 import { FaReact, FaLinkedinIn, FaYoutube, FaTwitter, FaInstagram, FaGithub } from 'react-icons/fa';
@@ -34,7 +35,7 @@ export default function Home() {
       </section>
       <div className='relative'>
         <div className='absolute bg-grid inset-0'/>
-        {/* Article */}
+        {/* Articles */}
         <section className='mb-36'>
           <div className='flex items-center flex-col mb-14'>
             <span className='block uppercase mb-3'>Recent Posts Of</span>
@@ -43,20 +44,13 @@ export default function Home() {
           <div className='flex justify-center grid-cols-1 gap-6 max-w-screen-xl mx-auto sm:grid-cols-2 lg:grid-cols-3'>
             {/* TODO: This should come from a directory with files (.md files) that we can parse and loop through */}
             <article>
-              <div  className='card mb-3'>
-                <h2>Build and Secure an API with ASP.NET and Identity Server</h2>
-              </div>
-              <div>
-                <div className='flex justify-between items-center'>
-                  <h2>We leverage the OAuth2 and OpenId protocols to implement authentication</h2>
-                  <BsArrowRightShort className='text-4xl' />
-                </div>
-              </div>
-            </article>
-            <article>
-              <div className='card mb-2'>
-                <h2>How to Handle Exceptions in ASP.NET</h2>
-              </div>
+              <Image
+                src='/Logging_in_ASP_NET_Thumbnail.png'
+                alt='Logging in asp.net thumbnail'
+                width={384}
+                height={384}
+                className='rounded-lg mb-3 w-full'
+              />
               <div>
                 <div className='flex justify-between items-center'>
                   <h2>We leverage the OAuth2 and OpenId protocols to implement authentication</h2>
@@ -66,9 +60,29 @@ export default function Home() {
             </article>
 
             <article>
-              <div className='card'>
-                <h2>Build a full-stack web app with ASP.NET and React JS</h2>
+              <Image
+                src='/Exception_handling_in_ASP_NET Thumbnail.png'
+                alt='Exception handling in asp.net thumbnail'
+                width={384}
+                height={384}
+                className='rounded-lg mb-3 w-full'
+              />
+              <div>
+                <div className='flex justify-between items-center'>
+                  <h2>We leverage the OAuth2 and OpenId protocols to implement authentication</h2>
+                  <BsArrowRightShort className='text-4xl' />
+                </div>
               </div>
+            </article>
+
+            <article>
+              <Image
+                src='/ASP_NET_Web_API_Authentication_with_Identity_Server_6_Thumbnail.png'
+                alt='ASP.NET API Authentication with Identity Server'
+                width={384}
+                height={384}
+                className='rounded-lg mb-3 w-full'
+              />
               <div>
                 <div className='flex justify-between items-center'>
                   <h2>We leverage the OAuth2 and OpenId protocols to implement authentication</h2>

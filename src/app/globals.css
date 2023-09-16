@@ -33,7 +33,7 @@ body {
 }
 
 .card {
-  @apply h-72 rounded-lg;
+  @apply rounded-lg overflow-hidden;
   border-width: 1px;
   border-color: rgb(52 56 65);
 }
