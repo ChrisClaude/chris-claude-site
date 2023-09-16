@@ -107,7 +107,7 @@ export default function Home() {
               />
               <div className="flex justify-between items-center">
                 <h2>
-                We leverage the Identity Server implementation of OAuth2 and OpenId protocols to secure our Web API
+                Leverage the OAuth2 and OpenId protocols to secure your Web API
                 </h2>
                 <BsArrowRightShort className="text-4xl" />
               </div>
