@@ -12,21 +12,21 @@ const Footer = () => (<footer className='md:px-20 px-40 py-6 flex justify-betwee
   &copy; { new Date().getFullYear() } Chris Claude. All rights reserved.
 </p>
 <div>
-  <ul className='flex'>
-    <li className='mr-4'>
-      <a href="https://twitter.com/ChrisClaude_" className="text-2xl" target="_blank"><FaTwitter /></a>
-    </li>
-    <li className='mr-4'>
-      <a href="https://www.instagram.com/chrisclaude__" className="text-2xl" target="_blank"><FaInstagram /></a>
-    </li>
-    <li className='mr-4'>
+  <ul className='flex gap-x-3'>
+    <li>
       <a href="https://www.youtube.com/@chrisclaude" className="text-2xl" target="_blank"><FaYoutube /></a>
-    </li>
-    <li className='mr-4'>
-      <a href="https://github.com/ChrisClaude" className="text-2xl" target="_blank"><FaGithub /></a>
     </li>
     <li>
       <a href="https://www.linkedin.com/in/claude-de-tchambila-a720ba143" className="text-2xl" target="_blank"><FaLinkedinIn /></a>
+    </li>
+    <li>
+      <a href="https://twitter.com/ChrisClaude_" className="text-2xl" target="_blank"><FaTwitter /></a>
+    </li>
+    <li>
+      <a href="https://github.com/ChrisClaude" className="text-2xl" target="_blank"><FaGithub /></a>
+    </li>
+    <li>
+      <a href="https://www.instagram.com/chrisclaude__" className="text-2xl" target="_blank"><FaInstagram /></a>
     </li>
   </ul>
 </div>
