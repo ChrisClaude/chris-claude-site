@@ -46,3 +46,9 @@ body {
   font-family: MDIO,md-io-fallback,monospace;
   font-weight: 300;
 }
+
+.header-border {
+  @apply border-solid;
+  border-color: rgba(255,255,255,0.28);
+  border-bottom-width: 1px;
+}

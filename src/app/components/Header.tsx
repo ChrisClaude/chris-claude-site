@@ -1,13 +1,13 @@
 import Link from 'next/link';
 import Logo from './Logo';
 
-const Header = () => (<header className='md:px-20 px-40 py-6 flex justify-between items-center'>
+const Header = () => (<header className='md:px-20 px-40 pt-6 pb-4 flex justify-between items-center header-border'>
 <div>
   <Link href="/" className='flex items-center'>
   <Logo />
   </Link>
 </div>
-<nav className='flex items-center'>
+<nav className='items-center hidden md:flex'>
   <ul className='flex'>
     <li className='mr-9'>
       <Link href="/blog">Blog</Link>
