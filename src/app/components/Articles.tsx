@@ -8,11 +8,11 @@ const Articles = () => (
   <section className="mb-36">
     <div className="flex items-center flex-col mb-14">
       <span className="block uppercase mb-3">Recent Posts Of</span>
-      <h1 className="text-5xl">
+      <h1 className="text-4xl md:text-5xl">
         The <span className="text-blue-500">Dev</span> Weekly
       </h1>
     </div>
-    <div className="flex justify-center grid-cols-1 gap-6 max-w-screen-xl mx-auto sm:grid-cols-2 lg:grid-cols-3">
+    <div className="grid grid-cols-1 gap-6 max-w-screen-xl mx-auto md:grid-cols-2 lg:grid-cols-3">
       {articles.map((article, index) => (
         <Article
           article={article}

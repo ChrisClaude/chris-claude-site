@@ -8,10 +8,10 @@ import {
 } from 'react-icons/fa';
 
 const SocialMediaBanner = () => (
-  <section className="mb-48 max-w-screen-xl mx-auto">
+  <section className="max-w-screen-xl mx-auto mb-28 md:mb-48">
     <div className="flex flex-col items-center">
       <h2 className="text-5xl mb-6">Let&apos;s Connect</h2>
-      <p className="max-w-lg mb-12">
+      <p className="max-w-lg mb-12 text-center md:text-left">
         We publish different types of software engineering content on multiple
         Social Media platforms. Reach out and let&apos;s connect.
       </p>

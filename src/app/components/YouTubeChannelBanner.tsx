@@ -1,7 +1,7 @@
 import React from 'react';
 
 const YouTubeChannelBanner = () => (
-  <section className="max-w-screen-xl mx-auto bg-blue-purple-gradient mb-36 rounded-lg flex flex-1 flex-col lg:flex-row">
+  <section className="max-w-screen-xl mx-auto bg-blue-purple-gradient mb-36 rounded-lg flex flex-1 flex-col md:px-0 lg:flex-row">
     <div className="flex flex-1 flex-col gap-6 p-6 text-left">
       <aside className="code">Community</aside>
       <div className="flex flex-col flex-1 justify-center gap-6 lg:px-8 lg:pb-12">
@@ -20,7 +20,7 @@ const YouTubeChannelBanner = () => (
         </a>
       </div>
     </div>
-    <div className="flex-1 flex justify-center items-center">
+    <div className="flex-1 flex justify-center items-center px-2 pb-2 md:p-0">
       <iframe
         width="560"
         height="315"
