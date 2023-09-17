@@ -15,9 +15,7 @@ const Articles = () => (
     <div className="flex justify-center grid-cols-1 gap-6 max-w-screen-xl mx-auto sm:grid-cols-2 lg:grid-cols-3">
       {articles.map((article, index) => (
         <Article
-          src={article.src}
-          alt={article.alt}
-          description={article.description}
+          article={article}
           key={index}
         />
       ))}
