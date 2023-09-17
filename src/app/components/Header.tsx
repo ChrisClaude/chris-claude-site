@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Logo from './Logo';
 
-const Header = () => (<header className='md:px-20 px-40 py-5 flex justify-between items-center'>
+const Header = () => (<header className='md:px-20 px-40 py-6 flex justify-between items-center'>
 <div>
   <Link href="/" className='flex items-center'>
   <Logo />
