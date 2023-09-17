@@ -16,7 +16,7 @@ const SocialMediaBanner = () => (
         Social Media platforms. Reach out and let&apos;s connect.
       </p>
     </div>
-    <ul className="flex flex-1 justify-center text-7xl gap-x-12">
+    <ul className="flex flex-1 justify-center text-4xl gap-x-4 md:text-7xl md:gap-x-12">
       <li>
         <a href="https://www.youtube.com/@chrisclaude" target="_blank">
           <FaYoutube />
