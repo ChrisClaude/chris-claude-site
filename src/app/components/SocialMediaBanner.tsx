@@ -2,10 +2,10 @@ import React from 'react';
 import {
   FaLinkedinIn,
   FaYoutube,
-  FaTwitter,
   FaInstagram,
   FaGithub,
 } from 'react-icons/fa';
+import { RiTwitterXFill } from 'react-icons/ri';
 
 const SocialMediaBanner = () => (
   <section className="max-w-screen-xl mx-auto mb-28 md:mb-48">
@@ -31,7 +31,7 @@ const SocialMediaBanner = () => (
       </li>
       <li>
         <a href="https://twitter.com/ChrisClaude_" target="_blank">
-          <FaTwitter />
+          <RiTwitterXFill />
         </a>
       </li>
       <li>

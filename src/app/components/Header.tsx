@@ -3,7 +3,7 @@ import Logo from './Logo';
 import { RxHamburgerMenu } from 'react-icons/rx';
 
 const Header = () => (
-  <header className="px-5 pt-6 pb-4 flex items-center header-border justify-between md:px-20">
+  <header className="px-5 pt-6 pb-4 flex items-center header-border justify-between h-20 md:px-20">
     <div>
       <Link href="/" className="flex items-center">
         <Logo />

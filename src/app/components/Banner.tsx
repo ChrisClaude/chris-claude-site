@@ -22,7 +22,7 @@ const Banner = () => (
     <div className="flex justify-center sm:mb-12 mb-10 md:mb-16 lg:mb-20 xl:mb-24">
       <Link
         href="/courses"
-        className="bloc bg-white text-blue-600 px-6 py-4 rounded-lg text-lg font-semibold hover:bg-gray-200 focus:ring">
+        className="bg-white text-blue-600 px-6 py-4 rounded-lg text-lg font-semibold hover:bg-gray-200 focus:ring">
         Get started
       </Link>
     </div>

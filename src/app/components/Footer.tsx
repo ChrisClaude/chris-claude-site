@@ -3,10 +3,10 @@ import Logo from './Logo';
 import {
   FaLinkedinIn,
   FaYoutube,
-  FaTwitter,
   FaInstagram,
   FaGithub,
 } from 'react-icons/fa';
+import { RiTwitterXFill } from 'react-icons/ri';
 
 const Footer = () => (
   <footer className="px-5 py-6 flex flex-col-reverse gap-y-4 items-center md:gap-y-0 md:flex-row md:justify-between md:px-20">
@@ -39,7 +39,7 @@ const Footer = () => (
             href="https://twitter.com/ChrisClaude_"
             className="text-2xl"
             target="_blank">
-            <FaTwitter />
+            <RiTwitterXFill />
           </a>
         </li>
         <li>
