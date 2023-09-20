@@ -5,17 +5,17 @@ import { RiTwitterXFill } from 'react-icons/ri';
 
 const SideNav = () => {
   return (
-    <div className='fixed top-20 left-0 h-full w-72'>
+    <div className='fixed bg-black top-20 left-0 h-full w-72 md:hidden'>
       <nav>
         <ul className='text-2xl'>
-          <li className='p-7 font-medium header-border'>
-            <Link href="/blog">Blog</Link>
+          <li>
+            <Link href="/blog" className='block p-7 font-medium header-border'>Blog</Link>
           </li>
-          <li className='p-7 font-medium header-border'>
-            <Link href="/courses">Courses</Link>
+          <li>
+            <Link href="/courses" className='block p-7 font-medium header-border'>Courses</Link>
           </li>
-          <li className='p-7 font-medium header-border'>
-            <Link href="/about">About</Link>
+          <li>
+            <Link href="/about" className='block p-7 font-medium header-border'>About</Link>
           </li>
         </ul>
       </nav>
