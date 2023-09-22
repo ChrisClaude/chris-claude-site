@@ -9,7 +9,7 @@ import {
 import { RiTwitterXFill } from 'react-icons/ri';
 
 const Footer = () => (
-  <footer className="px-5 py-6 flex flex-col-reverse gap-y-4 items-center md:gap-y-0 md:flex-row md:justify-between md:px-20">
+  <footer className="px-5 py-6 w-screen flex flex-col-reverse gap-y-4 items-center md:gap-y-0 md:flex-row md:justify-between md:px-20 md:w-full">
     <div>
       <Link href="/" className="flex items-center">
         <Logo />

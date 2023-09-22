@@ -2,6 +2,7 @@ import { Footer, Header, Main, SideNav } from './components';
 import './globals.css';
 import { Inter } from 'next/font/google';
 import { UIContextProvider } from './hooks/UIContext';
+import AppWrapper from './components/AppWrapper';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -19,10 +20,14 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <UIContextProvider>
-          <SideNav />
-          <Header />
-          <Main>{children}</Main>
-          <Footer />
+          <AppWrapper>
+            <SideNav />
+            <Header />
+            <Main>
+              {children}
+              <Footer />
+            </Main>
+          </AppWrapper>
         </UIContextProvider>
       </body>
     </html>

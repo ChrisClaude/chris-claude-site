@@ -6,28 +6,34 @@ import { FaGithub, FaInstagram, FaLinkedinIn, FaYoutube } from 'react-icons/fa';
 import { RiTwitterXFill } from 'react-icons/ri';
 
 const SideNav = () => {
-  const { uiState: {isMobileNavOpen} } = useContext(UIContext);
+  const { uiState, setUIState } = useContext(UIContext);
+  const { isMobileNavOpen } = uiState;
+  const handleNavItemClick = () => {
+    if (isMobileNavOpen) {
+      setUIState?.({...uiState, isMobileNavOpen: !isMobileNavOpen});
+    }
+  }
 
   return (
     <div
       className={
-        `fixed bg-black top-20 left-0 h-full w-72 overflow-hidden transition-all duration-75 ease-in md:hidden ${isMobileNavOpen? '' : ' w-0'}`
+        `fixed bg-black top-20 left-0 h-full w-72transition-all duration-75 ease-in-out md:hidden ${isMobileNavOpen? '' : ' w-0 overflow-hidden'}`
       }>
       <nav>
         <ul className="text-2xl">
-          <li>
+          <li onClick={handleNavItemClick}>
             <Link href="/blog" className="block p-7 font-medium header-border">
               Blog
             </Link>
           </li>
-          <li>
+          <li onClick={handleNavItemClick}>
             <Link
               href="/courses"
               className="block p-7 font-medium header-border">
               Courses
             </Link>
           </li>
-          <li>
+          <li onClick={handleNavItemClick}>
             <Link href="/about" className="block p-7 font-medium header-border">
               About
             </Link>
