@@ -1,6 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
-import { BsArrowRightShort } from 'react-icons/bs';
 import { articles } from '@/data';
 import Article from './Article';
 
