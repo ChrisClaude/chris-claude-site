@@ -31,12 +31,12 @@ const Banner = () => (
         Learn the most popular and relevant topics in the tech industry
       </h2>
       <div className="flex flex-wrap text-5xl items-center justify-center gap-x-10 gap-y-6 px-4 md:text-7xl">
-        <SiDotnet />
-        <SiCsharp />
-        <BiLogoPython />
-        <SiMicrosoftazure />
-        <SiMicrosoftsqlserver />
-        <FaReact />
+        <SiDotnet title='.NET Core' />
+        <SiCsharp title='C#' />
+        <BiLogoPython title='Python' />
+        <SiMicrosoftazure title='Microsoft Azure' />
+        <SiMicrosoftsqlserver title='Microsoft SQL Server' />
+        <FaReact title='React JS' />
       </div>
     </div>
   </section>
