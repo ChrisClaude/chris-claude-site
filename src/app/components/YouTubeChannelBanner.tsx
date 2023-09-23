@@ -15,7 +15,7 @@ const YouTubeChannelBanner = () => (
         <a
           href="https://www.youtube.com/@chrisclaude"
           target="_blank"
-          className="bloc bg-white text-blue-600 px-6 py-4 rounded-lg text-lg font-semibold hover:bg-gray-200 focus:ring w-48">
+          className="bloc bg-white text-blue-600 px-6 py-4 rounded-full text-lg font-semibold hover:bg-gray-200 focus:ring w-48">
           Join on YouTube
         </a>
       </div>
