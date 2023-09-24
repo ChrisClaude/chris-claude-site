@@ -1,5 +1,5 @@
 import React from 'react';
-import { articles } from '@/data';
+import { articles } from '@/data/data';
 import Article from './Article';
 
 const Articles = () => (

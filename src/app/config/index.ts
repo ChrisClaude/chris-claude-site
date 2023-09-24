@@ -1,0 +1,1 @@
+export const POSTS_PER_PAGE = process.env.NEXT_PUBLIC_POSTS_PER_PAGE || 6;
