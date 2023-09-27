@@ -3,7 +3,7 @@ title: 'Logging in ASP.NET Core'
 date: 'Sept 24, 2023'
 excerpt: '    Django is a very powerful, high level Python framework for building web applications'
 cover_image: '/images/posts/img3.jpg'
-category: 'Python'
+category: '.NET Core'
 author: 'Chris Claude'
 author_image: 'https://randomuser.me/api/portraits/men/12.jpg'
 ---

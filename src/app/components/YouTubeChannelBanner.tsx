@@ -5,9 +5,9 @@ const YouTubeChannelBanner = () => (
     <div className="flex flex-1 flex-col gap-6 p-6 text-left">
       <aside className="code">Community</aside>
       <div className="flex flex-col flex-1 justify-center gap-6 lg:px-8 lg:pb-12">
-        <h3 className="text-6xl font-semibold text-gray-100">
+        <h1 className="text-5xl font-semibold text-gray-100 md:text-6xl">
           Join Us On Youtube
-        </h3>
+        </h1>
         <p className="text-gray-100">
           Join our YouTube community and subscribe to stay updated about the
           latest published content.

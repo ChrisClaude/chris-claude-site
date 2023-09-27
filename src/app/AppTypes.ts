@@ -13,3 +13,10 @@ export type UIContextType = {
   }>> | undefined;
   uiState: {isMobileNavOpen: boolean;}
 };
+
+export type ArticleContent = {
+  slug: string;
+  frontmatter: {
+    [key: string]: any;
+  }
+}

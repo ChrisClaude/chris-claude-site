@@ -1,4 +1,4 @@
-import Articles from '@/components/Articles';
+import ArticlesBanner from '@/components/ArticlesBanner';
 import Banner from '@/components/Banner';
 import YouTubeChannelBanner from '@/components/YouTubeChannelBanner';
 import SocialMediaBanner from '@/components/SocialMediaBanner';
@@ -9,7 +9,7 @@ const Home = () => (
   <>
     <Banner />
     <GridBgWrapper>
-      <Articles />
+      <ArticlesBanner />
       <YouTubeChannelBanner />
       <SocialMediaBanner />
     </GridBgWrapper>
