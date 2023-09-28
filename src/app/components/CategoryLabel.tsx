@@ -5,6 +5,7 @@ export default function CategoryLabel({ category }: {category: string}) {
   {
     JavaScript: 'yellow',
     CSS: 'blue',
+    '.NET Core': 'blue',
     Python: 'green',
     PHP: 'purple',
     Ruby: 'red',
@@ -12,7 +13,7 @@ export default function CategoryLabel({ category }: {category: string}) {
 
   return (
     <div
-      className={`px-2 py-1 bg-${colorKey[category]}-600 text-gray-100 font-bold rounded`}
+      className={`px-2 py-1 bg-blue-600 text-gray-100 font-bold rounded`}
     >
       <Link href={`/blog/category/${category.toLowerCase()}`}>{category}</Link>
     </div>

@@ -1,8 +1,8 @@
 ---
-title: 'Logging in ASP.NET Core'
-date: 'Sept 24, 2023'
-excerpt: '    Django is a very powerful, high level Python framework for building web applications'
-cover_image: '/Logging_in_ASP_NET_Thumbnail.png'
+title: 'Securing a Web API with Identity Server 6'
+date: 'Sept 28, 2023'
+excerpt: 'Identity Server is a .NET library that implements OpenId and OAuth2. We will leverage this library to secure our API'
+cover_image: '/ASP_NET_Web_API_Authentication_with_Identity_Server_6_Thumbnail.png'
 category: '.NET Core'
 author: 'Chris Claude'
 author_image: 'https://randomuser.me/api/portraits/men/12.jpg'

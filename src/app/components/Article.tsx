@@ -5,7 +5,7 @@ import { ArticleContent } from '@/AppTypes';
 
 export default function Article({ article, compact = false }: { article: ArticleContent, compact?: boolean }) {
   return (
-    <div className='w-full px-10 py-6 bg-white rounded-lg shadow-md mt-6'>
+    <div className='w-full px-10 py-6 bg-slate-200 rounded-lg shadow-md mt-6'>
       {!compact && (
         <Image
           src={article.frontmatter.cover_image}

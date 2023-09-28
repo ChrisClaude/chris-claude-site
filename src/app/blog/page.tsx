@@ -20,14 +20,15 @@ const Page = () => {
   }, []);
 
   return (
-    <>
-      <section>
-        <p>Blog</p>
-        {
-          paginatedArticles && paginatedArticles.articles.map((article, index) => <Article key={index} article={article} />)
-        }
-      </section>
-    </>
+    <section>
+      <p>Blog</p>
+      {
+        paginatedArticles &&
+        <div className='grid grid-cols-1 gap-3 px-4 md:grid-cols-2 lg:grid-cols-3'>
+          {paginatedArticles.articles.map((article, index) => <Article key={index} article={article} />)}
+        </div>
+      }
+    </section>
   );
 }
 
