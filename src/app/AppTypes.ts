@@ -20,3 +20,10 @@ export type ArticleContent = {
     [key: string]: any;
   }
 }
+
+export type PaginatedArticles = {
+  articles: ArticleContent[];
+  numPages: number;
+  currentPage: number;
+  categories: any[];
+};

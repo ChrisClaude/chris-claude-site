@@ -23,18 +23,16 @@ export default function Article({ article, compact = false }: { article: Article
       </div>
 
       <div className='mt-2'>
-        <Link href={`/blog/${article.slug}`}>
-          <a className='text-2xl text-gray-700 font-bold hover:underline'>
-            {article.frontmatter.title}
-          </a>
+        <Link href={`/blog/${article.slug}`} className='text-2xl text-gray-700 font-bold hover:underline'>
+          {article.frontmatter.title}
         </Link>
         <p className='mt-2 text-gray-600'>{article.frontmatter.excerpt}</p>
       </div>
 
       {!compact && (
         <div className='flex justify-between items-center mt-6'>
-          <Link href={`/blog/${article.slug}`}>
-            <a className='text-gray-900 hover:text-blue-600'>Read More</a>
+          <Link href={`/blog/${article.slug}`} className='text-gray-900 hover:text-blue-600'>
+            Read More
           </Link>
           <div className='flex items-center'>
             <img

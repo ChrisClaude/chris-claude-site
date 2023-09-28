@@ -8,6 +8,21 @@ import Main from "./Main";
 import Footer from "./Footer";
 import Logo from "./Logo";
 import SideNav from './SideNav';
+import Article from './Article';
+import Newsletter from './Newsletter';
 
 // export all components
-export { Header, Main, Footer, Logo, Banner, GridBgWrapper, ArticlesBanner as Articles, YouTubeChannelBanner, SocialMediaBanner, SideNav };
+export {
+  Article,
+  ArticlesBanner,
+  Banner,
+  Footer,
+  GridBgWrapper,
+  Header,
+  Logo,
+  Main,
+  Newsletter,
+  SideNav,
+  SocialMediaBanner,
+  YouTubeChannelBanner,
+};
