@@ -1,6 +1,6 @@
 import React from 'react';
 
-const YouTubeChannelBanner = () => (
+const YouTubeChannelBanner = ({compact = false}: {compact?: boolean}) => (
   <section className="max-w-screen-xl mx-auto bg-blue-purple-gradient mb-36 rounded-lg flex flex-1 flex-col md:px-0 lg:flex-row">
     <div className="flex flex-1 flex-col gap-6 p-6 text-left">
       <aside className="code">Community</aside>
@@ -20,16 +20,19 @@ const YouTubeChannelBanner = () => (
         </a>
       </div>
     </div>
-    <div className="flex-1 flex justify-center items-center px-2 pb-2 md:p-0">
-      <iframe
-        width="560"
-        height="315"
-        src="https://www.youtube.com/embed/e-4FzpecBns?si=IEPjBqtDlFDb-I82"
-        title="YouTube video player"
-        frameBorder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowFullScreen></iframe>
+    {
+      !compact &&
+      <div className="flex-1 flex justify-center items-center px-2 pb-2 md:p-0">
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/e-4FzpecBns?si=IEPjBqtDlFDb-I82"
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen></iframe>
     </div>
+    }
   </section>
 );
 
