@@ -1,5 +1,5 @@
 ---
-title: 'Logging in ASP.NET Core'
+title: 'Exception Handling in ASP.NET Core'
 date: 'Sept 24, 2023'
 excerpt: '    Django is a very powerful, high level Python framework for building web applications'
 cover_image: '/Logging_in_ASP_NET_Thumbnail.png'

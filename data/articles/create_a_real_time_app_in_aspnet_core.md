@@ -1,5 +1,5 @@
 ---
-title: 'Securing a Web API with Identity Server 6'
+title: 'Create a Real Time App in ASP.NET Core'
 date: 'Sept 28, 2023'
 excerpt: 'Identity Server is a .NET library that implements OpenId and OAuth2. We will leverage this library to secure our API'
 cover_image: '/ASP_NET_Web_API_Authentication_with_Identity_Server_6_Thumbnail.png'
