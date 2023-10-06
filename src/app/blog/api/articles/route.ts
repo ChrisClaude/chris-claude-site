@@ -33,6 +33,12 @@ export async function GET(request: Request, res: NextApiResponse) {
     (pageIndex + 1) * ARTICLES_PER_PAGE
   );
 
+  console.log(orderedArticles);
+  console.log(ARTICLES_PER_PAGE);
+  console.log(pageIndex);
+
+
+
   const data = {
     articles: orderedArticles,
     numPages,

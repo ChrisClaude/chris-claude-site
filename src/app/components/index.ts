@@ -10,6 +10,7 @@ import Logo from "./Logo";
 import SideNav from './SideNav';
 import Article from './Article';
 import Newsletter from './Newsletter';
+import Pagination from './Pagination';
 
 // export all components
 export {
@@ -22,6 +23,7 @@ export {
   Logo,
   Main,
   Newsletter,
+  Pagination,
   SideNav,
   SocialMediaBanner,
   YouTubeChannelBanner,
