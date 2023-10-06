@@ -10,7 +10,7 @@ const Pagination = ({ currentPage, numPages }: { currentPage: number, numPages: 
 
   return (
     <div className='mt-6'>
-      <ul className='flex pl-0 list-none my-2'>
+      <ul className='flex pl-0 list-none my-2 justify-center lg:justify-start'>
         {!isFirst && (
           <Link href={prevPage}>
             <li className='relative block py-2 px-3 leading-tight bg-white border border-gray-300 text-gray-800 mr-1 hover:bg-gray-200 cursor-pointer'>
