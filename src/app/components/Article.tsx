@@ -9,14 +9,13 @@ export default function Article({
   article: ArticleContent;
 }) {
   return (
-    <div className="w-full bg-slate-200 rounded-lg shadow-md">
+    <div className="w-full bg-slate-200 rounded-lg shadow-md overflow-hidden">
       <div className="md:hidden">
         <Image
           src={article.frontmatter.cover_image}
           alt=""
           height={420}
           width={600}
-          className="mb-4 rounded"
         />
       </div>
       <div className="px-10 py-6">
@@ -30,10 +29,10 @@ export default function Article({
         <div className="mt-2">
           <Link
             href={`/blog/${article.slug}`}
-            className="text-2xl text-gray-700 font-bold hover:underline">
+            className="text-xl text-gray-700 font-bold line-clamp-2 hover:underline md:text-xl">
             {article.frontmatter.title}
           </Link>
-          <p className="mt-2 text-gray-600">{article.frontmatter.excerpt}</p>
+          <p className="mt-2 text-gray-600 line-clamp-3">{article.frontmatter.excerpt}</p>
         </div>
 
         <Link
