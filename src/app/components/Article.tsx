@@ -5,10 +5,8 @@ import { ArticleContent } from '@/AppTypes';
 
 export default function Article({
   article,
-  compact = false,
 }: {
   article: ArticleContent;
-  compact?: boolean;
 }) {
   return (
     <div className="w-full bg-slate-200 rounded-lg shadow-md">
@@ -38,25 +36,11 @@ export default function Article({
           <p className="mt-2 text-gray-600">{article.frontmatter.excerpt}</p>
         </div>
 
-        {!compact && (
-          <div className="flex justify-between items-center mt-6">
-            <Link
-              href={`/blog/${article.slug}`}
-              className="text-gray-900 hover:text-blue-600">
-              Read More
-            </Link>
-            <div className="flex items-center">
-              <img
-                src={article.frontmatter.author_image}
-                alt=""
-                className="mx-4 w-10 h-10 object-cover rounded-full hidden sm:block"
-              />
-              <h3 className="text-gray-700 font-bold">
-                {article.frontmatter.author}
-              </h3>
-            </div>
-          </div>
-        )}
+        <Link
+          href={`/blog/${article.slug}`}
+          className="text-gray-900 hover:text-blue-600 mt-6 block md:hidden">
+          Read More
+        </Link>
       </div>
     </div>
   );
