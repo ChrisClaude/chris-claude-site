@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { NextApiResponse } from 'next';
 import fs from 'fs';
 import path from 'path';
@@ -6,7 +6,7 @@ import { ARTICLES_PER_PAGE } from '@/config';
 import { getArticles } from '@/lib/articles';
 
 
-export async function GET(request: Request, res: NextApiResponse) {
+export async function GET(request: NextRequest, res: NextApiResponse) {
 
   if (request.method !== 'GET') {
     return res.status(405).json({
@@ -14,7 +14,7 @@ export async function GET(request: Request, res: NextApiResponse) {
     });
   }
 
-  const { searchParams } = new URL(request.url);
+  const searchParams = request.nextUrl.searchParams;
   const pageParam = searchParams.get('page');
   const page = pageParam !== null ? parseInt(pageParam.toString()) : 1;
 
@@ -32,12 +32,6 @@ export async function GET(request: Request, res: NextApiResponse) {
     pageIndex * ARTICLES_PER_PAGE,
     (pageIndex + 1) * ARTICLES_PER_PAGE
   );
-
-  console.log(orderedArticles);
-  console.log(ARTICLES_PER_PAGE);
-  console.log(pageIndex);
-
-
 
   const data = {
     articles: orderedArticles,

@@ -25,3 +25,28 @@ export const getArticles = (): ArticleContent[] => {
 
   return articles.sort(sortByDate)
 };
+
+export const getArticleById = (id: string): ArticleContent | undefined => {
+  const currentFileName = files.find((filename) => {
+    const slug = filename.replace('.md', '')
+    return slug.toLocaleLowerCase() === id.toLocaleLowerCase()
+  });
+
+  if (currentFileName === undefined)
+  {
+    return undefined;
+  }
+  const slug = currentFileName.replace('.md', '');
+
+  const markdownWithMeta = fs.readFileSync(
+    path.join('data/articles', currentFileName),
+    'utf-8'
+  )
+
+  const { data: frontmatter } = matter(markdownWithMeta)
+
+  return {
+    slug,
+    frontmatter,
+  }
+}
