@@ -11,6 +11,7 @@ import SideNav from './SideNav';
 import Article from './Article';
 import Newsletter from './Newsletter';
 import Pagination from './Pagination';
+import ArticleFull from './ArticleFull';
 
 // export all components
 export {
@@ -27,4 +28,5 @@ export {
   SideNav,
   SocialMediaBanner,
   YouTubeChannelBanner,
+  ArticleFull
 };

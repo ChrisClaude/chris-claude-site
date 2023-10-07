@@ -20,6 +20,7 @@ export const getArticles = (): ArticleContent[] => {
     return {
       slug,
       frontmatter,
+      content: undefined
     }
   })
 
@@ -43,10 +44,11 @@ export const getArticleById = (id: string): ArticleContent | undefined => {
     'utf-8'
   )
 
-  const { data: frontmatter } = matter(markdownWithMeta)
+  const { data: frontmatter, content } = matter(markdownWithMeta)
 
   return {
     slug,
     frontmatter,
+    content
   }
 }

@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react'
 import { ROOT_URL } from '@/config';
 import { ArticleContent } from '@/AppTypes';
+import { ArticleFull } from '@/components';
 
 const Page = ({ params }: { params: { slug: string } }) => {
 
@@ -23,7 +24,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
 
   return (
     article &&(
-      <div>My Post: {article?.slug}</div>
+      <ArticleFull article={article} />
     )
   )
 }

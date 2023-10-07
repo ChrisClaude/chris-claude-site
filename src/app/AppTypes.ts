@@ -18,7 +18,8 @@ export type ArticleContent = {
   slug: string;
   frontmatter: {
     [key: string]: any;
-  }
+  },
+  content: string | undefined
 }
 
 export type PaginatedArticles = {
