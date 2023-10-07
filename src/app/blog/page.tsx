@@ -14,7 +14,7 @@ const Page = () => {
   useEffect(() => {
     console.log(page);
 
-    fetch(`${ROOT_URL}/blog/api/articles?page=${page}`).then((res) => {
+    fetch(`${ROOT_URL}/api/articles?page=${page}`).then((res) => {
       if (res.status !== 200) {
         throw new Error(res.status.toString());
       }
