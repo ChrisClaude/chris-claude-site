@@ -7,7 +7,7 @@ import UIContext from '@/hooks/UIContext';
 
 const Header = () => {
 
-  const {uiState, setUIState } = useContext(UIContext);
+  const { uiState, setUIState } = useContext(UIContext);
 
   const toggleSideNav = (value?: boolean) => {
     if (value !== undefined)

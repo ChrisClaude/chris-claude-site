@@ -17,7 +17,7 @@ const SideNav = () => {
   return (
     <div
       className={
-        `fixed bg-black top-20 left-0 h-full w-72transition-all duration-75 ease-in-out md:hidden ${isMobileNavOpen? '' : ' w-0 overflow-hidden'}`
+        `fixed bg-black top-20 left-0 h-full transition-all duration-75 ease-in-out md:hidden ${isMobileNavOpen? 'w-72' : ' w-0 overflow-hidden'}`
       }>
       <nav>
         <ul className="text-2xl">
@@ -74,7 +74,7 @@ const SideNav = () => {
 
         <Link
           href="/courses"
-          className="block w-full bg-blue-purple-gradient bg-white text-white text-center px-6 py-4 rounded-full text-lg font-semibold hover:bg-gray-200 focus:ring">
+          className="block w-full bg-blue-purple-gradient bg-white text-white text-center whitespace-nowrap px-6 py-4 rounded-full text-lg font-semibold hover:bg-gray-200 focus:ring">
           Get started
         </Link>
       </div>

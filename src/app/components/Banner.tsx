@@ -9,7 +9,7 @@ import { FaReact } from 'react-icons/fa';
 import { BiLogoPython } from 'react-icons/bi';
 
 const Banner = () => (
-  <section className="landing-section w-screen flex flex-col items-center h-screen relative px-4 mb-24 pt-14 sm:pt-20 md:pb-40 md:w-full  md:mb-28 lg:pt-32">
+  <section className="landing-section w-screen flex flex-col items-center h-screen relative px-4 mb-24 pt-14 sm:pt-20 md:pb-40 md:w-full md:mb-28 lg:pt-32">
     <p className="text-sm font-semibold mb-3 md:text-xl">Chris Claude</p>
     <h1 className="text-3xl font-semibold text-center leading-tight mb-7 md:text-7xl">
       Learn & Improve Your <br />

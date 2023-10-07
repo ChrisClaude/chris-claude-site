@@ -12,7 +12,7 @@ const Main = ({ children }: { children: ReactNode }) => {
     }
   }
 
-  return <main className={`transition-all duration-75 ease-in-out md:ml-0 ${isMobileNavOpen? ' ml-72' : ''}`} onClick={handleMainClick}>{children}</main>;
+  return <main className={`transition-all duration-75 ease-in-out md:ml-0 ${isMobileNavOpen? ' translate-x-72' : ''}`} onClick={handleMainClick}>{children}</main>;
 };
 
 export default Main;
