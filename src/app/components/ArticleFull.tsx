@@ -1,23 +1,30 @@
 "use client";
 import React from 'react';
+import { Source_Serif_4 } from 'next/font/google'
 import { marked } from 'marked';
-import Link from 'next/link';
 import CategoryLabel from './CategoryLabel';
 import { ArticleContent } from '@/AppTypes';
 import * as DOMPurify from 'dompurify';
+
+const sourceSerif = Source_Serif_4({
+  weight: '300',
+  subsets: ['latin'],
+})
 
 const ArticleFull = ({
   article,
 }: {
   article: ArticleContent;
 }) => {
+
   return (
-    <div className='p-6'>
-      <Link href="/blog">Go Back</Link>
-      <div className="w-full px-10 py-6 bg-gray-900 rounded-lg shadow-md mt-6">
-        <div className="flex mt-4 flex-col md:justify-between md:items-center md:flex-row">
-          <h1 className="text-5xl mb-7">{article.frontmatter.title}</h1>
-          <CategoryLabel category={article.frontmatter.category} />
+    <div className='py-6 lg:px-6'>
+      <div className="w-full px-6 py-6 bg-gray-900 rounded-lg shadow-md mt-6 lg:px-10">
+        <div className="flex mt-4 flex-col mb-7 md:justify-between md:items-center md:flex-row">
+          <h1 className="text-5xl mb-4 md:mb-0">{article.frontmatter.title}</h1>
+          <div className='w-24 md:w-auto'>
+            <CategoryLabel category={article.frontmatter.category} />
+          </div>
         </div>
         <img
           src={article.frontmatter.cover_image}
@@ -38,7 +45,7 @@ const ArticleFull = ({
         </div>
 
         {article.content && (
-          <div className="blog-text mt-2">
+          <div className={`blog-text mt-2 text-lg overflow-hidden ${sourceSerif.className}`}>
             <div
               dangerouslySetInnerHTML={{
                 __html: DOMPurify.sanitize(marked.parse(article.content)),
