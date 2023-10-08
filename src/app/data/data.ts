@@ -1,4 +1,4 @@
-import { Article as ArticleType } from "./AppTypes";
+import { Article as ArticleType } from "../AppTypes";
 
 {/* TODO: This should come from a directory with files (.md files) that we can parse and loop through */}
 export const articles: ArticleType[] = [

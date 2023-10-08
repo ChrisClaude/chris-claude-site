@@ -1,26 +1,46 @@
-import React from 'react';
-import Image from 'next/image';
-import { BsArrowRightShort } from 'react-icons/bs';
-import { Article as ArticleProps } from '@/AppTypes';
 import Link from 'next/link';
+import Image from 'next/image';
+import CategoryLabel from './CategoryLabel';
+import { ArticleContent } from '@/AppTypes';
 
-export default function Article({ article: {id, src, alt, description} }
-  : {article: ArticleProps}) {
+export default function Article({
+  article,
+}: {
+  article: ArticleContent;
+}) {
   return (
-    <Link href={`/blog/${id}`} className="bloc flex-1">
-      <Image
-        src={src}
-        alt={alt}
-        width={384}
-        height={384}
-        className="rounded-lg mb-3 w-full"
-      />
-      <div className="flex justify-between items-center">
-        <h2>{description}</h2>
-        <button className="text-4xl transition ease-in duration-150 hover:translate-x-1 hover:text-blue-600">
-          <BsArrowRightShort />
-        </button>
+    <div className="w-full bg-slate-200 rounded-lg shadow-md overflow-hidden">
+      <div className="md:hidden">
+        <Image
+          src={article.frontmatter.cover_image}
+          alt=""
+          height={420}
+          width={600}
+        />
       </div>
-    </Link>
+      <div className="px-10 py-6">
+        <div className="flex justify-between items-center">
+          <span className="font-light text-gray-600">
+            {article.frontmatter.date}
+          </span>
+          <CategoryLabel category={article.frontmatter.category} />
+        </div>
+
+        <div className="mt-2">
+          <Link
+            href={`/blog/${article.slug}`}
+            className="text-xl text-gray-700 font-bold line-clamp-2 hover:underline md:text-xl">
+            {article.frontmatter.title}
+          </Link>
+          <p className="mt-2 text-gray-600 line-clamp-3">{article.frontmatter.excerpt}</p>
+        </div>
+
+        <Link
+          href={`/blog/${article.slug}`}
+          className="text-gray-900 hover:text-blue-600 mt-6 block md:hidden">
+          Read More
+        </Link>
+      </div>
+    </div>
   );
 }

@@ -1,8 +1,8 @@
 import React from 'react';
-import { articles } from '@/data';
-import Article from './Article';
+import { articles } from '@/data/data';
+import ArticlesBannerItem from './ArticlesBannerItem';
 
-const Articles = () => (
+const ArticlesBanner = () => (
   <section className="mb-36">
     <div className="flex items-center flex-col mb-14">
       <span className="block uppercase mb-3">Recent Posts Of</span>
@@ -12,7 +12,7 @@ const Articles = () => (
     </div>
     <div className="grid grid-cols-1 max-w-screen-xl mx-auto gap-y-14 md:gap-6 md:grid-cols-2 lg:grid-cols-3">
       {articles.map((article, index) => (
-        <Article
+        <ArticlesBannerItem
           article={article}
           key={index}
         />
@@ -21,4 +21,4 @@ const Articles = () => (
   </section>
 );
 
-export default Articles;
+export default ArticlesBanner;

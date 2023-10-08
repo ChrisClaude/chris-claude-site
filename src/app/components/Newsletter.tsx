@@ -13,9 +13,9 @@ function Newsletter() {
   };
 
   return (
-    <section className='py-28 px-5 w-full bg-slate-800'>
+    <section className='py-28 px-5 w-full bg-slate-800 relative'>
       <div className='flex flex-col items-center'>
-        <h2 className="text-5xl mb-6">Subscribe to our <span className='text-blue-600'>newsletter</span></h2>
+        <h2 className="text-4xl mb-6 md:text-5xl">Subscribe to our <span className='text-blue-600'>newsletter</span></h2>
         <p className='max-w-lg mb-4'>Get notified when there are new articles.</p>
 
       <div className={`w-full flex flex-col gap-4 md:justify-center md:flex-row md:w-2/3 ${isSubscribed ? ' hidden' : ''}`}>

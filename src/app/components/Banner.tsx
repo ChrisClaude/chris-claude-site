@@ -9,7 +9,7 @@ import { FaReact } from 'react-icons/fa';
 import { BiLogoPython } from 'react-icons/bi';
 
 const Banner = () => (
-  <section className="landing-section w-screen flex flex-col items-center h-screen relative px-4 mb-24 pt-14 sm:pt-20 md:pb-40 md:w-full  md:mb-28 lg:pt-32">
+  <section className="landing-section w-screen flex flex-col items-center h-screen relative px-4 mb-24 pt-14 sm:pt-20 md:pb-40 md:w-full md:mb-28 lg:pt-32">
     <p className="text-sm font-semibold mb-3 md:text-xl">Chris Claude</p>
     <h1 className="text-3xl font-semibold text-center leading-tight mb-7 md:text-7xl">
       Learn & Improve Your <br />
@@ -31,12 +31,12 @@ const Banner = () => (
         Learn the most popular and relevant topics in the tech industry
       </h2>
       <div className="flex flex-wrap text-5xl items-center justify-center gap-x-10 gap-y-6 px-4 md:text-7xl">
-        <SiDotnet />
-        <SiCsharp />
-        <BiLogoPython />
-        <SiMicrosoftazure />
-        <SiMicrosoftsqlserver />
-        <FaReact />
+        <SiDotnet title='.NET Core' />
+        <SiCsharp title='C#' />
+        <BiLogoPython title='Python' />
+        <SiMicrosoftazure title='Microsoft Azure' />
+        <SiMicrosoftsqlserver title='Microsoft SQL Server' />
+        <FaReact title='React JS' />
       </div>
     </div>
   </section>

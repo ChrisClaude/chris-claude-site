@@ -13,3 +13,18 @@ export type UIContextType = {
   }>> | undefined;
   uiState: {isMobileNavOpen: boolean;}
 };
+
+export type ArticleContent = {
+  slug: string;
+  frontmatter: {
+    [key: string]: any;
+  },
+  content: string | undefined
+}
+
+export type PaginatedArticles = {
+  articles: ArticleContent[];
+  numPages: number;
+  currentPage: number;
+  categories: any[];
+};
