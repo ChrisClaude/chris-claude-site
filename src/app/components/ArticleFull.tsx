@@ -32,7 +32,7 @@ const ArticleFull = ({
           className="w-full rounded"
         />
 
-        <div className="flex justify-between items-center bg-gray-700 p-2 my-8">
+        <div className="flex justify-between items-center bg-gray-700 p-2 my-8 rounded-lg">
           <div className="flex items-center">
             <img
               src={article.frontmatter.author_image}

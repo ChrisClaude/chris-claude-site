@@ -6,7 +6,7 @@ This project is live at [chrisclaude.com](https://www.chrisclaude.com)
 
 ![Chris Claude Website](public/chrisclaude_website.jpeg 'Chris Claude Website')
 
-## Usage
+## Quick Start
 
 ### Install Dependencies
 ```bash
