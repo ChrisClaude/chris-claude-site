@@ -12,12 +12,15 @@ import Article from './Article';
 import Newsletter from './Newsletter';
 import Pagination from './Pagination';
 import ArticleFull from './ArticleFull';
+import Box from './Box';
 
 // export all components
 export {
   Article,
+  ArticleFull,
   ArticlesBanner,
   Banner,
+  Box,
   Footer,
   GridBgWrapper,
   Header,
@@ -28,5 +31,4 @@ export {
   SideNav,
   SocialMediaBanner,
   YouTubeChannelBanner,
-  ArticleFull
 };

@@ -1,6 +1,7 @@
 import {
   ArticlesBanner,
   Banner,
+  Box,
   GridBgWrapper,
   Newsletter,
   SocialMediaBanner,
@@ -11,9 +12,11 @@ const Home = () => (
   <>
     <Banner />
     <GridBgWrapper>
-      <ArticlesBanner />
-      <YouTubeChannelBanner />
-      <SocialMediaBanner />
+      <Box>
+        <ArticlesBanner />
+        <YouTubeChannelBanner />
+        <SocialMediaBanner />
+      </Box>
     </GridBgWrapper>
     <Newsletter />
   </>
