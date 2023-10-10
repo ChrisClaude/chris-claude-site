@@ -1,9 +1,9 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { NextApiResponse } from 'next';
-import fs from 'fs';
-import path from 'path';
 import { ARTICLES_PER_PAGE } from '@/config';
 import { getArticles } from '@/lib/articles';
+import fs from 'fs';
+import { NextApiResponse } from 'next';
+import { NextRequest, NextResponse } from 'next/server';
+import path from 'path';
 
 
 export async function GET(request: NextRequest, res: NextApiResponse) {
