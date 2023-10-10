@@ -35,7 +35,7 @@ const Page = () => {
         paginatedArticles &&
         <>
             <div className='grid grid-cols-1 px-6 lg:gap-3 lg:px-14 pb-20 lg:grid-cols-3'>
-              <section className='grid grid-cols-1 gap-y-10 lg:col-span-2 lg:pr-10 lg:border-r-2 lg:border-dashed lg:border-r-slate-800'>
+              <section className='flex flex-col gap-y-10 lg:col-span-2 lg:pr-10 lg:border-r-2 lg:border-dashed lg:border-r-slate-800'>
                 {paginatedArticles.articles.map((article, index) => <Article key={index} article={article} />)}
                 <Pagination currentPage={paginatedArticles.currentPage} numPages={paginatedArticles.numPages} />
               </section>
