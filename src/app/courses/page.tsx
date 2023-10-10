@@ -12,7 +12,7 @@ export default function Home() {
         </div>
         <section>
           <p className="pt-10 pb-28 px-16 text-lg text-center">
-            New courses will appear here as they are published. Please explore articles in our <Link href="/blog" className="text-blue-400 underline">blog</Link> in the meantime.
+            New courses will appear here as they are published. Please explore articles in our <Link href="/blog" className="text-blue-400 hover:underline">blog</Link> in the meantime.
           </p>
         </section>
       </GridBgWrapper>

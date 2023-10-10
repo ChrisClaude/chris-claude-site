@@ -7,14 +7,14 @@ export default function Home() {
     <GridBgWrapper bgType={2}>
     <div className="hero relative">
       <section className="pb-10 lg:pb-20 px-6 lg:px-16">
-        <h1 className="text-4xl mx-auto max-w-screen-lg pt-24 pb-5 text-center md:pt-32 lg:text-6xl lg:pt-40">Who is Chris Claude</h1>
+        <h1 className="text-4xl mx-auto max-w-screen-lg pt-24 pb-16 text-center md:pt-32 lg:text-6xl lg:pt-40">Who is Chris Claude</h1>
         <div className="bg-gray-100 flex items-center justify-center py-4 bg-opacity-5">
           <Image
             width={300}
             height={300}
             src="/about_me.png"
             alt="Chris Claude"
-            className="rounded-full"
+            className="rounded-full w-52 h-52 lg:w-64 lg:h-64"
           />
         </div>
       </section>
