@@ -1,10 +1,10 @@
 'use client';
-import { useEffect, useState } from 'react';
 import { PaginatedArticles } from '@/AppTypes';
-import { ROOT_URL } from '@/config';
-import Article from '@/components/Article';
 import { GridBgWrapper, Newsletter, Pagination, YouTubeChannelBanner } from '@/components';
+import Article from '@/components/Article';
+import { ROOT_URL } from '@/config';
 import { useSearchParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 const Page = () => {
   const [paginatedArticles, setPagedArticles] = useState<PaginatedArticles | null>(null);
@@ -41,7 +41,7 @@ const Page = () => {
               </section>
               <aside className='pl-5 hidden lg:block'>
                 <YouTubeChannelBanner compact={true} />
-                {/* <Newsletter /> */}
+                <Newsletter compact={true} />
               </aside>
             </div>
         </>
