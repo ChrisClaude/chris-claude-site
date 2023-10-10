@@ -20,7 +20,7 @@ const Pagination = ({ currentPage, numPages }: { currentPage: number, numPages: 
         )}
         {Array.from({ length: numPages }, (_, i) => (
           <Link href={`/blog?page=${i + 1}#articles`} key={`page-${i}`}>
-            <li className='relative block py-2 px-3 leading-tight bg-white border border-gray-300 text-gray-800 mr-1 hover:bg-gray-200 cursor-pointer rounded-lg'>
+            <li className={`relative w-10 h-10 flex items-center justify-center border border-transparent transition-colors duration-150 py-2 px-3 leading-tight bg-white text-gray-800 mr-1 hover:bg-gray-200 cursor-pointer rounded-lg ${i + 1 == currentPage ? 'bg-selected-page' : ''}`}>
               {i + 1}
             </li>
           </Link>

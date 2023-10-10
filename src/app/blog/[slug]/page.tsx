@@ -1,8 +1,8 @@
 "use client";
-import { useEffect, useState } from 'react'
-import { ROOT_URL } from '@/config';
 import { ArticleContent } from '@/AppTypes';
 import { ArticleFull } from '@/components';
+import { ROOT_URL } from '@/config';
+import { useEffect, useState } from 'react';
 
 const Page = ({ params }: { params: { slug: string } }) => {
 

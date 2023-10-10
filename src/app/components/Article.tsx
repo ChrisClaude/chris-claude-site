@@ -9,7 +9,7 @@ export default function Article({
   article: ArticleContent;
 }) {
   return (
-    <div className="w-full bg-slate-200 rounded-lg shadow-md overflow-hidden">
+    <div className="w-full bg-slate-200 rounded-lg shadow-md overflow-hidden flex-grow-0">
       <div className="md:hidden">
         <Image
           src={article.frontmatter.cover_image}
