@@ -79,8 +79,8 @@ body {
   height: 50vw;
   width: 100vw;
   top: 50%;
-  translate: 0 -30%;
-  left: -60vw;
+  translate: 0 -40%;
+  left: -50vw;
   background: linear-gradient(83.21deg,#3245ff 0%,#bc52ee 100%);
   -webkit-mask-image: radial-gradient(rgba(0,0,0,.4),transparent 65%);
   mask-image: radial-gradient(rgba(0,0,0,.4),transparent 65%);
@@ -93,8 +93,8 @@ body {
   height: 50vw;
   width: 100vw;
   top: 50%;
-  translate: 0 -30%;
-  right: -60vw;
+  translate: 0 -40%;
+  right: -50vw;
   background: linear-gradient(247.23deg,#4af2c8 0%,#2f4cb3 100%);
   -webkit-mask-image: radial-gradient(rgba(0,0,0,.5),transparent 65%);
   mask-image: radial-gradient(rgba(0,0,0,.5),transparent 65%);

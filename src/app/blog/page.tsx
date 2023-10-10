@@ -41,7 +41,7 @@ const Page = () => {
               </section>
               <aside className='pl-5 hidden lg:block'>
                 <YouTubeChannelBanner compact={true} />
-                {/* TODO: Add this component <Newsletter /> */}
+                {/* <Newsletter /> */}
               </aside>
             </div>
         </>
