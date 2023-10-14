@@ -20,7 +20,7 @@ export async function GET(request: NextRequest, res: NextApiResponse) {
 
   const files = fs.readdirSync(path.join('data/articles'));
 
-  const articles = getArticles();
+  const articles = await getArticles();
 
   // Get categories for sidebar
   const categories = articles.map(article => article.frontmatter.category);
@@ -40,5 +40,5 @@ export async function GET(request: NextRequest, res: NextApiResponse) {
     categories: uniqueCategories,
   };
 
-  return NextResponse.json({ data })
+  return NextResponse.json({ data });
 }

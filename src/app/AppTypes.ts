@@ -28,3 +28,11 @@ export type PaginatedArticles = {
   currentPage: number;
   categories: any[];
 };
+
+export type ListBucketObject = {
+  Key: string,
+  LastModified: Date,
+  ETag: string,
+  Size: number,
+  StorageClass: string
+}

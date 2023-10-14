@@ -26,7 +26,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
     article &&(
       <ArticleFull article={article} />
     )
-  )
-}
+  );
+};
 
-export default Page
+export default Page;
