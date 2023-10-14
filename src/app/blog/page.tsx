@@ -51,6 +51,6 @@ const Page = () => {
       </GridBgWrapper>
     </>
   );
-}
+};
 
 export default Page;

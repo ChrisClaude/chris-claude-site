@@ -13,5 +13,5 @@ export async function GET(request: NextRequest, { params }: { params: { slug: st
   const slug = params.slug;
   const article = await getArticleById(slug);
 
-  return NextResponse.json({ data: article })
+  return NextResponse.json({ data: article });
 }
