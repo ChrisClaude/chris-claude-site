@@ -19,5 +19,5 @@ export const articles: ArticleType[] = [
     src: '/ASP_NET_Web_API_Authentication_with_Identity_Server_6_Thumbnail.png',
     alt: 'ASP.NET API Authentication with Identity Server',
     description: 'Leverage the OAuth2 and OpenId protocols to secure your Web API',
-  }
+  },
 ];

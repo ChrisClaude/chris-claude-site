@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from 'next/link';
 
 export default function CategoryLabel({ category }: {category: string}) {
   const colorKey: { [key: string]: any; } =
@@ -9,7 +9,7 @@ export default function CategoryLabel({ category }: {category: string}) {
     Python: 'green',
     PHP: 'purple',
     Ruby: 'red',
-  }
+  };
 
   return (
     <div
@@ -17,5 +17,5 @@ export default function CategoryLabel({ category }: {category: string}) {
     >
       <Link href={`/blog/category/${category.toLowerCase()}`}>{category}</Link>
     </div>
-  )
+  );
 }
