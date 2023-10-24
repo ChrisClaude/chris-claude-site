@@ -12,8 +12,6 @@ const Page = () => {
   const page = searchParams.get('page') ?? 1;
 
   useEffect(() => {
-    console.log("running in use effect");
-
     fetch(`${ROOT_URL}/api/articles?page=${page}`).then((res) => {
       if (res.status !== 200) {
         throw new Error(res.status.toString());
@@ -23,7 +21,7 @@ const Page = () => {
     })
     .then(res => setPagedArticles(res.data))
     .catch(err => console.error("There was an error fetching articles", err));
-  }, []);
+  }, [page]);
 
   return (
     <>

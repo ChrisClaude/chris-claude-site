@@ -1,12 +1,12 @@
-import Link from 'next/link'
+import Link from 'next/link';
 
 const Pagination = ({ currentPage, numPages }: { currentPage: number, numPages: number }) => {
-  const isFirst = currentPage === 1
-  const isLast = currentPage === numPages
-  const prevPage = `/blog?page=${currentPage - 1}#articles`
-  const nextPage = `/blog?page=${currentPage + 1}#articles`
+  const isFirst = currentPage === 1;
+  const isLast = currentPage === numPages;
+  const prevPage = `/blog?page=${currentPage - 1}#articles`;
+  const nextPage = `/blog?page=${currentPage + 1}#articles`;
 
-  if (numPages === 1) return <></>
+  if (numPages === 1) return <></>;
 
   return (
     <div className='mt-6'>
@@ -35,7 +35,7 @@ const Pagination = ({ currentPage, numPages }: { currentPage: number, numPages: 
         )}
       </ul>
     </div>
-  )
-}
+  );
+};
 
 export default Pagination;
