@@ -1,9 +1,9 @@
 'use client';
-import { useContext } from 'react'
-import Link from 'next/link';
-import Logo from './Logo';
-import { RxHamburgerMenu } from 'react-icons/rx';
 import UIContext from '@/hooks/UIContext';
+import Link from 'next/link';
+import { useContext } from 'react';
+import { RxHamburgerMenu } from 'react-icons/rx';
+import Logo from './Logo';
 
 const Header = () => {
 
@@ -12,10 +12,10 @@ const Header = () => {
   const toggleSideNav = (value?: boolean) => {
     if (value !== undefined)
     {
-      setUIState?.({...uiState ,isMobileNavOpen: value});
+      setUIState?.({ ...uiState ,isMobileNavOpen: value });
       return;
     }
-    setUIState?.({...uiState ,isMobileNavOpen: !uiState.isMobileNavOpen});
+    setUIState?.({ ...uiState ,isMobileNavOpen: !uiState.isMobileNavOpen });
   };
 
   return (
@@ -43,6 +43,6 @@ const Header = () => {
     </button>
   </header>
 );
-}
+};
 
 export default Header;

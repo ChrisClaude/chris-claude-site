@@ -1,7 +1,7 @@
 'use client';
 import UIContext from '@/hooks/UIContext';
 import Link from 'next/link';
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { FaGithub, FaInstagram, FaLinkedinIn, FaYoutube } from 'react-icons/fa';
 import { RiTwitterXFill } from 'react-icons/ri';
 
@@ -10,9 +10,9 @@ const SideNav = () => {
   const { isMobileNavOpen } = uiState;
   const handleNavItemClick = () => {
     if (isMobileNavOpen) {
-      setUIState?.({...uiState, isMobileNavOpen: !isMobileNavOpen});
+      setUIState?.({ ...uiState, isMobileNavOpen: !isMobileNavOpen });
     }
-  }
+  };
 
   return (
     <div

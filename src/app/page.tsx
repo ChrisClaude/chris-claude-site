@@ -5,7 +5,7 @@ import {
   GridBgWrapper,
   Newsletter,
   SocialMediaBanner,
-  YouTubeChannelBanner
+  YouTubeChannelBanner,
 } from '@/components';
 
 const Home = () => (

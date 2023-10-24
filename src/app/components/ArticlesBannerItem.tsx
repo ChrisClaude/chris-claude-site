@@ -1,10 +1,9 @@
-import React from 'react';
-import Image from 'next/image';
-import { BsArrowRightShort } from 'react-icons/bs';
 import { Article as ArticleProps } from '@/AppTypes';
+import Image from 'next/image';
 import Link from 'next/link';
+import { BsArrowRightShort } from 'react-icons/bs';
 
-export default function ArticlesBannerItem({ article: {id, src, alt, description} }
+export default function ArticlesBannerItem({ article: { id, src, alt, description } }
   : {article: ArticleProps}) {
   return (
     <Link href={`/blog/${id}`} className="bloc flex-1">

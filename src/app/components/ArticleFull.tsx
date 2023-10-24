@@ -1,15 +1,14 @@
 "use client";
-import React from 'react';
-import { Source_Serif_4 } from 'next/font/google'
-import { marked } from 'marked';
-import CategoryLabel from './CategoryLabel';
 import { ArticleContent } from '@/AppTypes';
 import * as DOMPurify from 'dompurify';
+import { marked } from 'marked';
+import { Source_Serif_4 } from 'next/font/google';
+import CategoryLabel from './CategoryLabel';
 
 const sourceSerif = Source_Serif_4({
   weight: '300',
   subsets: ['latin'],
-})
+});
 
 const ArticleFull = ({
   article,

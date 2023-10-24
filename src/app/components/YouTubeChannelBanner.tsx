@@ -1,6 +1,5 @@
-import React from 'react';
 
-const YouTubeChannelBanner = ({compact = false}: {compact?: boolean}) => (
+const YouTubeChannelBanner = ({ compact = false }: {compact?: boolean}) => (
   <section className="max-w-screen-xl mx-auto bg-blue-purple-gradient mb-36 rounded-lg flex flex-1 flex-col md:px-0 lg:flex-row">
     <div className="flex flex-1 flex-col gap-6 p-6 text-left">
       <aside className="code">Community</aside>

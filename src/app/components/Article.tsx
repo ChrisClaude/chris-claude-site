@@ -1,7 +1,7 @@
-import Link from 'next/link';
-import Image from 'next/image';
-import CategoryLabel from './CategoryLabel';
 import { ArticleContent } from '@/AppTypes';
+import Image from 'next/image';
+import Link from 'next/link';
+import CategoryLabel from './CategoryLabel';
 
 export default function Article({
   article,
