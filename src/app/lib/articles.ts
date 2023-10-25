@@ -11,7 +11,8 @@ import fs from 'fs';
 import matter from 'gray-matter';
 import path from 'path';
 
-const files = fs.readdirSync(path.join('data/articles'));
+const localDataPath = 'data/articles';
+
 
 export const getArticles = async (): Promise<ArticleContent[]> => {
   if (APP_ENV === 'production') {
@@ -51,6 +52,8 @@ const getArticleContentFromS3 = async (id: string): Promise<ArticleContent> =>
 };
 
 const getArticleContentFromFileSystem = (id: string): ArticleContent | undefined => {
+  const files = fs.readdirSync(path.join(localDataPath));
+
   const currentFileName = files.find((filename) => {
     const slug = filename.replace('.md', '');
     return slug.toLocaleLowerCase() === id.toLocaleLowerCase();
@@ -94,6 +97,7 @@ const getArticlesFromS3 = async (): Promise<ArticleContent[]> => {
 };
 
 const getArticlesFromFileSystem = () => {
+  const files = fs.readdirSync(path.join(localDataPath));
   const articles = files.map((filename) => {
     const slug = filename.replace('.md', '');
 
