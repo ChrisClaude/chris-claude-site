@@ -6,13 +6,12 @@ import {
   ListObjectsV2Command,
   S3Client,
   _Object,
-} from "@aws-sdk/client-s3";
+} from '@aws-sdk/client-s3';
 import fs from 'fs';
 import matter from 'gray-matter';
 import path from 'path';
 
 const localDataPath = 'data/articles';
-
 
 export const getArticles = async (): Promise<ArticleContent[]> => {
   if (APP_ENV === 'production') {
@@ -26,7 +25,9 @@ export const getArticles = async (): Promise<ArticleContent[]> => {
   return articles.sort(sortByDate);
 };
 
-export const getArticleById = async (id: string): Promise<ArticleContent | undefined> => {
+export const getArticleById = async (
+  id: string
+): Promise<ArticleContent | undefined> => {
   if (APP_ENV === 'production') {
     const articleContentFromS3 = await getArticleContentFromS3(id);
 
@@ -38,35 +39,23 @@ export const getArticleById = async (id: string): Promise<ArticleContent | undef
   return articleContentFromFileSystem;
 };
 
-const getArticleContentFromS3 = async (id: string): Promise<ArticleContent> =>
-{
-  let key = id + '.md';
-    const contentString = await getArticleFromS3Bucket(key);
-    const { data: frontmatter, content } = matter(contentString);
-
-    return {
-      slug: id,
-      frontmatter,
-      content,
-    };
-};
-
-const getArticleContentFromFileSystem = (id: string): ArticleContent | undefined => {
+const getArticleContentFromFileSystem = (
+  id: string
+): ArticleContent | undefined => {
   const files = fs.readdirSync(path.join(localDataPath));
 
-  const currentFileName = files.find((filename) => {
+  const currentFileName = files.find(filename => {
     const slug = filename.replace('.md', '');
     return slug.toLocaleLowerCase() === id.toLocaleLowerCase();
   });
 
-  if (currentFileName === undefined)
-  {
+  if (currentFileName === undefined) {
     return undefined;
   }
 
   const slug = currentFileName.replace('.md', '');
   const markdownWithMeta = fs.readFileSync(
-    path.join('data/articles', currentFileName),
+    path.join(localDataPath, currentFileName),
     'utf-8'
   );
   const { data: frontmatter, content } = matter(markdownWithMeta);
@@ -78,27 +67,9 @@ const getArticleContentFromFileSystem = (id: string): ArticleContent | undefined
   };
 };
 
-const getArticlesFromS3 = async (): Promise<ArticleContent[]> => {
-  const articlesKeys = await listObjectsFromS3Bucket();
-    const articles: ArticleContent[] = [];
-
-    for (var key of articlesKeys) {
-      const content = await getArticleFromS3Bucket(key);
-      const { data: frontmatter } = matter(content);
-
-      articles.push({
-        slug: key.replace('.md', ''),
-        frontmatter: frontmatter,
-        content: undefined,
-      });
-    }
-
-    return articles;
-};
-
-const getArticlesFromFileSystem = () => {
+const getArticlesFromFileSystem = (): ArticleContent[] => {
   const files = fs.readdirSync(path.join(localDataPath));
-  const articles = files.map((filename) => {
+  const articles = files.map(filename => {
     const slug = filename.replace('.md', '');
 
     const markdownWithMeta = fs.readFileSync(
@@ -119,9 +90,10 @@ const getArticlesFromFileSystem = () => {
 };
 
 //#region AWS S3 Methods
-const getClient = () : S3Client => new S3Client({
-  region: S3_REGION as string,
-});
+const getClient = (): S3Client =>
+  new S3Client({
+    region: S3_REGION as string,
+  });
 
 const listObjectsFromS3Bucket = async (): Promise<string[]> => {
   const client = getClient();
@@ -135,11 +107,8 @@ const listObjectsFromS3Bucket = async (): Promise<string[]> => {
     let bucketContent: undefined | _Object[] = undefined;
 
     while (isTruncated) {
-      const {
-        Contents,
-        IsTruncated,
-        NextContinuationToken,
-      } = await client.send(command);
+      const { Contents, IsTruncated, NextContinuationToken } =
+        await client.send(command);
 
       command.input.ContinuationToken = NextContinuationToken;
       isTruncated = IsTruncated ?? false;
@@ -149,7 +118,9 @@ const listObjectsFromS3Bucket = async (): Promise<string[]> => {
       }
     }
 
-    return bucketContent !== undefined? bucketContent?.map(c => c.Key as string) : [];
+    return bucketContent !== undefined
+      ? bucketContent?.map(c => c.Key as string)
+      : [];
   } catch (err) {
     console.error(err);
 
@@ -168,11 +139,41 @@ const getArticleFromS3Bucket = async (key: string): Promise<string> => {
     const response = await client.send(command);
     const str = await response.Body?.transformToString();
 
-    return str ?? "";
+    return str ?? '';
   } catch (err) {
     console.error(err);
 
-    return "";
+    return '';
   }
+};
+
+const getArticleContentFromS3 = async (id: string): Promise<ArticleContent> => {
+  let key = id + '.md';
+  const contentString = await getArticleFromS3Bucket(key);
+  const { data: frontmatter, content } = matter(contentString);
+
+  return {
+    slug: id,
+    frontmatter,
+    content,
+  };
+};
+
+const getArticlesFromS3 = async (): Promise<ArticleContent[]> => {
+  const articlesKeys = await listObjectsFromS3Bucket();
+  const articles: ArticleContent[] = [];
+
+  for (var key of articlesKeys) {
+    const content = await getArticleFromS3Bucket(key);
+    const { data: frontmatter } = matter(content);
+
+    articles.push({
+      slug: key.replace('.md', ''),
+      frontmatter: frontmatter,
+      content: undefined,
+    });
+  }
+
+  return articles;
 };
 //#endregion
