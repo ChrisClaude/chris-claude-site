@@ -1,11 +1,11 @@
 ---
 title: 'Create a Real Time App in ASP.NET Core'
-date: 'Sept 28, 2023'
-excerpt: 'Identity Server is a .NET library that implements OpenId and OAuth2. We will leverage this library to secure our API'
+date: 'Oct 26, 2023'
+excerpt: 'Real time applications with .NET Core'
 cover_image: '/ASP_NET_Web_API_Authentication_with_Identity_Server_6_Thumbnail.png'
 category: '.NET Core'
 author: 'Chris Claude'
-author_image: 'https://randomuser.me/api/portraits/men/12.jpg'
+author_image: '/about_me.png'
 ---
 
 <!-- Markdown generator - https://jaspervdj.be/lorem-markdownum/ -->

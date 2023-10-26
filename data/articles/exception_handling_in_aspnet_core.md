@@ -5,7 +5,7 @@ excerpt: '    Django is a very powerful, high level Python framework for buildin
 cover_image: '/Logging_in_ASP_NET_Thumbnail.png'
 category: '.NET Core'
 author: 'Chris Claude'
-author_image: 'https://randomuser.me/api/portraits/men/12.jpg'
+author_image: '/about_me.png'
 ---
 
 <!-- Markdown generator - https://jaspervdj.be/lorem-markdownum/ -->

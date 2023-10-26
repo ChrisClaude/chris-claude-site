@@ -1,7 +1,7 @@
 ---
-title: 'ASP.NET Core Middleware in Depth'
-date: 'Sept 28, 2023'
-excerpt: 'Identity Server is a .NET library that implements OpenId and OAuth2. We will leverage this library to secure our API'
+title: 'Unit testing and Code Coverage with XUnit and Coverlet'
+date: 'Oct 26, 2023'
+excerpt: 'Unit testing and Code Coverage with XUnit and Coverlet'
 cover_image: '/ASP_NET_Web_API_Authentication_with_Identity_Server_6_Thumbnail.png'
 category: '.NET Core'
 author: 'Chris Claude'
