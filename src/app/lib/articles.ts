@@ -1,5 +1,5 @@
-import { ArticleContent } from '@/AppTypes';
-import { APP_ENV, S3_Bucket, S3_MAX_KEYS, S3_REGION } from '@/config';
+import { ArticleContent, PaginatedArticles } from '@/AppTypes';
+import { APP_ENV, ARTICLES_PER_PAGE, S3_Bucket, S3_MAX_KEYS, S3_REGION } from '@/config';
 import { sortByDate } from '@/utils/index';
 import {
   GetObjectCommand,
@@ -12,6 +12,27 @@ import matter from 'gray-matter';
 import path from 'path';
 
 const localDataPath = 'data/articles';
+
+export const getPaginatedArticles = async (page: number): Promise<PaginatedArticles> => {
+  const articles = await getArticles();
+
+  const categories = articles.map(article => article.frontmatter.category);
+  const uniqueCategories = [...new Set(categories)];
+
+  const numPages = Math.ceil(articles.length / ARTICLES_PER_PAGE);
+  const pageIndex = page - 1;
+  const orderedArticles = articles.slice(
+    pageIndex * ARTICLES_PER_PAGE,
+    (pageIndex + 1) * ARTICLES_PER_PAGE
+  );
+
+  return {
+    articles: orderedArticles,
+    numPages,
+    currentPage: page,
+    categories: uniqueCategories,
+  };
+};
 
 export const getArticles = async (): Promise<ArticleContent[]> => {
   if (APP_ENV === 'production') {
