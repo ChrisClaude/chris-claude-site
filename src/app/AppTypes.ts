@@ -17,7 +17,7 @@ export type UIContextType = {
 export type ArticleContent = {
   slug: string;
   frontmatter: {
-    [key: string]: any;
+    [key: string]: string;
   },
   content: string | undefined
 }
@@ -26,7 +26,7 @@ export type PaginatedArticles = {
   articles: ArticleContent[];
   numPages: number;
   currentPage: number;
-  categories: any[];
+  categories: string[];
 };
 
 export type ListBucketObject = {
