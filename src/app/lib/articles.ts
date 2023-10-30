@@ -18,7 +18,6 @@ export const getPaginatedArticles = async (page: number, maxKeys : number | null
 
   console.log(articles);
 
-
   const categories = articles.map(article => article.frontmatter.category);
   const uniqueCategories = [...new Set(categories)];
 
@@ -39,14 +38,14 @@ export const getPaginatedArticles = async (page: number, maxKeys : number | null
 
 export const getArticles = async (maxKeys : number | null = null): Promise<ArticleContent[]> => {
   if (APP_ENV === 'production') {
-    const articles = await getArticlesFromS3(maxKeys);
+    const articles = (await getArticlesFromS3()).sort(sortByDate);
 
-    return articles.sort(sortByDate);
+    return maxKeys === null? articles : articles.slice(0, maxKeys + 1);
   }
 
-  const articles = getArticlesFromFileSystem();
+  const articles = getArticlesFromFileSystem().sort(sortByDate);
 
-  return articles.sort(sortByDate);
+  return maxKeys === null? articles : articles.slice(0, maxKeys + 1);
 };
 
 export const getArticleById = async (
