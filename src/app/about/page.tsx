@@ -19,7 +19,7 @@ export default function Home() {
         </div>
       </section>
     </div>
-    <section className="px-6 text-center pb-28 text-lg lg:px-32">
+    <section className="px-6 text-center pb-28 text-lg sm:px-14 md:px-24 lg:px-32 xl:px-48 2xl:px-56">
       <p>I&apos;m a software engineer with a passion for building full-stack web applications, mainly with .NET. I consider myself a problem solver. I like breaking down complex concepts to their most fundamental essence to facilitate understanding. My main expertise is in .NET/C#, JavaScript (React JS and Angular), Python, Microsoft Azure, and AWS. I&apos;m also an avid enthusiast of artificial intelligence, especially reinforcement learning.</p>
 
       <p className="mt-6">

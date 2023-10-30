@@ -43,8 +43,8 @@ const Page = () => {
           </section>
         </div>
 
-        <div className="grid grid-cols-1 px-6 lg:gap-3 lg:px-14 pb-20 lg:grid-cols-3">
-          <section className="flex flex-col gap-y-10 lg:col-span-2 lg:pr-10 lg:border-r-2 lg:border-dashed lg:border-r-slate-800">
+        <div className="grid grid-cols-1 px-6 pb-20 lg:grid-cols-3 xl:px-14 2xl:px-24">
+          <section className="flex flex-col gap-y-10 lg:col-span-2 lg:pr-5 lg:border-r-2 lg:border-dashed lg:border-r-slate-800">
             {paginatedArticles === null ? (
               <div className="h-2/4 flex items-center justify-center">
                 <MutatingDots
@@ -71,7 +71,7 @@ const Page = () => {
               </>
             )}
           </section>
-          <aside className="pl-5 hidden lg:flex lg:flex-col">
+          <aside className="hidden lg:pl-5 lg:overflow-hidden lg:flex lg:flex-col">
             <YouTubeChannelBanner compact={true} />
             <Newsletter compact={true} />
           </aside>
