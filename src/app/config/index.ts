@@ -9,3 +9,5 @@ export const S3_Bucket = process.env.S3_BUCKET;
 export const S3_MAX_KEYS = process.env.S3_MAX_KEYS;
 
 export const S3_REGION = process.env.S3_REGION;
+
+export const S3_HOME_MAX_KEYS = process.env.NEXT_PUBLIC_S3_HOME_MAX_KEYS;

@@ -13,8 +13,11 @@ import path from 'path';
 
 const localDataPath = 'data/articles';
 
-export const getPaginatedArticles = async (page: number): Promise<PaginatedArticles> => {
-  const articles = await getArticles();
+export const getPaginatedArticles = async (page: number, maxKeys : number | null = null): Promise<PaginatedArticles> => {
+  const articles = await getArticles(maxKeys);
+
+  console.log(articles);
+
 
   const categories = articles.map(article => article.frontmatter.category);
   const uniqueCategories = [...new Set(categories)];
@@ -34,9 +37,9 @@ export const getPaginatedArticles = async (page: number): Promise<PaginatedArtic
   };
 };
 
-export const getArticles = async (): Promise<ArticleContent[]> => {
+export const getArticles = async (maxKeys : number | null = null): Promise<ArticleContent[]> => {
   if (APP_ENV === 'production') {
-    const articles = await getArticlesFromS3();
+    const articles = await getArticlesFromS3(maxKeys);
 
     return articles.sort(sortByDate);
   }
@@ -66,11 +69,13 @@ const getClient = (): S3Client =>
     region: S3_REGION as string,
   });
 
-const listObjectsFromS3Bucket = async (): Promise<string[]> => {
+const listObjectsFromS3Bucket = async (maxKeys : number | null = null): Promise<string[]> => {
   const client = getClient();
+  console.log("MAX keys: " + maxKeys);
+
   const command = new ListObjectsV2Command({
     Bucket: S3_Bucket,
-    MaxKeys: parseInt(S3_MAX_KEYS as string),
+    MaxKeys: maxKeys ?? parseInt(S3_MAX_KEYS as string),
   });
 
   try {
@@ -130,8 +135,8 @@ const getArticleContentFromS3 = async (id: string): Promise<ArticleContent> => {
   };
 };
 
-const getArticlesFromS3 = async (): Promise<ArticleContent[]> => {
-  const articlesKeys = await listObjectsFromS3Bucket();
+const getArticlesFromS3 = async (maxKeys : number | null = null): Promise<ArticleContent[]> => {
+  const articlesKeys = await listObjectsFromS3Bucket(maxKeys);
   const articles: ArticleContent[] = [];
 
   for (var key of articlesKeys) {

@@ -12,9 +12,11 @@ export async function GET(request: NextRequest, res: NextApiResponse) {
   }
 
   const pageParam = request.nextUrl.searchParams.get('page');
+  const maxKeyCountParam = request.nextUrl.searchParams.get('maxKeyCount');
   const page = pageParam !== null ? parseInt(pageParam.toString()) : 1;
+  const maxKeyCount = maxKeyCountParam !== null ? parseInt(maxKeyCountParam.toString()) : null;
 
-  const data = await getPaginatedArticles(page);
+  const data = await getPaginatedArticles(page, maxKeyCount);
 
   return NextResponse.json({ data });
 }
