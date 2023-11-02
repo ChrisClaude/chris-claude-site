@@ -38,7 +38,7 @@ const Resume = () => {
   ];
 
   return (
-    <div className="bg-white w-full text-gray-800 flex flex-col justify-center p-24">
+    <div className="bg-white w-full text-gray-800 flex flex-col justify-center p-24 sm:scale-50 md:scale-100">
       <div>
         {/* Header */}
         <div className="flex justify-between mb-10">
@@ -101,30 +101,86 @@ const Resume = () => {
             </div>
 
             {/* Work Experience  */}
-            <div>
+            <div className='mb-6'>
               <div className="mb-2">
                 <h2 className="text-xl font-semibold uppercase">
                   Corporate Experience
                 </h2>
                 <div className="bg-gray-800 w-full h-1 rounded-full"></div>
               </div>
-              <div>
-                <h3>Software Engineer</h3>
-                <p>Capgemini</p>
-                <p>
+              <div className='mb-4 border-b-2 border-dashed border-gray-400 pb-4'>
+                <h3 className='text-lg font-medium'>Software Engineer</h3>
+                <p className='text-blue-500'>Capgemini</p>
+                <p className='flex items-center'>
                   <span>07/2022</span>
-                  <span> - </span> <span>Present</span> <MdLocationPin />{' '}
+                  <span className='mx-1'> - </span> <span>Present</span> <MdLocationPin className='ml-3 mr-1' />{' '}
                   Poznan, Poland
                 </p>
-                <p>
+                <p className='mt-1'>
                   I have been working on architecting and implementing software
                   solutions for clients in the financial services sector. The
-                  list of clients I have worked with include (but is not limited
+                  list of clients I have worked with includes (but is not limited
                   to) Nationale Nederlanden, one of the biggest insurance
                   providers in the Netherlands. I have designed and implemented
                   features that have improved the business processes of my
                   clients. The technologies I have used so far include C#, SQL
                   Server, Microsoft Azure, React JS, TypeScript and AzureDevOps.
+                  The following are a few of the features I have implemented:
+                  <ul className='list-disc ml-10 mt-1'>
+                    <li>Slowly changing dimension type 2 for a data warehouse system</li>
+                    <li>Cross environment and secure data import and export</li>
+                    <li>Data row level security integrated with Azure RBAC</li>
+                  </ul>
+                </p>
+              </div>
+              <div className='mb-4 border-b-2 border-dashed border-gray-400 pb-4'>
+                <h3 className='text-lg font-medium'>Software Engineer</h3>
+                <p className='text-blue-500'>Dariel</p>
+                <p className='flex items-center'>
+                  <span>02/2021</span>
+                  <span className='mx-1'> - </span> <span>06/2023</span> <MdLocationPin className='ml-3 mr-1' />{' '}
+                  Johannesburg, South Africa
+                </p>
+                <p className='mt-1'>
+                  I have been working on architecting and implementing software
+                  solutions for clients in the financial services sector. The
+                  list of clients I have worked with includes (but is not limited
+                  to) Nationale Nederlanden, one of the biggest insurance
+                  providers in the Netherlands. I have designed and implemented
+                  features that have improved the business processes of my
+                  clients. The technologies I have used so far include C#, SQL
+                  Server, Microsoft Azure, React JS, TypeScript and AzureDevOps.
+                  The following are a few of the features I have implemented:
+                  <ul className='list-disc ml-10 mt-1'>
+                    <li>Slowly changing dimension type 2 for a data warehouse system</li>
+                    <li>Cross environment and secure data import and export</li>
+                    <li>Data row level security integrated with Azure RBAC</li>
+                  </ul>
+                </p>
+              </div>
+              <div>
+                <h3 className='text-lg font-medium'>Software Engineer</h3>
+                <p className='text-blue-500'>Exigent Group</p>
+                <p className='flex items-center'>
+                  <span>11/2020</span>
+                  <span className='mx-1'> - </span> <span>02/2021</span> <MdLocationPin className='ml-3 mr-1' />{' '}
+                  Cape Town, South Africa
+                </p>
+                <p className='mt-1'>
+                  I have been working on architecting and implementing software
+                  solutions for clients in the financial services sector. The
+                  list of clients I have worked with includes (but is not limited
+                  to) Nationale Nederlanden, one of the biggest insurance
+                  providers in the Netherlands. I have designed and implemented
+                  features that have improved the business processes of my
+                  clients. The technologies I have used so far include C#, SQL
+                  Server, Microsoft Azure, React JS, TypeScript and AzureDevOps.
+                  The following are a few of the features I have implemented:
+                  <ul className='list-disc ml-10 mt-1'>
+                    <li>Slowly changing dimension type 2 for a data warehouse system</li>
+                    <li>Cross environment and secure data import and export</li>
+                    <li>Data row level security integrated with Azure RBAC</li>
+                  </ul>
                 </p>
               </div>
             </div>
@@ -143,8 +199,8 @@ const Resume = () => {
                       <p>prajwal.chengappa@capgemini.com</p>
                   </div>
                   <div>
-                      <p>Santosh Jadhav (Tech Lead)</p>
-                      <p>santosh.jadhav@capgemini.com</p>
+                      <p>Banish Jha (Senior Software Engineer at Nationale Nederlanden)</p>
+                      <p>banish.jha@nn-group.com</p>
                   </div>
                   <div>
                       <p>Rens Van Driel (Software Developer)</p>
@@ -204,20 +260,20 @@ const Resume = () => {
               </div>
               <ul>
                 <li>
-                  <p>Diploma Application Development</p>
-                  <p>Cape Peninsula University of Technology</p>
+                  <p className='text-lg'>Diploma in Application Development</p>
+                  <p className='text-blue-500'>Cape Peninsula University of Technology</p>
                   <p className="flex items-center mr-1">
                     <span>01/2018</span> <span className="mx-1">-</span>{' '}
-                    <span>12/2020</span> <MdLocationPin /> Cape Town, South
+                    <span className='mr-3'>12/2020</span> <MdLocationPin className='mr-1' /> Cape Town, South
                     Africa
                   </p>
                 </li>
-                <li>
-                  <p>Chemical Engineering</p>
-                  <p>Central Technical College</p>
+                <li className='mt-2'>
+                  <p className='text-lg'>Chemical Engineering</p>
+                  <p className='text-blue-500'>Central Technical College</p>
                   <p className="flex items-center mr-1">
-                    <span>2017</span>
-                    <MdLocationPin /> Cape Town, South Africa
+                    <span className='mr-3'>2017</span>
+                    <MdLocationPin className='mr-1' /> Cape Town, South Africa
                   </p>
                 </li>
               </ul>
@@ -229,19 +285,50 @@ const Resume = () => {
                 <h2 className="text-xl font-semibold uppercase">Languages</h2>
                 <div className="bg-gray-800 w-full h-1 rounded-full"></div>
               </div>
-              <ul>
-                <li>
-                  <p>English</p>
-                  <p>Advanced</p>
+              <ul className='flex flex-col gap-y-2'>
+                <li className='flex justify-between'>
+                  <div>
+                    <p className='font-medium'>English</p>
+                    <p className='text-sm'>Advanced</p>
+                  </div>
+                  <div className='flex  gap-x-1'>
+                    <div className='h-8 w-2 bg-blue-500 rounded-full' />
+                    <div className='h-8 w-2 bg-blue-500 rounded-full' />
+                    <div className='h-8 w-2 bg-blue-500 rounded-full' />
+                    <div className='h-8 w-2 bg-blue-500 rounded-full' />
+                    <div className='h-8 w-2 bg-blue-500 rounded-full' />
+                  </div>
                 </li>
-                <li>
-                  <p>French</p>
-                  <p>Native</p>
+                <li className='flex justify-between'>
+                  <div>
+                    <p className='font-medium'>French</p>
+                    <p className='text-sm'>Advanced</p>
+                  </div>
+                  <div className='flex gap-x-1'>
+                    <div className='h-8 w-2 bg-blue-500 rounded-full' />
+                    <div className='h-8 w-2 bg-blue-500 rounded-full' />
+                    <div className='h-8 w-2 bg-blue-500 rounded-full' />
+                    <div className='h-8 w-2 bg-blue-500 rounded-full' />
+                    <div className='h-8 w-2 bg-blue-500 rounded-full' />
+                  </div>
+                </li>
+                <li className='flex justify-between'>
+                  <div>
+                    <p className='font-medium'>Polish</p>
+                    <p className='text-sm'>Beginner</p>
+                  </div>
+                  <div className='flex gap-x-1'>
+                    <div className='h-8 w-2 bg-blue-500 rounded-full' />
+                    <div className='h-8 w-2 bg-gray-300 rounded-full' />
+                    <div className='h-8 w-2 bg-gray-300 rounded-full' />
+                    <div className='h-8 w-2 bg-gray-300 rounded-full' />
+                    <div className='h-8 w-2 bg-gray-300 rounded-full' />
+                  </div>
                 </li>
               </ul>
             </div>
 
-            {/* Languages  */}
+            {/* Find me online  */}
             <div className="mb-6">
               <div className="mb-2">
                 <h2 className="text-xl font-semibold uppercase">
