@@ -44,6 +44,27 @@ const Resume = () => {
     'Risk management',
   ];
 
+  const references: { fullName: string; role: string; email: string, company: string }[] = [
+    {
+      fullName: 'Prajwal Chengappa',
+      role: 'Senior Software Engineer',
+      email: 'prajwal.chengappa@capgemini.com',
+      company: 'Capgemini',
+    },
+    {
+      fullName: 'Banish Jha',
+      role: 'Senior Software Engineer at Nationale Nederlanden',
+      email: 'banish.jha@nn-group.com',
+      company: 'Nationale Nederlanden',
+    },
+    {
+      fullName: 'Rens Van Driel',
+      role: 'Software Developer',
+      email: 'rens.van.a.driel@sogeti.com',
+      company: 'Sogeti',
+    },
+  ];
+
   return (
     <div className="bg-white w-full text-gray-800 flex flex-col justify-center p-24 sm:scale-50 md:scale-100">
       <div>
@@ -67,10 +88,8 @@ const Resume = () => {
                 <MdOutlineAlternateEmail className="mr-1" /> {EMAIL_ADDRESS}
               </p>
               <p className="flex items-center">
-                <a href="https://chrisclaude.com">
-                  <FaLink className="mr-1" />
-                  chrisclaude.com
-                </a>
+                <FaLink className="mr-1" />
+                <a href="https://chrisclaude.com">chrisclaude.com</a>
               </p>
               <p className="flex items-center">
                 <MdLocationPin className="mr-1" />
@@ -214,22 +233,18 @@ const Resume = () => {
                 <h2 className="text-xl font-semibold uppercase">References</h2>
                 <div className="bg-gray-800 w-full h-1 rounded-full"></div>
               </div>
-              <div>
-                <div>
-                  <p>Prajwal Chengappa (Senior Software Engineer)</p>
-                  <p>prajwal.chengappa@capgemini.com</p>
-                </div>
-                <div>
-                  <p>
-                    Banish Jha (Senior Software Engineer at Nationale
-                    Nederlanden)
-                  </p>
-                  <p>banish.jha@nn-group.com</p>
-                </div>
-                <div>
-                  <p>Rens Van Driel (Software Developer)</p>
-                  <p>rens.van.a.driel@sogeti.com</p>
-                </div>
+              <div className="flex flex-col gap-y-2">
+                {references.map((reference, index) => (
+                  <div key={index}>
+                    <p>
+                      <span className="text-blue-500 font-medium">
+                        {reference.fullName}
+                      </span>
+                      <span className="ml-2">({reference.role})</span>
+                    </p>
+                    <p>{reference.email}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
