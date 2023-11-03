@@ -153,8 +153,8 @@ const Resume = () => {
                   <span className="mx-1"> - </span> <span>Present</span>{' '}
                   <MdLocationPin className="ml-3 mr-1" /> Poznan, Poland
                 </p>
-                <p className="mt-1">
-                  I have been working on architecting and implementing software
+                <div className="mt-1">
+                  <p>I have been working on architecting and implementing software
                   solutions for clients in the financial services sector. The
                   list of clients I have worked with includes (but is not
                   limited to) <b>Nationale Nederlanden</b>, one of the biggest
@@ -163,7 +163,7 @@ const Resume = () => {
                   of my clients. The technologies I have used so far include C#,
                   SQL Server, Microsoft Azure, React JS, TypeScript and
                   AzureDevOps. The following are a few of the features I have
-                  worked on:
+                  worked on:</p>
                   <ul className="list-disc ml-10 mt-1">
                     <li>
                       Slowly changing dimension type 2 for a data warehouse
@@ -172,7 +172,7 @@ const Resume = () => {
                     <li>Cross environment and secure data import and export</li>
                     <li>Data row level security integrated with Azure RBAC</li>
                   </ul>
-                </p>
+                </div>
               </div>
               <div className="mb-4 border-b-2 border-dashed border-gray-400 pb-4">
                 <h3 className="text-lg font-medium">Software Engineer</h3>
@@ -183,13 +183,13 @@ const Resume = () => {
                   <MdLocationPin className="ml-3 mr-1" /> Johannesburg, South
                   Africa
                 </p>
-                <p className="mt-1">
-                  During my time here I have worked on multiple projects and
+                <div className="mt-1">
+                <p>During my time here I have worked on multiple projects and
                   clients in the financial service sector. My clients included{' '}
                   <b>Sasfin Bank</b> and <b>Safrican Insurance</b>, which is now
                   part of <b>Sanlam</b>, the largest insurance provider in South
                   Africa. The following are a few of the projects I have
-                  contributed to:
+                  contributed to:</p>
                   <ul className="list-disc ml-10 mt-1">
                     <li>
                       A Forex exchange trading platform. The technologies used
@@ -206,7 +206,7 @@ const Resume = () => {
                       Angular, Jira, Jenkins, RabbitMQ
                     </li>
                   </ul>
-                </p>
+                </div>
               </div>
               <div>
                 <h3 className="text-lg font-medium">Software Engineer</h3>
