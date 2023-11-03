@@ -16,8 +16,6 @@ const localDataPath = 'data/articles';
 export const getPaginatedArticles = async (page: number, maxKeys : number | null = null): Promise<PaginatedArticles> => {
   const articles = await getArticles(maxKeys);
 
-  console.log(articles);
-
   const categories = articles.map(article => article.frontmatter.category);
   const uniqueCategories = [...new Set(categories)];
 

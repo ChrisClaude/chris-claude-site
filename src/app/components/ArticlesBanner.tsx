@@ -17,7 +17,6 @@ const ArticlesBanner = () => {
         return res.json();
       })
       .then(res => {
-        console.log(res.data);
         setArticles(res.data.articles);
       })
       .catch(err => console.error('There was an error fetching articles', err));

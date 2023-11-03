@@ -1,10 +1,7 @@
 import { Footer, Header, Main, SideNav } from './components';
-import './globals.css';
-import { Inter } from 'next/font/google';
-import { UIContextProvider } from './hooks/UIContext';
 import AppWrapper from './components/AppWrapper';
-
-const inter = Inter({ subsets: ['latin'] });
+import './globals.css';
+import { UIContextProvider } from './hooks/UIContext';
 
 export const metadata = {
   title: 'Chris Claude',
@@ -18,7 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body suppressHydrationWarning={true}>
         <UIContextProvider>
           <AppWrapper>
             <SideNav />
