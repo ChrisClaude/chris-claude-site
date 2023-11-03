@@ -44,7 +44,12 @@ const Resume = () => {
     'Risk management',
   ];
 
-  const references: { fullName: string; role: string; email: string, company: string }[] = [
+  const references: {
+    fullName: string;
+    role: string;
+    email: string;
+    company: string;
+  }[] = [
     {
       fullName: 'Prajwal Chengappa',
       role: 'Senior Software Engineer',
@@ -85,9 +90,13 @@ const Resume = () => {
                 {PHONE_NUMBER}
               </a>
               <a href={`mailto:${EMAIL_ADDRESS}`} className="flex items-center">
-                <MdOutlineAlternateEmail className="mr-1 text-blue-500" /> {EMAIL_ADDRESS}
+                <MdOutlineAlternateEmail className="mr-1 text-blue-500" />{' '}
+                {EMAIL_ADDRESS}
               </a>
-              <a href="https://chrisclaude.com" target='_blank' className="flex items-center">
+              <a
+                href="https://chrisclaude.com"
+                target="_blank"
+                className="flex items-center">
                 <FaLink className="mr-1 text-blue-500" />
                 <span>chrisclaude.com</span>
               </a>
@@ -148,13 +157,13 @@ const Resume = () => {
                   I have been working on architecting and implementing software
                   solutions for clients in the financial services sector. The
                   list of clients I have worked with includes (but is not
-                  limited to) Nationale Nederlanden, one of the biggest
+                  limited to) <b>Nationale Nederlanden</b>, one of the biggest
                   insurance providers in the Netherlands. I have designed and
                   implemented features that have improved the business processes
                   of my clients. The technologies I have used so far include C#,
                   SQL Server, Microsoft Azure, React JS, TypeScript and
                   AzureDevOps. The following are a few of the features I have
-                  implemented:
+                  worked on:
                   <ul className="list-disc ml-10 mt-1">
                     <li>
                       Slowly changing dimension type 2 for a data warehouse
@@ -175,23 +184,27 @@ const Resume = () => {
                   Africa
                 </p>
                 <p className="mt-1">
-                  I have been working on architecting and implementing software
-                  solutions for clients in the financial services sector. The
-                  list of clients I have worked with includes (but is not
-                  limited to) Nationale Nederlanden, one of the biggest
-                  insurance providers in the Netherlands. I have designed and
-                  implemented features that have improved the business processes
-                  of my clients. The technologies I have used so far include C#,
-                  SQL Server, Microsoft Azure, React JS, TypeScript and
-                  AzureDevOps. The following are a few of the features I have
-                  implemented:
+                  During my time here I have worked on multiple projects and
+                  clients in the financial service sector. My clients included{' '}
+                  <b>Sasfin Bank</b> and <b>Safrican Insurance</b>, which is now
+                  part of <b>Sanlam</b>, the largest insurance provider in South
+                  Africa. The following are a few of the projects I have
+                  contributed to:
                   <ul className="list-disc ml-10 mt-1">
                     <li>
-                      Slowly changing dimension type 2 for a data warehouse
-                      system
+                      A Forex exchange trading platform. The technologies used
+                      were C#, TypeScript, ASP.NET, Angular, AzureDevOps,
+                      RabbitMQ
                     </li>
-                    <li>Cross environment and secure data import and export</li>
-                    <li>Data row level security integrated with Azure RBAC</li>
+                    <li>
+                      Insurance sales system. The technologies used were C#,
+                      TypeScript, ASP.NET, Angular, React, AzureDevOps
+                    </li>
+                    <li>
+                      Weighbridge Management Software system in the logistic
+                      sector The technologies used were C#, TypeScript, ASP.NET,
+                      Angular, Jira, Jenkins, RabbitMQ
+                    </li>
                   </ul>
                 </p>
               </div>
@@ -205,24 +218,13 @@ const Resume = () => {
                   Africa
                 </p>
                 <p className="mt-1">
-                  I have been working on architecting and implementing software
-                  solutions for clients in the financial services sector. The
-                  list of clients I have worked with includes (but is not
-                  limited to) Nationale Nederlanden, one of the biggest
-                  insurance providers in the Netherlands. I have designed and
-                  implemented features that have improved the business processes
-                  of my clients. The technologies I have used so far include C#,
-                  SQL Server, Microsoft Azure, React JS, TypeScript and
-                  AzureDevOps. The following are a few of the features I have
-                  implemented:
-                  <ul className="list-disc ml-10 mt-1">
-                    <li>
-                      Slowly changing dimension type 2 for a data warehouse
-                      system
-                    </li>
-                    <li>Cross environment and secure data import and export</li>
-                    <li>Data row level security integrated with Azure RBAC</li>
-                  </ul>
+                  I mainly worked on a project that was aimed at creating a
+                  software system that would help process large amounts of
+                  documents (company contracts, bills, legal agreements) using
+                  machine learning and providing critical insights to clients. I
+                  worked on backend and frontend features and integration with
+                  ML tools. The technologies used were Python, Django, Keras,
+                  PyTorch, and React JS.
                 </p>
               </div>
             </div>
@@ -240,8 +242,12 @@ const Resume = () => {
                       <span className="text-blue-500 font-medium">
                         {reference.fullName}
                       </span>
-                      <span className="ml-2 bg-slate-800 text-white p-1 rounded-md text-xs relative -top-1">{reference.role}</span>
-                      <span className="ml-1 bg-gray-500 text-white p-1 rounded-md text-xs relative -top-1">{reference.company}</span>
+                      <span className="ml-2 bg-slate-800 text-white p-1 rounded-md text-xs relative -top-1">
+                        {reference.role}
+                      </span>
+                      <span className="ml-1 bg-gray-500 text-white p-1 rounded-md text-xs relative -top-1">
+                        {reference.company}
+                      </span>
                     </p>
                     <p>{reference.email}</p>
                   </div>
@@ -298,7 +304,7 @@ const Resume = () => {
                 <div className="bg-gray-800 w-full h-1 rounded-full"></div>
               </div>
               <ul>
-                <li className='border-b-2 border-dashed border-gray-400 pb-4'>
+                <li className="border-b-2 border-dashed border-gray-400 pb-4">
                   <p className="text-lg">Diploma in Application Development</p>
                   <p className="text-blue-500">
                     <a href="https://www.cput.ac.za/" target="_blank">
