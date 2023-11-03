@@ -53,7 +53,7 @@ const Resume = () => {
     },
     {
       fullName: 'Banish Jha',
-      role: 'Senior Software Engineer at Nationale Nederlanden',
+      role: 'Senior Software Engineer',
       email: 'banish.jha@nn-group.com',
       company: 'Nationale Nederlanden',
     },
@@ -114,7 +114,7 @@ const Resume = () => {
           {/* First Main Column */}
           <div>
             <div className="mb-6">
-              <div className="mb-2">
+              <div className="mb-3">
                 <h2 className="text-xl font-semibold uppercase">Summary</h2>
                 <div className="bg-gray-800 w-full h-1 rounded-full"></div>
               </div>
@@ -130,7 +130,7 @@ const Resume = () => {
 
             {/* Work Experience  */}
             <div className="mb-6">
-              <div className="mb-2">
+              <div className="mb-3">
                 <h2 className="text-xl font-semibold uppercase">
                   Corporate Experience
                 </h2>
@@ -229,18 +229,19 @@ const Resume = () => {
 
             {/* References  */}
             <div>
-              <div className="mb-2">
+              <div className="mb-3">
                 <h2 className="text-xl font-semibold uppercase">References</h2>
                 <div className="bg-gray-800 w-full h-1 rounded-full"></div>
               </div>
-              <div className="flex flex-col gap-y-2">
+              <div className="flex flex-col gap-y-3">
                 {references.map((reference, index) => (
                   <div key={index}>
                     <p>
                       <span className="text-blue-500 font-medium">
                         {reference.fullName}
                       </span>
-                      <span className="ml-2">({reference.role})</span>
+                      <span className="ml-2 bg-slate-800 text-white p-1 rounded-md text-xs relative -top-1">{reference.role}</span>
+                      <span className="ml-1 bg-gray-500 text-white p-1 rounded-md text-xs relative -top-1">{reference.company}</span>
                     </p>
                     <p>{reference.email}</p>
                   </div>
@@ -252,7 +253,7 @@ const Resume = () => {
           {/* Second Main Column */}
           <div>
             <div className="mb-6">
-              <div className="mb-2">
+              <div className="mb-3">
                 <h2 className="text-xl font-semibold uppercase">Toolbox</h2>
                 <div className="bg-gray-800 w-full h-1 rounded-full"></div>
               </div>
@@ -292,12 +293,12 @@ const Resume = () => {
 
             {/* Education */}
             <div className="mb-6">
-              <div className="mb-2">
+              <div className="mb-3">
                 <h2 className="text-xl font-semibold uppercase">Education</h2>
                 <div className="bg-gray-800 w-full h-1 rounded-full"></div>
               </div>
               <ul>
-                <li>
+                <li className='border-b-2 border-dashed border-gray-400 pb-4'>
                   <p className="text-lg">Diploma in Application Development</p>
                   <p className="text-blue-500">
                     <a href="https://www.cput.ac.za/" target="_blank">
@@ -329,7 +330,7 @@ const Resume = () => {
 
             {/* Languages  */}
             <div className="mb-6">
-              <div className="mb-2">
+              <div className="mb-3">
                 <h2 className="text-xl font-semibold uppercase">Languages</h2>
                 <div className="bg-gray-800 w-full h-1 rounded-full"></div>
               </div>
@@ -378,7 +379,7 @@ const Resume = () => {
 
             {/* Find me online  */}
             <div className="mb-6">
-              <div className="mb-2">
+              <div className="mb-3">
                 <h2 className="text-xl font-semibold uppercase">
                   Find me online
                 </h2>
