@@ -80,19 +80,19 @@ const Resume = () => {
               </h2>
             </div>
             <div className="grid grid-cols-2">
-              <p className="flex items-center">
-                <FaPhone className="mr-1" />
+              <a href={`tel:${PHONE_NUMBER}`} className="flex items-center">
+                <FaPhone className="mr-1 text-blue-500" />
                 {PHONE_NUMBER}
-              </p>
+              </a>
+              <a href={`mailto:${EMAIL_ADDRESS}`} className="flex items-center">
+                <MdOutlineAlternateEmail className="mr-1 text-blue-500" /> {EMAIL_ADDRESS}
+              </a>
+              <a href="https://chrisclaude.com" target='_blank' className="flex items-center">
+                <FaLink className="mr-1 text-blue-500" />
+                <span>chrisclaude.com</span>
+              </a>
               <p className="flex items-center">
-                <MdOutlineAlternateEmail className="mr-1" /> {EMAIL_ADDRESS}
-              </p>
-              <p className="flex items-center">
-                <FaLink className="mr-1" />
-                <a href="https://chrisclaude.com">chrisclaude.com</a>
-              </p>
-              <p className="flex items-center">
-                <MdLocationPin className="mr-1" />
+                <MdLocationPin className="mr-1 text-blue-500" />
                 Poznan, Poland
               </p>
             </div>
