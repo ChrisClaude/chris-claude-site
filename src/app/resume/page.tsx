@@ -1,6 +1,13 @@
 import { EMAIL_ADDRESS, PHONE_NUMBER } from '@/config';
 import Image from 'next/image';
-import { FaLink, FaPhone } from 'react-icons/fa';
+import {
+  FaGithub,
+  FaLink,
+  FaLinkedinIn,
+  FaPhone,
+  FaStackOverflow,
+} from 'react-icons/fa';
+import { GiEarthAfricaEurope } from 'react-icons/gi';
 import { MdLocationPin, MdOutlineAlternateEmail } from 'react-icons/md';
 
 const Resume = () => {
@@ -60,8 +67,10 @@ const Resume = () => {
                 <MdOutlineAlternateEmail className="mr-1" /> {EMAIL_ADDRESS}
               </p>
               <p className="flex items-center">
-                <FaLink className="mr-1" />
-                https://chrisclaude.com
+                <a href="https://chrisclaude.com">
+                  <FaLink className="mr-1" />
+                  chrisclaude.com
+                </a>
               </p>
               <p className="flex items-center">
                 <MdLocationPin className="mr-1" />
@@ -101,83 +110,97 @@ const Resume = () => {
             </div>
 
             {/* Work Experience  */}
-            <div className='mb-6'>
+            <div className="mb-6">
               <div className="mb-2">
                 <h2 className="text-xl font-semibold uppercase">
                   Corporate Experience
                 </h2>
                 <div className="bg-gray-800 w-full h-1 rounded-full"></div>
               </div>
-              <div className='mb-4 border-b-2 border-dashed border-gray-400 pb-4'>
-                <h3 className='text-lg font-medium'>Software Engineer</h3>
-                <p className='text-blue-500'>Capgemini</p>
-                <p className='flex items-center'>
+              <div className="mb-4 border-b-2 border-dashed border-gray-400 pb-4">
+                <h3 className="text-lg font-medium">Software Engineer</h3>
+                <p className="text-blue-500">Capgemini</p>
+                <p className="flex items-center">
                   <span>07/2022</span>
-                  <span className='mx-1'> - </span> <span>Present</span> <MdLocationPin className='ml-3 mr-1' />{' '}
-                  Poznan, Poland
+                  <span className="mx-1"> - </span> <span>Present</span>{' '}
+                  <MdLocationPin className="ml-3 mr-1" /> Poznan, Poland
                 </p>
-                <p className='mt-1'>
+                <p className="mt-1">
                   I have been working on architecting and implementing software
                   solutions for clients in the financial services sector. The
-                  list of clients I have worked with includes (but is not limited
-                  to) Nationale Nederlanden, one of the biggest insurance
-                  providers in the Netherlands. I have designed and implemented
-                  features that have improved the business processes of my
-                  clients. The technologies I have used so far include C#, SQL
-                  Server, Microsoft Azure, React JS, TypeScript and AzureDevOps.
-                  The following are a few of the features I have implemented:
-                  <ul className='list-disc ml-10 mt-1'>
-                    <li>Slowly changing dimension type 2 for a data warehouse system</li>
+                  list of clients I have worked with includes (but is not
+                  limited to) Nationale Nederlanden, one of the biggest
+                  insurance providers in the Netherlands. I have designed and
+                  implemented features that have improved the business processes
+                  of my clients. The technologies I have used so far include C#,
+                  SQL Server, Microsoft Azure, React JS, TypeScript and
+                  AzureDevOps. The following are a few of the features I have
+                  implemented:
+                  <ul className="list-disc ml-10 mt-1">
+                    <li>
+                      Slowly changing dimension type 2 for a data warehouse
+                      system
+                    </li>
                     <li>Cross environment and secure data import and export</li>
                     <li>Data row level security integrated with Azure RBAC</li>
                   </ul>
                 </p>
               </div>
-              <div className='mb-4 border-b-2 border-dashed border-gray-400 pb-4'>
-                <h3 className='text-lg font-medium'>Software Engineer</h3>
-                <p className='text-blue-500'>Dariel</p>
-                <p className='flex items-center'>
+              <div className="mb-4 border-b-2 border-dashed border-gray-400 pb-4">
+                <h3 className="text-lg font-medium">Software Engineer</h3>
+                <p className="text-blue-500">Dariel</p>
+                <p className="flex items-center">
                   <span>02/2021</span>
-                  <span className='mx-1'> - </span> <span>06/2023</span> <MdLocationPin className='ml-3 mr-1' />{' '}
-                  Johannesburg, South Africa
+                  <span className="mx-1"> - </span> <span>06/2023</span>{' '}
+                  <MdLocationPin className="ml-3 mr-1" /> Johannesburg, South
+                  Africa
                 </p>
-                <p className='mt-1'>
+                <p className="mt-1">
                   I have been working on architecting and implementing software
                   solutions for clients in the financial services sector. The
-                  list of clients I have worked with includes (but is not limited
-                  to) Nationale Nederlanden, one of the biggest insurance
-                  providers in the Netherlands. I have designed and implemented
-                  features that have improved the business processes of my
-                  clients. The technologies I have used so far include C#, SQL
-                  Server, Microsoft Azure, React JS, TypeScript and AzureDevOps.
-                  The following are a few of the features I have implemented:
-                  <ul className='list-disc ml-10 mt-1'>
-                    <li>Slowly changing dimension type 2 for a data warehouse system</li>
+                  list of clients I have worked with includes (but is not
+                  limited to) Nationale Nederlanden, one of the biggest
+                  insurance providers in the Netherlands. I have designed and
+                  implemented features that have improved the business processes
+                  of my clients. The technologies I have used so far include C#,
+                  SQL Server, Microsoft Azure, React JS, TypeScript and
+                  AzureDevOps. The following are a few of the features I have
+                  implemented:
+                  <ul className="list-disc ml-10 mt-1">
+                    <li>
+                      Slowly changing dimension type 2 for a data warehouse
+                      system
+                    </li>
                     <li>Cross environment and secure data import and export</li>
                     <li>Data row level security integrated with Azure RBAC</li>
                   </ul>
                 </p>
               </div>
               <div>
-                <h3 className='text-lg font-medium'>Software Engineer</h3>
-                <p className='text-blue-500'>Exigent Group</p>
-                <p className='flex items-center'>
+                <h3 className="text-lg font-medium">Software Engineer</h3>
+                <p className="text-blue-500">Exigent Group</p>
+                <p className="flex items-center">
                   <span>11/2020</span>
-                  <span className='mx-1'> - </span> <span>02/2021</span> <MdLocationPin className='ml-3 mr-1' />{' '}
-                  Cape Town, South Africa
+                  <span className="mx-1"> - </span> <span>02/2021</span>{' '}
+                  <MdLocationPin className="ml-3 mr-1" /> Cape Town, South
+                  Africa
                 </p>
-                <p className='mt-1'>
+                <p className="mt-1">
                   I have been working on architecting and implementing software
                   solutions for clients in the financial services sector. The
-                  list of clients I have worked with includes (but is not limited
-                  to) Nationale Nederlanden, one of the biggest insurance
-                  providers in the Netherlands. I have designed and implemented
-                  features that have improved the business processes of my
-                  clients. The technologies I have used so far include C#, SQL
-                  Server, Microsoft Azure, React JS, TypeScript and AzureDevOps.
-                  The following are a few of the features I have implemented:
-                  <ul className='list-disc ml-10 mt-1'>
-                    <li>Slowly changing dimension type 2 for a data warehouse system</li>
+                  list of clients I have worked with includes (but is not
+                  limited to) Nationale Nederlanden, one of the biggest
+                  insurance providers in the Netherlands. I have designed and
+                  implemented features that have improved the business processes
+                  of my clients. The technologies I have used so far include C#,
+                  SQL Server, Microsoft Azure, React JS, TypeScript and
+                  AzureDevOps. The following are a few of the features I have
+                  implemented:
+                  <ul className="list-disc ml-10 mt-1">
+                    <li>
+                      Slowly changing dimension type 2 for a data warehouse
+                      system
+                    </li>
                     <li>Cross environment and secure data import and export</li>
                     <li>Data row level security integrated with Azure RBAC</li>
                   </ul>
@@ -188,27 +211,27 @@ const Resume = () => {
             {/* References  */}
             <div>
               <div className="mb-2">
-                <h2 className="text-xl font-semibold uppercase">
-                  References
-                </h2>
+                <h2 className="text-xl font-semibold uppercase">References</h2>
                 <div className="bg-gray-800 w-full h-1 rounded-full"></div>
               </div>
               <div>
-                  <div>
-                      <p>Prajwal Chengappa (Senior Software Engineer)</p>
-                      <p>prajwal.chengappa@capgemini.com</p>
-                  </div>
-                  <div>
-                      <p>Banish Jha (Senior Software Engineer at Nationale Nederlanden)</p>
-                      <p>banish.jha@nn-group.com</p>
-                  </div>
-                  <div>
-                      <p>Rens Van Driel (Software Developer)</p>
-                      <p>rens.van.a.driel@sogeti.com</p>
-                  </div>
+                <div>
+                  <p>Prajwal Chengappa (Senior Software Engineer)</p>
+                  <p>prajwal.chengappa@capgemini.com</p>
+                </div>
+                <div>
+                  <p>
+                    Banish Jha (Senior Software Engineer at Nationale
+                    Nederlanden)
+                  </p>
+                  <p>banish.jha@nn-group.com</p>
+                </div>
+                <div>
+                  <p>Rens Van Driel (Software Developer)</p>
+                  <p>rens.van.a.driel@sogeti.com</p>
+                </div>
               </div>
             </div>
-
           </div>
 
           {/* Second Main Column */}
@@ -260,20 +283,30 @@ const Resume = () => {
               </div>
               <ul>
                 <li>
-                  <p className='text-lg'>Diploma in Application Development</p>
-                  <p className='text-blue-500'>Cape Peninsula University of Technology</p>
+                  <p className="text-lg">Diploma in Application Development</p>
+                  <p className="text-blue-500">
+                    <a href="https://www.cput.ac.za/" target="_blank">
+                      Cape Peninsula University of Technology
+                    </a>
+                  </p>
                   <p className="flex items-center mr-1">
                     <span>01/2018</span> <span className="mx-1">-</span>{' '}
-                    <span className='mr-3'>12/2020</span> <MdLocationPin className='mr-1' /> Cape Town, South
-                    Africa
+                    <span className="mr-3">12/2020</span>{' '}
+                    <MdLocationPin className="mr-1" /> Cape Town, South Africa
                   </p>
                 </li>
-                <li className='mt-2'>
-                  <p className='text-lg'>Chemical Engineering</p>
-                  <p className='text-blue-500'>Central Technical College</p>
+                <li className="mt-2">
+                  <p className="text-lg">Chemical Engineering</p>
+                  <p className="text-blue-500">
+                    <a
+                      href="https://www.ctc.edu.za/cape-town-campus/"
+                      target="_blank">
+                      Central Technical College
+                    </a>
+                  </p>
                   <p className="flex items-center mr-1">
-                    <span className='mr-3'>2017</span>
-                    <MdLocationPin className='mr-1' /> Cape Town, South Africa
+                    <span className="mr-3">2017</span>
+                    <MdLocationPin className="mr-1" /> Cape Town, South Africa
                   </p>
                 </li>
               </ul>
@@ -285,44 +318,44 @@ const Resume = () => {
                 <h2 className="text-xl font-semibold uppercase">Languages</h2>
                 <div className="bg-gray-800 w-full h-1 rounded-full"></div>
               </div>
-              <ul className='flex flex-col gap-y-2'>
-                <li className='flex justify-between'>
+              <ul className="flex flex-col gap-y-2">
+                <li className="flex justify-between">
                   <div>
-                    <p className='font-medium'>English</p>
-                    <p className='text-sm'>Advanced</p>
+                    <p className="font-medium">English</p>
+                    <p className="text-sm">Advanced</p>
                   </div>
-                  <div className='flex  gap-x-1'>
-                    <div className='h-8 w-2 bg-blue-500 rounded-full' />
-                    <div className='h-8 w-2 bg-blue-500 rounded-full' />
-                    <div className='h-8 w-2 bg-blue-500 rounded-full' />
-                    <div className='h-8 w-2 bg-blue-500 rounded-full' />
-                    <div className='h-8 w-2 bg-blue-500 rounded-full' />
+                  <div className="flex  gap-x-1">
+                    <div className="h-8 w-2 bg-blue-500 rounded-full" />
+                    <div className="h-8 w-2 bg-blue-500 rounded-full" />
+                    <div className="h-8 w-2 bg-blue-500 rounded-full" />
+                    <div className="h-8 w-2 bg-blue-500 rounded-full" />
+                    <div className="h-8 w-2 bg-blue-500 rounded-full" />
                   </div>
                 </li>
-                <li className='flex justify-between'>
+                <li className="flex justify-between">
                   <div>
-                    <p className='font-medium'>French</p>
-                    <p className='text-sm'>Advanced</p>
+                    <p className="font-medium">French</p>
+                    <p className="text-sm">Advanced</p>
                   </div>
-                  <div className='flex gap-x-1'>
-                    <div className='h-8 w-2 bg-blue-500 rounded-full' />
-                    <div className='h-8 w-2 bg-blue-500 rounded-full' />
-                    <div className='h-8 w-2 bg-blue-500 rounded-full' />
-                    <div className='h-8 w-2 bg-blue-500 rounded-full' />
-                    <div className='h-8 w-2 bg-blue-500 rounded-full' />
+                  <div className="flex gap-x-1">
+                    <div className="h-8 w-2 bg-blue-500 rounded-full" />
+                    <div className="h-8 w-2 bg-blue-500 rounded-full" />
+                    <div className="h-8 w-2 bg-blue-500 rounded-full" />
+                    <div className="h-8 w-2 bg-blue-500 rounded-full" />
+                    <div className="h-8 w-2 bg-blue-500 rounded-full" />
                   </div>
                 </li>
-                <li className='flex justify-between'>
+                <li className="flex justify-between">
                   <div>
-                    <p className='font-medium'>Polish</p>
-                    <p className='text-sm'>Beginner</p>
+                    <p className="font-medium">Polish</p>
+                    <p className="text-sm">Beginner</p>
                   </div>
-                  <div className='flex gap-x-1'>
-                    <div className='h-8 w-2 bg-blue-500 rounded-full' />
-                    <div className='h-8 w-2 bg-gray-300 rounded-full' />
-                    <div className='h-8 w-2 bg-gray-300 rounded-full' />
-                    <div className='h-8 w-2 bg-gray-300 rounded-full' />
-                    <div className='h-8 w-2 bg-gray-300 rounded-full' />
+                  <div className="flex gap-x-1">
+                    <div className="h-8 w-2 bg-blue-500 rounded-full" />
+                    <div className="h-8 w-2 bg-gray-300 rounded-full" />
+                    <div className="h-8 w-2 bg-gray-300 rounded-full" />
+                    <div className="h-8 w-2 bg-gray-300 rounded-full" />
+                    <div className="h-8 w-2 bg-gray-300 rounded-full" />
                   </div>
                 </li>
               </ul>
@@ -336,42 +369,50 @@ const Resume = () => {
                 </h2>
                 <div className="bg-gray-800 w-full h-1 rounded-full"></div>
               </div>
-              <ul>
-                <li className="border-b border-dashed border-gray-600 pb-2 mb-2">
-                  <p>
-                    <MdLocationPin />
+              <ul className="flex flex-col gap-y-5">
+                <li className="border-b border-dashed border-gray-600 pb-2">
+                  <p className="flex items-center gap-x-1  font-medium">
+                    <GiEarthAfricaEurope className="text-xl text-blue-500" />
                     Site
                   </p>
-                  <a href="https://chrisclaude.com" target="_blank">
+                  <a
+                    href="https://chrisclaude.com"
+                    target="_blank"
+                    className="ml-6">
                     chrisclaude.com
                   </a>
                 </li>
-                <li className="border-b border-dashed border-gray-600 pb-2 mb-2">
-                  <p>
-                    <MdLocationPin />
+                <li className="border-b border-dashed border-gray-600 pb-2">
+                  <p className="flex items-center gap-x-1  font-medium">
+                    <FaLinkedinIn className="text-xl text-blue-500" />
                     LinkedIn
                   </p>
                   <a
+                    className="ml-6"
                     href="https://www.linkedin.com/in/claude-de-tchambila-a720ba143/"
                     target="_blank">
                     Claude De-Tchambila
                   </a>
                 </li>
-                <li className="border-b border-dashed border-gray-600 pb-2 mb-2">
-                  <p>
-                    <MdLocationPin />
+                <li className="border-b border-dashed border-gray-600 pb-2">
+                  <p className="flex items-center gap-x-1  font-medium">
+                    <FaGithub className="text-xl text-blue-500" />
                     GitHub
                   </p>
-                  <a href="https://github.com/ChrisClaude" target="_blank">
+                  <a
+                    className="ml-6"
+                    href="https://github.com/ChrisClaude"
+                    target="_blank">
                     Chris Claude
                   </a>
                 </li>
-                <li className="border-b border-dashed border-gray-600 pb-2 mb-2">
-                  <p>
-                    <MdLocationPin />
+                <li className="border-b border-dashed border-gray-600 pb-2">
+                  <p className="flex items-center gap-x-1  font-medium">
+                    <FaStackOverflow className="text-xl text-blue-500" />
                     Stack Overflow
                   </p>
                   <a
+                    className="ml-6"
                     href="https://stackoverflow.com/users/10338096/chris-claude"
                     target="_blank">
                     Chris Claude
