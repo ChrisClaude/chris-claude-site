@@ -195,8 +195,8 @@ const Resume = () => {
                   </p>
                   <div className="mt-1">
                     <p>
-                      During my time here I have worked on multiple projects and
-                      clients in the financial service sector. My clients
+                      I have worked with a number of clients on multiple
+                      projects in the financial service sector. My clients
                       included <b>Sasfin Bank</b> and <b>Safrican Insurance</b>,
                       which is now part of <b>Sanlam</b>, the largest insurance
                       provider in South Africa. The following are a few of the
@@ -205,17 +205,17 @@ const Resume = () => {
                     <ul className="list-disc ml-10 mt-1">
                       <li>
                         A Forex exchange trading platform. The technologies used
-                        were C#, TypeScript, ASP.NET, Angular, AzureDevOps,
+                        were C#, TypeScript, ASP.NET Core, Angular, AzureDevOps,
                         RabbitMQ
                       </li>
                       <li>
                         Insurance sales system. The technologies used were C#,
-                        TypeScript, ASP.NET, Angular, React, AzureDevOps
+                        TypeScript, ASP.NET Core, Angular, React, AzureDevOps
                       </li>
                       <li>
-                        Weighbridge Management Software system in the logistic
-                        sector The technologies used were C#, TypeScript,
-                        ASP.NET, Angular, Jira, Jenkins, RabbitMQ
+                        A weighbridge management software system in the logistic
+                        industry. The technologies used were C#, TypeScript,
+                        ASP.NET Core, Angular, Jira, Jenkins, RabbitMQ
                       </li>
                     </ul>
                   </div>
