@@ -59,6 +59,10 @@ const Page = () => {
                   visible={true}
                 />
               </div>
+            ) : paginatedArticles.articles.length == 0 ? (
+              <p className="pt-10 px-16 text-lg text-center">
+                New articles will appear here as they are published.
+              </p>
             ) : (
               <>
                 {paginatedArticles.articles.map((article, index) => (

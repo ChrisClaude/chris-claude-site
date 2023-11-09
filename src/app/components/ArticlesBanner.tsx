@@ -1,11 +1,10 @@
-"use client";
+'use client';
 import { ArticleContent } from '@/AppTypes';
 import { ROOT_URL, S3_HOME_MAX_KEYS } from '@/config';
 import { useEffect, useState } from 'react';
 import ArticlesBannerItem from './ArticlesBannerItem';
 
 const ArticlesBanner = () => {
-
   const [articles, setArticles] = useState<ArticleContent[]>([]);
 
   useEffect(() => {
@@ -30,11 +29,17 @@ const ArticlesBanner = () => {
           The <span className="text-blue-500">Dev</span> Weekly
         </h1>
       </div>
-      <div className="grid grid-cols-1 max-w-screen-xl mx-auto gap-y-14 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {articles.map((article, index) => (
-          <ArticlesBannerItem article={article} key={index} />
-        ))}
-      </div>
+      {articles.length == 0 ? (
+        <p className="pt-10 px-16 mx-auto text-lg text-center">
+          New articles will appear here as they are published.
+        </p>
+      ) : (
+        <div className="grid grid-cols-1 max-w-screen-xl mx-auto gap-y-14 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {articles.map((article, index) => (
+            <ArticlesBannerItem article={article} key={index} />
+          ))}
+        </div>
+      )}
     </section>
   );
 };
