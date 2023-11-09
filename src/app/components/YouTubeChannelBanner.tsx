@@ -20,14 +20,15 @@ const YouTubeChannelBanner = ({ compact = false }: { compact?: boolean }) => (
     </div>
     {!compact && (
       <div className="flex-1 flex justify-center items-center px-2 pb-2 md:p-0">
-        <iframe
+        {/* <iframe
           width="560"
           height="315"
           src="https://www.youtube.com/embed/e-4FzpecBns?si=IEPjBqtDlFDb-I82"
           title="YouTube video player"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen></iframe>
+          allowFullScreen></iframe> */}
+          Video Placeholder
       </div>
     )}
   </section>
