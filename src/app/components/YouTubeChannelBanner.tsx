@@ -2,7 +2,10 @@ const YouTubeChannelBanner = ({ compact = false }: { compact?: boolean }) => (
   <section className="max-w-screen-xl mx-auto bg-blue-purple-gradient mb-36 rounded-lg flex flex-col md:px-0 lg:flex-row">
     <div className="flex flex-1 flex-col gap-y-6 p-6 text-left">
       <aside className="code">Community</aside>
-      <div className={`flex flex-col flex-1 justify-center gap-6 lg:pb-12 ${!compact? 'lg:px-8' : ''}`}>
+      <div
+        className={`flex flex-col flex-1 justify-center gap-6 lg:pb-12 ${
+          !compact ? 'lg:px-8' : ''
+        }`}>
         <h1 className="text-5xl font-semibold text-gray-100 md:text-6xl">
           Join Us On Youtube
         </h1>
@@ -20,15 +23,14 @@ const YouTubeChannelBanner = ({ compact = false }: { compact?: boolean }) => (
     </div>
     {!compact && (
       <div className="flex-1 flex justify-center items-center px-2 pb-2 md:p-0">
-        {/* <iframe
+        <iframe
           width="560"
           height="315"
-          src="https://www.youtube.com/embed/e-4FzpecBns?si=IEPjBqtDlFDb-I82"
+          src="https://www.youtube.com/embed/--vuO4ZMTz0?si=e-kDecTmaVSTL_Ak"
           title="YouTube video player"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen></iframe> */}
-          Video Placeholder
+          allowFullScreen></iframe>
       </div>
     )}
   </section>
