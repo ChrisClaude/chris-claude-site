@@ -7,11 +7,14 @@ export type Article = {
   description: string
 }
 
+export type AppState = {
+  isMobileNavOpen: boolean;
+  isResumePage: boolean;
+};
+
 export type UIContextType = {
-  setUIState: Dispatch<SetStateAction<{
-      isMobileNavOpen: boolean;
-  }>> | undefined;
-  uiState: {isMobileNavOpen: boolean;}
+  setUIState: Dispatch<SetStateAction<AppState>> | undefined;
+  uiState: AppState
 };
 
 export type ArticleContent = {

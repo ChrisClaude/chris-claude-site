@@ -1,5 +1,8 @@
+'use client';
 import { EMAIL_ADDRESS, PHONE_NUMBER } from '@/config';
+import UIContext from '@/hooks/UIContext';
 import Image from 'next/image';
+import { useContext, useEffect } from 'react';
 import {
   FaGithub,
   FaLink,
@@ -11,6 +14,7 @@ import { GiEarthAfricaEurope } from 'react-icons/gi';
 import { MdLocationPin, MdOutlineAlternateEmail } from 'react-icons/md';
 
 const Resume = () => {
+  const { uiState, setUIState } = useContext(UIContext);
   const technologies = [
     'C#',
     'ASP.NET',
@@ -70,9 +74,15 @@ const Resume = () => {
     },
   ];
 
+  useEffect(() => {
+    setUIState?.({ ...uiState, isResumePage: true });
+  }, []);
+
   return (
-    <div className="bg-white w-full text-gray-800 p-24 overflow-x-auto xl:flex xl:justify-center">
-      <div className="min-w-md max-w-2xl flex flex-col justify-center">
+    <div className="bg-white text-gray-800 py-24 px-52 overflow-x-auto xl:flex xl:justify-center">
+      <div
+        className="flex flex-col justify-center"
+        style={{ width: '1200px' }}>
         <div>
           {/* Header */}
           <div className="flex justify-between mb-10">

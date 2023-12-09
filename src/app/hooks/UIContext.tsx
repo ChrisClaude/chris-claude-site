@@ -2,7 +2,7 @@
 import { UIContextType } from '@/AppTypes';
 import { createContext, useState } from 'react';
 
-const initialState = { isMobileNavOpen: false };
+const initialState = { isMobileNavOpen: false, isResumePage: false };
 const UIContext = createContext<UIContextType>({ uiState: initialState, setUIState: undefined });
 
 export const UIContextProvider = ({
