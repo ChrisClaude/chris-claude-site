@@ -10,7 +10,7 @@ import Article from '@/components/Article';
 import { ROOT_URL } from '@/config';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import * as Loader from 'react-loader-spinner';
+import { MutatingDots } from 'react-loader-spinner';
 
 const Page = () => {
   const [paginatedArticles, setPagedArticles] =
@@ -47,7 +47,7 @@ const Page = () => {
           <section className="flex flex-col gap-y-10 lg:col-span-2 lg:pr-5 lg:border-r-2 lg:border-dashed lg:border-r-slate-800">
             {paginatedArticles === null ? (
               <div className="h-2/4 flex items-center justify-center">
-                <Loader.MutatingDots
+                <MutatingDots
                   height="100"
                   width="100"
                   color="#3245ff"
