@@ -147,7 +147,7 @@ const Resume = () => {
                   problems. I bring a passion for analyzing and interpreting
                   complex data to drive business decisions and improve
                   processes. With over three years of experience in the
-                  automotive industry as a Simulation Engineer/Analyst, I've
+                  automotive industry as a Simulation Engineer/Analyst, I&apos;ve
                   honed my skills in data management, analysis, and
                   visualization. At my current role, I utilize Python, T-SQL,
                   and Excel to provide insights that support strategic
