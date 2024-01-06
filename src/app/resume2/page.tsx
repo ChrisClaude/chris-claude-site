@@ -79,6 +79,12 @@ const Resume = () => {
       email: '+27 83 859 6609',
       company: 'P3 People',
     },
+    {
+      fullName: 'Yumna',
+      role: 'HR Agent',
+      email: '+27 65 537 7144',
+      company: 'Trauma Center for Survivors of Violence and Torture',
+    },
   ];
 
   useEffect(() => {
@@ -245,7 +251,7 @@ const Resume = () => {
                   </div>
                 </div>
 
-                <div className="mb-4 border-b-2 border-dashed border-gray-400 pb-4">
+                <div className="mb-4 border-b-0 border-dashed border-gray-400 pb-4">
                   <h3 className="text-lg font-medium">Consulting Agent</h3>
                   <p className="text-blue-500">Clear Review</p>
                   <p className="flex items-center">
