@@ -26,7 +26,7 @@ const Resume = () => {
     city: 'Cape Town',
     country: 'South Africa',
     email: 'julienkoukodila2@gmail.com',
-    website: 'https://chrisclaude.com',
+    website: 'https://www.linkedin.com/in/julien-koukodila-469838220/',
   };
   const technologies = [
     'C#',
@@ -73,6 +73,12 @@ const Resume = () => {
       email: 'claude-christ.de-tchambila@capgemini.com',
       company: 'Capgemini',
     },
+    {
+      fullName: 'Belanganaye',
+      role: 'Senior Call Center Agent',
+      email: '+27 83 859 6609',
+      company: 'P3 People',
+    },
   ];
 
   useEffect(() => {
@@ -108,11 +114,11 @@ const Resume = () => {
                   {person.email}
                 </a>
                 <a
-                  href="https://chrisclaude.com"
+                  href={person.website}
                   target="_blank"
                   className="flex items-center">
                   <FaLink className="mr-1 text-blue-500" />
-                  <span>chrisclaude.com</span>
+                  <span>My LinkedIn</span>
                 </a>
                 <p className="flex items-center">
                   <MdLocationPin className="mr-1 text-blue-500" />
@@ -147,8 +153,8 @@ const Resume = () => {
                   problems. I bring a passion for analyzing and interpreting
                   complex data to drive business decisions and improve
                   processes. With over three years of experience in the
-                  automotive industry as a Simulation Engineer/Analyst, I&apos;ve
-                  honed my skills in data management, analysis, and
+                  automotive industry as a Simulation Engineer/Analyst,
+                  I&apos;ve honed my skills in data management, analysis, and
                   visualization. At my current role, I utilize Python, T-SQL,
                   and Excel to provide insights that support strategic
                   initiatives and ensure data accuracy and reliability.
@@ -201,12 +207,50 @@ const Resume = () => {
                     </ul>
                   </div>
                 </div>
+
+                <div className="mb-4 border-b-2 border-dashed border-gray-400 pb-4">
+                  <h3 className="text-lg font-medium">Call Center Agent</h3>
+                  <p className="text-blue-500">P3 People</p>
+                  <p className="flex items-center">
+                    <span>10/2022</span>
+                    <span className="mx-1"> - </span> <span>01/2023</span>{' '}
+                    <MdLocationPin className="ml-3 mr-1" /> Cape Town, South
+                    Africa
+                  </p>
+                  <div className="mt-1">
+                    <p>
+                      I have been working on architecting and implementing
+                      software solutions for clients in the financial services
+                      sector. The list of clients I have worked with includes
+                      (but is not limited to) <b>Nationale Nederlanden</b>, one
+                      of the biggest insurance providers in the Netherlands. I
+                      have designed and implemented features that have improved
+                      the business processes of my clients. The technologies I
+                      have used so far include C#, SQL Server, Microsoft Azure,
+                      React JS, TypeScript and AzureDevOps. The following are a
+                      few of the features I have worked on:
+                    </p>
+                    <ul className="list-disc ml-10 mt-1">
+                      <li>
+                        Slowly changing dimension type 2 for a data warehouse
+                        system
+                      </li>
+                      <li>
+                        Cross environment and secure data import and export
+                      </li>
+                      <li>
+                        Data row level security integrated with Azure RBAC
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
                 <div className="mb-4 border-b-2 border-dashed border-gray-400 pb-4">
                   <h3 className="text-lg font-medium">Consulting Agent</h3>
                   <p className="text-blue-500">Clear Review</p>
                   <p className="flex items-center">
                     <span>01/2022</span>
-                    <span className="mx-1"> - </span> <span>01/2023</span>{' '}
+                    <span className="mx-1"> - </span> <span>09/2022</span>{' '}
                     <MdLocationPin className="ml-3 mr-1" /> Cape Town, South
                     Africa
                   </p>
@@ -339,10 +383,8 @@ const Resume = () => {
                       </a>
                     </p>
                     <p className="flex items-center mr-1">
-                      <span>2017</span> <span className="mx-1">-</span>{' '}
-                      <span className="mr-3">12/2023</span>{' '}
-                      <MdLocationPin className="mr-1" /> Pointe-Noire,
-                      Congo-Brazzaville
+                      <span>2017</span> <MdLocationPin className="mr-1" />{' '}
+                      Pointe-Noire, Congo-Brazzaville
                     </p>
                   </li>
                 </ul>
