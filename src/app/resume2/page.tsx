@@ -29,25 +29,9 @@ const Resume = () => {
     website: 'https://www.linkedin.com/in/julien-koukodila-469838220/',
   };
   const technologies = [
-    'C#',
-    'ASP.NET',
-    'SQL Server',
-    'JavaScript',
-    'React JS',
-    'Angular',
-    'Python',
-    'TensorFlow',
-    'Java',
-    'GoLang',
-    'Swift',
-    'Docker',
-    'Kubernetes',
-    'Apache Kafka',
-    'RabbitMQ',
-    'Microsoft Azure',
-    'Azure DevOps',
-    'AWS',
-    'Jenkins',
+    'Microsoft Excel',
+    'Microsoft Word',
+    'Microsoft Office',
   ];
 
   const skills = [
@@ -84,6 +68,12 @@ const Resume = () => {
       role: 'HR Agent',
       email: '+27 65 537 7144',
       company: 'Trauma Center for Survivors of Violence and Torture',
+    },
+    {
+      fullName: 'Lungi Gxagxisa',
+      role: 'Sales Agent',
+      email: '+27 079 223 5053',
+      company: 'Vodacom',
     },
   ];
 
@@ -188,29 +178,19 @@ const Resume = () => {
                   </p>
                   <div className="mt-1">
                     <p>
-                      I have worked with a number of clients on multiple
-                      projects in the financial service sector. My clients
-                      included <b>Sasfin Bank</b> and <b>Safrican Insurance</b>,
-                      which is now part of <b>Sanlam</b>, the largest insurance
-                      provider in South Africa. The following are a few of the
-                      projects I have contributed to:
+                      I have undertaken diverse responsibilities as a
+                      receptionist, project secretary, and HR assistant, all of
+                      which contribute significantly to the smooth functioning
+                      of business operations. Notably, in the realm of Front
+                      Desk Management, I have excelled in delivering a
+                      professional and welcoming experience to visitors. This
+                      encompasses adeptly handling incoming phone calls,
+                      directing them to the appropriate contacts, and capturing
+                      messages when required. Additionally, I have been
+                      proficient in providing information to guests, addressing
+                      queries, and collaborating with various departments to
+                      ensure timely service:
                     </p>
-                    <ul className="list-disc ml-10 mt-1">
-                      <li>
-                        A Forex exchange trading platform. The technologies used
-                        were C#, TypeScript, ASP.NET Core, Angular, AzureDevOps,
-                        RabbitMQ
-                      </li>
-                      <li>
-                        Insurance sales system. The technologies used were C#,
-                        TypeScript, ASP.NET Core, Angular, React, AzureDevOps
-                      </li>
-                      <li>
-                        A weighbridge management software system in the logistic
-                        industry. The technologies used were C#, TypeScript,
-                        ASP.NET Core, Angular, Jira, Jenkins, RabbitMQ
-                      </li>
-                    </ul>
                   </div>
                 </div>
 
@@ -224,28 +204,30 @@ const Resume = () => {
                     Africa
                   </p>
                   <div className="mt-1">
-                    <p>
-                      I have been working on architecting and implementing
-                      software solutions for clients in the financial services
-                      sector. The list of clients I have worked with includes
-                      (but is not limited to) <b>Nationale Nederlanden</b>, one
-                      of the biggest insurance providers in the Netherlands. I
-                      have designed and implemented features that have improved
-                      the business processes of my clients. The technologies I
-                      have used so far include C#, SQL Server, Microsoft Azure,
-                      React JS, TypeScript and AzureDevOps. The following are a
-                      few of the features I have worked on:
-                    </p>
-                    <ul className="list-disc ml-10 mt-1">
+                    <p>My duties during this time were as follows:</p>
+                    <ul className="list-disc pl-5">
                       <li>
-                        Slowly changing dimension type 2 for a data warehouse
-                        system
+                        Provide information on various auto insurance policies,
+                        coverage alternatives, and conditions for company such
+                        as CARTRAC, FIRST FOR WOMEN, KING PRICE.
                       </li>
                       <li>
-                        Cross environment and secure data import and export
+                        Explain policy details to customers, like as
+                        deductibles, premiums, and exclusions
                       </li>
                       <li>
-                        Data row level security integrated with Azure RBAC
+                        Help consumers buy new vehicle insurance plans or renew
+                        current ones.
+                      </li>
+                      <li>
+                        Explain the renewal procedure, including coverage
+                        modifications and premium adjustments.
+                      </li>
+                      <li>
+                        Handle requests for insurance adjustments, such as
+                        changing personal information, adding or removing
+                        drivers, or altering coverage. Ensure that any policy
+                        changes are appropriately reflected in the system.
                       </li>
                     </ul>
                   </div>
@@ -261,28 +243,26 @@ const Resume = () => {
                     Africa
                   </p>
                   <div className="mt-1">
-                    <p>
-                      I have been working on architecting and implementing
-                      software solutions for clients in the financial services
-                      sector. The list of clients I have worked with includes
-                      (but is not limited to) <b>Nationale Nederlanden</b>, one
-                      of the biggest insurance providers in the Netherlands. I
-                      have designed and implemented features that have improved
-                      the business processes of my clients. The technologies I
-                      have used so far include C#, SQL Server, Microsoft Azure,
-                      React JS, TypeScript and AzureDevOps. The following are a
-                      few of the features I have worked on:
-                    </p>
-                    <ul className="list-disc ml-10 mt-1">
+                    <p>My duties during this time were as follows:</p>
+                    <ul className="list-disc pl-5">
                       <li>
-                        Slowly changing dimension type 2 for a data warehouse
-                        system
+                        Use mediation strategies to direct the talk and create a
+                        positive and cooperative outcome.
                       </li>
                       <li>
-                        Cross environment and secure data import and export
+                        Determine the root reasons of consumer complaints or
+                        concerns in order to discover underlying issues.
                       </li>
                       <li>
-                        Data row level security integrated with Azure RBAC
+                        Negotiate fair and reasonable solutions for both
+                        customers and the organisation. Apply company policies
+                        and processes correctly, ensuring that solutions are
+                        consistent with established criteria.
+                      </li>
+                      <li>
+                        Clarify policy details with the consumer and provide
+                        insight into the reasoning behind particular decisions,
+                        such as clearing his name from a department review issue
                       </li>
                     </ul>
                   </div>
