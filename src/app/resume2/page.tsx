@@ -22,7 +22,7 @@ const Resume = () => {
     firstName: 'Julien',
     surname: 'Koukodila',
     telephone: '+27 682 999 874',
-    title: 'Business Analyst',
+    title: 'Call Center Agent',
     city: 'Cape Town',
     country: 'South Africa',
     email: 'julienkoukodila2@gmail.com',
