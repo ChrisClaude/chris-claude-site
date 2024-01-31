@@ -15,7 +15,7 @@ export default function Home() {
           <Image
             width={300}
             height={300}
-            src="/about_me_2.png"
+            src="/about_me.png"
             alt="Chris Claude"
             className="rounded-full w-52 h-52 lg:w-64 lg:h-64"
           />
