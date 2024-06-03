@@ -3,6 +3,7 @@ import UIContext from '@/hooks/UIContext';
 import Image from 'next/image';
 import { useContext, useEffect } from 'react';
 import { FaLink, FaLinkedinIn, FaPhone } from 'react-icons/fa';
+import { GiEarthAfricaEurope } from 'react-icons/gi';
 import { MdLocationPin, MdOutlineAlternateEmail } from 'react-icons/md';
 
 type Person = {
@@ -22,7 +23,7 @@ const Resume = () => {
     firstName: 'Julien',
     surname: 'Koukodila',
     telephone: '+27 682 999 874',
-    title: 'Human Resources Manager',
+    title: 'Expert Call Center Agent',
     city: 'Cape Town',
     country: 'South Africa',
     email: 'julienkoukodila2@gmail.com',
@@ -144,16 +145,16 @@ const Resume = () => {
                   <div className="bg-gray-800 w-full h-1 rounded-full"></div>
                 </div>
                 <p>
-                  I thrive in data-driven environment and enjoy collaborating
+                  I thrive in a data-driven environment and enjoy collaborating
                   with cross-functional teams to solve complex business
                   problems. I bring a passion for analyzing and interpreting
                   complex data to drive business decisions and improve
-                  processes. With over three years of experience in the
-                  mental health industry as a Simulation Engineer/Analyst,
-                  I&apos;ve honed my skills in data management, analysis, and
-                  visualization. At my current role, I utilize Python, T-SQL,
-                  and Excel to provide insights that support strategic
-                  initiatives and ensure data accuracy and reliability.
+                  processes. With experience in the mental health industry as a
+                  human resource agent, I&apos;ve honed my skills in data
+                  management, business analysis, and visualization. At my
+                  current role, I utilize Python, T-SQL, and Excel to provide
+                  insights that support strategic initiatives and ensure data
+                  accuracy and reliability.
                 </p>
               </div>
 
@@ -166,7 +167,7 @@ const Resume = () => {
                   <div className="bg-gray-800 w-full h-1 rounded-full"></div>
                 </div>
                 <div className="mb-4 border-b-2 border-dashed border-gray-400 pb-4">
-                  <h3 className="text-lg font-medium">HR Agent</h3>
+                  <h3 className="text-lg font-medium">Human Resource Agent</h3>
                   <p className="text-blue-500">
                     Trauma Center for Survivors of Violence and Torture
                   </p>
@@ -431,6 +432,18 @@ const Resume = () => {
                       href="https://www.linkedin.com/in/julien-koukodila-469838220/"
                       target="_blank">
                       Julien Koukodila
+                    </a>
+                  </li>
+                  <li className="border-b border-dashed border-gray-600 pb-2">
+                    <p className="flex items-center gap-x-1  font-medium">
+                      <GiEarthAfricaEurope className="text-xl text-blue-500" />
+                      Site
+                    </p>
+                    <a
+                      href="https://jujuword.odoo.com"
+                      target="_blank"
+                      className="ml-6">
+                      jujuword.odoo.com
                     </a>
                   </li>
                 </ul>
