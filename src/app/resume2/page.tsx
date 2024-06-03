@@ -151,7 +151,7 @@ const Resume = () => {
                   processes. With over three years of experience in the
                   mental health industry as a Simulation Engineer/Analyst,
                   I&apos;ve honed my skills in data management, analysis, and
-                  visualization. At my current role, I utilize Python, T-SQL,
+                  visualization. At my current role, I utilize Python, JavaScript,
                   and Excel to provide insights that support strategic
                   initiatives and ensure data accuracy and reliability.
                 </p>
