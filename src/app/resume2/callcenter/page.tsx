@@ -22,10 +22,10 @@ const Resume = () => {
   const person: Person = {
     firstName: 'Julien',
     surname: 'Koukodila',
-    telephone: '+27 682 999 874',
+    telephone: '+971 559 186 938',
     title: 'Expert Call Center Agent',
-    city: 'Cape Town',
-    country: 'South Africa',
+    city: 'Damac Towers by Paramount, Dubai',
+    country: 'United Arab Emirates',
     email: 'julienkoukodila2@gmail.com',
     website: 'https://www.linkedin.com/in/julien-koukodila-469838220/',
   };
