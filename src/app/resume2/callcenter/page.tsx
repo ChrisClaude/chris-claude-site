@@ -152,9 +152,9 @@ const Resume = () => {
                   processes. With experience in the mental health industry as a
                   human resource agent, I&apos;ve honed my skills in data
                   management, business analysis, and visualization. At my
-                  current role, I utilize Python, JavaScript, and Excel to provide
-                  insights that support strategic initiatives and ensure data
-                  accuracy and reliability.
+                  current role, I utilize Python, JavaScript, and Excel to
+                  provide insights that support strategic initiatives and ensure
+                  data accuracy and reliability.
                 </p>
               </div>
 
