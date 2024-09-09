@@ -22,8 +22,8 @@ const Resume = () => {
   const person: Person = {
     firstName: 'Julien',
     surname: 'Koukodila',
-    telephone: '+971 559 186 938',
-    title: 'Expert Call Center Agent',
+    telephone: '+27 06 829 99874',
+    title: 'French Customer Service Agent',
     city: 'Damac Towers by Paramount, Dubai',
     country: 'United Arab Emirates',
     email: 'julienkoukodila2@gmail.com',
