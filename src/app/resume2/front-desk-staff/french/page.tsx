@@ -21,7 +21,7 @@ const Resume = () => {
   const person: Person = {
     firstName: 'Julien',
     surname: 'Koukodila',
-    title: 'Human Resources Agent',
+    title: 'Front Desk Staff',
     telephone: '+212 07 10 61 95 30',
     city: 'Diyar Tanja, 90000',
     country: 'Morocco',
