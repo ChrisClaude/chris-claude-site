@@ -21,10 +21,10 @@ const Resume = () => {
   const person: Person = {
     firstName: 'Julien',
     surname: 'Koukodila',
-    title: 'Human Resources Agent',
+    title: 'Ressource Humaine Assistante',
     telephone: '+212 07 10 61 95 30',
     city: 'Diyar Tanja, 90000',
-    country: 'Morocco',
+    country: 'Maroc',
     email: 'julienkoukodila2@gmail.com',
     website: 'https://www.linkedin.com/in/julien-koukodila-469838220/',
   };
@@ -35,14 +35,14 @@ const Resume = () => {
   ];
 
   const skills = [
-    'Problem solving',
-    'Assertiveness',
-    'Creativity',
-    'Critical thinking',
-    'Teamwork',
-    'Team management',
-    'Presentation / Public speaking',
-    'Risk management',
+    'Résolution de problèmes',
+    'Assertivité',
+    'Créativité',
+    'Pensée critique',
+    'Travail d\'équipe',
+    'Gestion d\'équipe',
+    'Communication / Parler en public',
+    'Gestion des risques',
   ];
 
   const references: {
@@ -53,25 +53,25 @@ const Resume = () => {
   }[] = [
     {
       fullName: 'Claude De-Tchambila',
-      role: 'Senior Software Engineer',
+      role: 'Ingénieur logiciel senior',
       email: 'claude-christ.de-tchambila@capgemini.com',
       company: 'Capgemini',
     },
     {
       fullName: 'Belanganaye',
-      role: 'Senior Call Center Agent',
+      role: 'Agent de centre d\'appel senior',
       email: '+27 83 859 6609',
       company: 'P3 People',
     },
     {
       fullName: 'Yumna',
-      role: 'Human Resource Agent',
+      role: 'Agent RH',
       email: '+27 65 537 7144',
-      company: 'Trauma Center for Survivors of Violence and Torture',
+      company: 'Centre de traumatologie pour les victimes de violence et de torture',
     },
     {
       fullName: 'Lungi Gxagxisa',
-      role: 'Sales Agent',
+      role: 'Agent de vente',
       email: '+27 079 223 5053',
       company: 'Vodacom',
     },
@@ -144,17 +144,18 @@ const Resume = () => {
                   <div className="bg-gray-800 w-full h-1 rounded-full"></div>
                 </div>
                 <p>
-                  I thrive in data-driven environment and enjoy collaborating
-                  with cross-functional teams to solve complex business
-                  problems. I bring a passion for analyzing and interpreting
-                  complex data to drive business decisions and improve
-                  processes. With over three years of experience in the mental
-                  health industry as a Simulation Engineer/Analyst, I&apos;ve
-                  honed my skills in data management, analysis, and
-                  visualization. At my current role, I utilize Python,
-                  JavaScript, and Excel to provide insights that support
-                  strategic initiatives and ensure data accuracy and
-                  reliability.
+                  Je progresse dans un environnement axé sur les données et j&apos;aime
+                  collaborer avec des équipes interfonctionnelles pour résoudre des
+                  problèmes complexes. Je porte une passion pour l&apos;analyse et
+                  l&apos;interprétation de données complexes pour prendre des
+                  décisions commerciales et améliorer les processus. Avec plus de trois
+                  ans d&apos;expérience dans l&apos;industrie de la santé mentale
+                  en tant qu&apos;ingénieur/analyste de simulation, j&apos;ai
+                  perfectionné mes compétences en gestion de données, en analyse
+                  et en visualisation. Dans mon rôle actuel, je utilise Python,
+                  JavaScript et Excel pour fournir des insights qui soutiennent les
+                  initiatives stratégiques et garantir la précision et la
+                  fiabilité des données.
                 </p>
               </div>
 
@@ -162,80 +163,111 @@ const Resume = () => {
               <div className="mb-6">
                 <div className="mb-3">
                   <h2 className="text-xl font-semibold uppercase">
-                    Corporate Experience
+                    Expérience professionnelle
                   </h2>
                   <div className="bg-gray-800 w-full h-1 rounded-full"></div>
                 </div>
                 <div className="mb-4 border-b-2 border-dashed border-gray-400 pb-4">
-                  <h3 className="text-lg font-medium">HR Agent</h3>
+                  <h3 className="text-lg font-medium">Agent de ressources humaines</h3>
                   <p className="text-blue-500">
                     Trauma Center for Survivors of Violence and Torture
                   </p>
                   <p className="flex items-center">
-                    <span>02/2023</span>
-                    <span className="mx-1"> - </span> <span>11/2023</span>{' '}
-                    <MdLocationPin className="ml-3 mr-1" /> Cape Town, South
-                    Africa
+                    <span>10/2023</span>
+                    <span className="mx-1"> - </span> <span>Present</span>{' '}
+                    <MdLocationPin className="ml-3 mr-1" /> Cape Town, Afrique du Sud
                   </p>
                   <div className="mt-1">
                     <p>
-                      I have undertaken diverse responsibilities as a
-                      receptionist, project secretary, and HR assistant, all of
-                      which contribute significantly to the smooth functioning
-                      of business operations. Notably, in the realm of Front
-                      Desk Management, I have excelled in delivering a
-                      professional and welcoming experience to visitors. This
-                      encompasses adeptly handling incoming phone calls,
-                      directing them to the appropriate contacts, and capturing
-                      messages when required. Additionally, I have been
-                      proficient in providing information to guests, addressing
-                      queries, and collaborating with various departments to
-                      ensure timely service:
+                      J&apos;ai assumé divers responsabilités en tant que
+                      réceptionniste, secrétaire de projet et assistant RH, toutes
+                      ces responsabilités contribuent de manière significative
+                      au fonctionnement opérationnel des affaires. Notamment,
+                      dans le domaine de la gestion du poste de réception, j&apos;ai
+                      excellé dans la livraison d&apos;une expérience professionnelle
+                      et accueillante pour les visiteurs. Cela implique de manière
+                      adéquate la gestion des appels entrants,
+                      en dirigeant les appels vers les contacts appropriés et en
+                      en capturant les messages lorsqu&apos;ils sont nécessaires.
+                      De plus, j&apos;ai été
+                      compétent en fournissant des informations aux invités, en
+                      répondant aux questions et en collaborant avec divers
+                      services pour assurer un service ponctuel.
                     </p>
                   </div>
                 </div>
 
                 <div className="mb-4 border-b-2 border-dashed border-gray-400 pb-4">
-                  <h3 className="text-lg font-medium">Call Center Agent</h3>
+                  <h3 className="text-lg font-medium">
+                    Assistant de support client
+                  </h3>
+                  <p className="text-blue-500">Exness</p>
+                  <p className="flex items-center">
+                    <span>02/2023</span>
+                    <span className="mx-1"> - </span> <span>09/2023</span>{' '}
+                    <MdLocationPin className="ml-3 mr-1" /> Cape Town, Afrique du Sud
+                  </p>
+                  <div className="mt-1">
+                    <p>
+                      Activement soutenu les clients existants et potentiels sur
+                      plusieurs canaux de communication, y compris par e-mail,
+                      chat et téléphone, en fournissant une assistance rapide,
+                      précise et chaleureuse pour améliorer la satisfaction du
+                      client. Résolu les questions en fournissant des informations
+                      détaillées sur les produits, en guidant les clients à
+                      travers les étapes de dépannage et en résolvant les
+                      problèmes efficacement. Maintenu des registres
+                      scrupuleux des interactions avec les clients, suivi de la
+                      progression de la résolution des problèmes et assuré un
+                      suivi ponctuel pour maintenir des normes de service
+                      élevées. Démontré des compétences en communication
+                      efficaces et une attention aux détails, en créant la confiance
+                      et en établissant des relations durables avec les clients.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="mb-4 border-b-2 border-dashed border-gray-400 pb-4">
+                  <h3 className="text-lg font-medium">Agent de service client</h3>
                   <p className="text-blue-500">P3 People</p>
                   <p className="flex items-center">
                     <span>10/2022</span>
                     <span className="mx-1"> - </span> <span>01/2023</span>{' '}
-                    <MdLocationPin className="ml-3 mr-1" /> Cape Town, South
-                    Africa
+                    <MdLocationPin className="ml-3 mr-1" /> Cape Town, Afrique du Sud
                   </p>
                   <div className="mt-1">
-                    <p>My duties during this time were as follows:</p>
+                    <p>Mes responsabilités pendant cette période étaient les suivantes :</p>
                     <ul className="list-disc pl-5">
                       <li>
-                        Provide information on various auto insurance policies,
-                        coverage alternatives, and conditions for company such
-                        as CARTRAC, FIRST FOR WOMEN, KING PRICE.
+                        Fournir des informations sur divers politiques d&apos;assurance auto,
+                        alternatives de couverture et conditions pour des entreprises
+                        telles que CARTRAC, FIRST FOR WOMEN, KING PRICE.
                       </li>
                       <li>
-                        Explain policy details to customers, like as
-                        deductibles, premiums, and exclusions
+                        Expliquer les détails des politiques aux clients, comme les
+                        déductions, les primes et les exclusions
                       </li>
                       <li>
-                        Help consumers buy new vehicle insurance plans or renew
-                        current ones.
+                        Aider les consommateurs à acheter de nouvelles assurances auto
+                        ou à renouveler les existantes.
                       </li>
                       <li>
-                        Explain the renewal procedure, including coverage
-                        modifications and premium adjustments.
+                        Expliquer la procédure de renouvellement, y compris les
+                        modifications de couverture et les ajustements de prime.
                       </li>
                       <li>
-                        Handle requests for insurance adjustments, such as
-                        changing personal information, adding or removing
-                        drivers, or altering coverage. Ensure that any policy
-                        changes are appropriately reflected in the system.
+                        Gérer les demandes de modifications d&apos;assurance, telles que
+                        changer les informations personnelles, ajouter ou supprimer
+                        des conducteurs, ou modifier la couverture. Assurez-vous que
+                        toutes les modifications de politique sont correctement
+                        reflétées dans le système.
                       </li>
                     </ul>
                   </div>
                 </div>
 
                 <div className="mb-4 border-b-0 border-dashed border-gray-400 pb-4">
-                  <h3 className="text-lg font-medium">Consulting Agent</h3>
+                  <h3 className="text-lg font-medium">Consultant</h3>
                   <p className="text-blue-500">Clear Review</p>
                   <p className="flex items-center">
                     <span>01/2022</span>
@@ -244,26 +276,26 @@ const Resume = () => {
                     Africa
                   </p>
                   <div className="mt-1">
-                    <p>My duties during this time were as follows:</p>
+                    <p>Mes responsabilités pendant cette période étaient les suivantes :</p>
                     <ul className="list-disc pl-5">
                       <li>
-                        Use mediation strategies to direct the talk and create a
-                        positive and cooperative outcome.
+                        Utiliser des stratégies de médiation pour diriger la conversation
+                        et créer un résultat positif et coopératif.
                       </li>
                       <li>
-                        Determine the root reasons of consumer complaints or
-                        concerns in order to discover underlying issues.
+                        Déterminer les raisons racines des plaintes ou des préoccupations
+                        des consommateurs afin de découvrir les problèmes sous-jacents.
                       </li>
                       <li>
-                        Negotiate fair and reasonable solutions for both
-                        customers and the organisation. Apply company policies
-                        and processes correctly, ensuring that solutions are
-                        consistent with established criteria.
+                        Négocier des solutions équitable et raisonnable pour les deux
+                        des clients et de l&apos;organisation. Appliquer les politiques
+                        et les processus de l&apos;entreprise correctement, en veillant
+                        à ce que les solutions soient conformes aux critères établis.
                       </li>
                       <li>
-                        Clarify policy details with the consumer and provide
-                        insight into the reasoning behind particular decisions,
-                        such as clearing his name from a department review issue
+                        Clarifier les détails des politiques avec le client et fournir
+                        des informations sur la raison de décisions particulières,
+                        tels que la clarification de son nom à partir d&apos;un problème de département
                       </li>
                     </ul>
                   </div>
@@ -274,7 +306,7 @@ const Resume = () => {
               <div>
                 <div className="mb-3">
                   <h2 className="text-xl font-semibold uppercase">
-                    References
+                    Références
                   </h2>
                   <div className="bg-gray-800 w-full h-1 rounded-full"></div>
                 </div>
@@ -326,7 +358,7 @@ const Resume = () => {
                 {/* Power Skills  */}
                 <div>
                   <h3 className="text-lg font-semibold uppercase mb-1 text-blue-500">
-                    Power Skills
+                    Compétences
                   </h3>
                   <div className="flex flex-wrap gap-1">
                     {skills.map((skill, index) => (
@@ -343,13 +375,13 @@ const Resume = () => {
               {/* Education */}
               <div className="mb-6">
                 <div className="mb-3">
-                  <h2 className="text-xl font-semibold uppercase">Education</h2>
+                  <h2 className="text-xl font-semibold uppercase">Formation</h2>
                   <div className="bg-gray-800 w-full h-1 rounded-full"></div>
                 </div>
                 <ul>
                   <li className="border-b-2 border-dashed border-gray-400 pb-4">
                     <p className="text-lg">
-                      Bachelor in Business Administration
+                      Bachelor en Administration des Affaires
                     </p>
                     <p className="text-blue-500">
                       <a href="https://www.richfield.ac.za/" target="_blank">
@@ -359,11 +391,11 @@ const Resume = () => {
                     <p className="flex items-center mr-1">
                       <span>01/2021</span> <span className="mx-1">-</span>{' '}
                       <span className="mr-3">12/2023</span>{' '}
-                      <MdLocationPin className="mr-1" /> Cape Town, South Africa
+                      <MdLocationPin className="mr-1" /> Cape Town, Afrique du Sud
                     </p>
                   </li>
                   <li className="mt-2">
-                    <p className="text-lg">Matric</p>
+                    <p className="text-lg">Baccalauréat</p>
                     <p className="text-blue-500">
                       <a href="https://www.richfield.ac.za/" target="_blank">
                         Notre Dame de Rosaire
@@ -380,14 +412,14 @@ const Resume = () => {
               {/* Languages  */}
               <div className="mb-6">
                 <div className="mb-3">
-                  <h2 className="text-xl font-semibold uppercase">Languages</h2>
+                  <h2 className="text-xl font-semibold uppercase">Langues</h2>
                   <div className="bg-gray-800 w-full h-1 rounded-full"></div>
                 </div>
                 <ul className="flex flex-col gap-y-2">
                   <li className="flex justify-between">
                     <div>
-                      <p className="font-medium">English</p>
-                      <p className="text-sm">Advanced</p>
+                      <p className="font-medium">Anglais</p>
+                      <p className="text-sm">Avancé</p>
                     </div>
                     <div className="flex  gap-x-1">
                       <div className="h-8 w-2 bg-blue-500 rounded-full" />
@@ -399,8 +431,8 @@ const Resume = () => {
                   </li>
                   <li className="flex justify-between">
                     <div>
-                      <p className="font-medium">French</p>
-                      <p className="text-sm">Advanced</p>
+                      <p className="font-medium">Français</p>
+                      <p className="text-sm">Avancé</p>
                     </div>
                     <div className="flex gap-x-1">
                       <div className="h-8 w-2 bg-blue-500 rounded-full" />
@@ -417,7 +449,7 @@ const Resume = () => {
               <div className="mb-6">
                 <div className="mb-3">
                   <h2 className="text-xl font-semibold uppercase">
-                    Find me online
+                    Me trouver en ligne
                   </h2>
                   <div className="bg-gray-800 w-full h-1 rounded-full"></div>
                 </div>
