@@ -154,27 +154,63 @@ const Resume = () => {
                 </div>
                 <div className="mb-4 border-b-2 border-dashed border-gray-400 pb-4">
                   <h3 className="text-lg font-medium">
-                    Ingénieur en génie logiciel
+                    Ingénieur en génie logiciel Senior
                   </h3>
-                  <p className="text-blue-500">Capgemini</p>
+                  <p className="text-blue-500">
+                    <a href="https://cleverbit.software" target="_blank">
+                      Cleverbit
+                    </a>
+                  </p>
                   <p className="flex items-center">
-                    <span>07/2022</span>
+                    <span>01/2025</span>
                     <span className="mx-1"> - </span> <span>Present</span>{' '}
                     <MdLocationPin className="ml-3 mr-1" /> Poznan, Pologne
                   </p>
                   <div className="mt-1">
                     <p>
-                      J&apos;ai travaillé sur l&apos;architecture et la mise en œuvre de
-                      solutions logicielles pour des clients dans le secteur des
-                      services financiers. La liste des clients avec lesquels
-                      j&apos;ai collaboré inclut (sans s&apos;y limiter) Nationale
-                      Nederlanden, l&apos;un des plus grands fournisseurs
-                      d&apos;assurances aux Pays-Bas. J&apos;ai conçu et implémenté des
-                      fonctionnalités qui ont amélioré les processus métiers de
-                      mes clients. Les technologies que j&apos;ai utilisées jusqu&apos;à
-                      présent incluent C#, SQL Server, Microsoft Azure, React
-                      JS, TypeScript et AzureDevOps. Voici quelques-unes des
-                      fonctionnalités sur lesquelles j&apos;ai travaillé :
+                      Je fourni des services de consultation en informatique
+                      aux clients de Clevebit, en me spécialisant dans
+                      l&apos;architecture et la programmation de solutions
+                      logicielles, la planification de projets et la livraison
+                      de logiciels de haute qualité. Mes contributions incluent
+                      des projets qui ont été lancés avec succès et qui sont
+                      maintenant utilisés par des milliers d&apos;utilisateurs.
+                      Notamment, j&apos;ai joué un rôle clé dans le développement de{' '}
+                      <a
+                        target="_blank"
+                        href="https://keepmeposted.com.mt"
+                        className="underline text-blue-500 hover:underline-offset-2">
+                        Keep Me Posted
+                      </a>
+                      , une plateforme conçue pour connecter efficacement les
+                      chercheurs d&apos;emploi et les employeurs.
+                    </p>
+                  </div>
+                </div>
+                <div className="mb-4 border-b-2 border-dashed border-gray-400 pb-4">
+                  <h3 className="text-lg font-medium">
+                    Ingénieur en génie logiciel
+                  </h3>
+                  <p className="text-blue-500">Capgemini</p>
+                  <p className="flex items-center">
+                    <span>07/2022</span>
+                    <span className="mx-1"> - </span> <span>12/2024</span>{' '}
+                    <MdLocationPin className="ml-3 mr-1" /> Poznan, Pologne
+                  </p>
+                  <div className="mt-1">
+                    <p>
+                      J&apos;ai travaillé sur l&apos;architecture et la mise en
+                      œuvre de solutions logicielles pour des clients dans le
+                      secteur des services financiers. La liste des clients avec
+                      lesquels j&apos;ai collaboré inclut (sans s&apos;y
+                      limiter) Nationale Nederlanden, l&apos;un des plus grands
+                      fournisseurs d&apos;assurances aux Pays-Bas. J&apos;ai
+                      conçu et implémenté des fonctionnalités qui ont amélioré
+                      les processus métiers de mes clients. Les technologies que
+                      j&apos;ai utilisées jusqu&apos;à présent incluent C#, SQL
+                      Server, Microsoft Azure, React JS, TypeScript et
+                      AzureDevOps. Voici quelques-unes des fonctionnalités sur
+                      lesquelles j&apos;ai travaillé :
                     </p>
                     <ul className="list-disc ml-10 mt-1">
                       <li>

@@ -155,16 +155,20 @@ const Resume = () => {
                   <h3 className="text-lg font-medium">
                     Senior Software Engineer
                   </h3>
-                  <p className="text-blue-500"><a href='https://cleverbit.software' target='_blank'>Cleverbit</a></p>
+                  <p className="text-blue-500">
+                    <a href="https://cleverbit.software" target="_blank">
+                      Cleverbit
+                    </a>
+                  </p>
                   <p className="flex items-center">
-                    <span>01/2024</span>
+                    <span>01/2025</span>
                     <span className="mx-1"> - </span> <span>Present</span>{' '}
                     <MdLocationPin className="ml-3 mr-1" /> Poznan, Poland
                   </p>
                   <div className="mt-1">
                     <p>
                       I have been delivering IT consultation services to
-                      Clevebit’s clients, specializing in architecting and
+                      Clevebit&apos;s clients, specializing in architecting and
                       implementing software solutions, project planning, and
                       delivering high-quality software. My contributions include
                       projects that have successfully gone live and are now
@@ -183,7 +187,11 @@ const Resume = () => {
                 </div>
                 <div className="mb-4 border-b-2 border-dashed border-gray-400 pb-4">
                   <h3 className="text-lg font-medium">Software Engineer</h3>
-                  <p className="text-blue-500"><a href="https://www.capgemini.com" target='_blank'>Capgemini</a></p>
+                  <p className="text-blue-500">
+                    <a href="https://www.capgemini.com" target="_blank">
+                      Capgemini
+                    </a>
+                  </p>
                   <p className="flex items-center">
                     <span>07/2022</span>
                     <span className="mx-1"> - </span> <span>12/2024</span>{' '}
@@ -219,7 +227,11 @@ const Resume = () => {
                 </div>
                 <div className="mb-4 border-b-2 border-dashed border-gray-400 pb-4">
                   <h3 className="text-lg font-medium">Software Engineer</h3>
-                  <p className="text-blue-500"><a href="https://www.dariel.co.za" target='_blank'>Dariel</a></p>
+                  <p className="text-blue-500">
+                    <a href="https://www.dariel.co.za" target="_blank">
+                      Dariel
+                    </a>
+                  </p>
                   <p className="flex items-center">
                     <span>02/2021</span>
                     <span className="mx-1"> - </span> <span>06/2023</span>{' '}
@@ -255,7 +267,11 @@ const Resume = () => {
                 </div>
                 <div>
                   <h3 className="text-lg font-medium">Software Engineer</h3>
-                  <p className="text-blue-500"><a href="http://www.exigent-group.com" target='_blank'>Exigent Group</a></p>
+                  <p className="text-blue-500">
+                    <a href="http://www.exigent-group.com" target="_blank">
+                      Exigent Group
+                    </a>
+                  </p>
                   <p className="flex items-center">
                     <span>11/2020</span>
                     <span className="mx-1"> - </span> <span>02/2021</span>{' '}
