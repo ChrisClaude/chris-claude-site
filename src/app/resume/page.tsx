@@ -16,7 +16,7 @@ import { MdLocationPin, MdOutlineAlternateEmail } from 'react-icons/md';
 const Resume = () => {
   const { uiState, setUIState } = useContext(UIContext);
   const technologies = [
-   'C#',
+    'C#',
     'C++',
     'JavaScript',
     'React JS',
@@ -74,9 +74,7 @@ const Resume = () => {
 
   return (
     <div className="bg-white text-gray-800 py-24 px-52 overflow-x-auto xl:flex xl:justify-center">
-      <div
-        className="flex flex-col justify-center"
-        style={{ width: '1200px' }}>
+      <div className="flex flex-col justify-center" style={{ width: '1200px' }}>
         <div>
           {/* Header */}
           <div className="flex justify-between mb-10">
@@ -154,25 +152,56 @@ const Resume = () => {
                   <div className="bg-gray-800 w-full h-1 rounded-full"></div>
                 </div>
                 <div className="mb-4 border-b-2 border-dashed border-gray-400 pb-4">
-                  <h3 className="text-lg font-medium">Software Engineer</h3>
-                  <p className="text-blue-500">Capgemini</p>
+                  <h3 className="text-lg font-medium">
+                    Senior Software Engineer
+                  </h3>
+                  <p className="text-blue-500"><a href='https://cleverbit.software' target='_blank'>Cleverbit</a></p>
                   <p className="flex items-center">
-                    <span>07/2022</span>
+                    <span>01/2024</span>
                     <span className="mx-1"> - </span> <span>Present</span>{' '}
                     <MdLocationPin className="ml-3 mr-1" /> Poznan, Poland
                   </p>
                   <div className="mt-1">
                     <p>
-                      I have been working on architecting and implementing
-                      software solutions for clients in the financial services
-                      sector. The list of clients I have worked with includes
-                      (but is not limited to) <b>Nationale Nederlanden</b>, one
-                      of the biggest insurance providers in the Netherlands. I
-                      have designed and implemented features that have improved
-                      the business processes of my clients. The technologies I
-                      have used so far include C#, SQL Server, Microsoft Azure,
-                      React JS, TypeScript and AzureDevOps. The following are a
-                      few of the features I have worked on:
+                      I have been delivering IT consultation services to
+                      Clevebit’s clients, specializing in architecting and
+                      implementing software solutions, project planning, and
+                      delivering high-quality software. My contributions include
+                      projects that have successfully gone live and are now
+                      serving thousands of users. Notably, I played a key role
+                      in developing{' '}
+                      <a
+                        target="_blank"
+                        href="https://keepmeposted.com.mt"
+                        className="underline text-blue-500 hover:underline-offset-2">
+                        Keep Me Posted
+                      </a>
+                      , a platform designed to connect job seekers with
+                      employers efficiently
+                    </p>
+                  </div>
+                </div>
+                <div className="mb-4 border-b-2 border-dashed border-gray-400 pb-4">
+                  <h3 className="text-lg font-medium">Software Engineer</h3>
+                  <p className="text-blue-500"><a href="https://www.capgemini.com" target='_blank'>Capgemini</a></p>
+                  <p className="flex items-center">
+                    <span>07/2022</span>
+                    <span className="mx-1"> - </span> <span>12/2024</span>{' '}
+                    <MdLocationPin className="ml-3 mr-1" /> Poznan, Poland
+                  </p>
+                  <div className="mt-1">
+                    <p>
+                      My responsibilities had to do with architecting and
+                      implementing software solutions for clients in the
+                      financial services sector. The list of clients I have
+                      worked with includes (but is not limited to){' '}
+                      <b>Nationale Nederlanden</b>, one of the biggest insurance
+                      providers in the Netherlands. I have designed and
+                      implemented features that have improved the business
+                      processes of my clients. The technologies I have used so
+                      far include C#, SQL Server, Microsoft Azure, React JS,
+                      TypeScript and AzureDevOps. The following are a few of the
+                      features I have worked on:
                     </p>
                     <ul className="list-disc ml-10 mt-1">
                       <li>
@@ -190,7 +219,7 @@ const Resume = () => {
                 </div>
                 <div className="mb-4 border-b-2 border-dashed border-gray-400 pb-4">
                   <h3 className="text-lg font-medium">Software Engineer</h3>
-                  <p className="text-blue-500">Dariel</p>
+                  <p className="text-blue-500"><a href="https://www.dariel.co.za" target='_blank'>Dariel</a></p>
                   <p className="flex items-center">
                     <span>02/2021</span>
                     <span className="mx-1"> - </span> <span>06/2023</span>{' '}
@@ -226,7 +255,7 @@ const Resume = () => {
                 </div>
                 <div>
                   <h3 className="text-lg font-medium">Software Engineer</h3>
-                  <p className="text-blue-500">Exigent Group</p>
+                  <p className="text-blue-500"><a href="http://www.exigent-group.com" target='_blank'>Exigent Group</a></p>
                   <p className="flex items-center">
                     <span>11/2020</span>
                     <span className="mx-1"> - </span> <span>02/2021</span>{' '}
