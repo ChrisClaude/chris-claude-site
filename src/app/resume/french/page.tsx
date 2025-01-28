@@ -33,6 +33,7 @@ const Resume = () => {
 
   const skills = [
     'Problem solving',
+    'Structures de données et algorithmes',
     'Assertiveness',
     'Creativity',
     'Critical thinking',
