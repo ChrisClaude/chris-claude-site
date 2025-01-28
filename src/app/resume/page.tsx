@@ -181,7 +181,7 @@ const Resume = () => {
                         Keep Me Posted
                       </a>
                       , a platform designed to connect job seekers with
-                      employers efficiently
+                      employers efficiently.
                     </p>
                   </div>
                 </div>
