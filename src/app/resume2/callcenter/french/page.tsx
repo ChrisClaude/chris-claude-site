@@ -20,7 +20,7 @@ type Person = {
 const Resume = () => {
   const { uiState, setUIState } = useContext(UIContext);
   const person: Person = {
-    firstName: 'Julien',
+    firstName: 'Feisca',
     surname: 'Koukodila',
     title: 'Agent de service client',
     telephone: '+212 07 10 61 95 30',
@@ -30,6 +30,13 @@ const Resume = () => {
     website: 'https://www.linkedin.com/in/julien-koukodila-469838220/',
   };
   const technologies = [
+    'Wordpress',
+    'Facebook Marketing',
+    'Instagram Marketing',
+    'Tiktok Marketing',
+    'Google Marketing',
+    'Canvas',
+    'Photoshop',
     'Microsoft Excel',
     'Microsoft Word',
     'Microsoft Office',
@@ -41,7 +48,7 @@ const Resume = () => {
     'Créativité',
     'Pensée critique',
     'Travail en équipe',
-    'Gestion d&apos;équipe',
+    'Gestion d\'équipe',
     'Présentation / Parler en public',
     'Gestion des risques',
   ];
@@ -159,6 +166,36 @@ const Resume = () => {
                   </h2>
                   <div className="bg-gray-800 w-full h-1 rounded-full"></div>
                 </div>
+                <div className="mb-4 border-b-0 border-dashed border-gray-400 pb-4">
+                  <h3 className="text-lg font-medium">Agent de survey téléoperateur</h3>
+                  <p className="text-blue-500">Profacts</p>
+                  <p className="flex items-center">
+                    <span>11/2024</span>
+                    <span className="mx-1"> - </span> <span>Present</span>{' '}
+                    <MdLocationPin className="ml-3 mr-1" /> Morocco
+                  </p>
+                  <div className="mt-1">
+                    <p>Mes responsabilités pendant cette période étaient les suivantes :</p>
+                    <ul className="list-disc pl-5">
+                      <li>
+                      Lancement d&apos;appels : contactez des personnes sélectionnées pour participer à des enquêtes.
+                      </li>
+                      <li>
+                      Administrer des enquêtes : poser des questions prédéterminées, en garantissant la clarté et la neutralité pour éviter d&apos;influencer les réponses.
+                      </li>
+                      <li>
+                      Enregistrement des réponses : documentez avec précision les réponses des participants, souvent à l&apos;aide de systèmes informatiques ou de logiciels spécialisés.
+                      </li>
+                      <li>
+                      Maintien de la confidentialité : traitez toutes les informations des répondants avec une stricte confidentialité, en respectant les protocoles de protection des données.
+                      </li>
+                      <li>
+                      Atteindre les objectifs : atteindre les objectifs fixés concernant le nombre d&apos;enquêtes complétées dans les délais spécifiés.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
                 <div className="mb-4 border-b-2 border-dashed border-gray-400 pb-4">
                   <h3 className="text-lg font-medium">Agent de ressources humaines</h3>
                   <p className="text-blue-500">
@@ -166,7 +203,7 @@ const Resume = () => {
                   </p>
                   <p className="flex items-center">
                     <span>10/2023</span>
-                    <span className="mx-1"> - </span> <span>Present</span>{' '}
+                    <span className="mx-1"> - </span> <span>11/2024</span>{' '}
                     <MdLocationPin className="ml-3 mr-1" /> Cape Town, Afrique du Sud
                   </p>
                   <div className="mt-1">

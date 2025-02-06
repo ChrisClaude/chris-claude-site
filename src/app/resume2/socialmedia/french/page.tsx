@@ -22,7 +22,7 @@ const Resume = () => {
   const person: Person = {
     firstName: 'Feisca',
     surname: 'Koukodila',
-    title: 'Receptionist',
+    title: 'Agent de service client',
     telephone: '+212 07 10 61 95 30',
     city: 'Diyar Tanja, 90000',
     country: 'Maroc',
@@ -30,6 +30,13 @@ const Resume = () => {
     website: 'https://www.linkedin.com/in/julien-koukodila-469838220/',
   };
   const technologies = [
+    'Wordpress',
+    'Facebook Marketing',
+    'Instagram Marketing',
+    'Tiktok Marketing',
+    'Google Marketing',
+    'Canvas',
+    'Photoshop',
     'Microsoft Excel',
     'Microsoft Word',
     'Microsoft Office',
@@ -40,9 +47,9 @@ const Resume = () => {
     'Assertivité',
     'Créativité',
     'Pensée critique',
-    "Travail d'équipe",
-    "Gestion d'équipe",
-    'Communication / Parler en public',
+    'Travail en équipe',
+    'Gestion d\'équipe',
+    'Présentation / Parler en public',
     'Gestion des risques',
   ];
 
@@ -60,7 +67,7 @@ const Resume = () => {
     },
     {
       fullName: 'Belanganaye',
-      role: 'Agent de service clientèle senior',
+      role: 'Agent de service client senior',
       email: '+27 83 859 6609',
       company: 'P3 People',
     },
@@ -141,23 +148,13 @@ const Resume = () => {
             <div>
               <div className="mb-6">
                 <div className="mb-3">
-                  <h2 className="text-xl font-semibold uppercase">Summary</h2>
+                  <h2 className="text-xl font-semibold uppercase">
+                    Résumé
+                  </h2>
                   <div className="bg-gray-800 w-full h-1 rounded-full"></div>
                 </div>
                 <p>
-                  Je progresse dans un environnement axé sur les données et joue
-                  avec des équipes interfonctionnelles pour résoudre des
-                  problèmes complexes. Je suis passionné par l&apos;analyse et
-                  l&apos;interprétation de données complexes pour prendre des
-                  décisions commerciales et améliorer les processus. Avec plus
-                  de trois ans d&apos;expérience dans l&apos;industrie de la
-                  santé mentale en tant qu&apos;ingénieur de
-                  simulation/analyste, j&apos;ai perfectionné mes compétences en
-                  gestion de données, en analyse et en visualisation. Dans mon
-                  rôle actuel, je utilise Python, JavaScript et Excel pour
-                  fournir des insights qui soutiennent les initiatives
-                  stratégiques et garantir la précision et la fiabilité des
-                  données.
+                  Je progresse dans un environnement axé sur les données et j&apos;aime collaborer avec des équipes interfonctionnelles pour résoudre des problèmes complexes. Je porte une passion pour l&apos;analyse et l&apos;interprétation de données complexes pour prendre des décisions commerciales et améliorer les processus. Avec une expérience dans l&apos;industrie de la santé mentale en tant qu&apos;agent de ressources humaines, j&apos;ai perfectionné mes compétences en gestion de données, en analyse commerciale et en visualisation. Dans mon rôle actuel, je utilise Python, JavaScript et Excel pour fournir des insights qui soutiennent les initiatives stratégiques et garantissent la précision et la fiabilité des données.
                 </p>
               </div>
 
@@ -169,32 +166,73 @@ const Resume = () => {
                   </h2>
                   <div className="bg-gray-800 w-full h-1 rounded-full"></div>
                 </div>
+
+                <div className="mb-4 border-b-0 border-dashed border-gray-400 pb-4">
+                  <h3 className="text-lg font-medium">Spécialiste du marketing des médias sociaux</h3>
+                  <p className="text-blue-500">Solithec</p>
+                  <p className="flex items-center">
+                    <span>10/2024</span>
+                    <span className="mx-1"> - </span> <span>Present</span>{' '}
+                    <MdLocationPin className="ml-3 mr-1" /> Remote, South Africa, Morocco
+                  </p>
+                  <div className="mt-1">
+                    <p>Sous notre profile fivver, nous proposons des sites Web d&apos;entreprise Développement de commerce électronique, pages de chargement, applications Web, blogs, profil, personnalisation de sites Web, optimisation de la vitesse, traduction, contenu de sites Web.Aussi bien que un profil très actif de ventes sur Facebook et d&apos;autres plateforme comme Snapchat, Instagram, Animation des affiches sur canvas , éditions des vidéos comme sur CapCtut.</p>
+                  </div>
+                </div>
+
+                <div className="mb-4 border-b-0 border-dashed border-gray-400 pb-4">
+                  <h3 className="text-lg font-medium">Agent de survey téléoperateur</h3>
+                  <p className="text-blue-500">Profacts</p>
+                  <p className="flex items-center">
+                    <span>11/2024</span>
+                    <span className="mx-1"> - </span> <span>Present</span>{' '}
+                    <MdLocationPin className="ml-3 mr-1" /> Morocco
+                  </p>
+                  <div className="mt-1">
+                    <p>Mes responsabilités pendant cette période étaient les suivantes :</p>
+                    <ul className="list-disc pl-5">
+                      <li>
+                      Lancement d&apos;appels : contactez des personnes sélectionnées pour participer à des enquêtes.
+                      </li>
+                      <li>
+                      Administrer des enquêtes : poser des questions prédéterminées, en garantissant la clarté et la neutralité pour éviter d&apos;influencer les réponses.
+                      </li>
+                      <li>
+                      Enregistrement des réponses : documentez avec précision les réponses des participants, souvent à l&apos;aide de systèmes informatiques ou de logiciels spécialisés.
+                      </li>
+                      <li>
+                      Maintien de la confidentialité : traitez toutes les informations des répondants avec une stricte confidentialité, en respectant les protocoles de protection des données.
+                      </li>
+                      <li>
+                      Atteindre les objectifs : atteindre les objectifs fixés concernant le nombre d&apos;enquêtes complétées dans les délais spécifiés.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
                 <div className="mb-4 border-b-2 border-dashed border-gray-400 pb-4">
-                  <h3 className="text-lg font-medium">
-                    Agent de ressources humaines
-                  </h3>
+                  <h3 className="text-lg font-medium">Agent de ressources humaines</h3>
                   <p className="text-blue-500">
                     Trauma Center for Survivors of Violence and Torture
                   </p>
                   <p className="flex items-center">
                     <span>10/2023</span>
-                    <span className="mx-1"> - </span> <span>Present</span>{' '}
-                    <MdLocationPin className="ml-3 mr-1" /> Cape Town, Afrique
-                    du Sud
+                    <span className="mx-1"> - </span> <span>11/2024</span>{' '}
+                    <MdLocationPin className="ml-3 mr-1" /> Cape Town, Afrique du Sud
                   </p>
                   <div className="mt-1">
                     <p>
                       J&apos;ai assumé divers responsabilités en tant que
-                      réceptionniste, secrétaire de projet et assistant RH,
-                      toutes ces responsabilités contribuent de manière
-                      significative au fonctionnement opérationnel des affaires.
-                      Notamment, dans le domaine de la gestion du poste de
-                      réception, j&apos;ai excellé dans la livraison d&apos;une
-                      expérience professionnelle et accueillante pour les
-                      visiteurs. Cela implique de manière adéquate la gestion
-                      des appels entrants, en dirigeant les appels vers les
-                      contacts appropriés et en en capturant les messages
-                      lorsqu&apos;ils sont nécessaires. De plus, j&apos;ai été
+                      réceptionniste, secrétaire de projet et assistant RH, toutes
+                      ces responsabilités contribuent de manière significative
+                      au fonctionnement opérationnel des affaires. Notamment,
+                      dans le domaine de la gestion du poste de réception, j&apos;ai
+                      excellé dans la livraison d&apos;une expérience professionnelle
+                      et accueillante pour les visiteurs. Cela implique de manière
+                      adéquate la gestion des appels entrants,
+                      en dirigeant les appels vers les contacts appropriés et en
+                      en capturant les messages lorsqu&apos;ils sont nécessaires.
+                      De plus, j&apos;ai été
                       compétent en fournissant des informations aux invités, en
                       répondant aux questions et en collaborant avec divers
                       services pour assurer un service ponctuel.
@@ -210,8 +248,7 @@ const Resume = () => {
                   <p className="flex items-center">
                     <span>02/2023</span>
                     <span className="mx-1"> - </span> <span>09/2023</span>{' '}
-                    <MdLocationPin className="ml-3 mr-1" /> Cape Town, Afrique
-                    du Sud
+                    <MdLocationPin className="ml-3 mr-1" /> Cape Town, Afrique du Sud
                   </p>
                   <div className="mt-1">
                     <p>
@@ -219,103 +256,54 @@ const Resume = () => {
                       plusieurs canaux de communication, y compris par e-mail,
                       chat et téléphone, en fournissant une assistance rapide,
                       précise et chaleureuse pour améliorer la satisfaction du
-                      client. Résolu les questions en fournissant des
-                      informations détaillées sur les produits, en guidant les
-                      clients à travers les étapes de dépannage et en résolvant
-                      les problèmes efficacement. Maintenu des registres
+                      client. Résolu les questions en fournissant des informations
+                      détaillées sur les produits, en guidant les clients à
+                      travers les étapes de dépannage et en résolvant les
+                      problèmes efficacement. Maintenu des registres
                       scrupuleux des interactions avec les clients, suivi de la
                       progression de la résolution des problèmes et assuré un
                       suivi ponctuel pour maintenir des normes de service
                       élevées. Démontré des compétences en communication
-                      efficaces et une attention aux détails, en créant la
-                      confiance et en établissant des relations durables avec
-                      les clients.
+                      efficaces et une attention aux détails, en créant la confiance
+                      et en établissant des relations durables avec les clients.
                     </p>
                   </div>
                 </div>
 
                 <div className="mb-4 border-b-2 border-dashed border-gray-400 pb-4">
-                  <h3 className="text-lg font-medium">
-                    Agent de service client
-                  </h3>
+                  <h3 className="text-lg font-medium">Agent de service client</h3>
                   <p className="text-blue-500">P3 People</p>
                   <p className="flex items-center">
                     <span>10/2022</span>
                     <span className="mx-1"> - </span> <span>01/2023</span>{' '}
-                    <MdLocationPin className="ml-3 mr-1" /> Cape Town, Afrique
-                    du Sud
+                    <MdLocationPin className="ml-3 mr-1" /> Cape Town, Afrique du Sud
                   </p>
                   <div className="mt-1">
-                    <p>
-                      Mes responsabilités pendant cette période étaient les
-                      suivantes :
-                    </p>
+                    <p>Mes responsabilités pendant cette période étaient les suivantes :</p>
                     <ul className="list-disc pl-5">
                       <li>
-                        Fournir des informations sur divers politiques
-                        d&apos;assurance auto, alternatives de couverture et
-                        conditions pour des entreprises telles que CARTRAC,
-                        FIRST FOR WOMEN, KING PRICE.
+                        Fournir des informations sur divers politiques d&apos;assurance auto,
+                        alternatives de couverture et conditions pour des entreprises
+                        telles que CARTRAC, FIRST FOR WOMEN, KING PRICE.
                       </li>
                       <li>
-                        Expliquer les détails des politiques aux clients, comme
-                        les déductions, les primes et les exclusions
+                        Expliquer les détails des politiques aux clients, comme les
+                        déductions, les primes et les exclusions
                       </li>
                       <li>
-                        Aider les consommateurs à acheter de nouvelles
-                        assurances auto ou à renouveler les existantes.
+                        Aider les consommateurs à acheter de nouvelles assurances auto
+                        ou à renouveler les existantes.
                       </li>
                       <li>
                         Expliquer la procédure de renouvellement, y compris les
                         modifications de couverture et les ajustements de prime.
                       </li>
                       <li>
-                        Gérer les demandes de modifications d&apos;assurance,
-                        telles que changer les informations personnelles,
-                        ajouter ou supprimer des conducteurs, ou modifier la
-                        couverture. Assurez-vous que toutes les modifications de
-                        politique sont correctement reflétées dans le système.
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-
-                <div className="mb-4 border-b-0 border-dashed border-gray-400 pb-4">
-                  <h3 className="text-lg font-medium">Consultant</h3>
-                  <p className="text-blue-500">Clear Review</p>
-                  <p className="flex items-center">
-                    <span>01/2022</span>
-                    <span className="mx-1"> - </span> <span>09/2022</span>{' '}
-                    <MdLocationPin className="ml-3 mr-1" /> Cape Town, South
-                    Africa
-                  </p>
-                  <div className="mt-1">
-                    <p>
-                      Mes responsabilités pendant cette période étaient les
-                      suivantes :
-                    </p>
-                    <ul className="list-disc pl-5">
-                      <li>
-                        Utiliser des stratégies de médiation pour diriger la
-                        conversation et créer un résultat positif et coopératif.
-                      </li>
-                      <li>
-                        Déterminer les raisons racines des plaintes ou des
-                        préoccupations des consommateurs afin de découvrir les
-                        problèmes sous-jacents.
-                      </li>
-                      <li>
-                        Négocier des solutions équitable et raisonnable pour les
-                        deux des clients et de l&apos;organisation. Appliquer
-                        les politiques et les processus de l&apos;entreprise
-                        correctement, en veillant à ce que les solutions soient
-                        conformes aux critères établis.
-                      </li>
-                      <li>
-                        Clarifier les détails des politiques avec le client et
-                        fournir des informations sur la raison de décisions
-                        particulières, tels que la clarification de son nom à
-                        partir d&apos;un problème de département
+                        Gérer les demandes de modifications d&apos;assurance, telles que
+                        changer les informations personnelles, ajouter ou supprimer
+                        des conducteurs, ou modifier la couverture. Assurez-vous que
+                        toutes les modifications de politique sont correctement
+                        reflétées dans le système.
                       </li>
                     </ul>
                   </div>
@@ -355,7 +343,9 @@ const Resume = () => {
             <div>
               <div className="mb-6">
                 <div className="mb-3">
-                  <h2 className="text-xl font-semibold uppercase">Expertise</h2>
+                  <h2 className="text-xl font-semibold uppercase">
+                    Expertises
+                  </h2>
                   <div className="bg-gray-800 w-full h-1 rounded-full"></div>
                 </div>
 
@@ -378,7 +368,7 @@ const Resume = () => {
                 {/* Power Skills  */}
                 <div>
                   <h3 className="text-lg font-semibold uppercase mb-1 text-blue-500">
-                    Power Skills
+                    Compétences
                   </h3>
                   <div className="flex flex-wrap gap-1">
                     {skills.map((skill, index) => (
@@ -411,8 +401,7 @@ const Resume = () => {
                     <p className="flex items-center mr-1">
                       <span>01/2021</span> <span className="mx-1">-</span>{' '}
                       <span className="mr-3">12/2023</span>{' '}
-                      <MdLocationPin className="mr-1" /> Cape Town, Afrique du
-                      Sud
+                      <MdLocationPin className="mr-1" /> Cape Town, Afrique du Sud
                     </p>
                   </li>
                   <li className="mt-2">
@@ -439,8 +428,8 @@ const Resume = () => {
                 <ul className="flex flex-col gap-y-2">
                   <li className="flex justify-between">
                     <div>
-                      <p className="font-medium">Anglais</p>
-                      <p className="text-sm">Avancé</p>
+                      <p className="font-medium">English</p>
+                      <p className="text-sm">Advanced</p>
                     </div>
                     <div className="flex  gap-x-1">
                       <div className="h-8 w-2 bg-blue-500 rounded-full" />
@@ -452,8 +441,8 @@ const Resume = () => {
                   </li>
                   <li className="flex justify-between">
                     <div>
-                      <p className="font-medium">Français</p>
-                      <p className="text-sm">Avancé</p>
+                      <p className="font-medium">French</p>
+                      <p className="text-sm">Advanced</p>
                     </div>
                     <div className="flex gap-x-1">
                       <div className="h-8 w-2 bg-blue-500 rounded-full" />
@@ -485,6 +474,18 @@ const Resume = () => {
                       href="https://www.linkedin.com/in/julien-koukodila-469838220/"
                       target="_blank">
                       Julien Koukodila
+                    </a>
+                  </li>
+                  <li className="border-b border-dashed border-gray-600 pb-2">
+                    <p className="flex items-center gap-x-1  font-medium">
+                      <GiEarthAfricaEurope className="text-xl text-blue-500" />
+                      Site
+                    </p>
+                    <a
+                      href="https://jujuword.odoo.com"
+                      target="_blank"
+                      className="ml-6">
+                      jujuword.odoo.com
                     </a>
                   </li>
                 </ul>

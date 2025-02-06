@@ -19,7 +19,7 @@ type Person = {
 const Resume = () => {
   const { uiState, setUIState } = useContext(UIContext);
   const person: Person = {
-    firstName: 'Julien',
+    firstName: 'Feisca',
     surname: 'Koukodila',
     title: 'Ressource Humaine Assistante',
     telephone: '+212 07 10 61 95 30',
