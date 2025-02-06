@@ -166,6 +166,47 @@ const Resume = () => {
                   </h2>
                   <div className="bg-gray-800 w-full h-1 rounded-full"></div>
                 </div>
+
+                <div className="mb-4 border-b-0 border-dashed border-gray-400 pb-4">
+                  <h3 className="text-lg font-medium">
+                    TV Operator Survey Agent
+                  </h3>
+                  <p className="text-blue-500">Profacts</p>
+                  <p className="flex items-center">
+                    <span>11/2024</span>
+                    <span className="mx-1"> - </span> <span>Present</span>{' '}
+                    <MdLocationPin className="ml-3 mr-1" /> Morocco
+                  </p>
+                  <div className="mt-1">
+                    <p>My responsibilities included:</p>
+                    <ul className="list-disc pl-5">
+                      <li>
+                        Initiating Calls: Reach out to selected individuals to
+                        participate in surveys.
+                      </li>
+                      <li>
+                        Administering Surveys: Pose predetermined questions,
+                        ensuring clarity and neutrality to avoid influencing
+                        responses.
+                      </li>
+                      <li>
+                        Recording Responses: Accurately document
+                        participants&apos; answers, often using computer systems
+                        or specialized software.
+                      </li>
+                      <li>
+                        Maintaining Confidentiality: Handle all respondent
+                        information with strict confidentiality, adhering to
+                        data protection protocols.
+                      </li>
+                      <li>
+                        Achieving Targets: Meet set goals for the number of
+                        completed surveys within specified time frames.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
                 <div className="mb-4 border-b-2 border-dashed border-gray-400 pb-4">
                   <h3 className="text-lg font-medium">Human Resource Agent</h3>
                   <p className="text-blue-500">
@@ -173,7 +214,7 @@ const Resume = () => {
                   </p>
                   <p className="flex items-center">
                     <span>10/2023</span>
-                    <span className="mx-1"> - </span> <span>Present</span>{' '}
+                    <span className="mx-1"> - </span> <span>11/2024</span>{' '}
                     <MdLocationPin className="ml-3 mr-1" /> Cape Town, South
                     Africa
                   </p>
@@ -208,7 +249,18 @@ const Resume = () => {
                   </p>
                   <div className="mt-1">
                     <p>
-                    Actively supported existing and prospective clients across multiple communication channels, including email, chat, and phone, delivering prompt, accurate, and friendly assistance to enhance customer satisfaction. Addressed inquiries by providing in-depth information about products, guiding clients through troubleshooting steps, and resolving issues efficiently. Maintained meticulous records of customer interactions, tracked issue resolution progress, and ensured timely follow-up to maintain high service standards. Demonstrated strong communication skills and attention to detail, fostering trust and building lasting client relationships.
+                      Actively supported existing and prospective clients across
+                      multiple communication channels, including email, chat,
+                      and phone, delivering prompt, accurate, and friendly
+                      assistance to enhance customer satisfaction. Addressed
+                      inquiries by providing in-depth information about
+                      products, guiding clients through troubleshooting steps,
+                      and resolving issues efficiently. Maintained meticulous
+                      records of customer interactions, tracked issue resolution
+                      progress, and ensured timely follow-up to maintain high
+                      service standards. Demonstrated strong communication
+                      skills and attention to detail, fostering trust and
+                      building lasting client relationships.
                     </p>
                   </div>
                 </div>
