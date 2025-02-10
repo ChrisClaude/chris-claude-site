@@ -3,22 +3,19 @@ import { EMAIL_ADDRESS, PHONE_NUMBER } from '@/config';
 import UIContext from '@/hooks/UIContext';
 import Image from 'next/image';
 import { useContext, useEffect } from 'react';
-import {
-  FaGithub,
-  FaLink,
-  FaLinkedinIn,
-  FaPhone,
-  FaStackOverflow,
-} from 'react-icons/fa';
+import { FaGithub, FaLink, FaLinkedinIn, FaPhone } from 'react-icons/fa';
 import { GiEarthAfricaEurope } from 'react-icons/gi';
 import { MdLocationPin, MdOutlineAlternateEmail } from 'react-icons/md';
+import { SiLeetcode } from 'react-icons/si';
+import { IoMdCheckbox } from 'react-icons/io';
 
 const Resume = () => {
   const { uiState, setUIState } = useContext(UIContext);
   const technologies = [
-   'C#',
+    'C#',
     'C++',
     'JavaScript',
+    'Next JS',
     'React JS',
     'Angular',
     'Python',
@@ -69,14 +66,12 @@ const Resume = () => {
   ];
 
   useEffect(() => {
-    setUIState?.({ ...uiState, isResumePage: true });
-  }, []);
+    setUIState?.(state => ({ ...state, isResumePage: true }));
+  }, [setUIState]);
 
   return (
     <div className="bg-white text-gray-800 py-24 px-52 overflow-x-auto xl:flex xl:justify-center">
-      <div
-        className="flex flex-col justify-center"
-        style={{ width: '1200px' }}>
+      <div className="flex flex-col justify-center" style={{ width: '1200px' }}>
         <div>
           {/* Header */}
           <div className="flex justify-between mb-10">
@@ -283,7 +278,7 @@ const Resume = () => {
                 </div>
 
                 {/* Technologies  */}
-                <div className="mb-6 border-b-2 border-dashed border-gray-400 pb-4">
+                <div className="mb-6">
                   <h3 className="text-lg font-semibold uppercase mb-2 text-blue-500">
                     Technologies
                   </h3>
@@ -299,7 +294,7 @@ const Resume = () => {
                 </div>
 
                 {/* Power Skills  */}
-                <div>
+                {/* <div>
                   <h3 className="text-lg font-semibold uppercase mb-1 text-blue-500">
                     Power Skills
                   </h3>
@@ -312,7 +307,7 @@ const Resume = () => {
                       </span>
                     ))}
                   </div>
-                </div>
+                </div> */}
               </div>
 
               {/* Education */}
@@ -387,18 +382,34 @@ const Resume = () => {
                       <div className="h-8 w-2 bg-blue-500 rounded-full" />
                     </div>
                   </li>
-                  <li className="flex justify-between">
-                    <div>
-                      <p className="font-medium">German</p>
-                      <p className="text-sm">Beginner</p>
-                    </div>
-                    <div className="flex gap-x-1">
-                      <div className="h-8 w-2 bg-blue-500 rounded-full" />
-                      <div className="h-8 w-2 bg-gray-300 rounded-full" />
-                      <div className="h-8 w-2 bg-gray-300 rounded-full" />
-                      <div className="h-8 w-2 bg-gray-300 rounded-full" />
-                      <div className="h-8 w-2 bg-gray-300 rounded-full" />
-                    </div>
+                </ul>
+              </div>
+
+              {/* Find me online  */}
+              <div className="mb-6">
+                <div className="mb-3">
+                  <h2 className="text-xl font-semibold uppercase">
+                    Notable Projects
+                  </h2>
+                  <div className="bg-gray-800 w-full h-1 rounded-full"></div>
+                </div>
+                <ul className="flex flex-col gap-y-5">
+                  <li className="border-b border-dashed border-gray-600 pb-2">
+                    <p className="flex items-center gap-x-1  font-medium">
+                      <IoMdCheckbox className="text-green-400 text-xl" />
+                      <a
+                        href="https://keepmeposted.com.mt/"
+                        target="_blank"
+                        className="ml-6 underline underline-offset-4">
+                        Keepmeposted.com.mt
+                      </a>
+                    </p>
+                    <p>
+                      I was a full-stack developer on this project. My
+                      responsibilities included building the API and the UI as
+                      well as setting up the CI/CD pipeline on Azure DevOps. We
+                      used .NET Core, Next JS, and Microsoft Azure.
+                    </p>
                   </li>
                 </ul>
               </div>
@@ -420,7 +431,7 @@ const Resume = () => {
                     <a
                       href="https://chrisclaude.com"
                       target="_blank"
-                      className="ml-6">
+                      className="ml-6 underline underline-offset-4">
                       chrisclaude.com
                     </a>
                   </li>
@@ -430,7 +441,7 @@ const Resume = () => {
                       LinkedIn
                     </p>
                     <a
-                      className="ml-6"
+                      className="ml-6 underline underline-offset-4"
                       href="https://www.linkedin.com/in/claude-de-tchambila-a720ba143/"
                       target="_blank">
                       Claude De-Tchambila
@@ -442,7 +453,7 @@ const Resume = () => {
                       GitHub
                     </p>
                     <a
-                      className="ml-6"
+                      className="ml-6 underline underline-offset-4"
                       href="https://github.com/ChrisClaude"
                       target="_blank">
                       Chris Claude
@@ -450,14 +461,14 @@ const Resume = () => {
                   </li>
                   <li className="border-b border-dashed border-gray-600 pb-2">
                     <p className="flex items-center gap-x-1  font-medium">
-                      <FaStackOverflow className="text-xl text-blue-500" />
-                      Stack Overflow
+                      <SiLeetcode className="text-xl" />
+                      LeetCode
                     </p>
                     <a
-                      className="ml-6"
-                      href="https://stackoverflow.com/users/10338096/chris-claude"
+                      className="ml-6 underline underline-offset-4"
+                      href="https://leetcode.com/u/ChChris"
                       target="_blank">
-                      Chris Claude
+                      ChChris
                     </a>
                   </li>
                 </ul>
