@@ -15,7 +15,7 @@ export default function CategoryLabel({ category }: {category: string}) {
     <div
       className={`px-2 py-1 bg-blue-600 text-gray-100 font-bold rounded`}
     >
-      <Link href={`/blog/category/${category.toLowerCase()}`}>{category}</Link>
+      <Link href={`/blog/category/${category?.toLowerCase()}`}>{category}</Link>
     </div>
   );
 }
