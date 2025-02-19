@@ -3,7 +3,14 @@ import { EMAIL_ADDRESS, PHONE_NUMBER } from '@/config';
 import UIContext from '@/hooks/UIContext';
 import Image from 'next/image';
 import { useContext, useEffect } from 'react';
-import { FaGithub, FaLink, FaLinkedinIn, FaPhone } from 'react-icons/fa';
+import {
+  FaArrowRight,
+  FaExternalLinkAlt,
+  FaGithub,
+  FaLink,
+  FaLinkedinIn,
+  FaPhone,
+} from 'react-icons/fa';
 import { GiEarthAfricaEurope } from 'react-icons/gi';
 import { MdLocationPin, MdOutlineAlternateEmail } from 'react-icons/md';
 import { SiLeetcode } from 'react-icons/si';
@@ -400,8 +407,9 @@ const Resume = () => {
                       <a
                         href="https://keepmeposted.com.mt/"
                         target="_blank"
-                        className="ml-6 underline underline-offset-4">
-                        Keepmeposted.com.mt
+                        className="ml-6 underline underline-offset-4 flex items-center gap-x-1">
+                        <span>Keepmeposted.com.mt</span>
+                        <FaExternalLinkAlt size={11} />
                       </a>
                     </p>
                     <p>
@@ -431,8 +439,9 @@ const Resume = () => {
                     <a
                       href="https://chrisclaude.com"
                       target="_blank"
-                      className="ml-6 underline underline-offset-4">
-                      chrisclaude.com
+                      className="ml-6 underline underline-offset-4 flex items-center gap-x-1">
+                      <span>chrisclaude.com</span>
+                      <FaExternalLinkAlt size={11} />
                     </a>
                   </li>
                   <li className="border-b border-dashed border-gray-600 pb-2">
@@ -441,22 +450,24 @@ const Resume = () => {
                       LinkedIn
                     </p>
                     <a
-                      className="ml-6 underline underline-offset-4"
+                      className="ml-6 underline underline-offset-4 flex items-center gap-x-1"
                       href="https://www.linkedin.com/in/claude-de-tchambila-a720ba143/"
                       target="_blank">
-                      Claude De-Tchambila
+                      <span>Claude De-Tchambila</span>
+                      <FaExternalLinkAlt size={11} />
                     </a>
                   </li>
                   <li className="border-b border-dashed border-gray-600 pb-2">
                     <p className="flex items-center gap-x-1  font-medium">
                       <FaGithub className="text-xl text-blue-500" />
-                      GitHub
+                      <span>GitHub</span>
                     </p>
                     <a
-                      className="ml-6 underline underline-offset-4"
+                      className="ml-6 underline underline-offset-4 flex items-center gap-x-1"
                       href="https://github.com/ChrisClaude"
                       target="_blank">
-                      Chris Claude
+                      <span>Chris Claude</span>
+                      <FaExternalLinkAlt size={11} />
                     </a>
                   </li>
                   <li className="border-b border-dashed border-gray-600 pb-2">
@@ -465,10 +476,11 @@ const Resume = () => {
                       LeetCode
                     </p>
                     <a
-                      className="ml-6 underline underline-offset-4"
+                      className="ml-6 underline underline-offset-4 flex items-center gap-x-1"
                       href="https://leetcode.com/u/ChChris"
                       target="_blank">
-                      ChChris
+                      <span>ChChris</span>
+                      <FaExternalLinkAlt size={11} />
                     </a>
                   </li>
                 </ul>

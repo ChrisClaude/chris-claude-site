@@ -4,6 +4,7 @@ import UIContext from '@/hooks/UIContext';
 import Image from 'next/image';
 import { useContext, useEffect } from 'react';
 import {
+  FaExternalLinkAlt,
   FaGithub,
   FaLink,
   FaLinkedinIn,
@@ -165,17 +166,18 @@ const Resume = () => {
                   </p>
                   <div className="mt-1">
                     <p>
-                      J&apos;ai travaillé sur l&apos;architecture et la mise en œuvre de
-                      solutions logicielles pour des clients dans le secteur des
-                      services financiers. La liste des clients avec lesquels
-                      j&apos;ai collaboré inclut (sans s&apos;y limiter) Nationale
-                      Nederlanden, l&apos;un des plus grands fournisseurs
-                      d&apos;assurances aux Pays-Bas. J&apos;ai conçu et implémenté des
-                      fonctionnalités qui ont amélioré les processus métiers de
-                      mes clients. Les technologies que j&apos;ai utilisées jusqu&apos;à
-                      présent incluent C#, SQL Server, Microsoft Azure, React
-                      JS, TypeScript et AzureDevOps. Voici quelques-unes des
-                      fonctionnalités sur lesquelles j&apos;ai travaillé :
+                      J&apos;ai travaillé sur l&apos;architecture et la mise en
+                      œuvre de solutions logicielles pour des clients dans le
+                      secteur des services financiers. La liste des clients avec
+                      lesquels j&apos;ai collaboré inclut (sans s&apos;y
+                      limiter) Nationale Nederlanden, l&apos;un des plus grands
+                      fournisseurs d&apos;assurances aux Pays-Bas. J&apos;ai
+                      conçu et implémenté des fonctionnalités qui ont amélioré
+                      les processus métiers de mes clients. Les technologies que
+                      j&apos;ai utilisées jusqu&apos;à présent incluent C#, SQL
+                      Server, Microsoft Azure, React JS, TypeScript et
+                      AzureDevOps. Voici quelques-unes des fonctionnalités sur
+                      lesquelles j&apos;ai travaillé :
                     </p>
                     <ul className="list-disc ml-10 mt-1">
                       <li>
@@ -419,12 +421,17 @@ const Resume = () => {
                       <a
                         href="https://keepmeposted.com.mt/"
                         target="_blank"
-                        className="ml-6 underline underline-offset-4">
-                        Keepmeposted.com.mt
+                        className="ml-6 underline underline-offset-4 flex items-center gap-x-1">
+                        <span>Keepmeposted.com.mt</span>
+                        <FaExternalLinkAlt size={11} />
                       </a>
                     </p>
                     <p>
-                    J&apos;ai travaillé en tant que développeur full stack sur ce projet. Mes responsabilités comprenaient la création de l&apos;API et de l&apos;interface utilisateur ainsi que la mise en place du pipeline CI/CD sur Azure DevOps. Nous avons utilisé .NET Core, Next.js et Microsoft Azure.
+                      J&apos;ai travaillé en tant que développeur full stack sur
+                      ce projet. Mes responsabilités comprenaient la création de
+                      l&apos;API et de l&apos;interface utilisateur ainsi que la
+                      mise en place du pipeline CI/CD sur Azure DevOps. Nous
+                      avons utilisé .NET Core, Next.js et Microsoft Azure.
                     </p>
                   </li>
                 </ul>
@@ -447,8 +454,9 @@ const Resume = () => {
                     <a
                       href="https://chrisclaude.com"
                       target="_blank"
-                      className="ml-6">
-                      chrisclaude.com
+                      className="ml-6 flex items-center gap-x-1">
+                      <span>chrisclaude.com</span>
+                      <FaExternalLinkAlt size={11} />
                     </a>
                   </li>
                   <li className="border-b border-dashed border-gray-600 pb-2">
@@ -457,10 +465,11 @@ const Resume = () => {
                       LinkedIn
                     </p>
                     <a
-                      className="ml-6"
+                      className="ml-6 flex items-center gap-x-1"
                       href="https://www.linkedin.com/in/claude-de-tchambila-a720ba143/"
                       target="_blank">
-                      Claude De-Tchambila
+                      <span>Claude De-Tchambila</span>
+                      <FaExternalLinkAlt size={11} />
                     </a>
                   </li>
                   <li className="border-b border-dashed border-gray-600 pb-2">
@@ -469,10 +478,11 @@ const Resume = () => {
                       GitHub
                     </p>
                     <a
-                      className="ml-6"
+                      className="ml-6 flex items-center gap-x-1"
                       href="https://github.com/ChrisClaude"
                       target="_blank">
-                      Chris Claude
+                      <span>Chris Claude</span>
+                      <FaExternalLinkAlt size={11} />
                     </a>
                   </li>
                   <li className="border-b border-dashed border-gray-600 pb-2">
@@ -481,10 +491,11 @@ const Resume = () => {
                       Stack Overflow
                     </p>
                     <a
-                      className="ml-6"
+                      className="ml-6 flex items-center gap-x-1"
                       href="https://stackoverflow.com/users/10338096/chris-claude"
                       target="_blank">
-                      Chris Claude
+                      <span>Chris Claude</span>
+                      <FaExternalLinkAlt size={11} />
                     </a>
                   </li>
                 </ul>
