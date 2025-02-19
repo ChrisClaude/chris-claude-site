@@ -385,7 +385,7 @@ const Resume = () => {
                 </ul>
               </div>
 
-              {/* Find me online  */}
+              {/* Notable Projects */}
               <div className="mb-6">
                 <div className="mb-3">
                   <h2 className="text-xl font-semibold uppercase">
@@ -394,7 +394,7 @@ const Resume = () => {
                   <div className="bg-gray-800 w-full h-1 rounded-full"></div>
                 </div>
                 <ul className="flex flex-col gap-y-5">
-                  <li className="border-b border-dashed border-gray-600 pb-2">
+                  <li>
                     <p className="flex items-center gap-x-1  font-medium">
                       <IoMdCheckbox className="text-green-400 text-xl" />
                       <a

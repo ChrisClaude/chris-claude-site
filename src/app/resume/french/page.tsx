@@ -11,6 +11,7 @@ import {
   FaStackOverflow,
 } from 'react-icons/fa';
 import { GiEarthAfricaEurope } from 'react-icons/gi';
+import { IoMdCheckbox } from 'react-icons/io';
 import { MdLocationPin, MdOutlineAlternateEmail } from 'react-icons/md';
 
 const Resume = () => {
@@ -296,7 +297,7 @@ const Resume = () => {
                 </div>
 
                 {/* Technologies  */}
-                <div className="mb-6 border-b-2 border-dashed border-gray-400 pb-4">
+                <div className="mb-6">
                   <h3 className="text-lg font-semibold uppercase mb-2 text-blue-500">
                     Technologies
                   </h3>
@@ -400,18 +401,31 @@ const Resume = () => {
                       <div className="h-8 w-2 bg-blue-500 rounded-full" />
                     </div>
                   </li>
-                  <li className="flex justify-between">
-                    <div>
-                      <p className="font-medium">Allemand</p>
-                      <p className="text-sm">Débutant</p>
-                    </div>
-                    <div className="flex gap-x-1">
-                      <div className="h-8 w-2 bg-blue-500 rounded-full" />
-                      <div className="h-8 w-2 bg-gray-300 rounded-full" />
-                      <div className="h-8 w-2 bg-gray-300 rounded-full" />
-                      <div className="h-8 w-2 bg-gray-300 rounded-full" />
-                      <div className="h-8 w-2 bg-gray-300 rounded-full" />
-                    </div>
+                </ul>
+              </div>
+
+              {/* Notable Projects */}
+              <div className="mb-6">
+                <div className="mb-3">
+                  <h2 className="text-xl font-semibold uppercase">
+                    Projets notables
+                  </h2>
+                  <div className="bg-gray-800 w-full h-1 rounded-full"></div>
+                </div>
+                <ul className="flex flex-col gap-y-5">
+                  <li>
+                    <p className="flex items-center gap-x-1  font-medium">
+                      <IoMdCheckbox className="text-green-400 text-xl" />
+                      <a
+                        href="https://keepmeposted.com.mt/"
+                        target="_blank"
+                        className="ml-6 underline underline-offset-4">
+                        Keepmeposted.com.mt
+                      </a>
+                    </p>
+                    <p>
+                    J&apos;ai travaillé en tant que développeur full stack sur ce projet. Mes responsabilités comprenaient la création de l&apos;API et de l&apos;interface utilisateur ainsi que la mise en place du pipeline CI/CD sur Azure DevOps. Nous avons utilisé .NET Core, Next.js et Microsoft Azure.
+                    </p>
                   </li>
                 </ul>
               </div>
