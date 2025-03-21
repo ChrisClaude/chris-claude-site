@@ -202,7 +202,7 @@ const Resume = () => {
                   <p className="text-blue-500">Dariel</p>
                   <p className="flex items-center">
                     <span>02/2021</span>
-                    <span className="mx-1"> - </span> <span>06/2023</span>{' '}
+                    <span className="mx-1"> - </span> <span>06/2022</span>{' '}
                     <MdLocationPin className="ml-3 mr-1" /> Johannesburg,
                     Afrique du Sud
                   </p>
