@@ -156,11 +156,39 @@ const Resume = () => {
                   <div className="bg-gray-800 w-full h-1 rounded-full"></div>
                 </div>
                 <div className="mb-4 border-b-2 border-dashed border-gray-400 pb-4">
+                  <h3 className="text-lg font-medium">Senior Software Engineer</h3>
+                  <p className="text-blue-500">Firma Dla Kazdego</p>
+                  <p className="flex items-center">
+                    <span>01/2025</span>
+                    <span className="mx-1"> - </span> <span>Present</span>{' '}
+                    <MdLocationPin className="ml-3 mr-1" /> Poznan, Poland
+                  </p>
+                  <div className="mt-1">
+                    <p>
+                      I have been working as a senior software engineer in Firma Dla Kazdego. My responsabilities include:
+                    </p>
+                    <ul className="list-disc ml-10 mt-1">
+                      <li>
+                        Developing full stack web applications using C#, JavaScript (React JS and Angular), Python, Microsoft Azure, and AWS.
+                      </li>
+                      <li>
+                        Deploying large scale applications on Azure and AWS
+                      </li>
+<li>
+                        Ensuring the reliability of applications by implementing unit testing, integration testing, and end to end testing
+                      </li>
+                      <li>
+                        Ensuring the security of data and applications
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+<div className="mb-4 border-b-2 border-dashed border-gray-400 pb-4">
                   <h3 className="text-lg font-medium">Software Engineer</h3>
                   <p className="text-blue-500">Capgemini</p>
                   <p className="flex items-center">
                     <span>07/2022</span>
-                    <span className="mx-1"> - </span> <span>Present</span>{' '}
+                    <span className="mx-1"> - </span> <span>12/2024</span>{' '}
                     <MdLocationPin className="ml-3 mr-1" /> Poznan, Poland
                   </p>
                   <div className="mt-1">

@@ -18,6 +18,13 @@ npm install
 npm run dev
 ```
 
+### Roadmap
+
+- [x] Add Portfolio page
+- [x] Improve blog page and publish a few articles
+- [x] Add contact form
+
+
 ### License
 
 This project is open-source under the [MIT License](LICENSE).
