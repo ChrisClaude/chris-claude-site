@@ -137,7 +137,7 @@ const Resume = () => {
                   <div className="bg-gray-800 w-full h-1 rounded-full"></div>
                 </div>
                 <p>
-                  I am a senior software engineer specializing in designing distributed systems and implementing enterprise-grade software solutions. With extensive experience building scalable full-stack web applications, cloud infrastructure, and mobile solutions, I've developed strong problem-solving skills and a passion for continuous learning. My technical expertise spans multiple domains including financial services, insurance, and document processing with a focus on delivering high-quality, secure, and reliable software that positively impacts users' lives.
+                  I am a senior software engineer specializing in designing distributed systems and implementing enterprise-grade software solutions. With extensive experience building scalable full-stack web applications, cloud infrastructure, and mobile solutions, I&apos;ve developed strong problem-solving skills and a passion for continuous learning. My technical expertise spans multiple domains including financial services, insurance, and document processing with a focus on delivering high-quality, secure, and reliable software that positively impacts users&apos; lives.
                 </p>
               </div>
 
