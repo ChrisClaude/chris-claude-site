@@ -88,7 +88,7 @@ const Resume = () => {
                   Claude De-Tchambila
                 </h1>
                 <h2 className="text-2xl font-semibold text-blue-500">
-                  Software Engineer
+                  Senior Software Engineer
                 </h2>
               </div>
               <div className="grid grid-cols-2">
@@ -137,13 +137,7 @@ const Resume = () => {
                   <div className="bg-gray-800 w-full h-1 rounded-full"></div>
                 </div>
                 <p>
-                  I am a software engineer that specializes in designing
-                  distributed systems and implementing software solutions. With
-                  a strong background in building full-stack web, cloud, and
-                  mobile applications, I have developed excellent
-                  problem-solving skills and a love for constant learning. I am
-                  a critical thinker with a passion for positively impacting
-                  people&apos;s lives.
+                  I am a senior software engineer specializing in designing distributed systems and implementing enterprise-grade software solutions. With extensive experience building scalable full-stack web applications, cloud infrastructure, and mobile solutions, I've developed strong problem-solving skills and a passion for continuous learning. My technical expertise spans multiple domains including financial services, insurance, and document processing with a focus on delivering high-quality, secure, and reliable software that positively impacts users' lives.
                 </p>
               </div>
 
@@ -165,20 +159,20 @@ const Resume = () => {
                   </p>
                   <div className="mt-1">
                     <p>
-                      I have been working as a senior software engineer in Firma Dla Kazdego. My responsabilities include:
+                      Leading software development initiatives as a senior engineer, focusing on enterprise-scale applications and cloud architecture. Key responsibilities:
                     </p>
                     <ul className="list-disc ml-10 mt-1">
                       <li>
-                        Developing full stack web applications using C#, JavaScript (React JS and Angular), Python, Microsoft Azure, and AWS.
+                        Architecting and developing full-stack web applications using C#/.NET, React/Angular, and cloud services (Azure, AWS)
                       </li>
                       <li>
-                        Deploying large scale applications on Azure and AWS
-                      </li>
-<li>
-                        Ensuring the reliability of applications by implementing unit testing, integration testing, and end to end testing
+                        Implementing CI/CD pipelines and infrastructure-as-code for reliable, scalable deployments
                       </li>
                       <li>
-                        Ensuring the security of data and applications
+                        Establishing comprehensive testing strategies including unit, integration, and E2E testing frameworks
+                      </li>
+                      <li>
+                        Implementing security best practices and compliance measures for sensitive data handling
                       </li>
                     </ul>
                   </div>
@@ -329,9 +323,9 @@ const Resume = () => {
                 </div>
 
                 {/* Power Skills  */}
-                {/* <div>
-                  <h3 className="text-lg font-semibold uppercase mb-1 text-blue-500">
-                    Power Skills
+                <div className="mb-6">
+                  <h3 className="text-lg font-semibold uppercase mb-2 text-blue-500">
+                    Professional Skills
                   </h3>
                   <div className="flex flex-wrap gap-1">
                     {skills.map((skill, index) => (
@@ -342,7 +336,7 @@ const Resume = () => {
                       </span>
                     ))}
                   </div>
-                </div> */}
+                </div>
               </div>
 
               {/* Education */}
@@ -430,7 +424,7 @@ const Resume = () => {
                 </div>
                 <ul className="flex flex-col gap-y-5">
                   <li>
-                    <p className="flex items-center gap-x-1  font-medium">
+                    <p className="flex items-center gap-x-1 font-medium">
                       <IoMdCheckbox className="text-green-400 text-xl" />
                       <a
                         href="https://keepmeposted.com.mt/"
@@ -441,10 +435,22 @@ const Resume = () => {
                       </a>
                     </p>
                     <p>
-                      I was a full-stack developer on this project. My
-                      responsibilities included building the API and the UI as
-                      well as setting up the CI/CD pipeline on Azure DevOps. We
-                      used .NET Core, Next JS, and Microsoft Azure.
+                      Led full-stack development for this enterprise communication platform. Designed and implemented RESTful APIs, responsive UI components, and established CI/CD pipelines on Azure DevOps. Technologies: .NET Core, Next.js, Azure, SQL Server, and Redis for caching.
+                    </p>
+                  </li>
+                  <li>
+                    <p className="flex items-center gap-x-1 font-medium">
+                      <IoMdCheckbox className="text-green-400 text-xl" />
+                      <a
+                        href="https://github.com/ChrisClaude"
+                        target="_blank"
+                        className="ml-6 underline underline-offset-4 flex items-center gap-x-1">
+                        <span>Personal Portfolio</span>
+                        <FaExternalLinkAlt size={11} />
+                      </a>
+                    </p>
+                    <p>
+                      Designed and developed my personal website using Next.js, featuring a responsive design, blog functionality with Markdown support, and custom animations. Implemented SEO best practices and performance optimizations.
                     </p>
                   </li>
                 </ul>
