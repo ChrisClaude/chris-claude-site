@@ -1,3 +1,33 @@
 .vscode/
 .DS_Store
+
+# Terraform files
+.terraform/
+.terraform.lock.hcl
+terraform.tfstate
+terraform.tfstate.backup
+
+# Local .terraform directories
+**/.terraform/*
+!.terraform/*.tflock
+
+# Terraform state files
+*.tfstate
+*.tfstate.*
+
+# Crash logs
+crash.log
+
+# Terraform variable override files (often contain secrets)
+*.tfvars
+*.tfvars.json
+
+# Sensitive Terraform plan output
+*.plan
+
+# Ignore local override files
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
 *.tfvars
