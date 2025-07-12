@@ -15,4 +15,5 @@ public class NewsletterSignUp : BaseEntity, IAuditable
     public Guid? UpdatedBy { get; set; }
     public User CreatedByUser { get; set; } // This will be the system user
     public User UpdatedByUser { get; set; }
+    public IEnumerable<ProcessedNotification> ProcessedNotifications { get; set; }
 }

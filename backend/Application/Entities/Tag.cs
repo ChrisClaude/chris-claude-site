@@ -11,4 +11,5 @@ public class Tag : BaseEntity, IAuditable
     public Guid? UpdatedBy { get; set; }
     public User CreatedByUser { get; set; }
     public User UpdatedByUser { get; set; }
+    public IEnumerable<PostTag> PostTags { get; set; }
 }
