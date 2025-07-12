@@ -28,5 +28,15 @@ public class ApplicationContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfiguration(new UserEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new RoleEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new UserRoleEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new PostEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new CommentEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new PostReactionEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new TagEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new PostTagEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new BookmarkEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new NewsletterSignUpEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new ProcessedNotificationEntityTypeConfiguration());
     }
 }
