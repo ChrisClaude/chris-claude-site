@@ -10,5 +10,5 @@ public class AppConfigurations
 public class DBConfig
 {
     public string PostgresConnectionString { get; set; }
-    public string SqlServerConnectionString { get; set;}
+    public string SqlServerConnectionString { get; set; }
 }
