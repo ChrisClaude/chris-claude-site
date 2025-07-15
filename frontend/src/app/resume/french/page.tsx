@@ -71,8 +71,8 @@ const Resume = () => {
   ];
 
   useEffect(() => {
-    setUIState?.({ ...uiState, isResumePage: true });
-  }, []);
+    setUIState?.(state => ({ ...state, isResumePage: true }));
+  }, [setUIState]);
 
   return (
     <div className="bg-white text-gray-800 py-24 px-52 overflow-x-auto xl:flex xl:justify-center">
