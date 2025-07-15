@@ -22,7 +22,7 @@ const Resume = () => {
     'C++',
     'JavaScript',
     'React JS',
-    'Angular',
+    'Angular 13+',
     'Python',
     'TensorFlow',
     'Java',
@@ -218,7 +218,7 @@ const Resume = () => {
                     <ul className="list-disc ml-10 mt-1">
                       <li>
                         Une plateforme de trading Forex. Les technologies
-                        utilisées étaient C#, TypeScript, ASP.NET Core, Angular,
+                        utilisées étaient C#, TypeScript, ASP.NET Core, Angular 13+,
                         AzureDevOps, RabbitMQ
                       </li>
                       <li>

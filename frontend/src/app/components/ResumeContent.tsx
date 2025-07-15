@@ -1,44 +1,44 @@
-import { EMAIL_ADDRESS, PHONE_NUMBER } from '@/config';
-import Image from 'next/image';
+import { EMAIL_ADDRESS, PHONE_NUMBER } from "@/config";
+import Image from "next/image";
 import {
   FaExternalLinkAlt,
   FaGithub,
   FaLink,
   FaLinkedinIn,
   FaPhone,
-} from 'react-icons/fa';
-import { GiEarthAfricaEurope } from 'react-icons/gi';
-import { MdLocationPin, MdOutlineAlternateEmail } from 'react-icons/md';
-import { SiLeetcode } from 'react-icons/si';
-import { IoMdCheckbox } from 'react-icons/io';
+} from "react-icons/fa";
+import { GiEarthAfricaEurope } from "react-icons/gi";
+import { MdLocationPin, MdOutlineAlternateEmail } from "react-icons/md";
+import { SiLeetcode } from "react-icons/si";
+import { IoMdCheckbox } from "react-icons/io";
 
 const ResumeContent = () => {
   const technologies = [
-    'C#',
-    'C++',
-    'JavaScript',
-    'Next JS',
-    'React JS',
-    'Angular',
-    'Python',
-    'TensorFlow',
-    'Java',
-    'Docker',
-    'Kubernetes',
-    'Apache Kafka',
-    'Microsoft Azure',
-    'AWS',
+    "C#",
+    "C++",
+    "JavaScript",
+    "Next JS",
+    "React JS",
+    "Angular",
+    "Python",
+    "TensorFlow",
+    "Java",
+    "Docker",
+    "Kubernetes",
+    "Apache Kafka",
+    "Microsoft Azure",
+    "AWS",
   ];
 
   const skills = [
-    'Problem solving',
-    'Assertiveness',
-    'Creativity',
-    'Critical thinking',
-    'Teamwork',
-    'Team management',
-    'Presentation / Public speaking',
-    'Risk management',
+    "Problem solving",
+    "Assertiveness",
+    "Creativity",
+    "Critical thinking",
+    "Teamwork",
+    "Team management",
+    "Presentation / Public speaking",
+    "Risk management",
   ];
 
   const references: {
@@ -48,28 +48,28 @@ const ResumeContent = () => {
     company: string;
   }[] = [
     {
-      fullName: 'Prajwal Chengappa',
-      role: 'Senior Software Engineer',
-      email: 'prajwal.chengappa@capgemini.com',
-      company: 'Capgemini',
+      fullName: "Prajwal Chengappa",
+      role: "Senior Software Engineer",
+      email: "prajwal.chengappa@capgemini.com",
+      company: "Capgemini",
     },
     {
-      fullName: 'Banish Jha',
-      role: 'Senior Software Engineer',
-      email: 'banish.jha@nn-group.com',
-      company: 'Nationale Nederlanden',
+      fullName: "Banish Jha",
+      role: "Senior Software Engineer",
+      email: "banish.jha@nn-group.com",
+      company: "Nationale Nederlanden",
     },
     {
-      fullName: 'Rens Van Driel',
-      role: 'Software Developer',
-      email: 'rens.van.a.driel@sogeti.com',
-      company: 'Sogeti',
+      fullName: "Rens Van Driel",
+      role: "Software Developer",
+      email: "rens.van.a.driel@sogeti.com",
+      company: "Sogeti",
     },
   ];
 
   return (
     <div className="bg-white text-gray-800 py-24 px-52 overflow-x-auto xl:flex xl:justify-center">
-      <div className="flex flex-col justify-center" style={{ width: '1200px' }}>
+      <div className="flex flex-col justify-center" style={{ width: "1200px" }}>
         <div>
           {/* Header */}
           <div className="flex justify-between mb-10">
@@ -89,14 +89,16 @@ const ResumeContent = () => {
                 </a>
                 <a
                   href={`mailto:${EMAIL_ADDRESS}`}
-                  className="flex items-center">
-                  <MdOutlineAlternateEmail className="mr-1 text-blue-500" />{' '}
+                  className="flex items-center"
+                >
+                  <MdOutlineAlternateEmail className="mr-1 text-blue-500" />{" "}
                   {EMAIL_ADDRESS}
                 </a>
                 <a
                   href="https://chrisclaude.com"
                   target="_blank"
-                  className="flex items-center">
+                  className="flex items-center"
+                >
                   <FaLink className="mr-1 text-blue-500" />
                   <span>chrisclaude.com</span>
                 </a>
@@ -156,7 +158,7 @@ const ResumeContent = () => {
                   <p className="text-blue-500">Firma Dla Kazdego</p>
                   <p className="flex items-center">
                     <span>01/2025</span>
-                    <span className="mx-1"> - </span> <span>Present</span>{' '}
+                    <span className="mx-1"> - </span> <span>Present</span>{" "}
                     <MdLocationPin className="ml-3 mr-1" /> Poznan, Poland
                   </p>
                   <div className="mt-1">
@@ -168,8 +170,8 @@ const ResumeContent = () => {
                     <ul className="list-disc ml-10 mt-1">
                       <li>
                         Architecting and developing full-stack web applications
-                        using C#/.NET, React/Angular, and cloud services (Azure,
-                        AWS)
+                        using C#/.NET, React/Angular 13+, and cloud services
+                        (Azure PaaS, AWS)
                       </li>
                       <li>
                         Implementing CI/CD pipelines and infrastructure-as-code
@@ -191,7 +193,7 @@ const ResumeContent = () => {
                   <p className="text-blue-500">Capgemini</p>
                   <p className="flex items-center">
                     <span>07/2022</span>
-                    <span className="mx-1"> - </span> <span>12/2024</span>{' '}
+                    <span className="mx-1"> - </span> <span>12/2024</span>{" "}
                     <MdLocationPin className="ml-3 mr-1" /> Poznan, Poland
                   </p>
                   <div className="mt-1">
@@ -204,8 +206,8 @@ const ResumeContent = () => {
                       have designed and implemented features that have improved
                       the business processes of my clients. The technologies I
                       have used so far include C#, SQL Server, Microsoft Azure,
-                      React JS, TypeScript and AzureDevOps. The following are a
-                      few of the features I have worked on:
+                      Azure PaaS, React JS, Angular 13+, TypeScript and AzureDevOps. The
+                      following are a few of the features I have worked on:
                     </p>
                     <ul className="list-disc ml-10 mt-1">
                       <li>
@@ -226,7 +228,7 @@ const ResumeContent = () => {
                   <p className="text-blue-500">Dariel</p>
                   <p className="flex items-center">
                     <span>02/2021</span>
-                    <span className="mx-1"> - </span> <span>06/2022</span>{' '}
+                    <span className="mx-1"> - </span> <span>06/2022</span>{" "}
                     <MdLocationPin className="ml-3 mr-1" /> Johannesburg, South
                     Africa
                   </p>
@@ -242,8 +244,8 @@ const ResumeContent = () => {
                     <ul className="list-disc ml-10 mt-1">
                       <li>
                         A Forex exchange trading platform. The technologies used
-                        were C#, TypeScript, ASP.NET Core, Angular, AzureDevOps,
-                        RabbitMQ
+                        were C#, TypeScript, ASP.NET Core, Angular 13+,
+                        AzureDevOps, RabbitMQ and Azure PaaS
                       </li>
                       <li>
                         Insurance sales system. The technologies used were C#,
@@ -262,7 +264,7 @@ const ResumeContent = () => {
                   <p className="text-blue-500">Exigent Group</p>
                   <p className="flex items-center">
                     <span>11/2020</span>
-                    <span className="mx-1"> - </span> <span>02/2021</span>{' '}
+                    <span className="mx-1"> - </span> <span>02/2021</span>{" "}
                     <MdLocationPin className="ml-3 mr-1" /> Cape Town, South
                     Africa
                   </p>
@@ -324,7 +326,8 @@ const ResumeContent = () => {
                     {technologies.map((tech, index) => (
                       <span
                         key={index}
-                        className="border border-gray-600 border-solid py-1 px-2 rounded-lg">
+                        className="border border-gray-600 border-solid py-1 px-2 rounded-lg"
+                      >
                         {tech}
                       </span>
                     ))}
@@ -340,7 +343,8 @@ const ResumeContent = () => {
                     {skills.map((skill, index) => (
                       <span
                         key={index}
-                        className="border border-gray-600 border-solid py-1 px-2 rounded-lg">
+                        className="border border-gray-600 border-solid py-1 px-2 rounded-lg"
+                      >
                         {skill}
                       </span>
                     ))}
@@ -365,8 +369,8 @@ const ResumeContent = () => {
                       </a>
                     </p>
                     <p className="flex items-center mr-1">
-                      <span>01/2018</span> <span className="mx-1">-</span>{' '}
-                      <span className="mr-3">12/2020</span>{' '}
+                      <span>01/2018</span> <span className="mx-1">-</span>{" "}
+                      <span className="mr-3">12/2020</span>{" "}
                       <MdLocationPin className="mr-1" /> Cape Town, South Africa
                     </p>
                   </li>
@@ -375,7 +379,8 @@ const ResumeContent = () => {
                     <p className="text-blue-500">
                       <a
                         href="https://www.ctc.edu.za/cape-town-campus/"
-                        target="_blank">
+                        target="_blank"
+                      >
                         Central Technical College
                       </a>
                     </p>
@@ -438,7 +443,8 @@ const ResumeContent = () => {
                       <a
                         href="https://keepmeposted.com.mt/"
                         target="_blank"
-                        className="ml-6 underline underline-offset-4 flex items-center gap-x-1">
+                        className="ml-6 underline underline-offset-4 flex items-center gap-x-1"
+                      >
                         <span>Keepmeposted.com.mt</span>
                         <FaExternalLinkAlt size={11} />
                       </a>
@@ -457,7 +463,8 @@ const ResumeContent = () => {
                       <a
                         href="https://github.com/ChrisClaude"
                         target="_blank"
-                        className="ml-6 underline underline-offset-4 flex items-center gap-x-1">
+                        className="ml-6 underline underline-offset-4 flex items-center gap-x-1"
+                      >
                         <span>Personal Portfolio</span>
                         <FaExternalLinkAlt size={11} />
                       </a>
@@ -489,7 +496,8 @@ const ResumeContent = () => {
                     <a
                       href="https://chrisclaude.com"
                       target="_blank"
-                      className="ml-6 underline underline-offset-4 flex items-center gap-x-1">
+                      className="ml-6 underline underline-offset-4 flex items-center gap-x-1"
+                    >
                       <span>chrisclaude.com</span>
                       <FaExternalLinkAlt size={11} />
                     </a>
@@ -502,7 +510,8 @@ const ResumeContent = () => {
                     <a
                       className="ml-6 underline underline-offset-4 flex items-center gap-x-1"
                       href="https://www.linkedin.com/in/claude-de-tchambila-a720ba143/"
-                      target="_blank">
+                      target="_blank"
+                    >
                       <span>Claude De-Tchambila</span>
                       <FaExternalLinkAlt size={11} />
                     </a>
@@ -515,7 +524,8 @@ const ResumeContent = () => {
                     <a
                       className="ml-6 underline underline-offset-4 flex items-center gap-x-1"
                       href="https://github.com/ChrisClaude"
-                      target="_blank">
+                      target="_blank"
+                    >
                       <span>Chris Claude</span>
                       <FaExternalLinkAlt size={11} />
                     </a>
@@ -528,7 +538,8 @@ const ResumeContent = () => {
                     <a
                       className="ml-6 underline underline-offset-4 flex items-center gap-x-1"
                       href="https://leetcode.com/u/ChChris"
-                      target="_blank">
+                      target="_blank"
+                    >
                       <span>ChChris</span>
                       <FaExternalLinkAlt size={11} />
                     </a>
