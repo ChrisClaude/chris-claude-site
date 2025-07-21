@@ -16,13 +16,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      {/* <head>
-        <Script
-          src="/cdn-cgi/zaraz/i.js"
-          referrerPolicy="origin"
-          crossOrigin="anonymous"
-        />
-      </head> */}
       <body suppressHydrationWarning={true}>
         <UIContextProvider>
           <AppWrapper>
@@ -30,6 +23,8 @@ export default function RootLayout({
             <Header />
             <Main>
               {children}
+
+              <div data-component-embed="chat-prompt" data-enable-chat="true" />
               <Footer />
             </Main>
           </AppWrapper>
