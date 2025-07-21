@@ -31,7 +31,7 @@ export default function RootLayout({
             <Main>
               {children}
 
-              <div data-component-embed="chat-prompt" data-enable-chat="true" />
+              <div data-component-embed="chat-prompt" data-enable-chat="true" id="chat-prompt" />
               <Footer />
             </Main>
           </AppWrapper>
