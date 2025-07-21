@@ -16,6 +16,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <Script
+          src="/cdn-cgi/zaraz/i.js"
+          referrerPolicy="origin"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body suppressHydrationWarning={true}>
         <UIContextProvider>
           <AppWrapper>
