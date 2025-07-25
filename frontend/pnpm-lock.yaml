@@ -49,7 +49,7 @@ importers:
         version: 4.12.0(react@18.3.1)
       react-loader-spinner:
         specifier: ^5.4.5
-        version: 5.5.0(@babel/core@7.28.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 5.4.5(@babel/core@7.28.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       server-only:
         specifier: 0.0.1
         version: 0.0.1
@@ -2132,9 +2132,8 @@ packages:
   react-is@18.3.1:
     resolution: {integrity: sha512-/LLMVyas0ljjAtoYiPqYiL8VWXzUUdThrmU5+n20DZv+a+ClRoevUzw5JxU+Ieh5/c87ytoTBV9G1FiKfNJdmg==}
 
-  react-loader-spinner@5.5.0:
-    resolution: {integrity: sha512-3y+l6RPbkfW8EMs/X7MtfiPlAPwYp+WbCtls3gZn+fDJCt0SW4TakRoj2/lExbCVxSxA6Y5M8Nly+WfhNxnFcw==}
-    deprecated: Breaking changes was include so major version was use
+  react-loader-spinner@5.4.5:
+    resolution: {integrity: sha512-32f+sb/v2tnNfyvnCCOS4fpyVHsGXjSyNo6QLniHcaj1XjKLxx14L2z0h6szRugOL8IEJ+53GPwNAdbkDqmy4g==}
     peerDependencies:
       react: ^16.0.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.0.0 || ^17.0.0 || ^18.0.0
@@ -3686,7 +3685,7 @@ snapshots:
 
   '@types/react-loader-spinner@4.0.0(@babel/core@7.28.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
-      react-loader-spinner: 5.5.0(@babel/core@7.28.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react-loader-spinner: 5.4.5(@babel/core@7.28.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     transitivePeerDependencies:
       - '@babel/core'
       - react
@@ -5161,7 +5160,7 @@ snapshots:
 
   react-is@18.3.1: {}
 
-  react-loader-spinner@5.5.0(@babel/core@7.28.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  react-loader-spinner@5.4.5(@babel/core@7.28.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
