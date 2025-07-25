@@ -1,14 +1,13 @@
 import { getPaginatedArticles } from '@/lib/articles';
-import { NextApiResponse } from 'next';
 import { NextRequest, NextResponse } from 'next/server';
 
 
-export async function GET(request: NextRequest, res: NextApiResponse) {
+export async function GET(request: NextRequest) {
 
   if (request.method !== 'GET') {
-    return res.status(405).json({
+    return NextResponse.json({
       message: "Method not allowed",
-    });
+    }, { status: 405 });
   }
 
   const pageParam = request.nextUrl.searchParams.get('page');

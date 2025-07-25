@@ -4,12 +4,19 @@ import { ArticleFull } from '@/components';
 import { ROOT_URL } from '@/config';
 import { useEffect, useState } from 'react';
 
-const Page = ({ params }: { params: { slug: string } }) => {
+const Page = ({ params }: { params: Promise<{ slug: string }> }) => {
 
   const [article, setArticle] = useState<ArticleContent | undefined>(undefined);
+  const [resolvedParams, setResolvedParams] = useState<{ slug: string } | null>(null);
 
   useEffect(() => {
-    fetch(`${ROOT_URL}/api/articles/${params.slug}`).then((res) => {
+    params.then(setResolvedParams);
+  }, [params]);
+
+  useEffect(() => {
+    if (!resolvedParams) return;
+    
+    fetch(`${ROOT_URL}/api/articles/${resolvedParams.slug}`).then((res) => {
       if (res.status !== 200) {
         throw new Error(res.status.toString());
       }
@@ -20,7 +27,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
       setArticle(res.data);
     })
     .catch(err => console.error("There was an error fetching the article", err));
-  }, []);
+  }, [resolvedParams]);
 
   return (
     article &&(

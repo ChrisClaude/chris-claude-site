@@ -2,7 +2,8 @@ import { getArticleById } from '@/lib/articles';
 import { NextRequest, NextResponse } from 'next/server';
 
 
-export async function GET(request: NextRequest, { params }: { params: { slug: string } }) {
+export async function GET(request: NextRequest, context: { params: Promise<{ slug: string }> }) {
+  const params = await context.params;
 
   if (request.method !== 'GET') {
     return NextResponse.json({

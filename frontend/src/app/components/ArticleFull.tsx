@@ -1,6 +1,6 @@
 "use client";
 import { ArticleContent } from '@/AppTypes';
-import * as DOMPurify from 'dompurify';
+import DOMPurify from 'dompurify';
 import { marked } from 'marked';
 import { Source_Serif_4 } from 'next/font/google';
 import CategoryLabel from './CategoryLabel';
