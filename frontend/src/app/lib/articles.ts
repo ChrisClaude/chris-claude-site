@@ -155,50 +155,60 @@ const getArticlesFromS3 = async (maxKeys : number | null = null): Promise<Articl
 const getArticleContentFromFileSystem = (
   id: string
 ): ArticleContent | undefined => {
-  const files = fs.readdirSync(path.join(localDataPath));
+  try {
+    const files = fs.readdirSync(path.join(localDataPath));
 
-  const currentFileName = files.find(filename => {
-    const slug = filename.replace('.md', '');
-    return slug.toLocaleLowerCase() === id.toLocaleLowerCase();
-  });
+    const currentFileName = files.find(filename => {
+      const slug = filename.replace('.md', '');
+      return slug.toLocaleLowerCase() === id.toLocaleLowerCase();
+    });
 
-  if (currentFileName === undefined) {
-    return undefined;
-  }
+    if (currentFileName === undefined) {
+      return undefined;
+    }
 
-  const slug = currentFileName.replace('.md', '');
-  const markdownWithMeta = fs.readFileSync(
-    path.join(localDataPath, currentFileName),
-    'utf-8'
-  );
-  const { data: frontmatter, content } = matter(markdownWithMeta);
-
-  return {
-    slug,
-    frontmatter,
-    content,
-  };
-};
-
-const getArticlesFromFileSystem = (): ArticleContent[] => {
-  const files = fs.readdirSync(path.join(localDataPath));
-  const articles = files.map(filename => {
-    const slug = filename.replace('.md', '');
-
+    const slug = currentFileName.replace('.md', '');
     const markdownWithMeta = fs.readFileSync(
-      path.join('data/articles', filename),
+      path.join(localDataPath, currentFileName),
       'utf-8'
     );
-
-    const { data: frontmatter } = matter(markdownWithMeta);
+    const { data: frontmatter, content } = matter(markdownWithMeta);
 
     return {
       slug,
       frontmatter,
-      content: undefined,
+      content,
     };
-  });
+  } catch (error) {
+    console.warn('Articles directory not found:', error);
+    return undefined;
+  }
+};
 
-  return articles;
+const getArticlesFromFileSystem = (): ArticleContent[] => {
+  try {
+    const files = fs.readdirSync(path.join(localDataPath));
+    const articles = files.map(filename => {
+      const slug = filename.replace('.md', '');
+
+      const markdownWithMeta = fs.readFileSync(
+        path.join('data/articles', filename),
+        'utf-8'
+      );
+
+      const { data: frontmatter } = matter(markdownWithMeta);
+
+      return {
+        slug,
+        frontmatter,
+        content: undefined,
+      };
+    });
+
+    return articles;
+  } catch (error) {
+    console.warn('Articles directory not found, returning empty array:', error);
+    return [];
+  }
 };
 //#endregion
