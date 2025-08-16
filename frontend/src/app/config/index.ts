@@ -14,4 +14,4 @@ export const S3_HOME_MAX_KEYS = process.env.NEXT_PUBLIC_S3_HOME_MAX_KEYS;
 
 export const PHONE_NUMBER = process.env.NEXT_PUBLIC_PHONE_NUMBER ?? "+1 111 111 111 11";
 
-export const EMAIL_ADDRESS = process.env.NEXT_PUBLIC_EMAIL_ADDRESS ?? "admine@chrisclaude.com";
+export const EMAIL_ADDRESS = process.env.NEXT_PUBLIC_EMAIL_ADDRESS ?? "christ.tchambila@gmail.com";

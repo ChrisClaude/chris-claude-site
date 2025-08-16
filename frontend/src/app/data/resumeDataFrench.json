@@ -1,0 +1,170 @@
+{
+  "personalInfo": {
+    "name": "Claude De-Tchambila",
+    "title": "Ingénieur en génie logiciel",
+    "phone": "+48 600 697 514",
+    "email": "christ.tchambila@gmail.com",
+    "website": "chrisclaude.com",
+    "location": "Poznan, Pologne",
+    "image": "/about_me.png",
+    "imageAlt": "Chris Claude"
+  },
+  "summary": "Je suis ingénieur en genie logiciel spécialisé dans la conception de systèmes distribués et la mise en œuvre de solutions logicielles. Fort d'une solide expérience dans le développement d'applications web, et cloud, j'ai développé d'excellentes compétences en programmation informatique ainsi qu'une passion pour l'apprentissage continu. Je suis un penseur critique avec la passion d'avoir un impact positif sur la vie des gens.",
+  "workExperience": [
+    {
+      "title": "Ingénieur en génie logiciel",
+      "company": "Capgemini",
+      "startDate": "07/2022",
+      "endDate": "Present",
+      "location": "Poznan, Pologne",
+      "description": "J'ai travaillé sur l'architecture et la mise en œuvre de solutions logicielles pour des clients dans le secteur des services financiers. La liste des clients avec lesquels j'ai collaboré inclut (sans s'y limiter) Nationale Nederlanden, l'un des plus grands fournisseurs d'assurances aux Pays-Bas. J'ai conçu et implémenté des fonctionnalités qui ont amélioré les processus métiers de mes clients. Les technologies que j'ai utilisées jusqu'à présent incluent C#, SQL Server, Microsoft Azure, React JS, TypeScript et AzureDevOps. Voici quelques-unes des fonctionnalités sur lesquelles j'ai travaillé :",
+      "responsibilities": [
+        "Dimension à changement lent de type 2 pour un système de data warehouse",
+        "Importation et exportation de données sécurisées et inter-environnements",
+        "Sécurité au niveau des lignes de données intégrée avec Azure RBAC"
+      ]
+    },
+    {
+      "title": "Ingénieur en génie logiciel",
+      "company": "Dariel",
+      "startDate": "02/2021",
+      "endDate": "06/2022",
+      "location": "Johannesburg, Afrique du Sud",
+      "description": "J'ai travaillé avec plusieurs clients sur divers projets dans le secteur des services financiers. Mes clients incluaient Sasfin Bank et Safrican Insurance, désormais partie de Sanlam, le plus grand fournisseur d'assurances en Afrique du Sud. Voici quelques projets auxquels j'ai contribué",
+      "responsibilities": [
+        "Une plateforme de trading Forex. Les technologies utilisées étaient C#, TypeScript, ASP.NET Core, Angular 13+, AzureDevOps, RabbitMQ",
+        "Un système de vente d'assurances. Les technologies utilisées étaient C#, TypeScript, ASP.NET Core, Angular, React, AzureDevOps",
+        "Un logiciel de gestion de pont-bascule dans l'industrie logistique. Les technologies utilisées étaient C#, TypeScript, ASP.NET Core, Angular, Jira, Jenkins, RabbitMQ"
+      ]
+    },
+    {
+      "title": "Ingénieur en génie logiciel",
+      "company": "Exigent Group",
+      "startDate": "11/2020",
+      "endDate": "02/2021",
+      "location": "Cape Town, Afrique du Sud",
+      "description": "J'ai principalement travaillé sur un projet visant à créer un système logiciel permettant de traiter de grandes quantités de documents (contrats d'entreprise, factures, accords juridiques) en utilisant l'apprentissage automatique et en fournissant des informations critiques aux clients. J'ai contribué au développement des fonctionnalités backend et frontend ainsi qu'à l'intégration avec des outils de machine learning. Les technologies utilisées étaient Python, Django, Keras, PyTorch et React JS.",
+      "responsibilities": []
+    }
+  ],
+  "references": [
+    {
+      "fullName": "Prajwal Chengappa",
+      "role": "Ingénieur en génie logiciel Senior",
+      "email": "prajwal.chengappa@capgemini.com",
+      "company": "Capgemini"
+    },
+    {
+      "fullName": "Banish Jha",
+      "role": "Ingénieur en génie logiciel Senior",
+      "email": "banish.jha@nn-group.com",
+      "company": "Nationale Nederlanden"
+    },
+    {
+      "fullName": "Rens Van Driel",
+      "role": "Ingénieur en génie logiciel",
+      "email": "rens.van.a.driel@sogeti.com",
+      "company": "Sogeti"
+    }
+  ],
+  "technologies": [
+    "C#",
+    "C++",
+    "JavaScript",
+    "React JS",
+    "Angular 13+",
+    "Python",
+    "TensorFlow",
+    "Java",
+    "Docker",
+    "Kubernetes",
+    "Apache Kafka",
+    "Microsoft Azure",
+    "AWS"
+  ],
+  "skills": [
+    "Problem solving",
+    "Assertiveness",
+    "Creativity",
+    "Critical thinking",
+    "Teamwork",
+    "Team management",
+    "Presentation / Public speaking",
+    "Risk management"
+  ],
+  "education": [
+    {
+      "degree": "Licence en génie logiciel",
+      "institution": "Cape Peninsula University of Technology",
+      "institutionUrl": "https://www.cput.ac.za/",
+      "startDate": "01/2018",
+      "endDate": "12/2020",
+      "location": "Cape Town, Afrique du Sud"
+    },
+    {
+      "degree": "Ingénierie chimique",
+      "institution": "Central Technical College",
+      "institutionUrl": "https://www.ctc.edu.za/cape-town-campus/",
+      "startDate": "2017",
+      "endDate": "2017",
+      "location": "Cape Town, Afrique du Sud"
+    }
+  ],
+  "languages": [
+    {
+      "name": "Anglais",
+      "level": "Avancé",
+      "proficiency": 5
+    },
+    {
+      "name": "Français",
+      "level": "Avancé",
+      "proficiency": 5
+    }
+  ],
+  "notableProjects": [
+    {
+      "title": "Keepmeposted.com.mt",
+      "url": "https://keepmeposted.com.mt/",
+      "description": "J'ai travaillé en tant que développeur full stack sur ce projet. Mes responsabilités comprenaient la création de l'API et de l'interface utilisateur ainsi que la mise en place du pipeline CI/CD sur Azure DevOps. Nous avons utilisé .NET Core, Next.js et Microsoft Azure."
+    }
+  ],
+  "socialLinks": [
+    {
+      "platform": "Site web",
+      "icon": "GiEarthAfricaEurope",
+      "url": "https://chrisclaude.com",
+      "displayText": "chrisclaude.com"
+    },
+    {
+      "platform": "LinkedIn",
+      "icon": "FaLinkedinIn",
+      "url": "https://www.linkedin.com/in/claude-de-tchambila-a720ba143/",
+      "displayText": "Claude De-Tchambila"
+    },
+    {
+      "platform": "GitHub",
+      "icon": "FaGithub",
+      "url": "https://github.com/ChrisClaude",
+      "displayText": "Chris Claude"
+    },
+    {
+      "platform": "Stack Overflow",
+      "icon": "FaStackOverflow",
+      "url": "https://stackoverflow.com/users/10338096/chris-claude",
+      "displayText": "Chris Claude"
+    }
+  ],
+  "sections": {
+    "summary": "Profil",
+    "workExperience": "Expérience professionnelle",
+    "references": "Références",
+    "toolbox": "Outils",
+    "technologies": "Technologies",
+    "professionalSkills": "Compétences",
+    "education": "Éducation",
+    "languages": "Langues",
+    "notableProjects": "Projets notables",
+    "findMeOnline": "Me trouver en ligne"
+  }
+}

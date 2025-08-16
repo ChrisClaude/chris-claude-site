@@ -6,6 +6,7 @@ import {
   FaLink,
   FaLinkedinIn,
   FaPhone,
+  FaStackOverflow,
 } from "react-icons/fa";
 import { GiEarthAfricaEurope } from "react-icons/gi";
 import { MdLocationPin, MdOutlineAlternateEmail } from "react-icons/md";
@@ -80,6 +81,18 @@ interface ResumeData {
   languages: Language[];
   notableProjects: NotableProject[];
   socialLinks: SocialLink[];
+  sections?: {
+    summary?: string;
+    workExperience?: string;
+    references?: string;
+    toolbox?: string;
+    technologies?: string;
+    professionalSkills?: string;
+    education?: string;
+    languages?: string;
+    notableProjects?: string;
+    findMeOnline?: string;
+  };
 }
 
 interface ResumeContentProps {
@@ -92,6 +105,7 @@ const iconMap: { [key: string]: any } = {
   FaLinkedinIn,
   FaGithub,
   SiLeetcode,
+  FaStackOverflow,
 };
 
 const ResumeContent = ({ data: resumeData }: ResumeContentProps) => {
@@ -161,7 +175,9 @@ const ResumeContent = ({ data: resumeData }: ResumeContentProps) => {
             <div>
               <div className="mb-6">
                 <div className="mb-3">
-                  <h2 className="text-xl font-semibold uppercase">Summary</h2>
+                  <h2 className="text-xl font-semibold uppercase">
+                    {resumeData.sections?.summary || "Summary"}
+                  </h2>
                   <div className="bg-gray-800 w-full h-1 rounded-full"></div>
                 </div>
                 <p>{resumeData.summary}</p>
@@ -171,7 +187,7 @@ const ResumeContent = ({ data: resumeData }: ResumeContentProps) => {
               <div className="mb-6">
                 <div className="mb-3">
                   <h2 className="text-xl font-semibold uppercase">
-                    Corporate Experience
+                    {resumeData.sections?.workExperience || "Corporate Experience"}
                   </h2>
                   <div className="bg-gray-800 w-full h-1 rounded-full"></div>
                 </div>
@@ -212,7 +228,7 @@ const ResumeContent = ({ data: resumeData }: ResumeContentProps) => {
               <div>
                 <div className="mb-3">
                   <h2 className="text-xl font-semibold uppercase">
-                    References
+                    {resumeData.sections?.references || "References"}
                   </h2>
                   <div className="bg-gray-800 w-full h-1 rounded-full"></div>
                 </div>
@@ -241,14 +257,16 @@ const ResumeContent = ({ data: resumeData }: ResumeContentProps) => {
             <div>
               <div className="mb-6">
                 <div className="mb-3">
-                  <h2 className="text-xl font-semibold uppercase">Toolbox</h2>
+                  <h2 className="text-xl font-semibold uppercase">
+                    {resumeData.sections?.toolbox || "Toolbox"}
+                  </h2>
                   <div className="bg-gray-800 w-full h-1 rounded-full"></div>
                 </div>
 
                 {/* Technologies  */}
                 <div className="mb-6">
                   <h3 className="text-lg font-semibold uppercase mb-2 text-blue-500">
-                    Technologies
+                    {resumeData.sections?.technologies || "Technologies"}
                   </h3>
                   <div className="flex flex-wrap gap-1">
                     {resumeData.technologies.map((tech, index) => (
@@ -265,7 +283,7 @@ const ResumeContent = ({ data: resumeData }: ResumeContentProps) => {
                 {/* Power Skills  */}
                 <div className="mb-6">
                   <h3 className="text-lg font-semibold uppercase mb-2 text-blue-500">
-                    Professional Skills
+                    {resumeData.sections?.professionalSkills || "Professional Skills"}
                   </h3>
                   <div className="flex flex-wrap gap-1">
                     {resumeData.skills.map((skill, index) => (
@@ -283,7 +301,9 @@ const ResumeContent = ({ data: resumeData }: ResumeContentProps) => {
               {/* Education */}
               <div className="mb-6">
                 <div className="mb-3">
-                  <h2 className="text-xl font-semibold uppercase">Education</h2>
+                  <h2 className="text-xl font-semibold uppercase">
+                    {resumeData.sections?.education || "Education"}
+                  </h2>
                   <div className="bg-gray-800 w-full h-1 rounded-full"></div>
                 </div>
                 <ul>
@@ -316,7 +336,9 @@ const ResumeContent = ({ data: resumeData }: ResumeContentProps) => {
               {/* Languages  */}
               <div className="mb-6">
                 <div className="mb-3">
-                  <h2 className="text-xl font-semibold uppercase">Languages</h2>
+                  <h2 className="text-xl font-semibold uppercase">
+                    {resumeData.sections?.languages || "Languages"}
+                  </h2>
                   <div className="bg-gray-800 w-full h-1 rounded-full"></div>
                 </div>
                 <ul className="flex flex-col gap-y-2">
@@ -347,7 +369,7 @@ const ResumeContent = ({ data: resumeData }: ResumeContentProps) => {
               <div className="mb-6">
                 <div className="mb-3">
                   <h2 className="text-xl font-semibold uppercase">
-                    Notable Projects
+                    {resumeData.sections?.notableProjects || "Notable Projects"}
                   </h2>
                   <div className="bg-gray-800 w-full h-1 rounded-full"></div>
                 </div>
@@ -375,7 +397,7 @@ const ResumeContent = ({ data: resumeData }: ResumeContentProps) => {
               <div className="mb-6">
                 <div className="mb-3">
                   <h2 className="text-xl font-semibold uppercase">
-                    Find me online
+                    {resumeData.sections?.findMeOnline || "Find me online"}
                   </h2>
                   <div className="bg-gray-800 w-full h-1 rounded-full"></div>
                 </div>
