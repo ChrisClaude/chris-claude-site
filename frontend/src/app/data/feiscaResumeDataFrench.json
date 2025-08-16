@@ -1,0 +1,93 @@
+{
+  "personalInfo": {
+    "name": "Feisca Koukodila",
+    "title": "Agent de ressources humaines",
+    "phone": "+212 07 10 61 95 30",
+    "email": "julienkoukodila2@gmail.com",
+    "website": "https://www.linkedin.com/in/julien-koukodila-469838220/",
+    "location": "Diyar Tanja, 90000, Maroc",
+    "image": "/julien_koukodila.png",
+    "imageAlt": "Feisca Koukodila"
+  },
+  "summary": "Agent de ressources humaines expérimenté avec de solides compétences en résolution de problèmes et expertise en gestion d'équipe. Compétent dans les applications Microsoft Office et engagé à fournir un service exceptionnel dans des environnements dynamiques.",
+  "workExperience": [
+    {
+      "title": "Agent de ressources humaines",
+      "company": "Trauma Center for Survivors of Violence and Torture",
+      "startDate": "2023",
+      "endDate": "Présent",
+      "location": "Afrique du Sud",
+      "description": "Gestion des opérations de ressources humaines et soutien aux initiatives de développement organisationnel.",
+      "responsibilities": [
+        "Processus de recrutement et d'intégration",
+        "Relations employés et résolution de conflits",
+        "Gestion et évaluation des performances",
+        "Implémentation et conformité des politiques RH"
+      ]
+    }
+  ],
+  "references": [
+    {
+      "fullName": "Claude De-Tchambila",
+      "role": "Ingénieur logiciel senior",
+      "email": "claude-christ.de-tchambila@capgemini.com",
+      "company": "Capgemini"
+    },
+    {
+      "fullName": "Belanganaye",
+      "role": "Agent de service client senior",
+      "email": "+27 83 859 6609",
+      "company": "P3 People"
+    },
+    {
+      "fullName": "Yumna",
+      "role": "Agent de ressources humaines",
+      "email": "+27 65 537 7144",
+      "company": "Trauma Center for Survivors of Violence and Torture"
+    },
+    {
+      "fullName": "Lungi Gxagxisa",
+      "role": "Agent de ventes",
+      "email": "+27 079 223 5053",
+      "company": "Vodacom"
+    }
+  ],
+  "technologies": [
+    "Microsoft Excel",
+    "Microsoft Word",
+    "Microsoft Office"
+  ],
+  "skills": [
+    "Résolution de problèmes",
+    "Assertivité",
+    "Créativité",
+    "Pensée critique",
+    "Travail en équipe",
+    "Gestion d'équipe",
+    "Présentation / Parler en public",
+    "Gestion des risques"
+  ],
+  "education": [],
+  "languages": [],
+  "notableProjects": [],
+  "socialLinks": [
+    {
+      "platform": "LinkedIn",
+      "icon": "FaLinkedinIn",
+      "url": "https://www.linkedin.com/in/julien-koukodila-469838220/",
+      "displayText": "Profil LinkedIn"
+    }
+  ],
+  "sections": {
+    "summary": "Résumé professionnel",
+    "workExperience": "Expérience professionnelle",
+    "references": "Références",
+    "toolbox": "Boîte à outils",
+    "technologies": "Technologies",
+    "professionalSkills": "Compétences professionnelles",
+    "education": "Formation",
+    "languages": "Langues",
+    "notableProjects": "Projets notables",
+    "findMeOnline": "Trouvez-moi en ligne"
+  }
+}

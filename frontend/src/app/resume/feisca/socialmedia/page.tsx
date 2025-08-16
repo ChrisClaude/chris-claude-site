@@ -2,7 +2,7 @@
 import UIContext from '@/hooks/UIContext';
 import { useContext, useEffect } from 'react';
 import ResumeContent from '@/components/ResumeContent';
-import feiscaFrontDeskResumeData from '../../../data/feiscaFrontDeskResumeData.json';
+import feiscaSocialMediaResumeData from '../../../data/feiscaSocialMediaResumeData.json';
 
 const Resume = () => {
   const { setUIState } = useContext(UIContext);
@@ -12,7 +12,7 @@ const Resume = () => {
   }, [setUIState]);
 
   return (
-    <ResumeContent data={feiscaFrontDeskResumeData} />
+    <ResumeContent data={feiscaSocialMediaResumeData} />
   );
 };
 

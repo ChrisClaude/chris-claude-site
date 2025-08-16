@@ -1,0 +1,100 @@
+{
+  "personalInfo": {
+    "name": "Feisca Koukodila",
+    "title": "Spécialiste des médias sociaux",
+    "phone": "+212 07 10 61 95 30",
+    "email": "julienkoukodila2@gmail.com",
+    "website": "https://www.linkedin.com/in/julien-koukodila-469838220/",
+    "location": "Diyar Tanja, 90000, Maroc",
+    "image": "/julien_koukodila.png",
+    "imageAlt": "Feisca Koukodila"
+  },
+  "summary": "Spécialiste créatif des médias sociaux avec expertise en marketing digital et création de contenu. Compétent dans la gestion de campagnes de médias sociaux sur plusieurs plateformes et l'amélioration de l'engagement grâce au développement de contenu stratégique.",
+  "workExperience": [
+    {
+      "title": "Spécialiste des médias sociaux",
+      "company": "Agence de marketing digital",
+      "startDate": "2023",
+      "endDate": "Présent",
+      "location": "Maroc",
+      "description": "Gestion de la présence sur les médias sociaux et création de contenu engageant pour divers clients.",
+      "responsibilities": [
+        "Création et curation de contenu pour plusieurs plateformes de médias sociaux",
+        "Gestion des campagnes de marketing Facebook, Instagram et TikTok",
+        "Conception de graphiques utilisant Canva et Photoshop",
+        "Analyse des métriques des médias sociaux et optimisation des performances"
+      ]
+    }
+  ],
+  "references": [
+    {
+      "fullName": "Claude De-Tchambila",
+      "role": "Ingénieur logiciel senior",
+      "email": "claude-christ.de-tchambila@capgemini.com",
+      "company": "Capgemini"
+    },
+    {
+      "fullName": "Belanganaye",
+      "role": "Agent de service client senior",
+      "email": "+27 83 859 6609",
+      "company": "P3 People"
+    },
+    {
+      "fullName": "Yumna",
+      "role": "Agent de ressources humaines",
+      "email": "+27 65 537 7144",
+      "company": "Trauma Center for Survivors of Violence and Torture"
+    },
+    {
+      "fullName": "Lungi Gxagxisa",
+      "role": "Agent de ventes",
+      "email": "+27 079 223 5053",
+      "company": "Vodacom"
+    }
+  ],
+  "technologies": [
+    "Wordpress",
+    "Facebook Marketing",
+    "Instagram Marketing",
+    "Tiktok Marketing",
+    "Google Marketing",
+    "Canvas",
+    "Photoshop",
+    "Microsoft Excel",
+    "Microsoft Word",
+    "Microsoft Office"
+  ],
+  "skills": [
+    "Résolution de problèmes",
+    "Assertivité",
+    "Créativité",
+    "Pensée critique",
+    "Travail en équipe",
+    "Gestion d'équipe",
+    "Présentation / Parler en public",
+    "Gestion des risques"
+  ],
+  "education": [],
+  "languages": [],
+  "notableProjects": [],
+  "socialLinks": [
+    {
+      "platform": "LinkedIn",
+      "icon": "FaLinkedinIn",
+      "url": "https://www.linkedin.com/in/julien-koukodila-469838220/",
+      "displayText": "Profil LinkedIn"
+    }
+  ],
+  "sections": {
+    "summary": "Résumé professionnel",
+    "workExperience": "Expérience professionnelle",
+    "references": "Références",
+    "toolbox": "Boîte à outils",
+    "technologies": "Technologies",
+    "professionalSkills": "Compétences professionnelles",
+    "education": "Formation",
+    "languages": "Langues",
+    "notableProjects": "Projets notables",
+    "findMeOnline": "Trouvez-moi en ligne"
+  }
+}

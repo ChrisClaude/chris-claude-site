@@ -1,0 +1,93 @@
+{
+  "personalInfo": {
+    "name": "Feisca Koukodila",
+    "title": "Front Desk Staff",
+    "phone": "+212 07 10 61 95 30",
+    "email": "julienkoukodila2@gmail.com",
+    "website": "https://www.linkedin.com/in/julien-koukodila-469838220/",
+    "location": "Diyar Tanja, 90000, Morocco",
+    "image": "/julien_koukodila.png",
+    "imageAlt": "Feisca Koukodila"
+  },
+  "summary": "Professional Front Desk Staff member with excellent customer service skills and attention to detail. Experienced in managing front office operations, handling guest inquiries, and ensuring smooth daily operations in hospitality and service environments.",
+  "workExperience": [
+    {
+      "title": "Front Desk Staff",
+      "company": "Hospitality Services",
+      "startDate": "2023",
+      "endDate": "Present",
+      "location": "Morocco",
+      "description": "Managing front desk operations and providing exceptional guest service.",
+      "responsibilities": [
+        "Greeting and assisting guests with check-in and check-out procedures",
+        "Managing reservations and handling booking inquiries",
+        "Coordinating with housekeeping and maintenance teams",
+        "Processing payments and maintaining accurate records"
+      ]
+    }
+  ],
+  "references": [
+    {
+      "fullName": "Claude De-Tchambila",
+      "role": "Senior Software Engineer",
+      "email": "claude-christ.de-tchambila@capgemini.com",
+      "company": "Capgemini"
+    },
+    {
+      "fullName": "Belanganaye",
+      "role": "Senior Call Center Agent",
+      "email": "+27 83 859 6609",
+      "company": "P3 People"
+    },
+    {
+      "fullName": "Yumna",
+      "role": "Human Resource Agent",
+      "email": "+27 65 537 7144",
+      "company": "Trauma Center for Survivors of Violence and Torture"
+    },
+    {
+      "fullName": "Lungi Gxagxisa",
+      "role": "Sales Agent",
+      "email": "+27 079 223 5053",
+      "company": "Vodacom"
+    }
+  ],
+  "technologies": [
+    "Microsoft Excel",
+    "Microsoft Word",
+    "Microsoft Office"
+  ],
+  "skills": [
+    "Problem solving",
+    "Assertiveness",
+    "Creativity",
+    "Critical thinking",
+    "Teamwork",
+    "Team management",
+    "Presentation / Public speaking",
+    "Risk management"
+  ],
+  "education": [],
+  "languages": [],
+  "notableProjects": [],
+  "socialLinks": [
+    {
+      "platform": "LinkedIn",
+      "icon": "FaLinkedinIn",
+      "url": "https://www.linkedin.com/in/julien-koukodila-469838220/",
+      "displayText": "LinkedIn Profile"
+    }
+  ],
+  "sections": {
+    "summary": "Professional Summary",
+    "workExperience": "Work Experience",
+    "references": "References",
+    "toolbox": "Toolbox",
+    "technologies": "Technologies",
+    "professionalSkills": "Professional Skills",
+    "education": "Education",
+    "languages": "Languages",
+    "notableProjects": "Notable Projects",
+    "findMeOnline": "Find Me Online"
+  }
+}
