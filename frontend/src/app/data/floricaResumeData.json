@@ -1,0 +1,96 @@
+{
+  "personalInfo": {
+    "name": "Florica Tchambila",
+    "title": "Customer Service Agent",
+    "phone": "+27 84 4964 450",
+    "email": "tchambilaflorica8@gmail.com",
+    "website": null,
+    "linkedin": "https://www.linkedin.com/in/florica-tchambila-5298b6178",
+    "location": "Cape Town, South Africa",
+    "image": null,
+    "imageAlt": "Florica Tchambila"
+  },
+  "summary": "Highly motivated and detail-oriented customer service professional with over 5 years of experience in fast-paced, high-pressure environments. Possessing excellent communication and interpersonal skills, a strong ability to resolve conflicts, and a passion for delivering exceptional customer experiences. Seeking a challenging position where I can utilize my skills and experience to drive customer satisfaction and contribute to the success of the company.",
+  "workExperience": [
+    {
+      "title": "Customer Service Agent",
+      "company": "Tray",
+      "startDate": "01/2017",
+      "endDate": "02/2020",
+      "location": "Cape Town, South Africa",
+      "description": "Handled incoming customer calls and supported service usage.",
+      "responsibilities": [
+        "Managing large volumes of incoming calls in French",
+        "Assisting customers in using the company services"
+      ]
+    },
+    {
+      "title": "Customer Service Agent",
+      "company": "Groupon",
+      "startDate": "05/2020",
+      "endDate": "Present",
+      "location": "Durban, South Africa",
+      "description": "Customer support role with responsibility for managing calls, identifying customer needs, and resolving issues.",
+      "responsibilities": [
+        "Managing large volumes of incoming calls in French",
+        "Identifying and assessing customers' needs to achieve satisfaction",
+        "Providing accurate, valid, and complete information using the right methods/tools",
+        "Handling complaints, providing appropriate solutions and alternatives within the time limits; following up to ensure resolution"
+      ]
+    }
+  ],
+  "references": [],
+  "technologies": [],
+  "skills": [
+    "Customer support",
+    "Conflict resolution",
+    "Communication skills",
+    "Problem solving",
+    "Interpersonal skills",
+    "Complaint handling"
+  ],
+  "education": [
+    {
+      "degree": "Diploma in Business Accounting",
+      "institution": "PC Training",
+      "startDate": "2012",
+      "endDate": "2014",
+      "location": null
+    },
+    {
+      "degree": "Grade 12 (Matric)",
+      "institution": "Mpak High School",
+      "startDate": "2012",
+      "endDate": "2012",
+      "location": null
+    },
+    {
+      "degree": "National Certificate Transport & Logistic",
+      "institution": "Y2K College",
+      "startDate": "2016",
+      "endDate": "2017",
+      "location": null
+    }
+  ],
+  "languages": [
+    {
+      "name": "English",
+      "level": "Advanced",
+      "proficiency": 4
+    },
+    {
+      "name": "French",
+      "level": "Excellent",
+      "proficiency": 5
+    }
+  ],
+  "notableProjects": [],
+  "socialLinks": [
+    {
+      "platform": "LinkedIn",
+      "icon": "FaLinkedinIn",
+      "url": "https://www.linkedin.com/in/florica-tchambila-5298b6178",
+      "displayText": "Florica Tchambila"
+    }
+  ]
+}

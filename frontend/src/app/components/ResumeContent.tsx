@@ -19,9 +19,10 @@ interface PersonalInfo {
   title: string;
   phone: string;
   email: string;
-  website: string;
+  website: string | null;
+  linkedin?: string;
   location: string;
-  image: string;
+  image: string | null;
   imageAlt: string;
 }
 
@@ -45,10 +46,10 @@ interface Reference {
 interface Education {
   degree: string;
   institution: string;
-  institutionUrl: string;
+  institutionUrl?: string;
   startDate: string;
   endDate: string;
-  location: string;
+  location: string | null;
 }
 
 interface Language {
@@ -158,15 +159,17 @@ const ResumeContent = ({ data: resumeData }: ResumeContentProps) => {
               </div>
             </div>
 
-            <div className="rounded-full w-48 h-48">
-              <Image
-                width={300}
-                height={300}
-                src={resumeData.personalInfo.image}
-                alt={resumeData.personalInfo.imageAlt}
-                className="rounded-full w-48 h-48"
-              />
-            </div>
+            {resumeData.personalInfo.image && (
+              <div className="rounded-full w-48 h-48">
+                <Image
+                  width={300}
+                  height={300}
+                  src={resumeData.personalInfo.image}
+                  alt={resumeData.personalInfo.imageAlt}
+                  className="rounded-full w-48 h-48"
+                />
+              </div>
+            )}
           </div>
 
           {/* Main */}
@@ -318,15 +321,23 @@ const ResumeContent = ({ data: resumeData }: ResumeContentProps) => {
                     >
                       <p className="text-lg">{edu.degree}</p>
                       <p className="text-blue-500">
-                        <a href={edu.institutionUrl} target="_blank">
-                          {edu.institution}
-                        </a>
+                        {edu.institutionUrl ? (
+                          <a href={edu.institutionUrl} target="_blank">
+                            {edu.institution}
+                          </a>
+                        ) : (
+                          edu.institution
+                        )}
                       </p>
                       <p className="flex items-center mr-1">
                         <span>{edu.startDate}</span>{" "}
                         <span className="mx-1">-</span>{" "}
                         <span className="mr-3">{edu.endDate}</span>{" "}
-                        <MdLocationPin className="mr-1" /> {edu.location}
+                        {edu.location && (
+                          <>
+                            <MdLocationPin className="mr-1" /> {edu.location}
+                          </>
+                        )}
                       </p>
                     </li>
                   ))}
