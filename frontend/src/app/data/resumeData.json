@@ -4,7 +4,10 @@
     "title": "Senior Software Engineer",
     "phone": "+48 600 697 514",
     "email": "christ.tchambila@gmail.com",
-    "website": "chrisclaude.com",
+    "website": {
+      "label": "Website",
+      "destination": "https://chrisclaude.com"
+    },
     "location": "Poznan, Poland",
     "image": "/about_me.png",
     "imageAlt": "Chris Claude"

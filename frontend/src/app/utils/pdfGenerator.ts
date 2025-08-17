@@ -577,7 +577,7 @@ const createPDFContent = (resumeData: any): string => {
                   ? `
                 <div class="contact-item">
                   <span class="contact-icon">🔗</span>
-                  <span>${resumeData.personalInfo.website}</span>
+                  <span>${resumeData.personalInfo.website.label}</span>
                 </div>
               `
                   : ''

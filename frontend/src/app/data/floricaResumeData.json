@@ -4,7 +4,10 @@
     "title": "Customer Service Specialist",
     "phone": "+27 84 4964 450",
     "email": "tchambilaflorica8@gmail.com",
-    "website": null,
+    "website": {
+      "label": "LinkedIn",
+      "destination": "https://www.linkedin.com/in/florica-tchambila-5298b6178"
+    },
     "linkedin": "https://www.linkedin.com/in/florica-tchambila-5298b6178",
     "location": "Cape Town, South Africa",
     "image": null,

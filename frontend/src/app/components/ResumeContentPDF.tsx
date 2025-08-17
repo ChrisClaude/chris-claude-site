@@ -19,7 +19,10 @@ interface PersonalInfo {
   title: string;
   phone: string;
   email: string;
-  website: string | null;
+  website: {
+    label: string;
+    destination: string;
+  } | null;
   linkedin?: string;
   location: string;
   image: string | null;
@@ -164,7 +167,7 @@ const ResumeContentPDF = ({ data: resumeData }: ResumeContentPDFProps) => {
                   className="mr-2 text-blue-600"
                   style={{ fontSize: '14px' }}
                 />
-                <span>{resumeData.personalInfo.website}</span>
+                <span>{resumeData.personalInfo.website.label}</span>
               </div>
             )}
             <div className="flex items-center">

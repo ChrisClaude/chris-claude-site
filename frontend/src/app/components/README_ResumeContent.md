@@ -43,7 +43,10 @@ The component expects a JSON object with the following structure:
     "title": "Job Title",
     "phone": "Phone Number",
     "email": "Email Address",
-    "website": "Website URL",
+    "website": {
+      "label": "Website Label",
+      "destination": "https://website-url.com"
+    },
     "location": "Location",
     "image": "/path/to/image.png",
     "imageAlt": "Image Alt Text"
@@ -102,6 +105,20 @@ The component expects a JSON object with the following structure:
       "displayText": "Display Text"
     }
   ]
+}
+```
+
+## Website Field
+
+The `website` field in `personalInfo` now supports a structured format with:
+- `label`: The display text for the website link (e.g., "LinkedIn", "Portfolio", "Blog")
+- `destination`: The full URL where the link should navigate to
+
+Example:
+```json
+"website": {
+  "label": "LinkedIn",
+  "destination": "https://www.linkedin.com/in/username"
 }
 ```
 

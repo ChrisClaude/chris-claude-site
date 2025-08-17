@@ -4,7 +4,10 @@
     "title": "Ingénieur en génie logiciel",
     "phone": "+48 600 697 514",
     "email": "christ.tchambila@gmail.com",
-    "website": "chrisclaude.com",
+    "website": {
+      "label": "Site Web",
+      "destination": "https://chrisclaude.com"
+    },
     "location": "Poznan, Pologne",
     "image": "/about_me.png",
     "imageAlt": "Chris Claude"

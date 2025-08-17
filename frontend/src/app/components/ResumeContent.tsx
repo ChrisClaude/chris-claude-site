@@ -22,7 +22,10 @@ interface PersonalInfo {
   title: string;
   phone: string;
   email: string;
-  website: string | null;
+  website: {
+    label: string;
+    destination: string;
+  } | null;
   linkedin?: string;
   location: string;
   image: string | null;
@@ -209,14 +212,16 @@ const ResumeContent = ({ data: resumeData, showDownloadButton = false }: ResumeC
                   <MdOutlineAlternateEmail className="mr-1 text-blue-500" />{' '}
                   {resumeData.personalInfo.email}
                 </a>
-                <a
-                  href={`https://${resumeData.personalInfo.website}`}
-                  target="_blank"
-                  className="flex items-center"
-                >
-                  <FaLink className="mr-1 text-blue-500" />
-                  <span>{resumeData.personalInfo.website}</span>
-                </a>
+                {resumeData.personalInfo.website && (
+                  <a
+                    href={resumeData.personalInfo.website.destination}
+                    target="_blank"
+                    className="flex items-center"
+                  >
+                    <FaLink className="mr-1 text-blue-500" />
+                    <span>{resumeData.personalInfo.website.label}</span>
+                  </a>
+                )}
                 <p className="flex items-center">
                   <MdLocationPin className="mr-1 text-blue-500" />
                   {resumeData.personalInfo.location}

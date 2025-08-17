@@ -4,7 +4,10 @@
     "title": "Agent de ressources humaines",
     "phone": "+212 07 10 61 95 30",
     "email": "julienkoukodila2@gmail.com",
-    "website": "https://www.linkedin.com/in/julien-koukodila-469838220/",
+    "website": {
+      "label": "LinkedIn",
+      "destination": "https://www.linkedin.com/in/julien-koukodila-469838220/"
+    },
     "location": "Diyar Tanja, 90000, Maroc",
     "image": "/julien_koukodila.png",
     "imageAlt": "Feisca Koukodila"
