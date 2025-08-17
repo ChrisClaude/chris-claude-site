@@ -94,22 +94,30 @@
       "fullName": "Mareike Kramper",
       "role": "Customer Service Manager",
       "email": "+27 78 609 1138",
-      "company": "Ekomi Holding GMBH" 
+      "company": "Ekomi Holding GMBH"
     },
     {
       "fullName": "Thuni Mbele",
       "role": "Customer Service Manager",
       "email": "+27 78 609 1135",
-      "company": "Jordan Human Resources" 
+      "company": "Jordan Human Resources"
     },
     {
       "fullName": "Ziyaad Abrahams",
       "role": "Customer Service Manager",
       "email": "+27 68 175 2855",
-      "company": "Neo Broker" 
+      "company": "Neo Broker"
     }
   ],
-  "technologies": [],
+  "technologies": [
+    "Microsoft Office",
+    "Microsoft Excel",
+    "Microsoft Word",
+    "Microsoft PowerPoint",
+    "Microsoft Outlook",
+    "Microsoft Teams",
+    "AI Prompt Engineering"
+  ],
   "skills": [
     "Customer Support & Retention",
     "Conflict Resolution & De-escalation",
