@@ -76,6 +76,7 @@ export const downloadResumePDF = async (
   try {
     // Create a temporary container for the PDF content
     const tempContainer = document.createElement('div');
+    tempContainer.id = 'temp-resume-pdf-container';
     tempContainer.style.position = 'absolute';
     tempContainer.style.left = '-9999px';
     tempContainer.style.top = '-9999px';
@@ -114,7 +115,7 @@ export const downloadResumePDF = async (
 
     // Generate PDF
     await generatePDF(
-      tempContainer.id,
+      'temp-resume-pdf-container',
       `${personName.replace(/\s+/g, '_')}_Resume`,
     );
 

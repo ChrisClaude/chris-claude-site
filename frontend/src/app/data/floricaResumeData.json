@@ -83,7 +83,32 @@
       ]
     }
   ],
-  "references": [],
+  "references": [
+    {
+      "fullName": "Overseas (Tray)",
+      "role": "Customer Service Agent",
+      "email": "021 818 3200",
+      "company": "Tray"
+    },
+    {
+      "fullName": "Mareike Kramper",
+      "role": "Customer Service Manager",
+      "email": "+27 78 609 1138",
+      "company": "Ekomi Holding GMBH" 
+    },
+    {
+      "fullName": "Thuni Mbele",
+      "role": "Customer Service Manager",
+      "email": "+27 78 609 1135",
+      "company": "Jordan Human Resources" 
+    },
+    {
+      "fullName": "Ziyaad Abrahams",
+      "role": "Customer Service Manager",
+      "email": "+27 68 175 2855",
+      "company": "Neo Broker" 
+    }
+  ],
   "technologies": [],
   "skills": [
     "Customer Support & Retention",
