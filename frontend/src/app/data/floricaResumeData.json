@@ -14,22 +14,66 @@
   "workExperience": [
     {
       "title": "Customer Service Agent",
-      "company": "Tray",
-      "startDate": "01/2017",
-      "endDate": "02/2020",
+      "company": "Neo Group",
+      "startDate": "06/2024",
+      "endDate": "05/2025",
       "location": "Cape Town, South Africa",
-      "description": "Handled incoming customer calls and supported service usage.",
+      "description": "Customer support role with responsibility for managing calls, identifying customer needs, and resolving issues.",
       "responsibilities": [
         "Managing large volumes of incoming calls in French",
-        "Assisting customers in using the company services"
+        "Identifying and assessing customers' needs to achieve satisfaction",
+        "Providing accurate, valid, and complete information using the right methods/tools",
+        "Handling complaints, providing appropriate solutions and alternatives within the time limits; following up to ensure resolution"
+      ]
+    },
+    {
+      "title": "Human Resources Agent",
+      "company": "Jordan Human Resources",
+      "startDate": "12/2023",
+      "endDate": "08/2024",
+      "location": "Cape Town, South Africa",
+      "description": "Human resources role with responsibility for managing calls, identifying customer needs, and resolving issues.",
+      "responsibilities": [
+        "Managing large volumes of incoming calls in French",
+        "Identifying and assessing customers' needs to achieve satisfaction",
+        "Providing accurate, valid, and complete information using the right methods/tools",
+        "Handling complaints, providing appropriate solutions and alternatives within the time limits; following up to ensure resolution"
       ]
     },
     {
       "title": "Customer Service Agent",
-      "company": "Groupon",
-      "startDate": "05/2020",
-      "endDate": "Present",
-      "location": "Durban, South Africa",
+      "company": "Arc Bpo - Popsa Compain",
+      "startDate": "11/2022",
+      "endDate": "11/2023",
+      "location": "Cape Town, South Africa",
+      "description": "Customer support role with responsibility for managing calls, identifying customer needs, and resolving issues.",
+      "responsibilities": [
+        "Managing large volumes of incoming calls in French",
+        "Identifying and assessing customers' needs to achieve satisfaction",
+        "Providing accurate, valid, and complete information using the right methods/tools",
+        "Handling complaints, providing appropriate solutions and alternatives within the time limits; following up to ensure resolution"
+      ]
+    },
+    {
+      "title": "Customer Service Agent",
+      "company": "Ekomi Holding",
+      "startDate": "09/2021",
+      "endDate": "09/2022",
+      "location": "Cape Town, South Africa",
+      "description": "Customer support role with responsibility for managing calls, identifying customer needs, and resolving issues.",
+      "responsibilities": [
+        "Managing large volumes of incoming calls in French",
+        "Identifying and assessing customers' needs to achieve satisfaction",
+        "Providing accurate, valid, and complete information using the right methods/tools",
+        "Handling complaints, providing appropriate solutions and alternatives within the time limits; following up to ensure resolution"
+      ]
+    },
+    {
+      "title": "Capability Bpo",
+      "company": "Capability Bpo",
+      "startDate": "07/2020",
+      "endDate": "07/2021",
+      "location": "Cape Town, South Africa",
       "description": "Customer support role with responsibility for managing calls, identifying customer needs, and resolving issues.",
       "responsibilities": [
         "Managing large volumes of incoming calls in French",
@@ -51,6 +95,13 @@
   ],
   "education": [
     {
+      "degree": "National Certificate Transport & Logistic",
+      "institution": "Y2K College",
+      "startDate": "2016",
+      "endDate": "2017",
+      "location": null
+    },
+    {
       "degree": "Diploma in Business Accounting",
       "institution": "PC Training",
       "startDate": "2012",
@@ -62,13 +113,6 @@
       "institution": "Mpak High School",
       "startDate": "2012",
       "endDate": "2012",
-      "location": null
-    },
-    {
-      "degree": "National Certificate Transport & Logistic",
-      "institution": "Y2K College",
-      "startDate": "2016",
-      "endDate": "2017",
       "location": null
     }
   ],

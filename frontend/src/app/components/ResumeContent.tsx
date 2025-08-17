@@ -7,11 +7,14 @@ import {
   FaLinkedinIn,
   FaPhone,
   FaStackOverflow,
+  FaDownload,
 } from "react-icons/fa";
 import { GiEarthAfricaEurope } from "react-icons/gi";
 import { MdLocationPin, MdOutlineAlternateEmail } from "react-icons/md";
 import { SiLeetcode } from "react-icons/si";
 import { IoMdCheckbox } from "react-icons/io";
+import { downloadResumePDF } from "@/utils/pdfGenerator";
+import { useState } from "react";
 
 // Define the TypeScript interfaces for the resume data
 interface PersonalInfo {
@@ -110,13 +113,39 @@ const iconMap: { [key: string]: any } = {
 };
 
 const ResumeContent = ({ data: resumeData }: ResumeContentProps) => {
+  const [isDownloading, setIsDownloading] = useState(false);
+
   if (!resumeData) {
     return <div>No data provided</div>;
   }
 
+  const handleDownload = async () => {
+    setIsDownloading(true);
+    try {
+      await downloadResumePDF(resumeData, resumeData.personalInfo.name);
+    } catch (error) {
+      console.error('Failed to download PDF:', error);
+      alert('Failed to download PDF. Please try again.');
+    } finally {
+      setIsDownloading(false);
+    }
+  };
+
   return (
     <div className="bg-white text-gray-800 py-24 px-52 overflow-x-auto xl:flex xl:justify-center">
       <div className="flex flex-col justify-center" style={{ width: "1200px" }}>
+        {/* Download Button */}
+        <div className="flex justify-end mb-6">
+          <button
+            onClick={handleDownload}
+            disabled={isDownloading}
+            className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+          >
+            <FaDownload className="text-sm" />
+            {isDownloading ? 'Generating PDF...' : 'Download PDF'}
+          </button>
+        </div>
+
         <div>
           {/* Header */}
           <div className="flex justify-between mb-10">
