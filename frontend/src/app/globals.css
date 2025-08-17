@@ -2,6 +2,71 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Print styles for resume PDF generation */
+@media print {
+  .section {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  
+  .job-item {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  
+  .education-item {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  
+  .page-break {
+    page-break-before: always;
+  }
+  
+  .avoid-break {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  
+  /* Ensure proper page margins */
+  @page {
+    size: A4;
+    margin: 20mm;
+  }
+  
+  /* Hide download button in print */
+  button {
+    display: none !important;
+  }
+}
+
+/* PDF generation specific styles */
+.pdf-container {
+  font-family: Arial, sans-serif !important;
+  font-size: 12px !important;
+  line-height: 1.4 !important;
+  color: #1f2937 !important;
+  background-color: white !important;
+}
+
+.pdf-container .section {
+  page-break-inside: avoid;
+  break-inside: avoid;
+  margin-bottom: 20px;
+}
+
+.pdf-container .job-item {
+  page-break-inside: avoid;
+  break-inside: avoid;
+  margin-bottom: 16px;
+}
+
+.pdf-container .education-item {
+  page-break-inside: avoid;
+  break-inside: avoid;
+  margin-bottom: 12px;
+}
+
 body {
   @apply bg-black text-white;
 }

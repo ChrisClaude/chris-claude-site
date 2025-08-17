@@ -13,8 +13,8 @@ import { GiEarthAfricaEurope } from 'react-icons/gi';
 import { MdLocationPin, MdOutlineAlternateEmail } from 'react-icons/md';
 import { SiLeetcode } from 'react-icons/si';
 import { IoMdCheckbox } from 'react-icons/io';
-import { downloadResumePDF } from '@/utils/pdfGenerator';
-import { useState } from 'react';
+import { downloadResumePDFFromUI } from '@/utils/pdfGenerator';
+import { useState, useEffect } from 'react';
 
 // Define the TypeScript interfaces for the resume data
 interface PersonalInfo {
@@ -101,6 +101,7 @@ interface ResumeData {
 
 interface ResumeContentProps {
   data?: ResumeData;
+  showDownloadButton?: boolean;
 }
 
 // Icon mapping for social links
@@ -112,8 +113,9 @@ const iconMap: { [key: string]: any } = {
   FaStackOverflow,
 };
 
-const ResumeContent = ({ data: resumeData }: ResumeContentProps) => {
+const ResumeContent = ({ data: resumeData, showDownloadButton = false }: ResumeContentProps) => {
   const [isDownloading, setIsDownloading] = useState(false);
+  const [isAutoDownloading, setIsAutoDownloading] = useState(false);
 
   if (!resumeData) {
     return <div>No data provided</div>;
@@ -122,7 +124,7 @@ const ResumeContent = ({ data: resumeData }: ResumeContentProps) => {
   const handleDownload = async () => {
     setIsDownloading(true);
     try {
-      await downloadResumePDF(resumeData, resumeData.personalInfo.name);
+      await downloadResumePDFFromUI('resume-content', resumeData.personalInfo.name);
     } catch (error) {
       console.error('Failed to download PDF:', error);
       alert('Failed to download PDF. Please try again.');
@@ -131,20 +133,54 @@ const ResumeContent = ({ data: resumeData }: ResumeContentProps) => {
     }
   };
 
+  // Auto-download effect when showDownloadButton is true (from URL parameter)
+  useEffect(() => {
+    if (showDownloadButton) {
+      const autoDownload = async () => {
+        setIsAutoDownloading(true);
+        try {
+          await downloadResumePDFFromUI('resume-content', resumeData.personalInfo.name);
+          // Redirect back to the normal resume page after download
+          window.history.replaceState({}, '', window.location.pathname);
+        } catch (error) {
+          console.error('Failed to download PDF:', error);
+          alert('Failed to download PDF. Please try again.');
+        } finally {
+          setIsAutoDownloading(false);
+        }
+      };
+
+      // Small delay to ensure component is fully rendered
+      const timer = setTimeout(autoDownload, 500);
+      return () => clearTimeout(timer);
+    }
+  }, [showDownloadButton, resumeData.personalInfo.name]);
+
   return (
-    <div className="bg-white text-gray-800 py-24 px-52 overflow-x-auto xl:flex xl:justify-center">
+    <div id="resume-content" className="bg-white text-gray-800 py-24 px-52 overflow-x-auto xl:flex xl:justify-center relative">
+      {/* Auto-download loading overlay */}
+      {isAutoDownloading && (
+        <div className="absolute inset-0 bg-white bg-opacity-90 flex items-center justify-center z-50">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+            <p className="text-gray-600">Generating PDF...</p>
+          </div>
+        </div>
+      )}
       <div className="flex flex-col justify-center" style={{ width: '1200px' }}>
         {/* Download Button */}
-        <div className="flex justify-end mb-6">
-          <button
-            onClick={handleDownload}
-            disabled={isDownloading}
-            className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white px-4 py-2 rounded-lg transition-colors duration-200"
-          >
-            <FaDownload className="text-sm" />
-            {isDownloading ? 'Generating PDF...' : 'Download PDF'}
-          </button>
-        </div>
+        {showDownloadButton && (
+          <div className="flex justify-end mb-6">
+            <button
+              onClick={handleDownload}
+              disabled={isDownloading}
+              className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+            >
+              <FaDownload className="text-sm" />
+              {isDownloading ? 'Generating PDF...' : 'Download PDF'}
+            </button>
+          </div>
+        )}
 
         <div>
           {/* Header */}
@@ -205,7 +241,7 @@ const ResumeContent = ({ data: resumeData }: ResumeContentProps) => {
           <div className="grid grid-cols-2 gap-x-28">
             {/* First Main Column */}
             <div>
-              <div className="mb-6">
+              <div className="section mb-6">
                 <div className="mb-3">
                   <h2 className="text-xl font-semibold uppercase">
                     {resumeData.sections?.summary || 'Summary'}
@@ -216,7 +252,7 @@ const ResumeContent = ({ data: resumeData }: ResumeContentProps) => {
               </div>
 
               {/* Work Experience  */}
-              <div className="mb-6">
+              <div className="section mb-6">
                 <div className="mb-3">
                   <h2 className="text-xl font-semibold uppercase">
                     {resumeData.sections?.workExperience ||
@@ -227,7 +263,7 @@ const ResumeContent = ({ data: resumeData }: ResumeContentProps) => {
                 {resumeData.workExperience.map((job, index) => (
                   <div
                     key={index}
-                    className={`${
+                    className={`job-item ${
                       index < resumeData.workExperience.length - 1
                         ? 'mb-4 border-b-2 border-dashed border-gray-400 pb-4'
                         : ''
@@ -258,7 +294,7 @@ const ResumeContent = ({ data: resumeData }: ResumeContentProps) => {
               </div>
 
               {/* References  */}
-              <div>
+              <div className="section">
                 <div className="mb-3">
                   <h2 className="text-xl font-semibold uppercase">
                     {resumeData.sections?.references || 'References'}
@@ -288,7 +324,7 @@ const ResumeContent = ({ data: resumeData }: ResumeContentProps) => {
 
             {/* Second Main Column */}
             <div>
-              <div className="mb-6">
+              <div className="section mb-6">
                 <div className="mb-3">
                   <h2 className="text-xl font-semibold uppercase">
                     {resumeData.sections?.toolbox || 'Toolbox'}
@@ -333,7 +369,7 @@ const ResumeContent = ({ data: resumeData }: ResumeContentProps) => {
               </div>
 
               {/* Education */}
-              <div className="mb-6">
+              <div className="section mb-6">
                 <div className="mb-3">
                   <h2 className="text-xl font-semibold uppercase">
                     {resumeData.sections?.education || 'Education'}
@@ -344,7 +380,7 @@ const ResumeContent = ({ data: resumeData }: ResumeContentProps) => {
                   {resumeData.education.map((edu, index) => (
                     <li
                       key={index}
-                      className={`${
+                      className={`education-item ${
                         index < resumeData.education.length - 1
                           ? 'border-b-2 border-dashed border-gray-400 pb-4'
                           : ''
@@ -376,7 +412,7 @@ const ResumeContent = ({ data: resumeData }: ResumeContentProps) => {
               </div>
 
               {/* Languages  */}
-              <div className="mb-6">
+              <div className="section mb-6">
                 <div className="mb-3">
                   <h2 className="text-xl font-semibold uppercase">
                     {resumeData.sections?.languages || 'Languages'}
@@ -408,7 +444,7 @@ const ResumeContent = ({ data: resumeData }: ResumeContentProps) => {
               </div>
 
               {/* Notable Projects */}
-              <div className="mb-6">
+              <div className="section mb-6">
                 <div className="mb-3">
                   <h2 className="text-xl font-semibold uppercase">
                     {resumeData.sections?.notableProjects || 'Notable Projects'}
@@ -436,7 +472,7 @@ const ResumeContent = ({ data: resumeData }: ResumeContentProps) => {
               </div>
 
               {/* Find me online  */}
-              <div className="mb-6">
+              <div className="section mb-6">
                 <div className="mb-3">
                   <h2 className="text-xl font-semibold uppercase">
                     {resumeData.sections?.findMeOnline || 'Find me online'}

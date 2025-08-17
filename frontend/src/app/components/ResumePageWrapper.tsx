@@ -2,7 +2,7 @@
 import UIContext from '@/hooks/UIContext';
 import { useContext, useEffect, Suspense } from 'react';
 import ResumeContent from '@/components/ResumeContent';
-import { downloadResumePDF } from '@/utils/pdfGenerator';
+
 import { useSearchParams } from 'next/navigation';
 
 interface ResumePageWrapperProps {
@@ -22,37 +22,9 @@ const ResumePageContent = ({
     setUIState?.(state => ({ ...state, isResumePage: true }));
   }, [setUIState]);
 
-  useEffect(() => {
-    if (isDownload) {
-      const handleDownload = async () => {
-        try {
-          const name = personName || resumeData.personalInfo.name;
-          await downloadResumePDF(resumeData, name);
-          // Redirect back to the normal resume page after download
-          window.history.replaceState({}, '', window.location.pathname);
-        } catch (error) {
-          console.error('Failed to download PDF:', error);
-          alert('Failed to download PDF. Please try again.');
-        }
-      };
 
-      handleDownload();
-    }
-  }, [isDownload, resumeData, personName]);
 
-  // If downloading, show a loading message
-  if (isDownload) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
-          <p className="text-gray-600">Generating PDF...</p>
-        </div>
-      </div>
-    );
-  }
-
-  return <ResumeContent data={resumeData} />;
+  return <ResumeContent data={resumeData} showDownloadButton={isDownload} />;
 };
 
 const ResumePageWrapper = (props: ResumePageWrapperProps) => {
