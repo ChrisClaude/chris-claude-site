@@ -10,7 +10,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "type-check": "tsc --noEmit",
+    "pre-commit": "lint-staged"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.427.0",
@@ -37,6 +42,19 @@
     "@types/dompurify": "^3.0.3",
     "@types/react": "^18.3.23",
     "@types/react-loader-spinner": "^4.0.0",
-    "eslint-config-next": "^15.4.4"
+    "eslint-config-next": "^15.4.4",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "lint-staged": "^15.0.0",
+    "prettier": "^3.0.0"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,yml,yaml}": [
+      "prettier --write"
+    ]
   }
 }

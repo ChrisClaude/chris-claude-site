@@ -1,5 +1,11 @@
 import { ArticleContent, PaginatedArticles } from '@/AppTypes';
-import { APP_ENV, ARTICLES_PER_PAGE, S3_Bucket, S3_MAX_KEYS, S3_REGION } from '@/config';
+import {
+  APP_ENV,
+  ARTICLES_PER_PAGE,
+  S3_Bucket,
+  S3_MAX_KEYS,
+  S3_REGION,
+} from '@/config';
 import { sortByDate } from '@/utils/index';
 import {
   GetObjectCommand,
@@ -13,7 +19,10 @@ import path from 'path';
 
 const localDataPath = 'data/articles';
 
-export const getPaginatedArticles = async (page: number, maxKeys : number | null = null): Promise<PaginatedArticles> => {
+export const getPaginatedArticles = async (
+  page: number,
+  maxKeys: number | null = null,
+): Promise<PaginatedArticles> => {
   const articles = await getArticles(maxKeys);
 
   const categories = articles.map(article => article.frontmatter.category);
@@ -23,7 +32,7 @@ export const getPaginatedArticles = async (page: number, maxKeys : number | null
   const pageIndex = page - 1;
   const orderedArticles = articles.slice(
     pageIndex * ARTICLES_PER_PAGE,
-    (pageIndex + 1) * ARTICLES_PER_PAGE
+    (pageIndex + 1) * ARTICLES_PER_PAGE,
   );
 
   return {
@@ -34,20 +43,22 @@ export const getPaginatedArticles = async (page: number, maxKeys : number | null
   };
 };
 
-export const getArticles = async (maxKeys : number | null = null): Promise<ArticleContent[]> => {
+export const getArticles = async (
+  maxKeys: number | null = null,
+): Promise<ArticleContent[]> => {
   if (APP_ENV === 'production') {
     const articles = (await getArticlesFromS3()).sort(sortByDate);
 
-    return maxKeys === null? articles : articles.slice(0, maxKeys + 1);
+    return maxKeys === null ? articles : articles.slice(0, maxKeys + 1);
   }
 
   const articles = getArticlesFromFileSystem().sort(sortByDate);
 
-  return maxKeys === null? articles : articles.slice(0, maxKeys + 1);
+  return maxKeys === null ? articles : articles.slice(0, maxKeys + 1);
 };
 
 export const getArticleById = async (
-  id: string
+  id: string,
 ): Promise<ArticleContent | undefined> => {
   if (APP_ENV === 'production') {
     const articleContentFromS3 = await getArticleContentFromS3(id);
@@ -66,9 +77,11 @@ const getClient = (): S3Client =>
     region: S3_REGION as string,
   });
 
-const listObjectsFromS3Bucket = async (maxKeys : number | null = null): Promise<string[]> => {
+const listObjectsFromS3Bucket = async (
+  maxKeys: number | null = null,
+): Promise<string[]> => {
   const client = getClient();
-  console.log("MAX keys: " + maxKeys);
+  console.log('MAX keys: ' + maxKeys);
 
   const command = new ListObjectsV2Command({
     Bucket: S3_Bucket,
@@ -132,7 +145,9 @@ const getArticleContentFromS3 = async (id: string): Promise<ArticleContent> => {
   };
 };
 
-const getArticlesFromS3 = async (maxKeys : number | null = null): Promise<ArticleContent[]> => {
+const getArticlesFromS3 = async (
+  maxKeys: number | null = null,
+): Promise<ArticleContent[]> => {
   const articlesKeys = await listObjectsFromS3Bucket(maxKeys);
   const articles: ArticleContent[] = [];
 
@@ -153,7 +168,7 @@ const getArticlesFromS3 = async (maxKeys : number | null = null): Promise<Articl
 
 //#region File system Methods
 const getArticleContentFromFileSystem = (
-  id: string
+  id: string,
 ): ArticleContent | undefined => {
   try {
     const files = fs.readdirSync(path.join(localDataPath));
@@ -170,7 +185,7 @@ const getArticleContentFromFileSystem = (
     const slug = currentFileName.replace('.md', '');
     const markdownWithMeta = fs.readFileSync(
       path.join(localDataPath, currentFileName),
-      'utf-8'
+      'utf-8',
     );
     const { data: frontmatter, content } = matter(markdownWithMeta);
 
@@ -193,7 +208,7 @@ const getArticlesFromFileSystem = (): ArticleContent[] => {
 
       const markdownWithMeta = fs.readFileSync(
         path.join('data/articles', filename),
-        'utf-8'
+        'utf-8',
       );
 
       const { data: frontmatter } = matter(markdownWithMeta);

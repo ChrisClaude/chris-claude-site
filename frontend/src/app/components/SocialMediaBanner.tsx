@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  FaLinkedinIn,
-  FaYoutube,
-  FaInstagram,
-  FaGithub,
-} from 'react-icons/fa';
+import { FaLinkedinIn, FaYoutube, FaInstagram, FaGithub } from 'react-icons/fa';
 import { RiTwitterXFill } from 'react-icons/ri';
 
 const SocialMediaBanner = () => (
@@ -25,7 +20,8 @@ const SocialMediaBanner = () => (
       <li>
         <a
           href="https://www.linkedin.com/in/claude-de-tchambila-a720ba143"
-          target="_blank">
+          target="_blank"
+        >
           <FaLinkedinIn />
         </a>
       </li>

@@ -1,7 +1,10 @@
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 
-export const generatePDF = async (elementId: string, filename: string): Promise<void> => {
+export const generatePDF = async (
+  elementId: string,
+  filename: string,
+): Promise<void> => {
   try {
     const element = document.getElementById(elementId);
     if (!element) {
@@ -33,14 +36,28 @@ export const generatePDF = async (elementId: string, filename: string): Promise<
     let position = 0;
 
     // Add first page
-    pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, position, imgWidth, imgHeight);
+    pdf.addImage(
+      canvas.toDataURL('image/png'),
+      'PNG',
+      0,
+      position,
+      imgWidth,
+      imgHeight,
+    );
     heightLeft -= pageHeight;
 
     // Add additional pages if content is longer than one page
     while (heightLeft >= 0) {
       position = heightLeft - imgHeight;
       pdf.addPage();
-      pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, position, imgWidth, imgHeight);
+      pdf.addImage(
+        canvas.toDataURL('image/png'),
+        'PNG',
+        0,
+        position,
+        imgWidth,
+        imgHeight,
+      );
       heightLeft -= pageHeight;
     }
 
@@ -52,7 +69,10 @@ export const generatePDF = async (elementId: string, filename: string): Promise<
   }
 };
 
-export const downloadResumePDF = async (resumeData: any, personName: string): Promise<void> => {
+export const downloadResumePDF = async (
+  resumeData: any,
+  personName: string,
+): Promise<void> => {
   try {
     // Create a temporary container for the PDF content
     const tempContainer = document.createElement('div');
@@ -66,7 +86,7 @@ export const downloadResumePDF = async (resumeData: any, personName: string): Pr
     tempContainer.style.fontSize = '12px';
     tempContainer.style.lineHeight = '1.4';
     tempContainer.style.color = '#1f2937';
-    
+
     // Add the container to the DOM temporarily
     document.body.appendChild(tempContainer);
 
@@ -79,21 +99,24 @@ export const downloadResumePDF = async (resumeData: any, personName: string): Pr
     if (images.length > 0) {
       await Promise.all(
         Array.from(images).map(
-          (img) =>
-            new Promise((resolve) => {
+          img =>
+            new Promise(resolve => {
               if (img.complete) {
                 resolve(null);
               } else {
                 img.onload = () => resolve(null);
                 img.onerror = () => resolve(null);
               }
-            })
-        )
+            }),
+        ),
       );
     }
 
     // Generate PDF
-    await generatePDF(tempContainer.id, `${personName.replace(/\s+/g, '_')}_Resume`);
+    await generatePDF(
+      tempContainer.id,
+      `${personName.replace(/\s+/g, '_')}_Resume`,
+    );
 
     // Clean up
     document.body.removeChild(tempContainer);
@@ -130,31 +153,39 @@ const createPDFContent = (resumeData: any): string => {
                 <span style="color: #2563eb; margin-right: 8px;">✉️</span>
                 <span>${resumeData.personalInfo.email}</span>
               </div>
-              ${resumeData.personalInfo.website ? `
+              ${
+                resumeData.personalInfo.website
+                  ? `
                 <div style="display: flex; align-items: center;">
                   <span style="color: #2563eb; margin-right: 8px;">🔗</span>
                   <span>${resumeData.personalInfo.website}</span>
                 </div>
-              ` : ''}
+              `
+                  : ''
+              }
               <div style="display: flex; align-items: center;">
                 <span style="color: #2563eb; margin-right: 8px;">📍</span>
                 <span>${resumeData.personalInfo.location}</span>
               </div>
             </div>
           </div>
-          ${resumeData.personalInfo.image ? `
+          ${
+            resumeData.personalInfo.image
+              ? `
             <div style="margin-left: 16px;">
               <img src="${resumeData.personalInfo.image}" alt="${resumeData.personalInfo.imageAlt}" 
                    style="width: 80px; height: 80px; border-radius: 50%;" />
             </div>
-          ` : ''}
+          `
+              : ''
+          }
         </div>
       </div>
 
       <!-- Summary -->
       <div style="margin-bottom: 20px;">
         <h2 style="font-size: 16px; font-weight: 600; text-transform: uppercase; margin: 0 0 12px 0; border-bottom: 1px solid #9ca3af; padding-bottom: 4px;">
-          ${resumeData.sections?.summary || "Summary"}
+          ${resumeData.sections?.summary || 'Summary'}
         </h2>
         <p style="font-size: 12px; line-height: 1.5; margin: 0;">${resumeData.summary}</p>
       </div>
@@ -162,9 +193,11 @@ const createPDFContent = (resumeData: any): string => {
       <!-- Work Experience -->
       <div style="margin-bottom: 20px;">
         <h2 style="font-size: 16px; font-weight: 600; text-transform: uppercase; margin: 0 0 16px 0; border-bottom: 1px solid #9ca3af; padding-bottom: 4px;">
-          ${resumeData.sections?.workExperience || "Professional Experience"}
+          ${resumeData.sections?.workExperience || 'Professional Experience'}
         </h2>
-        ${resumeData.workExperience.map((job: any, index: number) => `
+        ${resumeData.workExperience
+          .map(
+            (job: any, index: number) => `
           <div style="margin-bottom: ${index < resumeData.workExperience.length - 1 ? '20px' : '0'}; ${index < resumeData.workExperience.length - 1 ? 'border-bottom: 1px solid #e5e7eb; padding-bottom: 16px;' : ''}">
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px;">
               <h3 style="font-size: 14px; font-weight: 600; margin: 0;">${job.title}</h3>
@@ -173,119 +206,176 @@ const createPDFContent = (resumeData: any): string => {
             <p style="color: #2563eb; font-weight: 500; margin: 0 0 4px 0;">${job.company}</p>
             <p style="font-size: 12px; color: #6b7280; margin: 0 0 8px 0;">📍 ${job.location}</p>
             <p style="font-size: 12px; margin: 0 0 8px 0;">${job.description}</p>
-            ${job.responsibilities.length > 0 ? `
+            ${
+              job.responsibilities.length > 0
+                ? `
               <ul style="margin: 0; padding-left: 20px; font-size: 12px;">
                 ${job.responsibilities.map((resp: string) => `<li style="margin-bottom: 2px;">${resp}</li>`).join('')}
               </ul>
-            ` : ''}
+            `
+                : ''
+            }
           </div>
-        `).join('')}
+        `,
+          )
+          .join('')}
       </div>
 
       <!-- Skills and Technologies -->
-      ${(resumeData.technologies.length > 0 || resumeData.skills.length > 0) ? `
+      ${
+        resumeData.technologies.length > 0 || resumeData.skills.length > 0
+          ? `
         <div style="margin-bottom: 20px;">
           <h2 style="font-size: 16px; font-weight: 600; text-transform: uppercase; margin: 0 0 16px 0; border-bottom: 1px solid #9ca3af; padding-bottom: 4px;">
-            ${resumeData.sections?.toolbox || "Skills & Technologies"}
+            ${resumeData.sections?.toolbox || 'Skills & Technologies'}
           </h2>
           
-          ${resumeData.technologies.length > 0 ? `
+          ${
+            resumeData.technologies.length > 0
+              ? `
             <div style="margin-bottom: 12px;">
               <h3 style="font-size: 14px; font-weight: 600; color: #2563eb; margin: 0 0 8px 0;">
-                ${resumeData.sections?.technologies || "Technologies"}
+                ${resumeData.sections?.technologies || 'Technologies'}
               </h3>
               <div style="display: flex; flex-wrap: wrap; gap: 4px;">
-                ${resumeData.technologies.map((tech: string) => `
+                ${resumeData.technologies
+                  .map(
+                    (tech: string) => `
                   <span style="border: 1px solid #9ca3af; padding: 2px 8px; border-radius: 4px; font-size: 11px;">
                     ${tech}
                   </span>
-                `).join('')}
+                `,
+                  )
+                  .join('')}
               </div>
             </div>
-          ` : ''}
+          `
+              : ''
+          }
 
-          ${resumeData.skills.length > 0 ? `
+          ${
+            resumeData.skills.length > 0
+              ? `
             <div style="margin-bottom: 12px;">
               <h3 style="font-size: 14px; font-weight: 600; color: #2563eb; margin: 0 0 8px 0;">
-                ${resumeData.sections?.professionalSkills || "Professional Skills"}
+                ${resumeData.sections?.professionalSkills || 'Professional Skills'}
               </h3>
               <div style="display: flex; flex-wrap: wrap; gap: 4px;">
-                ${resumeData.skills.map((skill: string) => `
+                ${resumeData.skills
+                  .map(
+                    (skill: string) => `
                   <span style="border: 1px solid #9ca3af; padding: 2px 8px; border-radius: 4px; font-size: 11px;">
                     ${skill}
                   </span>
-                `).join('')}
+                `,
+                  )
+                  .join('')}
               </div>
             </div>
-          ` : ''}
+          `
+              : ''
+          }
         </div>
-      ` : ''}
+      `
+          : ''
+      }
 
       <!-- Education -->
       <div style="margin-bottom: 20px;">
         <h2 style="font-size: 16px; font-weight: 600; text-transform: uppercase; margin: 0 0 16px 0; border-bottom: 1px solid #9ca3af; padding-bottom: 4px;">
-          ${resumeData.sections?.education || "Education"}
+          ${resumeData.sections?.education || 'Education'}
         </h2>
-        ${resumeData.education.map((edu: any, index: number) => `
+        ${resumeData.education
+          .map(
+            (edu: any, index: number) => `
           <div style="margin-bottom: ${index < resumeData.education.length - 1 ? '16px' : '0'}; ${index < resumeData.education.length - 1 ? 'border-bottom: 1px solid #e5e7eb; padding-bottom: 12px;' : ''}">
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px;">
               <h3 style="font-size: 14px; font-weight: 600; margin: 0;">${edu.degree}</h3>
               <span style="font-size: 12px; color: #6b7280;">${formatDate(edu.startDate)} - ${formatDate(edu.endDate)}</span>
             </div>
             <p style="color: #2563eb; font-weight: 500; margin: 0 0 4px 0;">${edu.institution}</p>
-            ${edu.location ? `
+            ${
+              edu.location
+                ? `
               <p style="font-size: 12px; color: #6b7280; margin: 0;">📍 ${edu.location}</p>
-            ` : ''}
+            `
+                : ''
+            }
           </div>
-        `).join('')}
+        `,
+          )
+          .join('')}
       </div>
 
       <!-- Languages -->
-      ${resumeData.languages.length > 0 ? `
+      ${
+        resumeData.languages.length > 0
+          ? `
         <div style="margin-bottom: 20px;">
           <h2 style="font-size: 16px; font-weight: 600; text-transform: uppercase; margin: 0 0 16px 0; border-bottom: 1px solid #9ca3af; padding-bottom: 4px;">
-            ${resumeData.sections?.languages || "Languages"}
+            ${resumeData.sections?.languages || 'Languages'}
           </h2>
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-            ${resumeData.languages.map((language: any) => `
+            ${resumeData.languages
+              .map(
+                (language: any) => `
               <div style="display: flex; justify-content: space-between; align-items: center;">
                 <div>
                   <p style="font-weight: 500; font-size: 12px; margin: 0;">${language.name}</p>
                   <p style="font-size: 11px; color: #6b7280; margin: 0;">${language.level}</p>
                 </div>
                 <div style="display: flex; gap: 2px;">
-                  ${Array.from({ length: 5 }, (_, i) => `
+                  ${Array.from(
+                    { length: 5 },
+                    (_, i) => `
                     <div style="height: 16px; width: 4px; border-radius: 2px; background-color: ${i < language.proficiency ? '#2563eb' : '#d1d5db'};"></div>
-                  `).join('')}
+                  `,
+                  ).join('')}
                 </div>
               </div>
-            `).join('')}
+            `,
+              )
+              .join('')}
           </div>
         </div>
-      ` : ''}
+      `
+          : ''
+      }
 
       <!-- Notable Projects -->
-      ${resumeData.notableProjects.length > 0 ? `
+      ${
+        resumeData.notableProjects.length > 0
+          ? `
         <div style="margin-bottom: 20px;">
           <h2 style="font-size: 16px; font-weight: 600; text-transform: uppercase; margin: 0 0 16px 0; border-bottom: 1px solid #9ca3af; padding-bottom: 4px;">
-            ${resumeData.sections?.notableProjects || "Notable Projects"}
+            ${resumeData.sections?.notableProjects || 'Notable Projects'}
           </h2>
-          ${resumeData.notableProjects.map((project: any) => `
+          ${resumeData.notableProjects
+            .map(
+              (project: any) => `
             <div style="margin-bottom: 12px;">
               <p style="font-weight: 500; font-size: 12px; margin: 0 0 4px 0;">${project.title}</p>
               <p style="font-size: 12px; margin: 0;">${project.description}</p>
             </div>
-          `).join('')}
+          `,
+            )
+            .join('')}
         </div>
-      ` : ''}
+      `
+          : ''
+      }
 
       <!-- References -->
-      ${resumeData.references.length > 0 ? `
+      ${
+        resumeData.references.length > 0
+          ? `
         <div style="margin-bottom: 20px;">
           <h2 style="font-size: 16px; font-weight: 600; text-transform: uppercase; margin: 0 0 16px 0; border-bottom: 1px solid #9ca3af; padding-bottom: 4px;">
-            ${resumeData.sections?.references || "References"}
+            ${resumeData.sections?.references || 'References'}
           </h2>
-          ${resumeData.references.map((reference: any) => `
+          ${resumeData.references
+            .map(
+              (reference: any) => `
             <div style="margin-bottom: 8px;">
               <p style="font-size: 12px; margin: 0;">
                 <span style="font-weight: 500; color: #2563eb;">${reference.fullName}</span>
@@ -294,23 +384,35 @@ const createPDFContent = (resumeData: any): string => {
               </p>
               <p style="font-size: 12px; margin: 0;">${reference.email}</p>
             </div>
-          `).join('')}
+          `,
+            )
+            .join('')}
         </div>
-      ` : ''}
+      `
+          : ''
+      }
 
       <!-- Social Links -->
-      ${resumeData.socialLinks.length > 0 ? `
+      ${
+        resumeData.socialLinks.length > 0
+          ? `
         <div style="margin-bottom: 20px;">
           <h2 style="font-size: 16px; font-weight: 600; text-transform: uppercase; margin: 0 0 16px 0; border-bottom: 1px solid #9ca3af; padding-bottom: 4px;">
-            ${resumeData.sections?.findMeOnline || "Professional Links"}
+            ${resumeData.sections?.findMeOnline || 'Professional Links'}
           </h2>
-          ${resumeData.socialLinks.map((social: any) => `
+          ${resumeData.socialLinks
+            .map(
+              (social: any) => `
             <div style="margin-bottom: 8px;">
               <p style="font-weight: 500; font-size: 12px; margin: 0;">${social.platform}: ${social.displayText}</p>
             </div>
-          `).join('')}
+          `,
+            )
+            .join('')}
         </div>
-      ` : ''}
+      `
+          : ''
+      }
     </div>
   `;
 };

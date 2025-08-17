@@ -1,0 +1,16 @@
+{
+  "name": "chris-claude-site-root",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "prepare": "husky install",
+    "pre-commit": "cd frontend && npm run pre-commit",
+    "type-check": "cd frontend && npm run type-check",
+    "build": "cd frontend && npm run build",
+    "lint": "cd frontend && npm run lint",
+    "format": "cd frontend && npm run format"
+  },
+  "devDependencies": {
+    "husky": "^8.0.3"
+  }
+}

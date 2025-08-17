@@ -9,14 +9,14 @@ body {
 .landing-section::before {
   position: absolute;
   z-index: -1;
-  content: "";
+  content: '';
   top: 0%;
   bottom: 10%;
   width: 150%;
   left: -25%;
-  background: linear-gradient(83.21deg,#3245ff 80%, #7740ff 20%);
-  mask-image: radial-gradient(rgba(0,0,0,.47),transparent 70%);
-  -webkit-mask-image: radial-gradient(rgba(0,0,0,.47),transparent 70%);
+  background: linear-gradient(83.21deg, #3245ff 80%, #7740ff 20%);
+  mask-image: radial-gradient(rgba(0, 0, 0, 0.47), transparent 70%);
+  -webkit-mask-image: radial-gradient(rgba(0, 0, 0, 0.47), transparent 70%);
 }
 
 .landing-section {
@@ -28,8 +28,22 @@ body {
   z-index: -2;
   background-image: url(/bg-grid.png);
   background-position-y: -9px;
-  -webkit-mask-image: linear-gradient(to bottom,transparent,10%,white,90%,transparent);
-  mask-image: linear-gradient(to bottom,transparent,10%,white,90%,transparent);
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    10%,
+    white,
+    90%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    10%,
+    white,
+    90%,
+    transparent
+  );
 }
 
 .bg-grid-2 {
@@ -37,14 +51,28 @@ body {
   z-index: -2;
   background-image: url(/bg-grid.png);
   background-position-y: -9px;
-  -webkit-mask-image: linear-gradient(to bottom,transparent,10%,white,90%,transparent);
-  mask-image: linear-gradient(to bottom,transparent,10%,white,90%,transparent);
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    10%,
+    white,
+    90%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    10%,
+    white,
+    90%,
+    transparent
+  );
   position: absolute;
   aspect-ratio: 1 / 1;
   width: 100%;
-  content: "";
-  -webkit-mask-image: linear-gradient(to bottom,white,transparent);
-  mask-image: linear-gradient(to bottom,white,transparent);
+  content: '';
+  -webkit-mask-image: linear-gradient(to bottom, white, transparent);
+  mask-image: linear-gradient(to bottom, white, transparent);
 }
 
 .card {
@@ -54,50 +82,54 @@ body {
 }
 
 .bg-blue-purple-gradient {
-  background-image: linear-gradient(83.21deg,#3245FF 0%,#B845ED 100%);
+  background-image: linear-gradient(83.21deg, #3245ff 0%, #b845ed 100%);
 }
 
 .code {
-  font-family: MDIO,md-io-fallback,monospace;
+  font-family: MDIO, md-io-fallback, monospace;
   font-weight: 300;
 }
 
 .header-border {
   @apply border-solid;
-  border-color: rgba(255,255,255,0.28);
+  border-color: rgba(255, 255, 255, 0.28);
   border-bottom-width: 1px;
 }
 
 .bg-selected-page {
-  background: linear-gradient(247.23deg,rgba(74,242,200,1) 0%,rgba(47,76,179,1) 100%);
+  background: linear-gradient(
+    247.23deg,
+    rgba(74, 242, 200, 1) 0%,
+    rgba(47, 76, 179, 1) 100%
+  );
 }
 
 .hero::before {
   position: absolute;
   z-index: -1;
-  content: "";
+  content: '';
   height: 50vw;
   width: 100vw;
   top: 50%;
   translate: 0 -40%;
   left: -50vw;
-  background: linear-gradient(83.21deg,#3245ff 0%,#bc52ee 100%);
-  -webkit-mask-image: radial-gradient(rgba(0,0,0,.4),transparent 65%);
-  mask-image: radial-gradient(rgba(0,0,0,.4),transparent 65%);
+  background: linear-gradient(83.21deg, #3245ff 0%, #bc52ee 100%);
+  -webkit-mask-image: radial-gradient(rgba(0, 0, 0, 0.4), transparent 65%);
+  mask-image: radial-gradient(rgba(0, 0, 0, 0.4), transparent 65%);
 }
 
 .hero::after {
   position: absolute;
   z-index: -1;
-  content: "";
+  content: '';
   height: 50vw;
   width: 100vw;
   top: 50%;
   translate: 0 -40%;
   right: -50vw;
-  background: linear-gradient(247.23deg,#4af2c8 0%,#2f4cb3 100%);
-  -webkit-mask-image: radial-gradient(rgba(0,0,0,.5),transparent 65%);
-  mask-image: radial-gradient(rgba(0,0,0,.5),transparent 65%);
+  background: linear-gradient(247.23deg, #4af2c8 0%, #2f4cb3 100%);
+  -webkit-mask-image: radial-gradient(rgba(0, 0, 0, 0.5), transparent 65%);
+  mask-image: radial-gradient(rgba(0, 0, 0, 0.5), transparent 65%);
 }
 
 .scale-1 {

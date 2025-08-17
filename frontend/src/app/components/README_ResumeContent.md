@@ -57,10 +57,7 @@ The component expects a JSON object with the following structure:
       "endDate": "MM/YYYY or Present",
       "location": "Location",
       "description": "Job description...",
-      "responsibilities": [
-        "Responsibility 1",
-        "Responsibility 2"
-      ]
+      "responsibilities": ["Responsibility 1", "Responsibility 2"]
     }
   ],
   "references": [
@@ -120,6 +117,7 @@ The following icons are supported in the `socialLinks.icon` field:
 ## Language Proficiency
 
 The `languages.proficiency` field accepts values from 1-5, where:
+
 - 1 = Beginner
 - 2 = Elementary
 - 3 = Intermediate

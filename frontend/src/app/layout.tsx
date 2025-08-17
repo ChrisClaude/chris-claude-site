@@ -1,12 +1,12 @@
-import Script from "next/script";
-import { Footer, Header, Main, SideNav } from "./components";
-import AppWrapper from "./components/AppWrapper";
-import "./globals.css";
-import { UIContextProvider } from "./hooks/UIContext";
+import Script from 'next/script';
+import { Footer, Header, Main, SideNav } from './components';
+import AppWrapper from './components/AppWrapper';
+import './globals.css';
+import { UIContextProvider } from './hooks/UIContext';
 
 export const metadata = {
-  title: "Chris Claude",
-  description: "Chris Claude Software Solutions",
+  title: 'Chris Claude',
+  description: 'Chris Claude Software Solutions',
 };
 
 export default function RootLayout({
@@ -31,7 +31,11 @@ export default function RootLayout({
             <Main>
               {children}
 
-              <div data-component-embed="chat-prompt" data-enable-chat="true" id="chat-prompt" />
+              <div
+                data-component-embed="chat-prompt"
+                data-enable-chat="true"
+                id="chat-prompt"
+              />
               <Footer />
             </Main>
           </AppWrapper>

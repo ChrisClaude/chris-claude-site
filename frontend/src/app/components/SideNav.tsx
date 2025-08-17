@@ -16,9 +16,8 @@ const SideNav = () => {
 
   return (
     <div
-      className={
-        `fixed bg-black top-20 left-0 h-full transition-all duration-75 ease-in-out md:hidden ${isMobileNavOpen? 'w-72' : ' w-0 overflow-hidden'}`
-      }>
+      className={`fixed bg-black top-20 left-0 h-full transition-all duration-75 ease-in-out md:hidden ${isMobileNavOpen ? 'w-72' : ' w-0 overflow-hidden'}`}
+    >
       <nav>
         <ul className="text-2xl">
           <li onClick={handleNavItemClick}>
@@ -29,7 +28,8 @@ const SideNav = () => {
           <li onClick={handleNavItemClick}>
             <Link
               href="/courses"
-              className="block p-7 font-medium header-border">
+              className="block p-7 font-medium header-border"
+            >
               Courses
             </Link>
           </li>
@@ -51,7 +51,8 @@ const SideNav = () => {
           <li>
             <a
               href="https://www.linkedin.com/in/claude-de-tchambila-a720ba143"
-              target="_blank">
+              target="_blank"
+            >
               <FaLinkedinIn />
             </a>
           </li>
@@ -74,7 +75,8 @@ const SideNav = () => {
 
         <Link
           href="/courses"
-          className="block w-full bg-blue-purple-gradient bg-white text-white text-center whitespace-nowrap px-6 py-4 rounded-full text-lg font-semibold hover:bg-gray-200 focus:ring">
+          className="block w-full bg-blue-purple-gradient bg-white text-white text-center whitespace-nowrap px-6 py-4 rounded-full text-lg font-semibold hover:bg-gray-200 focus:ring"
+        >
           Get started
         </Link>
       </div>

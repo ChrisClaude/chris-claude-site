@@ -52,11 +52,7 @@
       "company": "Vodacom"
     }
   ],
-  "technologies": [
-    "Microsoft Excel",
-    "Microsoft Word",
-    "Microsoft Office"
-  ],
+  "technologies": ["Microsoft Excel", "Microsoft Word", "Microsoft Office"],
   "skills": [
     "Résolution de problèmes",
     "Assertivité",

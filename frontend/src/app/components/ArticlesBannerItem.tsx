@@ -3,8 +3,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { BsArrowRightShort } from 'react-icons/bs';
 
-const ArticlesBannerItem = ({ article: { slug, frontmatter } }
-  : {article: ArticleContent}) => {
+const ArticlesBannerItem = ({
+  article: { slug, frontmatter },
+}: {
+  article: ArticleContent;
+}) => {
   return (
     <Link href={`/blog/${slug}`} className="bloc flex-1">
       <Image

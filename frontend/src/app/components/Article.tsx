@@ -3,11 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import CategoryLabel from './CategoryLabel';
 
-export default function Article({
-  article,
-}: {
-  article: ArticleContent;
-}) {
+export default function Article({ article }: { article: ArticleContent }) {
   return (
     <div className="w-full bg-slate-200 rounded-lg shadow-md overflow-hidden flex-grow-0">
       <div className="md:hidden">
@@ -29,15 +25,19 @@ export default function Article({
         <div className="mt-2">
           <Link
             href={`/blog/${article.slug}`}
-            className="text-xl text-gray-700 font-bold line-clamp-2 hover:underline md:text-xl">
+            className="text-xl text-gray-700 font-bold line-clamp-2 hover:underline md:text-xl"
+          >
             {article.frontmatter.title}
           </Link>
-          <p className="mt-2 text-gray-600 line-clamp-3">{article.frontmatter.excerpt}</p>
+          <p className="mt-2 text-gray-600 line-clamp-3">
+            {article.frontmatter.excerpt}
+          </p>
         </div>
 
         <Link
           href={`/blog/${article.slug}`}
-          className="text-gray-900 hover:text-blue-600 mt-6 block md:hidden">
+          className="text-gray-900 hover:text-blue-600 mt-6 block md:hidden"
+        >
           Read More
         </Link>
       </div>

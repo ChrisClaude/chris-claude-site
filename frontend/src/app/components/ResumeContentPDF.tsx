@@ -1,5 +1,5 @@
-import { EMAIL_ADDRESS, PHONE_NUMBER } from "@/config";
-import Image from "next/image";
+import { EMAIL_ADDRESS, PHONE_NUMBER } from '@/config';
+import Image from 'next/image';
 import {
   FaExternalLinkAlt,
   FaGithub,
@@ -7,11 +7,11 @@ import {
   FaLinkedinIn,
   FaPhone,
   FaStackOverflow,
-} from "react-icons/fa";
-import { GiEarthAfricaEurope } from "react-icons/gi";
-import { MdLocationPin, MdOutlineAlternateEmail } from "react-icons/md";
-import { SiLeetcode } from "react-icons/si";
-import { IoMdCheckbox } from "react-icons/io";
+} from 'react-icons/fa';
+import { GiEarthAfricaEurope } from 'react-icons/gi';
+import { MdLocationPin, MdOutlineAlternateEmail } from 'react-icons/md';
+import { SiLeetcode } from 'react-icons/si';
+import { IoMdCheckbox } from 'react-icons/io';
 
 // Define the TypeScript interfaces for the resume data
 interface PersonalInfo {
@@ -115,28 +115,28 @@ const ResumeContentPDF = ({ data: resumeData }: ResumeContentPDFProps) => {
   }
 
   return (
-    <div 
+    <div
       id="resume-pdf"
       className="bg-white text-gray-800 p-8 max-w-[210mm] mx-auto"
-      style={{ 
-        width: '210mm', 
+      style={{
+        width: '210mm',
         minHeight: '297mm',
         fontFamily: 'Arial, sans-serif',
         fontSize: '12px',
-        lineHeight: '1.4'
+        lineHeight: '1.4',
       }}
     >
       {/* Header */}
       <div className="flex justify-between mb-8 border-b-2 border-gray-300 pb-4">
         <div className="flex-1">
           <div className="mb-3">
-            <h1 
+            <h1
               className="text-2xl font-bold uppercase mb-1"
               style={{ fontSize: '24px', fontWeight: 'bold' }}
             >
               {resumeData.personalInfo.name}
             </h1>
-            <h2 
+            <h2
               className="text-xl font-semibold text-blue-600 mb-2"
               style={{ fontSize: '18px', fontWeight: '600', color: '#2563eb' }}
             >
@@ -145,21 +145,33 @@ const ResumeContentPDF = ({ data: resumeData }: ResumeContentPDFProps) => {
           </div>
           <div className="grid grid-cols-1 gap-1 text-sm">
             <div className="flex items-center">
-              <FaPhone className="mr-2 text-blue-600" style={{ fontSize: '14px' }} />
+              <FaPhone
+                className="mr-2 text-blue-600"
+                style={{ fontSize: '14px' }}
+              />
               <span>{resumeData.personalInfo.phone}</span>
             </div>
             <div className="flex items-center">
-              <MdOutlineAlternateEmail className="mr-2 text-blue-600" style={{ fontSize: '14px' }} />
+              <MdOutlineAlternateEmail
+                className="mr-2 text-blue-600"
+                style={{ fontSize: '14px' }}
+              />
               <span>{resumeData.personalInfo.email}</span>
             </div>
             {resumeData.personalInfo.website && (
               <div className="flex items-center">
-                <FaLink className="mr-2 text-blue-600" style={{ fontSize: '14px' }} />
+                <FaLink
+                  className="mr-2 text-blue-600"
+                  style={{ fontSize: '14px' }}
+                />
                 <span>{resumeData.personalInfo.website}</span>
               </div>
             )}
             <div className="flex items-center">
-              <MdLocationPin className="mr-2 text-blue-600" style={{ fontSize: '14px' }} />
+              <MdLocationPin
+                className="mr-2 text-blue-600"
+                style={{ fontSize: '14px' }}
+              />
               <span>{resumeData.personalInfo.location}</span>
             </div>
           </div>
@@ -183,22 +195,30 @@ const ResumeContentPDF = ({ data: resumeData }: ResumeContentPDFProps) => {
       <div className="grid grid-cols-1 gap-6">
         {/* Summary */}
         <div className="mb-4">
-          <h2 
+          <h2
             className="text-lg font-semibold uppercase mb-2 border-b border-gray-400 pb-1"
-            style={{ fontSize: '16px', fontWeight: '600', borderBottom: '1px solid #9ca3af' }}
+            style={{
+              fontSize: '16px',
+              fontWeight: '600',
+              borderBottom: '1px solid #9ca3af',
+            }}
           >
-            {resumeData.sections?.summary || "Summary"}
+            {resumeData.sections?.summary || 'Summary'}
           </h2>
           <p className="text-sm leading-relaxed">{resumeData.summary}</p>
         </div>
 
         {/* Work Experience */}
         <div className="mb-4">
-          <h2 
+          <h2
             className="text-lg font-semibold uppercase mb-3 border-b border-gray-400 pb-1"
-            style={{ fontSize: '16px', fontWeight: '600', borderBottom: '1px solid #9ca3af' }}
+            style={{
+              fontSize: '16px',
+              fontWeight: '600',
+              borderBottom: '1px solid #9ca3af',
+            }}
           >
-            {resumeData.sections?.workExperience || "Professional Experience"}
+            {resumeData.sections?.workExperience || 'Professional Experience'}
           </h2>
           {resumeData.workExperience.map((job, index) => (
             <div
@@ -206,26 +226,26 @@ const ResumeContentPDF = ({ data: resumeData }: ResumeContentPDFProps) => {
               className={`mb-4 ${index < resumeData.workExperience.length - 1 ? 'border-b border-gray-200 pb-4' : ''}`}
             >
               <div className="flex justify-between items-start mb-1">
-                <h3 
+                <h3
                   className="text-base font-semibold"
                   style={{ fontSize: '14px', fontWeight: '600' }}
                 >
                   {job.title}
                 </h3>
-                <span 
+                <span
                   className="text-sm text-gray-600"
                   style={{ fontSize: '12px', color: '#4b5563' }}
                 >
                   {job.startDate} - {job.endDate}
                 </span>
               </div>
-              <p 
+              <p
                 className="text-blue-600 font-medium mb-1"
                 style={{ color: '#2563eb', fontWeight: '500' }}
               >
                 {job.company}
               </p>
-              <p 
+              <p
                 className="text-sm text-gray-600 mb-2 flex items-center"
                 style={{ fontSize: '12px', color: '#4b5563' }}
               >
@@ -236,7 +256,9 @@ const ResumeContentPDF = ({ data: resumeData }: ResumeContentPDFProps) => {
               {job.responsibilities.length > 0 && (
                 <ul className="list-disc ml-5 text-sm">
                   {job.responsibilities.map((responsibility, respIndex) => (
-                    <li key={respIndex} className="mb-1">{responsibility}</li>
+                    <li key={respIndex} className="mb-1">
+                      {responsibility}
+                    </li>
                   ))}
                 </ul>
               )}
@@ -245,33 +267,42 @@ const ResumeContentPDF = ({ data: resumeData }: ResumeContentPDFProps) => {
         </div>
 
         {/* Skills and Technologies */}
-        {(resumeData.technologies.length > 0 || resumeData.skills.length > 0) && (
+        {(resumeData.technologies.length > 0 ||
+          resumeData.skills.length > 0) && (
           <div className="mb-4">
-            <h2 
+            <h2
               className="text-lg font-semibold uppercase mb-3 border-b border-gray-400 pb-1"
-              style={{ fontSize: '16px', fontWeight: '600', borderBottom: '1px solid #9ca3af' }}
+              style={{
+                fontSize: '16px',
+                fontWeight: '600',
+                borderBottom: '1px solid #9ca3af',
+              }}
             >
-              {resumeData.sections?.toolbox || "Skills & Technologies"}
+              {resumeData.sections?.toolbox || 'Skills & Technologies'}
             </h2>
-            
+
             {resumeData.technologies.length > 0 && (
               <div className="mb-3">
-                <h3 
+                <h3
                   className="text-base font-semibold mb-2 text-blue-600"
-                  style={{ fontSize: '14px', fontWeight: '600', color: '#2563eb' }}
+                  style={{
+                    fontSize: '14px',
+                    fontWeight: '600',
+                    color: '#2563eb',
+                  }}
                 >
-                  {resumeData.sections?.technologies || "Technologies"}
+                  {resumeData.sections?.technologies || 'Technologies'}
                 </h3>
                 <div className="flex flex-wrap gap-1">
                   {resumeData.technologies.map((tech, index) => (
                     <span
                       key={index}
                       className="border border-gray-400 px-2 py-1 rounded text-xs"
-                      style={{ 
-                        border: '1px solid #9ca3af', 
-                        padding: '2px 8px', 
+                      style={{
+                        border: '1px solid #9ca3af',
+                        padding: '2px 8px',
                         borderRadius: '4px',
-                        fontSize: '11px'
+                        fontSize: '11px',
                       }}
                     >
                       {tech}
@@ -283,22 +314,27 @@ const ResumeContentPDF = ({ data: resumeData }: ResumeContentPDFProps) => {
 
             {resumeData.skills.length > 0 && (
               <div className="mb-3">
-                <h3 
+                <h3
                   className="text-base font-semibold mb-2 text-blue-600"
-                  style={{ fontSize: '14px', fontWeight: '600', color: '#2563eb' }}
+                  style={{
+                    fontSize: '14px',
+                    fontWeight: '600',
+                    color: '#2563eb',
+                  }}
                 >
-                  {resumeData.sections?.professionalSkills || "Professional Skills"}
+                  {resumeData.sections?.professionalSkills ||
+                    'Professional Skills'}
                 </h3>
                 <div className="flex flex-wrap gap-1">
                   {resumeData.skills.map((skill, index) => (
                     <span
                       key={index}
                       className="border border-gray-400 px-2 py-1 rounded text-xs"
-                      style={{ 
-                        border: '1px solid #9ca3af', 
-                        padding: '2px 8px', 
+                      style={{
+                        border: '1px solid #9ca3af',
+                        padding: '2px 8px',
                         borderRadius: '4px',
-                        fontSize: '11px'
+                        fontSize: '11px',
                       }}
                     >
                       {skill}
@@ -312,11 +348,15 @@ const ResumeContentPDF = ({ data: resumeData }: ResumeContentPDFProps) => {
 
         {/* Education */}
         <div className="mb-4">
-          <h2 
+          <h2
             className="text-lg font-semibold uppercase mb-3 border-b border-gray-400 pb-1"
-            style={{ fontSize: '16px', fontWeight: '600', borderBottom: '1px solid #9ca3af' }}
+            style={{
+              fontSize: '16px',
+              fontWeight: '600',
+              borderBottom: '1px solid #9ca3af',
+            }}
           >
-            {resumeData.sections?.education || "Education"}
+            {resumeData.sections?.education || 'Education'}
           </h2>
           {resumeData.education.map((edu, index) => (
             <div
@@ -324,31 +364,34 @@ const ResumeContentPDF = ({ data: resumeData }: ResumeContentPDFProps) => {
               className={`mb-3 ${index < resumeData.education.length - 1 ? 'border-b border-gray-200 pb-3' : ''}`}
             >
               <div className="flex justify-between items-start mb-1">
-                <h3 
+                <h3
                   className="text-base font-semibold"
                   style={{ fontSize: '14px', fontWeight: '600' }}
                 >
                   {edu.degree}
                 </h3>
-                <span 
+                <span
                   className="text-sm text-gray-600"
                   style={{ fontSize: '12px', color: '#4b5563' }}
                 >
                   {edu.startDate} - {edu.endDate}
                 </span>
               </div>
-              <p 
+              <p
                 className="text-blue-600 font-medium mb-1"
                 style={{ color: '#2563eb', fontWeight: '500' }}
               >
                 {edu.institution}
               </p>
               {edu.location && (
-                <p 
+                <p
                   className="text-sm text-gray-600 flex items-center"
                   style={{ fontSize: '12px', color: '#4b5563' }}
                 >
-                  <MdLocationPin className="mr-1" style={{ fontSize: '12px' }} />
+                  <MdLocationPin
+                    className="mr-1"
+                    style={{ fontSize: '12px' }}
+                  />
                   {edu.location}
                 </p>
               )}
@@ -359,23 +402,27 @@ const ResumeContentPDF = ({ data: resumeData }: ResumeContentPDFProps) => {
         {/* Languages */}
         {resumeData.languages.length > 0 && (
           <div className="mb-4">
-            <h2 
+            <h2
               className="text-lg font-semibold uppercase mb-3 border-b border-gray-400 pb-1"
-              style={{ fontSize: '16px', fontWeight: '600', borderBottom: '1px solid #9ca3af' }}
+              style={{
+                fontSize: '16px',
+                fontWeight: '600',
+                borderBottom: '1px solid #9ca3af',
+              }}
             >
-              {resumeData.sections?.languages || "Languages"}
+              {resumeData.sections?.languages || 'Languages'}
             </h2>
             <div className="grid grid-cols-2 gap-4">
               {resumeData.languages.map((language, index) => (
                 <div key={index} className="flex justify-between items-center">
                   <div>
-                    <p 
+                    <p
                       className="font-medium text-sm"
                       style={{ fontWeight: '500', fontSize: '12px' }}
                     >
                       {language.name}
                     </p>
-                    <p 
+                    <p
                       className="text-xs text-gray-600"
                       style={{ fontSize: '11px', color: '#4b5563' }}
                     >
@@ -391,7 +438,8 @@ const ResumeContentPDF = ({ data: resumeData }: ResumeContentPDFProps) => {
                           height: '16px',
                           width: '4px',
                           borderRadius: '2px',
-                          backgroundColor: i < language.proficiency ? '#2563eb' : '#d1d5db'
+                          backgroundColor:
+                            i < language.proficiency ? '#2563eb' : '#d1d5db',
                         }}
                       />
                     ))}
@@ -405,15 +453,19 @@ const ResumeContentPDF = ({ data: resumeData }: ResumeContentPDFProps) => {
         {/* Notable Projects */}
         {resumeData.notableProjects.length > 0 && (
           <div className="mb-4">
-            <h2 
+            <h2
               className="text-lg font-semibold uppercase mb-3 border-b border-gray-400 pb-1"
-              style={{ fontSize: '16px', fontWeight: '600', borderBottom: '1px solid #9ca3af' }}
+              style={{
+                fontSize: '16px',
+                fontWeight: '600',
+                borderBottom: '1px solid #9ca3af',
+              }}
             >
-              {resumeData.sections?.notableProjects || "Notable Projects"}
+              {resumeData.sections?.notableProjects || 'Notable Projects'}
             </h2>
             {resumeData.notableProjects.map((project, index) => (
               <div key={index} className="mb-3">
-                <p 
+                <p
                   className="font-medium text-sm mb-1"
                   style={{ fontWeight: '500', fontSize: '12px' }}
                 >
@@ -428,16 +480,20 @@ const ResumeContentPDF = ({ data: resumeData }: ResumeContentPDFProps) => {
         {/* References */}
         {resumeData.references.length > 0 && (
           <div className="mb-4">
-            <h2 
+            <h2
               className="text-lg font-semibold uppercase mb-3 border-b border-gray-400 pb-1"
-              style={{ fontSize: '16px', fontWeight: '600', borderBottom: '1px solid #9ca3af' }}
+              style={{
+                fontSize: '16px',
+                fontWeight: '600',
+                borderBottom: '1px solid #9ca3af',
+              }}
             >
-              {resumeData.sections?.references || "References"}
+              {resumeData.sections?.references || 'References'}
             </h2>
             {resumeData.references.map((reference, index) => (
               <div key={index} className="mb-2">
                 <p className="text-sm">
-                  <span 
+                  <span
                     className="font-medium text-blue-600"
                     style={{ fontWeight: '500', color: '#2563eb' }}
                   >
@@ -459,17 +515,21 @@ const ResumeContentPDF = ({ data: resumeData }: ResumeContentPDFProps) => {
         {/* Social Links */}
         {resumeData.socialLinks.length > 0 && (
           <div className="mb-4">
-            <h2 
+            <h2
               className="text-lg font-semibold uppercase mb-3 border-b border-gray-400 pb-1"
-              style={{ fontSize: '16px', fontWeight: '600', borderBottom: '1px solid #9ca3af' }}
+              style={{
+                fontSize: '16px',
+                fontWeight: '600',
+                borderBottom: '1px solid #9ca3af',
+              }}
             >
-              {resumeData.sections?.findMeOnline || "Professional Links"}
+              {resumeData.sections?.findMeOnline || 'Professional Links'}
             </h2>
             {resumeData.socialLinks.map((social, index) => {
               const IconComponent = iconMap[social.icon];
               return (
                 <div key={index} className="mb-2">
-                  <p 
+                  <p
                     className="font-medium text-sm mb-1"
                     style={{ fontWeight: '500', fontSize: '12px' }}
                   >

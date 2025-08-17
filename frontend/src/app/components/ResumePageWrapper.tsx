@@ -1,6 +1,6 @@
 'use client';
 import UIContext from '@/hooks/UIContext';
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, Suspense } from 'react';
 import ResumeContent from '@/components/ResumeContent';
 import { downloadResumePDF } from '@/utils/pdfGenerator';
 import { useSearchParams } from 'next/navigation';
@@ -10,7 +10,10 @@ interface ResumePageWrapperProps {
   personName?: string;
 }
 
-const ResumePageWrapper = ({ resumeData, personName }: ResumePageWrapperProps) => {
+const ResumePageContent = ({
+  resumeData,
+  personName,
+}: ResumePageWrapperProps) => {
   const { setUIState } = useContext(UIContext);
   const searchParams = useSearchParams();
   const isDownload = searchParams.get('download') === 'true';
@@ -32,7 +35,7 @@ const ResumePageWrapper = ({ resumeData, personName }: ResumePageWrapperProps) =
           alert('Failed to download PDF. Please try again.');
         }
       };
-      
+
       handleDownload();
     }
   }, [isDownload, resumeData, personName]);
@@ -49,8 +52,23 @@ const ResumePageWrapper = ({ resumeData, personName }: ResumePageWrapperProps) =
     );
   }
 
+  return <ResumeContent data={resumeData} />;
+};
+
+const ResumePageWrapper = (props: ResumePageWrapperProps) => {
   return (
-    <ResumeContent data={resumeData} />
+    <Suspense
+      fallback={
+        <div className="min-h-screen flex items-center justify-center bg-gray-50">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+            <p className="text-gray-600">Loading...</p>
+          </div>
+        </div>
+      }
+    >
+      <ResumePageContent {...props} />
+    </Suspense>
   );
 };
 

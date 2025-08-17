@@ -1,5 +1,5 @@
-import { EMAIL_ADDRESS, PHONE_NUMBER } from "@/config";
-import Image from "next/image";
+import { EMAIL_ADDRESS, PHONE_NUMBER } from '@/config';
+import Image from 'next/image';
 import {
   FaExternalLinkAlt,
   FaGithub,
@@ -8,13 +8,13 @@ import {
   FaPhone,
   FaStackOverflow,
   FaDownload,
-} from "react-icons/fa";
-import { GiEarthAfricaEurope } from "react-icons/gi";
-import { MdLocationPin, MdOutlineAlternateEmail } from "react-icons/md";
-import { SiLeetcode } from "react-icons/si";
-import { IoMdCheckbox } from "react-icons/io";
-import { downloadResumePDF } from "@/utils/pdfGenerator";
-import { useState } from "react";
+} from 'react-icons/fa';
+import { GiEarthAfricaEurope } from 'react-icons/gi';
+import { MdLocationPin, MdOutlineAlternateEmail } from 'react-icons/md';
+import { SiLeetcode } from 'react-icons/si';
+import { IoMdCheckbox } from 'react-icons/io';
+import { downloadResumePDF } from '@/utils/pdfGenerator';
+import { useState } from 'react';
 
 // Define the TypeScript interfaces for the resume data
 interface PersonalInfo {
@@ -133,7 +133,7 @@ const ResumeContent = ({ data: resumeData }: ResumeContentProps) => {
 
   return (
     <div className="bg-white text-gray-800 py-24 px-52 overflow-x-auto xl:flex xl:justify-center">
-      <div className="flex flex-col justify-center" style={{ width: "1200px" }}>
+      <div className="flex flex-col justify-center" style={{ width: '1200px' }}>
         {/* Download Button */}
         <div className="flex justify-end mb-6">
           <button
@@ -170,7 +170,7 @@ const ResumeContent = ({ data: resumeData }: ResumeContentProps) => {
                   href={`mailto:${resumeData.personalInfo.email}`}
                   className="flex items-center"
                 >
-                  <MdOutlineAlternateEmail className="mr-1 text-blue-500" />{" "}
+                  <MdOutlineAlternateEmail className="mr-1 text-blue-500" />{' '}
                   {resumeData.personalInfo.email}
                 </a>
                 <a
@@ -208,7 +208,7 @@ const ResumeContent = ({ data: resumeData }: ResumeContentProps) => {
               <div className="mb-6">
                 <div className="mb-3">
                   <h2 className="text-xl font-semibold uppercase">
-                    {resumeData.sections?.summary || "Summary"}
+                    {resumeData.sections?.summary || 'Summary'}
                   </h2>
                   <div className="bg-gray-800 w-full h-1 rounded-full"></div>
                 </div>
@@ -219,7 +219,8 @@ const ResumeContent = ({ data: resumeData }: ResumeContentProps) => {
               <div className="mb-6">
                 <div className="mb-3">
                   <h2 className="text-xl font-semibold uppercase">
-                    {resumeData.sections?.workExperience || "Corporate Experience"}
+                    {resumeData.sections?.workExperience ||
+                      'Corporate Experience'}
                   </h2>
                   <div className="bg-gray-800 w-full h-1 rounded-full"></div>
                 </div>
@@ -228,16 +229,16 @@ const ResumeContent = ({ data: resumeData }: ResumeContentProps) => {
                     key={index}
                     className={`${
                       index < resumeData.workExperience.length - 1
-                        ? "mb-4 border-b-2 border-dashed border-gray-400 pb-4"
-                        : ""
+                        ? 'mb-4 border-b-2 border-dashed border-gray-400 pb-4'
+                        : ''
                     }`}
                   >
                     <h3 className="text-lg font-medium">{job.title}</h3>
                     <p className="text-blue-500">{job.company}</p>
                     <p className="flex items-center">
                       <span>{job.startDate}</span>
-                      <span className="mx-1"> - </span>{" "}
-                      <span>{job.endDate}</span>{" "}
+                      <span className="mx-1"> - </span>{' '}
+                      <span>{job.endDate}</span>{' '}
                       <MdLocationPin className="ml-3 mr-1" /> {job.location}
                     </p>
                     <div className="mt-1">
@@ -247,7 +248,7 @@ const ResumeContent = ({ data: resumeData }: ResumeContentProps) => {
                           {job.responsibilities.map(
                             (responsibility, respIndex) => (
                               <li key={respIndex}>{responsibility}</li>
-                            )
+                            ),
                           )}
                         </ul>
                       )}
@@ -260,7 +261,7 @@ const ResumeContent = ({ data: resumeData }: ResumeContentProps) => {
               <div>
                 <div className="mb-3">
                   <h2 className="text-xl font-semibold uppercase">
-                    {resumeData.sections?.references || "References"}
+                    {resumeData.sections?.references || 'References'}
                   </h2>
                   <div className="bg-gray-800 w-full h-1 rounded-full"></div>
                 </div>
@@ -290,7 +291,7 @@ const ResumeContent = ({ data: resumeData }: ResumeContentProps) => {
               <div className="mb-6">
                 <div className="mb-3">
                   <h2 className="text-xl font-semibold uppercase">
-                    {resumeData.sections?.toolbox || "Toolbox"}
+                    {resumeData.sections?.toolbox || 'Toolbox'}
                   </h2>
                   <div className="bg-gray-800 w-full h-1 rounded-full"></div>
                 </div>
@@ -298,7 +299,7 @@ const ResumeContent = ({ data: resumeData }: ResumeContentProps) => {
                 {/* Technologies  */}
                 <div className="mb-6">
                   <h3 className="text-lg font-semibold uppercase mb-2 text-blue-500">
-                    {resumeData.sections?.technologies || "Technologies"}
+                    {resumeData.sections?.technologies || 'Technologies'}
                   </h3>
                   <div className="flex flex-wrap gap-1">
                     {resumeData.technologies.map((tech, index) => (
@@ -315,7 +316,8 @@ const ResumeContent = ({ data: resumeData }: ResumeContentProps) => {
                 {/* Power Skills  */}
                 <div className="mb-6">
                   <h3 className="text-lg font-semibold uppercase mb-2 text-blue-500">
-                    {resumeData.sections?.professionalSkills || "Professional Skills"}
+                    {resumeData.sections?.professionalSkills ||
+                      'Professional Skills'}
                   </h3>
                   <div className="flex flex-wrap gap-1">
                     {resumeData.skills.map((skill, index) => (
@@ -334,7 +336,7 @@ const ResumeContent = ({ data: resumeData }: ResumeContentProps) => {
               <div className="mb-6">
                 <div className="mb-3">
                   <h2 className="text-xl font-semibold uppercase">
-                    {resumeData.sections?.education || "Education"}
+                    {resumeData.sections?.education || 'Education'}
                   </h2>
                   <div className="bg-gray-800 w-full h-1 rounded-full"></div>
                 </div>
@@ -344,9 +346,9 @@ const ResumeContent = ({ data: resumeData }: ResumeContentProps) => {
                       key={index}
                       className={`${
                         index < resumeData.education.length - 1
-                          ? "border-b-2 border-dashed border-gray-400 pb-4"
-                          : ""
-                      } ${index > 0 ? "mt-2" : ""}`}
+                          ? 'border-b-2 border-dashed border-gray-400 pb-4'
+                          : ''
+                      } ${index > 0 ? 'mt-2' : ''}`}
                     >
                       <p className="text-lg">{edu.degree}</p>
                       <p className="text-blue-500">
@@ -359,9 +361,9 @@ const ResumeContent = ({ data: resumeData }: ResumeContentProps) => {
                         )}
                       </p>
                       <p className="flex items-center mr-1">
-                        <span>{edu.startDate}</span>{" "}
-                        <span className="mx-1">-</span>{" "}
-                        <span className="mr-3">{edu.endDate}</span>{" "}
+                        <span>{edu.startDate}</span>{' '}
+                        <span className="mx-1">-</span>{' '}
+                        <span className="mr-3">{edu.endDate}</span>{' '}
                         {edu.location && (
                           <>
                             <MdLocationPin className="mr-1" /> {edu.location}
@@ -377,7 +379,7 @@ const ResumeContent = ({ data: resumeData }: ResumeContentProps) => {
               <div className="mb-6">
                 <div className="mb-3">
                   <h2 className="text-xl font-semibold uppercase">
-                    {resumeData.sections?.languages || "Languages"}
+                    {resumeData.sections?.languages || 'Languages'}
                   </h2>
                   <div className="bg-gray-800 w-full h-1 rounded-full"></div>
                 </div>
@@ -394,8 +396,8 @@ const ResumeContent = ({ data: resumeData }: ResumeContentProps) => {
                             key={i}
                             className={`h-8 w-2 rounded-full ${
                               i < language.proficiency
-                                ? "bg-blue-500"
-                                : "bg-gray-300"
+                                ? 'bg-blue-500'
+                                : 'bg-gray-300'
                             }`}
                           />
                         ))}
@@ -409,7 +411,7 @@ const ResumeContent = ({ data: resumeData }: ResumeContentProps) => {
               <div className="mb-6">
                 <div className="mb-3">
                   <h2 className="text-xl font-semibold uppercase">
-                    {resumeData.sections?.notableProjects || "Notable Projects"}
+                    {resumeData.sections?.notableProjects || 'Notable Projects'}
                   </h2>
                   <div className="bg-gray-800 w-full h-1 rounded-full"></div>
                 </div>
@@ -437,7 +439,7 @@ const ResumeContent = ({ data: resumeData }: ResumeContentProps) => {
               <div className="mb-6">
                 <div className="mb-3">
                   <h2 className="text-xl font-semibold uppercase">
-                    {resumeData.sections?.findMeOnline || "Find me online"}
+                    {resumeData.sections?.findMeOnline || 'Find me online'}
                   </h2>
                   <div className="bg-gray-800 w-full h-1 rounded-full"></div>
                 </div>

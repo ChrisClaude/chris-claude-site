@@ -15,11 +15,13 @@ This document describes the PDF download functionality implemented for all resum
 ## How to Use
 
 ### Method 1: Download Button
+
 1. Navigate to any resume page
 2. Click the "Download PDF" button in the top-right corner
 3. The PDF will be automatically generated and downloaded
 
 ### Method 2: URL Parameter
+
 1. Navigate to any resume page
 2. Add `?download=true` to the URL
 3. The PDF will be automatically generated and downloaded
@@ -44,6 +46,7 @@ All resume pages support PDF download:
 ## Technical Implementation
 
 ### Dependencies
+
 - `jspdf`: PDF generation library
 - `html2canvas`: HTML to canvas conversion for PDF generation
 
@@ -73,11 +76,13 @@ All resume pages support PDF download:
 ### Code Refactoring Benefits
 
 **Before Refactoring:**
+
 - Each resume page had ~40 lines of duplicate code
 - Changes required updates to 12 different files
 - High maintenance overhead
 
 **After Refactoring:**
+
 - Each resume page is now ~5 lines of code
 - Single source of truth for common functionality
 - Easy to add new features or make changes
@@ -95,6 +100,7 @@ All resume pages support PDF download:
 ## File Naming Convention
 
 PDFs are automatically named using the person's name:
+
 - Format: `{PersonName}_Resume.pdf`
 - Example: `Florica_Tchambila_Resume.pdf`
 
@@ -107,6 +113,7 @@ PDFs are automatically named using the person's name:
 ## Browser Compatibility
 
 The PDF download functionality works in all modern browsers that support:
+
 - ES6+ JavaScript features
 - Canvas API
 - File download API
@@ -126,6 +133,7 @@ To add a new resume page:
 
 1. Create the resume data JSON file
 2. Create a new page component with just:
+
    ```tsx
    'use client';
    import ResumePageWrapper from '@/components/ResumePageWrapper';
@@ -141,6 +149,7 @@ To add a new resume page:
 ### Making Changes to Common Functionality
 
 All common functionality is now centralized in `ResumePageWrapper.tsx`. Changes to:
+
 - PDF download behavior
 - Loading states
 - UI state management

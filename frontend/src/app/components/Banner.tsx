@@ -22,7 +22,8 @@ const Banner = () => (
     <div className="flex justify-center sm:mb-12 mb-10 md:mb-16 lg:mb-20 xl:mb-24">
       <Link
         href="/courses"
-        className="bg-white text-blue-600 px-7 py-4 rounded-full text-lg font-semibold hover:bg-gray-200 focus:ring">
+        className="bg-white text-blue-600 px-7 py-4 rounded-full text-lg font-semibold hover:bg-gray-200 focus:ring"
+      >
         Get started
       </Link>
     </div>
@@ -31,12 +32,12 @@ const Banner = () => (
         Learn the most popular and relevant topics in the tech industry
       </h2>
       <div className="flex flex-wrap text-5xl items-center justify-center gap-x-10 gap-y-6 px-4 md:text-7xl">
-        <SiDotnet title='.NET Core' />
-        <SiCsharp title='C#' />
-        <BiLogoPython title='Python' />
-        <SiMicrosoftazure title='Microsoft Azure' />
-        <SiMicrosoftsqlserver title='Microsoft SQL Server' />
-        <FaReact title='React JS' />
+        <SiDotnet title=".NET Core" />
+        <SiCsharp title="C#" />
+        <BiLogoPython title="Python" />
+        <SiMicrosoftazure title="Microsoft Azure" />
+        <SiMicrosoftsqlserver title="Microsoft SQL Server" />
+        <FaReact title="React JS" />
       </div>
     </div>
   </section>

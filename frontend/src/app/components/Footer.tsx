@@ -13,7 +13,8 @@ const Footer = () => {
     <footer
       className={`px-5 py-6 w-screen flex-col-reverse gap-y-4 items-center md:gap-y-0 md:flex-row md:justify-between md:px-20 md:w-full ${
         uiState.isResumePage ? 'hidden' : 'flex'
-      }`}>
+      }`}
+    >
       <div>
         <Link href="/" className="flex items-center">
           <Logo />
@@ -28,7 +29,8 @@ const Footer = () => {
             <a
               href="https://www.youtube.com/@chrisclaude"
               className="text-2xl"
-              target="_blank">
+              target="_blank"
+            >
               <FaYoutube />
             </a>
           </li>
@@ -36,7 +38,8 @@ const Footer = () => {
             <a
               href="https://www.linkedin.com/in/claude-de-tchambila-a720ba143"
               className="text-2xl"
-              target="_blank">
+              target="_blank"
+            >
               <FaLinkedinIn />
             </a>
           </li>
@@ -44,7 +47,8 @@ const Footer = () => {
             <a
               href="https://twitter.com/ChrisClaude_"
               className="text-2xl"
-              target="_blank">
+              target="_blank"
+            >
               <RiTwitterXFill />
             </a>
           </li>
@@ -52,7 +56,8 @@ const Footer = () => {
             <a
               href="https://github.com/ChrisClaude"
               className="text-2xl"
-              target="_blank">
+              target="_blank"
+            >
               <FaGithub />
             </a>
           </li>
@@ -60,7 +65,8 @@ const Footer = () => {
             <a
               href="https://www.instagram.com/chrisclaude__"
               className="text-2xl"
-              target="_blank">
+              target="_blank"
+            >
               <FaInstagram />
             </a>
           </li>

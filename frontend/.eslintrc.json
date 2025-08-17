@@ -1,8 +1,10 @@
 {
-  "extends": "next/core-web-vitals",
+  "extends": ["next/core-web-vitals", "prettier"],
+  "plugins": ["prettier"],
   "rules": {
+    "prettier/prettier": "error",
     "comma-dangle": ["error", "always-multiline"],
     "semi": ["error", "always"],
-    "object-curly-spacing" : ["error", "always"]
+    "object-curly-spacing": ["error", "always"]
   }
 }

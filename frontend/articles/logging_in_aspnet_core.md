@@ -9,6 +9,7 @@ author_image: '/about_me.png'
 ---
 
 # Guide to Logging and Monitoring in ASP.NET Core
+
 Having good logging and monitoring in place for your application can mean the difference between a five minutes resolution or a weekend spent troubleshooting and debugging.
 
 We are going to explore the techniques that you can apply to create great logging entries and use tools that can make supporting and understanding your application easier.

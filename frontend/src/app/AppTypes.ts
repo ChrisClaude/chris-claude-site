@@ -1,11 +1,11 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction } from 'react';
 
 export type Article = {
-  id: string,
-  src: string,
-  alt: string,
-  description: string
-}
+  id: string;
+  src: string;
+  alt: string;
+  description: string;
+};
 
 export type AppState = {
   isMobileNavOpen: boolean;
@@ -14,16 +14,16 @@ export type AppState = {
 
 export type UIContextType = {
   setUIState: Dispatch<SetStateAction<AppState>> | undefined;
-  uiState: AppState
+  uiState: AppState;
 };
 
 export type ArticleContent = {
   slug: string;
   frontmatter: {
     [key: string]: string;
-  },
-  content: string | undefined
-}
+  };
+  content: string | undefined;
+};
 
 export type PaginatedArticles = {
   articles: ArticleContent[];
@@ -33,9 +33,9 @@ export type PaginatedArticles = {
 };
 
 export type ListBucketObject = {
-  Key: string,
-  LastModified: Date,
-  ETag: string,
-  Size: number,
-  StorageClass: string
-}
+  Key: string;
+  LastModified: Date;
+  ETag: string;
+  Size: number;
+  StorageClass: string;
+};

@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import { ArticleContent } from '@/AppTypes';
 import DOMPurify from 'dompurify';
 import { marked } from 'marked';
@@ -10,18 +10,13 @@ const sourceSerif = Source_Serif_4({
   subsets: ['latin'],
 });
 
-const ArticleFull = ({
-  article,
-}: {
-  article: ArticleContent;
-}) => {
-
+const ArticleFull = ({ article }: { article: ArticleContent }) => {
   return (
-    <div className='py-6 lg:px-6'>
+    <div className="py-6 lg:px-6">
       <div className="w-full px-6 py-6 bg-gray-900 rounded-lg shadow-md mt-6 lg:px-10">
         <div className="flex mt-4 flex-col mb-7 md:justify-between md:items-center md:flex-row">
           <h1 className="text-5xl mb-4 md:mb-0">{article.frontmatter.title}</h1>
-          <div className='w-24 md:w-auto'>
+          <div className="w-24 md:w-auto">
             <CategoryLabel category={article.frontmatter.category} />
           </div>
         </div>
@@ -44,11 +39,14 @@ const ArticleFull = ({
         </div>
 
         {article.content && (
-          <div className={`blog-text mt-2 text-lg overflow-hidden ${sourceSerif.className}`}>
+          <div
+            className={`blog-text mt-2 text-lg overflow-hidden ${sourceSerif.className}`}
+          >
             <div
               dangerouslySetInnerHTML={{
                 __html: DOMPurify.sanitize(marked.parse(article.content)),
-              }}></div>
+              }}
+            ></div>
           </div>
         )}
       </div>

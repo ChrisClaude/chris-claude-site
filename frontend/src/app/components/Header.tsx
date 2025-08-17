@@ -17,7 +17,9 @@ const Header = () => {
   };
 
   return (
-    <header className={`px-5 pt-6 pb-4 items-center header-border justify-between h-20 md:px-20 ${uiState.isResumePage? 'hidden' : 'flex'}`}>
+    <header
+      className={`px-5 pt-6 pb-4 items-center header-border justify-between h-20 md:px-20 ${uiState.isResumePage ? 'hidden' : 'flex'}`}
+    >
       <div onClick={() => toggleSideNav(false)}>
         <Link href="/" className="flex items-center">
           <Logo />
@@ -38,7 +40,8 @@ const Header = () => {
       </nav>
       <button
         className="md:hidden text-3xl opacity-70"
-        onClick={() => toggleSideNav()}>
+        onClick={() => toggleSideNav()}
+      >
         <RxHamburgerMenu />
       </button>
     </header>

@@ -9,11 +9,13 @@ This project is live at [chrisclaude.com](https://www.chrisclaude.com)
 ## Quick Start
 
 ### Install Dependencies
+
 ```bash
 npm install
 ```
 
 ### Run Dev Server (http://localhost:3000)
+
 ```bash
 npm run dev
 ```
@@ -23,7 +25,6 @@ npm run dev
 - [x] Add Portfolio page
 - [x] Improve blog page and publish a few articles
 - [x] Add contact form
-
 
 ### License
 

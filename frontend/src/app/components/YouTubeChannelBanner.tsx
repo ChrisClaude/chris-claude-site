@@ -5,7 +5,8 @@ const YouTubeChannelBanner = ({ compact = false }: { compact?: boolean }) => (
       <div
         className={`flex flex-col flex-1 justify-center gap-6 lg:pb-12 ${
           !compact ? 'lg:px-8' : ''
-        }`}>
+        }`}
+      >
         <h1 className="text-5xl font-semibold text-gray-100 md:text-6xl">
           Join Us On Youtube
         </h1>
@@ -16,7 +17,8 @@ const YouTubeChannelBanner = ({ compact = false }: { compact?: boolean }) => (
         <a
           href="https://www.youtube.com/@chrisclaude"
           target="_blank"
-          className="bloc bg-white text-blue-600 px-6 py-4 rounded-full text-lg font-semibold hover:bg-gray-200 focus:ring w-48">
+          className="bloc bg-white text-blue-600 px-6 py-4 rounded-full text-lg font-semibold hover:bg-gray-200 focus:ring w-48"
+        >
           Join on YouTube
         </a>
       </div>
@@ -30,7 +32,8 @@ const YouTubeChannelBanner = ({ compact = false }: { compact?: boolean }) => (
           title="YouTube video player"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen></iframe>
+          allowFullScreen
+        ></iframe>
       </div>
     )}
   </section>
