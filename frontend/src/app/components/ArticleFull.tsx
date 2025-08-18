@@ -3,6 +3,7 @@ import { ArticleContent } from '@/AppTypes';
 import DOMPurify from 'dompurify';
 import { marked } from 'marked';
 import { Source_Serif_4 } from 'next/font/google';
+import Image from 'next/image';
 import CategoryLabel from './CategoryLabel';
 
 const sourceSerif = Source_Serif_4({
@@ -20,17 +21,21 @@ const ArticleFull = ({ article }: { article: ArticleContent }) => {
             <CategoryLabel category={article.frontmatter.category} />
           </div>
         </div>
-        <img
+        <Image
           src={article.frontmatter.cover_image}
           alt=""
+          width={800}
+          height={400}
           className="w-full rounded"
         />
 
         <div className="flex justify-between items-center bg-gray-700 p-2 my-8 rounded-lg">
           <div className="flex items-center">
-            <img
+            <Image
               src={article.frontmatter.author_image}
               alt=""
+              width={40}
+              height={40}
               className="mx-4 w-10 h-10 object-cover rounded-full hidden sm:block"
             />
             <h4>{article.frontmatter.author}</h4>

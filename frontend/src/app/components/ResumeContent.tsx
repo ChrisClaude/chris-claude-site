@@ -116,33 +116,23 @@ const iconMap: { [key: string]: any } = {
   FaStackOverflow,
 };
 
-const ResumeContent = ({ data: resumeData, showDownloadButton = false }: ResumeContentProps) => {
+const ResumeContent = ({
+  data: resumeData,
+  showDownloadButton = false,
+}: ResumeContentProps) => {
   const [isDownloading, setIsDownloading] = useState(false);
   const [isAutoDownloading, setIsAutoDownloading] = useState(false);
 
-  if (!resumeData) {
-    return <div>No data provided</div>;
-  }
-
-  const handleDownload = async () => {
-    setIsDownloading(true);
-    try {
-      await downloadResumePDFFromUI('resume-content', resumeData.personalInfo.name);
-    } catch (error) {
-      console.error('Failed to download PDF:', error);
-      alert('Failed to download PDF. Please try again.');
-    } finally {
-      setIsDownloading(false);
-    }
-  };
-
   // Auto-download effect when showDownloadButton is true (from URL parameter)
   useEffect(() => {
-    if (showDownloadButton) {
+    if (showDownloadButton && resumeData) {
       const autoDownload = async () => {
         setIsAutoDownloading(true);
         try {
-          await downloadResumePDFFromUI('resume-content', resumeData.personalInfo.name);
+          await downloadResumePDFFromUI(
+            'resume-content',
+            resumeData.personalInfo.name,
+          );
           // Redirect back to the normal resume page after download
           window.history.replaceState({}, '', window.location.pathname);
         } catch (error) {
@@ -157,10 +147,32 @@ const ResumeContent = ({ data: resumeData, showDownloadButton = false }: ResumeC
       const timer = setTimeout(autoDownload, 500);
       return () => clearTimeout(timer);
     }
-  }, [showDownloadButton, resumeData.personalInfo.name]);
+  }, [showDownloadButton, resumeData]);
+
+  if (!resumeData) {
+    return <div>No data provided</div>;
+  }
+
+  const handleDownload = async () => {
+    setIsDownloading(true);
+    try {
+      await downloadResumePDFFromUI(
+        'resume-content',
+        resumeData.personalInfo.name,
+      );
+    } catch (error) {
+      console.error('Failed to download PDF:', error);
+      alert('Failed to download PDF. Please try again.');
+    } finally {
+      setIsDownloading(false);
+    }
+  };
 
   return (
-    <div id="resume-content" className="bg-white text-gray-800 py-24 px-52 overflow-x-auto xl:flex xl:justify-center relative">
+    <div
+      id="resume-content"
+      className="bg-white text-gray-800 py-24 px-52 overflow-x-auto xl:flex xl:justify-center relative"
+    >
       {/* Auto-download loading overlay */}
       {isAutoDownloading && (
         <div className="absolute inset-0 bg-white bg-opacity-90 flex items-center justify-center z-50">

@@ -22,8 +22,6 @@ const ResumePageContent = ({
     setUIState?.(state => ({ ...state, isResumePage: true }));
   }, [setUIState]);
 
-
-
   return <ResumeContent data={resumeData} showDownloadButton={isDownload} />;
 };
 
