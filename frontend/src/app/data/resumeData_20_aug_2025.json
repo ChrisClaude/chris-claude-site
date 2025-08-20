@@ -8,14 +8,14 @@
       "label": "Website",
       "destination": "https://chrisclaude.com"
     },
-    "location": "Poznan, Poland (Remote)",
+    "location": "Poznan, Poland",
     "image": "/about_me.png",
     "imageAlt": "Chris Claude"
   },
   "summary": "Backend-focused software engineer with over 5 years of experience building distributed systems and high-performance APIs using .NET and Azure. Skilled in modern C# and .NET Core with a track record of designing resilient microservices, improving database performance, and applying design principles that keep systems flexible and maintainable. Comfortable working in cloud-native environments and delivering solutions that balance technical precision with business value.",
   "workExperience": [
     {
-      "title": "Senior .NET Developer (Contract)",
+      "title": "Senior .NET Developer",
       "company": "Firma Dla Kazdego",
       "startDate": "01/2025",
       "endDate": "Present",
