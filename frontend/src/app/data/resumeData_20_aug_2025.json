@@ -1,0 +1,215 @@
+{
+  "personalInfo": {
+    "name": "Claude De-Tchambila",
+    "title": ".NET Backend Developer",
+    "phone": "+48 600 697 514",
+    "email": "christ.tchambila@gmail.com",
+    "website": {
+      "label": "Website",
+      "destination": "https://chrisclaude.com"
+    },
+    "location": "Poznan, Poland (Remote)",
+    "image": "/about_me.png",
+    "imageAlt": "Chris Claude"
+  },
+  "summary": "Backend-focused software engineer with over 5 years of experience building distributed systems and high-performance APIs using .NET and Azure. Skilled in modern C# and .NET Core with a track record of designing resilient microservices, improving database performance, and applying design principles that keep systems flexible and maintainable. Comfortable working in cloud-native environments and delivering solutions that balance technical precision with business value.",
+  "workExperience": [
+    {
+      "title": "Senior .NET Developer (Contract)",
+      "company": "Firma Dla Kazdego",
+      "startDate": "01/2025",
+      "endDate": "Present",
+      "location": "Poznan, Poland (Remote)",
+      "description": "Engaged in backend development for enterprise-grade applications running on Azure.",
+      "responsibilities": [
+        "Develop and maintain APIs and microservices using .NET 8, ASP.NET Core, and EF Core.",
+        "Applied CQRS and mediator patterns to simplify complex business logic and keep services loosely coupled.",
+        "Worked with both EF Core and ADO.NET to optimize data access and query performance.",
+        "Secured applications with token-based authentication and Azure Key Vault integration.",
+        "Improved resilience and scalability of services through queue-based processing and retry strategies.",
+        "Configured monitoring and tracing pipelines with Application Insights for faster issue detection.",
+        "Deployed applications on Azure App Services with global routing and CDN integration.",
+        "Introduced API versioning and throttling strategies through Azure API Management.",
+        "Maintained a healthy test suite with xUnit, FluentAssertions, and mocking frameworks.",
+        "Collaborated closely with product teams to refine requirements in an Agile environment."
+      ]
+    },
+    {
+      "title": "Software Engineer",
+      "company": "Capgemini",
+      "startDate": "07/2022",
+      "endDate": "12/2024",
+      "location": "Poznan, Poland",
+      "description": "Worked on backend systems for financial services clients, focusing on security, scalability, and performance.",
+      "responsibilities": [
+        "Built REST APIs and backend services in .NET Core with SQL Server and EF Core.",
+        "Improved API performance and reliability through query tuning and caching strategies.",
+        "Implemented centralized identity and access control using OAuth2 and JWT.",
+        "Automated deployments and database migrations with Azure DevOps pipelines.",
+        "Enhanced observability through structured logging, metrics, and distributed tracing.",
+        "Supported frontend teams with clear API contracts and helped align backend with micro-frontend integration needs."
+      ]
+    },
+    {
+      "title": "Software Engineer",
+      "company": "Dariel",
+      "startDate": "02/2021",
+      "endDate": "06/2022",
+      "location": "Johannesburg, South Africa",
+      "description": "Contributed to backend-heavy projects across finance and logistics domains.",
+      "responsibilities": [
+        "Implemented backend services in ASP.NET Core and SQL Server with secure REST endpoints.",
+        "Integrated message-driven processing using RabbitMQ and Azure services.",
+        "Ensured robust API documentation and smooth client integration via OpenAPI specifications.",
+        "Worked on resiliency improvements using retry patterns and timeout strategies."
+      ]
+    },
+    {
+      "title": "Software Engineer",
+      "company": "Exigent Group",
+      "startDate": "11/2020",
+      "endDate": "02/2021",
+      "location": "Cape Town, South Africa",
+      "description": "Supported development of backend components for document management and analytics systems.",
+      "responsibilities": []
+    }
+  ],
+  "references": [
+    {
+      "fullName": "Prajwal Chengappa",
+      "role": "Senior Software Engineer",
+      "email": "prajwal.chengappa@capgemini.com",
+      "company": "Capgemini"
+    },
+    {
+      "fullName": "Banish Jha",
+      "role": "Senior Software Engineer",
+      "email": "banish.jha@nn-group.com",
+      "company": "Nationale Nederlanden"
+    },
+    {
+      "fullName": "Rens Van Driel",
+      "role": "Software Developer",
+      "email": "rens.van.a.driel@sogeti.com",
+      "company": "Sogeti"
+    }
+  ],
+  "technologies": [
+    "C#",
+    ".NET 6/7/8",
+    "ASP.NET Core Web API",
+    "Entity Framework Core",
+    "ADO.NET",
+    "SQL Server",
+    "Dapper",
+    "REST",
+    "OpenAPI/Swagger",
+    "CQRS",
+    "Mediator",
+    "Factory Pattern",
+    "Async/Await",
+    "Serialization (JSON, XML, binary)",
+    "Azure App Services",
+    "Azure SQL",
+    "Azure Storage (Table, Blob, Queue)",
+    "Azure Key Vault",
+    "Azure Application Gateway",
+    "Azure CDN",
+    "Azure Traffic Manager",
+    "Azure API Management",
+    "Azure Application Insights",
+    "Docker",
+    "Kubernetes",
+    "Git",
+    "Azure DevOps",
+    "xUnit/NUnit",
+    "Moq",
+    "AutoFixture",
+    "FluentAssertions",
+    "JavaScript",
+    "Micro-frontends",
+    "Module Federation",
+    "Web Components"
+  ],
+  "skills": [
+    "API Development & Integration",
+    "Cloud-Native Architecture",
+    "SOLID & Clean Code Practices",
+    "Authentication & Authorization",
+    "Asynchronous Programming",
+    "SQL Query Optimization",
+    "Unit & Integration Testing",
+    "System Monitoring & Diagnostics",
+    "Performance Tuning",
+    "Agile/Scrum Collaboration",
+    "Technical Documentation"
+  ],
+  "education": [
+    {
+      "degree": "Diploma in Application Development",
+      "institution": "Cape Peninsula University of Technology",
+      "institutionUrl": "https://www.cput.ac.za/",
+      "startDate": "01/2018",
+      "endDate": "12/2020",
+      "location": "Cape Town, South Africa"
+    },
+    {
+      "degree": "Chemical Engineering",
+      "institution": "Central Technical College",
+      "institutionUrl": "https://www.ctc.edu.za/cape-town-campus/",
+      "startDate": "2017",
+      "endDate": "2017",
+      "location": "Cape Town, South Africa"
+    }
+  ],
+  "languages": [
+    {
+      "name": "English",
+      "level": "Advanced",
+      "proficiency": 5
+    },
+    {
+      "name": "French",
+      "level": "Advanced",
+      "proficiency": 5
+    }
+  ],
+  "notableProjects": [
+    {
+      "title": "Job Platform APIs",
+      "url": "https://keepmeposted.com.mt/",
+      "description": "Redesigned backend APIs in .NET Core and Azure SQL; introduced CQRS and caching, reduced response times, and added API management features for secure client integration."
+    },
+    {
+      "title": "Personal Portfolio",
+      "url": "https://github.com/ChrisClaude",
+      "description": "Maintains portfolio projects focused on backend services, Azure cloud integrations, and performance monitoring examples."
+    }
+  ],
+  "socialLinks": [
+    {
+      "platform": "Site",
+      "icon": "GiEarthAfricaEurope",
+      "url": "https://chrisclaude.com",
+      "displayText": "chrisclaude.com"
+    },
+    {
+      "platform": "LinkedIn",
+      "icon": "FaLinkedinIn",
+      "url": "https://www.linkedin.com/in/claude-de-tchambila-a720ba143/",
+      "displayText": "Claude De-Tchambila"
+    },
+    {
+      "platform": "GitHub",
+      "icon": "FaGithub",
+      "url": "https://github.com/ChrisClaude",
+      "displayText": "Chris Claude"
+    },
+    {
+      "platform": "LeetCode",
+      "icon": "SiLeetcode",
+      "url": "https://leetcode.com/u/ChChris",
+      "displayText": "ChChris"
+    }
+  ]
+}
