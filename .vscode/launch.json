@@ -5,7 +5,7 @@
       "name": "Next.js: debug server-side",
       "type": "node",
       "request": "launch",
-      "program": "${workspaceFolder}/frontend/node_modules/.bin/next",
+      "program": "${workspaceFolder}/frontend/node_modules/next/dist/bin/next",
       "args": ["dev"],
       "cwd": "${workspaceFolder}/frontend",
       "console": "integratedTerminal",
@@ -27,7 +27,7 @@
       "name": "Next.js: debug full stack",
       "type": "node",
       "request": "launch",
-      "program": "${workspaceFolder}/frontend/node_modules/.bin/next",
+      "program": "${workspaceFolder}/frontend/node_modules/next/dist/bin/next",
       "args": ["dev"],
       "cwd": "${workspaceFolder}/frontend",
       "console": "integratedTerminal",
@@ -39,6 +39,19 @@
         "pattern": "- Local:.*(https?://.*)",
         "uriFormat": "%s",
         "action": "debugWithChrome"
+      }
+    },
+    {
+      "name": "Next.js: debug with npm",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/frontend/node_modules/.bin/npm",
+      "args": ["run", "dev"],
+      "cwd": "${workspaceFolder}/frontend",
+      "console": "integratedTerminal",
+      "skipFiles": ["<node_internals>/**"],
+      "env": {
+        "NODE_OPTIONS": "--inspect"
       }
     }
   ]
