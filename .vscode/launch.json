@@ -13,6 +13,19 @@
         "uriFormat": "%s",
         "action": "openExternally"
       }
+    },
+    {
+      "name": "Next.js: debug with npm",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/frontend/node_modules/.bin/npm",
+      "args": ["run", "dev"],
+      "cwd": "${workspaceFolder}/frontend",
+      "console": "integratedTerminal",
+      "skipFiles": ["<node_internals>/**"],
+      "env": {
+        "NODE_OPTIONS": "--inspect"
+      }
     }
   ]
 }
