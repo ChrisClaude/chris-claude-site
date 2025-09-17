@@ -34,7 +34,7 @@ export interface ResumeListItem extends ResumeMetadata {
 
 // Resume data mapping with metadata
 const resumeDataMap = {
-  'resumeData_20_aug_2025': {
+  resumeData_20_aug_2025: {
     data: resumeData_20_aug_2025,
     metadata: {
       id: 'resumeData_20_aug_2025',
@@ -43,10 +43,10 @@ const resumeDataMap = {
       language: 'en' as const,
       personName: 'Claude De-Tchambila',
       title: '.NET Backend Developer',
-      description: 'Latest resume with comprehensive .NET and Azure experience'
-    }
+      description: 'Latest resume with comprehensive .NET and Azure experience',
+    },
   },
-  'feiscaCallCenterResumeData': {
+  feiscaCallCenterResumeData: {
     data: feiscaCallCenterResumeData,
     metadata: {
       id: 'feiscaCallCenterResumeData',
@@ -55,22 +55,22 @@ const resumeDataMap = {
       language: 'en' as const,
       personName: 'Feisca',
       title: 'Call Center Specialist',
-      description: 'Customer service and call center operations resume'
-    }
+      description: 'Customer service and call center operations resume',
+    },
   },
-  'feiscaCallCenterResumeDataFrench': {
+  feiscaCallCenterResumeDataFrench: {
     data: feiscaCallCenterResumeDataFrench,
     metadata: {
       id: 'feiscaCallCenterResumeDataFrench',
       fileName: 'feiscaCallCenterResumeDataFrench.json',
-      displayName: 'Feisca - Spécialiste Centre d\'Appels',
+      displayName: "Feisca - Spécialiste Centre d'Appels",
       language: 'fr' as const,
       personName: 'Feisca',
-      title: 'Spécialiste Centre d\'Appels',
-      description: 'CV de service client et opérations de centre d\'appels'
-    }
+      title: "Spécialiste Centre d'Appels",
+      description: "CV de service client et opérations de centre d'appels",
+    },
   },
-  'feiscaFrontDeskResumeData': {
+  feiscaFrontDeskResumeData: {
     data: feiscaFrontDeskResumeData,
     metadata: {
       id: 'feiscaFrontDeskResumeData',
@@ -79,10 +79,10 @@ const resumeDataMap = {
       language: 'en' as const,
       personName: 'Feisca',
       title: 'Front Desk Receptionist',
-      description: 'Hospitality and front desk operations resume'
-    }
+      description: 'Hospitality and front desk operations resume',
+    },
   },
-  'feiscaFrontDeskResumeDataFrench': {
+  feiscaFrontDeskResumeDataFrench: {
     data: feiscaFrontDeskResumeDataFrench,
     metadata: {
       id: 'feiscaFrontDeskResumeDataFrench',
@@ -91,10 +91,10 @@ const resumeDataMap = {
       language: 'fr' as const,
       personName: 'Feisca',
       title: 'Réceptionniste',
-      description: 'CV d\'hospitalité et opérations de réception'
-    }
+      description: "CV d'hospitalité et opérations de réception",
+    },
   },
-  'feiscaResumeData': {
+  feiscaResumeData: {
     data: feiscaResumeData,
     metadata: {
       id: 'feiscaResumeData',
@@ -103,10 +103,10 @@ const resumeDataMap = {
       language: 'en' as const,
       personName: 'Feisca',
       title: 'Professional',
-      description: 'General professional resume'
-    }
+      description: 'General professional resume',
+    },
   },
-  'feiscaResumeDataFrench': {
+  feiscaResumeDataFrench: {
     data: feiscaResumeDataFrench,
     metadata: {
       id: 'feiscaResumeDataFrench',
@@ -115,10 +115,10 @@ const resumeDataMap = {
       language: 'fr' as const,
       personName: 'Feisca',
       title: 'Professionnel',
-      description: 'CV professionnel général'
-    }
+      description: 'CV professionnel général',
+    },
   },
-  'feiscaSocialMediaResumeData': {
+  feiscaSocialMediaResumeData: {
     data: feiscaSocialMediaResumeData,
     metadata: {
       id: 'feiscaSocialMediaResumeData',
@@ -127,10 +127,10 @@ const resumeDataMap = {
       language: 'en' as const,
       personName: 'Feisca',
       title: 'Social Media Specialist',
-      description: 'Digital marketing and social media management resume'
-    }
+      description: 'Digital marketing and social media management resume',
+    },
   },
-  'feiscaSocialMediaResumeDataFrench': {
+  feiscaSocialMediaResumeDataFrench: {
     data: feiscaSocialMediaResumeDataFrench,
     metadata: {
       id: 'feiscaSocialMediaResumeDataFrench',
@@ -139,10 +139,10 @@ const resumeDataMap = {
       language: 'fr' as const,
       personName: 'Feisca',
       title: 'Spécialiste Médias Sociaux',
-      description: 'CV de marketing numérique et gestion des médias sociaux'
-    }
+      description: 'CV de marketing numérique et gestion des médias sociaux',
+    },
   },
-  'floricaResumeData': {
+  floricaResumeData: {
     data: floricaResumeData,
     metadata: {
       id: 'floricaResumeData',
@@ -151,10 +151,10 @@ const resumeDataMap = {
       language: 'en' as const,
       personName: 'Florica',
       title: 'Professional',
-      description: 'Professional resume for Florica'
-    }
+      description: 'Professional resume for Florica',
+    },
   },
-  'resumeData': {
+  resumeData: {
     data: resumeData,
     metadata: {
       id: 'resumeData',
@@ -163,10 +163,10 @@ const resumeDataMap = {
       language: 'en' as const,
       personName: 'Claude De-Tchambila',
       title: '.NET Developer',
-      description: 'Previous version of Claude\'s resume'
-    }
+      description: "Previous version of Claude's resume",
+    },
   },
-  'resumeDataFrench': {
+  resumeDataFrench: {
     data: resumeDataFrench,
     metadata: {
       id: 'resumeDataFrench',
@@ -175,9 +175,9 @@ const resumeDataMap = {
       language: 'fr' as const,
       personName: 'Claude De-Tchambila',
       title: 'Développeur .NET',
-      description: 'Version française du CV de Claude'
-    }
-  }
+      description: 'Version française du CV de Claude',
+    },
+  },
 };
 
 /**
@@ -186,7 +186,7 @@ const resumeDataMap = {
 export const getAllResumes = (): ResumeListItem[] => {
   return Object.values(resumeDataMap).map(item => ({
     ...item.metadata,
-    data: item.data
+    data: item.data,
   }));
 };
 
@@ -198,17 +198,19 @@ export const getResumeById = (id: string): ResumeListItem | null => {
   if (!item) {
     return null;
   }
-  
+
   return {
     ...item.metadata,
-    data: item.data
+    data: item.data,
   };
 };
 
 /**
  * Get resumes filtered by language
  */
-export const getResumesByLanguage = (language: 'en' | 'fr'): ResumeListItem[] => {
+export const getResumesByLanguage = (
+  language: 'en' | 'fr',
+): ResumeListItem[] => {
   return getAllResumes().filter(resume => resume.language === language);
 };
 
@@ -216,8 +218,8 @@ export const getResumesByLanguage = (language: 'en' | 'fr'): ResumeListItem[] =>
  * Get resumes filtered by person name
  */
 export const getResumesByPerson = (personName: string): ResumeListItem[] => {
-  return getAllResumes().filter(resume => 
-    resume.personName.toLowerCase().includes(personName.toLowerCase())
+  return getAllResumes().filter(resume =>
+    resume.personName.toLowerCase().includes(personName.toLowerCase()),
   );
 };
 
@@ -226,10 +228,12 @@ export const getResumesByPerson = (personName: string): ResumeListItem[] => {
  */
 export const searchResumes = (query: string): ResumeListItem[] => {
   const lowercaseQuery = query.toLowerCase();
-  return getAllResumes().filter(resume => 
-    resume.displayName.toLowerCase().includes(lowercaseQuery) ||
-    resume.title.toLowerCase().includes(lowercaseQuery) ||
-    resume.personName.toLowerCase().includes(lowercaseQuery) ||
-    (resume.description && resume.description.toLowerCase().includes(lowercaseQuery))
+  return getAllResumes().filter(
+    resume =>
+      resume.displayName.toLowerCase().includes(lowercaseQuery) ||
+      resume.title.toLowerCase().includes(lowercaseQuery) ||
+      resume.personName.toLowerCase().includes(lowercaseQuery) ||
+      (resume.description &&
+        resume.description.toLowerCase().includes(lowercaseQuery)),
   );
 };
