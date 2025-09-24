@@ -18,9 +18,8 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <Script
-          src="/cdn-cgi/zaraz/s.js"
+          src="https://cliffarray.bily.chat/b.js?shop=chrisclaude.com"
           referrerPolicy="origin"
-          crossOrigin="anonymous"
         />
       </head>
       <body suppressHydrationWarning={true}>
