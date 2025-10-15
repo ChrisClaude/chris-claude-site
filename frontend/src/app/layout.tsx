@@ -18,8 +18,8 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <Script
-          src="https://cliffarray.bily.chat/b.js?shop=chrisclaude.com"
-          referrerPolicy="origin"
+          src="https://yarrowyard.bily.chat/b.js?shop=chrisclaude.com"
+          referrerPolicy="strict-origin-when-cross-origin"
         />
       </head>
       <body suppressHydrationWarning={true}>
