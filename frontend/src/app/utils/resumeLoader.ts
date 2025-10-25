@@ -3,18 +3,18 @@
  */
 
 // Import all resume data files dynamically
-import resumeData_20_aug_2025 from '../data/resumeData_20_aug_2025.json';
-import feiscaCallCenterResumeData from '../data/feiscaCallCenterResumeData.json';
-import feiscaCallCenterResumeDataFrench from '../data/feiscaCallCenterResumeDataFrench.json';
-import feiscaFrontDeskResumeData from '../data/feiscaFrontDeskResumeData.json';
-import feiscaFrontDeskResumeDataFrench from '../data/feiscaFrontDeskResumeDataFrench.json';
-import feiscaResumeData from '../data/feiscaResumeData.json';
-import feiscaResumeDataFrench from '../data/feiscaResumeDataFrench.json';
-import feiscaSocialMediaResumeData from '../data/feiscaSocialMediaResumeData.json';
-import feiscaSocialMediaResumeDataFrench from '../data/feiscaSocialMediaResumeDataFrench.json';
-import floricaResumeData from '../data/floricaResumeData.json';
-import resumeData from '../data/resumeData.json';
-import resumeDataFrench from '../data/resumeDataFrench.json';
+import resumeData_20_aug_2025 from '../data/chris/resumeData_20_aug_2025.json';
+import feiscaCallCenterResumeData from '../data/feisca/feiscaCallCenterResumeData.json';
+import feiscaCallCenterResumeDataFrench from '../data/feisca/feiscaCallCenterResumeDataFrench.json';
+import feiscaFrontDeskResumeData from '../data/feisca/feiscaFrontDeskResumeData.json';
+import feiscaFrontDeskResumeDataFrench from '../data/feisca/feiscaFrontDeskResumeDataFrench.json';
+import feiscaResumeData from '../data/feisca/feiscaResumeData.json';
+import feiscaResumeDataFrench from '../data/feisca/feiscaResumeDataFrench.json';
+import feiscaSocialMediaResumeData from '../data/feisca/feiscaSocialMediaResumeData.json';
+import feiscaSocialMediaResumeDataFrench from '../data/feisca/feiscaSocialMediaResumeDataFrench.json';
+import floricaResumeData from '../data/florica/floricaResumeData.json';
+import resumeData from '../data/chris/resumeData.json';
+import resumeDataFrench from '../data/chris/resumeDataFrench.json';
 
 // TypeScript interfaces for resume metadata
 export interface ResumeMetadata {
