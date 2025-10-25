@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { Card, CardBody, CardHeader, Button, Divider } from '@heroui/react';
 import {
   DocumentTextIcon,
@@ -8,7 +9,6 @@ import {
   EyeIcon,
   RocketLaunchIcon,
 } from '@heroicons/react/24/outline';
-import { useRouter } from 'next/navigation';
 
 /**
  * Resume Home Page Component
@@ -19,8 +19,6 @@ import { useRouter } from 'next/navigation';
  * - Resume Editor: Create and edit resume content
  */
 const ResumePage = () => {
-  const router = useRouter();
-
   const features: {
     title: string;
     description: string;
@@ -136,16 +134,21 @@ const ResumePage = () => {
                       </ul>
                     </div>
 
-                    <Button
-                      color={feature.color}
-                      variant="solid"
-                      className="w-full"
-                      size="lg"
-                      startContent={<RocketLaunchIcon className="w-5 h-5" />}
-                      onPress={() => router.push(feature.path)}
-                    >
-                      Go to {feature.title}
-                    </Button>
+                    <Link href={feature.path} className="w-full block">
+                      <Button
+                        color={feature.color}
+                        variant="shadow"
+                        className={`w-full font-semibold flex ${
+                          feature.color === 'primary'
+                            ? 'bg-blue-600 text-white hover:bg-blue-700'
+                            : 'bg-purple-600 text-white hover:bg-purple-700'
+                        }`}
+                        size="lg"
+                        startContent={<RocketLaunchIcon className="w-5 h-5" />}
+                      >
+                        Go to {feature.title}
+                      </Button>
+                    </Link>
                   </div>
                 </CardBody>
               </Card>
