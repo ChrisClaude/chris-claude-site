@@ -1,0 +1,18 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run Frontend",
+      "type": "node",
+      "request": "launch",
+      "preLaunchTask": "Run Frontend Dev Server",
+      "runtimeExecutable": "open",
+      "runtimeArgs": ["http://localhost:3000"],
+      "serverReadyAction": {
+        "pattern": "- Local:.*(https?://\\S+|http://localhost:[0-9]+)",
+        "uriFormat": "%s",
+        "action": "openExternally"
+      }
+    }
+  ]
+}
