@@ -19,6 +19,8 @@ import {
   FunnelIcon,
   UserIcon,
   DocumentIcon,
+  ChevronDownIcon,
+  ChevronRightIcon,
 } from '@heroicons/react/24/outline';
 import {
   ResumeListItem,
@@ -41,6 +43,9 @@ const ResumeList: React.FC<ResumeListProps> = ({
   const [languageFilter, setLanguageFilter] = useState<string>('all');
   const [personFilter, setPersonFilter] = useState<string>('all');
   const [isLoading, setIsLoading] = useState(false);
+  const [collapsedFolders, setCollapsedFolders] = useState<
+    Record<string, boolean>
+  >({});
 
   // Get all resumes
   const allResumes = useMemo(() => getAllResumes(), []);
@@ -90,7 +95,6 @@ const ResumeList: React.FC<ResumeListProps> = ({
     return grouped;
   }, [filteredResumes]);
 
-
   const handleResumeClick = async (resume: ResumeListItem) => {
     setIsLoading(true);
     try {
@@ -121,6 +125,13 @@ const ResumeList: React.FC<ResumeListProps> = ({
     return language === 'en' ? '🇺🇸' : '🇫🇷';
   };
 
+  const toggleFolder = (folder: string) => {
+    setCollapsedFolders(prev => ({
+      ...prev,
+      [folder]: !prev[folder],
+    }));
+  };
+
   return (
     <div className="w-full max-w-4xl mx-auto p-6 pb-32">
       {/* Header */}
@@ -143,10 +154,7 @@ const ResumeList: React.FC<ResumeListProps> = ({
               placeholder="Search resumes..."
               value={searchQuery}
               onChange={e => setSearchQuery(e.target.value)}
-              startContent={
-                <MagnifyingGlassIcon className="w-4 h-4 text-gray-400" />
-              }
-              className="flex-1"
+              className="flex-1 text-black"
               size="lg"
             />
 
@@ -220,8 +228,10 @@ const ResumeList: React.FC<ResumeListProps> = ({
       {/* Results Count */}
       <div className="mb-4 flex items-center justify-between">
         <p className="text-sm text-gray-600">
-          Showing {filteredResumes.length} {filteredResumes.length === 1 ? 'resume' : 'resumes'}
-          {filteredResumes.length !== allResumes.length && ` (filtered from ${allResumes.length} total)`}
+          Showing {filteredResumes.length}{' '}
+          {filteredResumes.length === 1 ? 'resume' : 'resumes'}
+          {filteredResumes.length !== allResumes.length &&
+            ` (filtered from ${allResumes.length} total)`}
         </p>
       </div>
 
@@ -238,88 +248,109 @@ const ResumeList: React.FC<ResumeListProps> = ({
           if (resumes.length === 0) return null;
 
           // Get folder display name
-          const folderDisplayName = folder.charAt(0).toUpperCase() + folder.slice(1);
+          const folderDisplayName =
+            folder.charAt(0).toUpperCase() + folder.slice(1);
+
+          const isCollapsed = collapsedFolders[folder];
 
           return (
             <div key={folder} className="space-y-4">
               {/* Folder Header */}
-              <div className="flex items-center gap-3">
+              <button
+                onClick={() => toggleFolder(folder)}
+                className="flex items-center gap-3 w-full hover:bg-gray-50 p-2 -ml-2 rounded-lg transition-colors"
+              >
+                {isCollapsed ? (
+                  <ChevronRightIcon className="w-5 h-5 text-gray-600" />
+                ) : (
+                  <ChevronDownIcon className="w-5 h-5 text-gray-600" />
+                )}
                 <h2 className="text-xl font-bold text-gray-800">
                   {folderDisplayName}
                 </h2>
                 <Chip size="sm" variant="flat" color="default">
                   {resumes.length} {resumes.length === 1 ? 'resume' : 'resumes'}
                 </Chip>
-              </div>
+              </button>
 
               {/* Resume Grid for this folder */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {resumes.map(resume => (
-                  <Card
-                    key={resume.id}
-                    isPressable
-                    isHoverable
-                    className={`transition-all duration-200 ${
-                      selectedResumeId === resume.id
-                        ? 'ring-2 ring-blue-500 shadow-lg'
-                        : 'hover:shadow-md'
-                    }`}
-                    onPress={() => handleResumeClick(resume)}
-                  >
-                    <CardHeader className="flex gap-3">
-                      <Avatar
-                        name={getPersonInitials(resume.personName)}
-                        className="flex-shrink-0"
-                        size="md"
-                      />
-                      <div className="flex flex-col flex-1 min-w-0">
-                        <p className="text-lg font-semibold truncate">
-                          {resume.personName}
-                        </p>
-                        <p className="text-sm text-gray-600 truncate">{resume.title}</p>
-                      </div>
-                      <Chip
-                        size="sm"
-                        variant="flat"
-                        color={resume.language === 'en' ? 'primary' : 'secondary'}
-                      >
-                        {getLanguageFlag(resume.language)}
-                      </Chip>
-                    </CardHeader>
-
-                    <Divider />
-
-                    <CardBody className="pt-3">
-                      <div className="space-y-2">
-                        <div className="flex items-center gap-2 text-sm text-gray-600">
-                          <DocumentIcon className="w-4 h-4 text-gray-400" />
-                          <span className="truncate">{resume.fileName}</span>
-                        </div>
-
-                        {resume.description && (
-                          <p className="text-sm text-gray-700 line-clamp-2">
-                            {resume.description}
+              {!isCollapsed && (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {resumes.map(resume => (
+                    <Card
+                      key={resume.id}
+                      isPressable
+                      isHoverable
+                      className={`transition-all duration-200 ${
+                        selectedResumeId === resume.id
+                          ? 'ring-2 ring-blue-500 shadow-lg'
+                          : 'hover:shadow-md'
+                      }`}
+                      onPress={() => handleResumeClick(resume)}
+                    >
+                      <CardHeader className="flex gap-3">
+                        <Avatar
+                          name={getPersonInitials(resume.personName)}
+                          className="flex-shrink-0"
+                          size="md"
+                        />
+                        <div className="flex flex-col flex-1 min-w-0">
+                          <p className="text-lg font-semibold truncate">
+                            {resume.personName}
                           </p>
-                        )}
-
-                        <div className="flex items-center justify-between pt-2">
-                          <Chip
-                            size="sm"
-                            variant="dot"
-                            color={resume.language === 'en' ? 'primary' : 'secondary'}
-                          >
-                            {resume.language.toUpperCase()}
-                          </Chip>
-
-                          <span className="text-xs text-blue-600 font-medium">
-                            Click to view
-                          </span>
+                          <p className="text-sm text-gray-600 truncate">
+                            {resume.title}
+                          </p>
                         </div>
-                      </div>
-                    </CardBody>
-                  </Card>
-                ))}
-              </div>
+                        <Chip
+                          size="sm"
+                          variant="flat"
+                          color={
+                            resume.language === 'en' ? 'primary' : 'secondary'
+                          }
+                        >
+                          {getLanguageFlag(resume.language)}
+                        </Chip>
+                      </CardHeader>
+
+                      <Divider />
+
+                      <CardBody className="pt-3">
+                        <div className="space-y-2">
+                          <div className="flex items-center gap-2 text-sm text-gray-600">
+                            <DocumentIcon className="w-4 h-4 text-gray-400" />
+                            <span className="truncate">{resume.fileName}</span>
+                          </div>
+
+                          {resume.description && (
+                            <p className="text-sm text-gray-700 line-clamp-2">
+                              {resume.description}
+                            </p>
+                          )}
+
+                          <div className="flex items-center justify-between pt-2">
+                            <Chip
+                              size="sm"
+                              variant="dot"
+                              color={
+                                resume.language === 'en'
+                                  ? 'primary'
+                                  : 'secondary'
+                              }
+                            >
+                              {resume.language.toUpperCase()}
+                            </Chip>
+
+                            <span className="text-xs text-blue-600 font-medium">
+                              Click to view
+                            </span>
+                          </div>
+                        </div>
+                      </CardBody>
+                    </Card>
+                  ))}
+                </div>
+              )}
             </div>
           );
         })}
@@ -342,7 +373,6 @@ const ResumeList: React.FC<ResumeListProps> = ({
           </CardBody>
         </Card>
       )}
-
     </div>
   );
 };

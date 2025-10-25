@@ -137,7 +137,7 @@ To add a new resume page:
    ```tsx
    'use client';
    import ResumePageWrapper from '@/components/ResumePageWrapper';
-   import newResumeData from '../../data/newResumeData.json';
+   import newResumeData from '@/data/newResumeData.json';
 
    const Resume = () => {
      return <ResumePageWrapper resumeData={newResumeData} />;
