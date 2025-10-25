@@ -25,6 +25,7 @@ import {
   getAllResumes,
   searchResumes,
   getResumesByLanguage,
+  getResumesGroupedByFolder,
 } from '@/utils/resumeLoader';
 
 interface ResumeListProps {
@@ -40,8 +41,6 @@ const ResumeList: React.FC<ResumeListProps> = ({
   const [languageFilter, setLanguageFilter] = useState<string>('all');
   const [personFilter, setPersonFilter] = useState<string>('all');
   const [isLoading, setIsLoading] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 9; // 3x3 grid
 
   // Get all resumes
   const allResumes = useMemo(() => getAllResumes(), []);
@@ -74,16 +73,23 @@ const ResumeList: React.FC<ResumeListProps> = ({
     return filtered;
   }, [allResumes, searchQuery, languageFilter, personFilter]);
 
-  // Calculate pagination
-  const totalPages = Math.ceil(filteredResumes.length / itemsPerPage);
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-  const paginatedResumes = filteredResumes.slice(startIndex, endIndex);
+  // Group resumes by folder
+  const groupedResumes = useMemo(() => {
+    const grouped: Record<string, ResumeListItem[]> = {
+      chris: [],
+      feisca: [],
+      florica: [],
+    };
 
-  // Reset to page 1 when filters change
-  useMemo(() => {
-    setCurrentPage(1);
-  }, [searchQuery, languageFilter, personFilter]);
+    filteredResumes.forEach(resume => {
+      if (grouped[resume.folder]) {
+        grouped[resume.folder].push(resume);
+      }
+    });
+
+    return grouped;
+  }, [filteredResumes]);
+
 
   const handleResumeClick = async (resume: ResumeListItem) => {
     setIsLoading(true);
@@ -100,13 +106,6 @@ const ResumeList: React.FC<ResumeListProps> = ({
     setSearchQuery('');
     setLanguageFilter('all');
     setPersonFilter('all');
-    setCurrentPage(1);
-  };
-
-  const goToPage = (page: number) => {
-    setCurrentPage(page);
-    // Scroll to top of list
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const getPersonInitials = (name: string) => {
@@ -221,14 +220,9 @@ const ResumeList: React.FC<ResumeListProps> = ({
       {/* Results Count */}
       <div className="mb-4 flex items-center justify-between">
         <p className="text-sm text-gray-600">
-          Showing {startIndex + 1}-{Math.min(endIndex, filteredResumes.length)} of {filteredResumes.length} resumes
+          Showing {filteredResumes.length} {filteredResumes.length === 1 ? 'resume' : 'resumes'}
           {filteredResumes.length !== allResumes.length && ` (filtered from ${allResumes.length} total)`}
         </p>
-        {totalPages > 1 && (
-          <p className="text-sm text-gray-600">
-            Page {currentPage} of {totalPages}
-          </p>
-        )}
       </div>
 
       {/* Loading State */}
@@ -238,73 +232,97 @@ const ResumeList: React.FC<ResumeListProps> = ({
         </div>
       )}
 
-      {/* Resume Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {paginatedResumes.map(resume => (
-          <Card
-            key={resume.id}
-            isPressable
-            isHoverable
-            className={`transition-all duration-200 ${
-              selectedResumeId === resume.id
-                ? 'ring-2 ring-blue-500 shadow-lg'
-                : 'hover:shadow-md'
-            }`}
-            onPress={() => handleResumeClick(resume)}
-          >
-            <CardHeader className="flex gap-3">
-              <Avatar
-                name={getPersonInitials(resume.personName)}
-                className="flex-shrink-0"
-                size="md"
-              />
-              <div className="flex flex-col flex-1 min-w-0">
-                <p className="text-lg font-semibold truncate">
-                  {resume.personName}
-                </p>
-                <p className="text-sm text-gray-600 truncate">{resume.title}</p>
+      {/* Resume Grid - Grouped by Folder */}
+      <div className="space-y-8">
+        {Object.entries(groupedResumes).map(([folder, resumes]) => {
+          if (resumes.length === 0) return null;
+
+          // Get folder display name
+          const folderDisplayName = folder.charAt(0).toUpperCase() + folder.slice(1);
+
+          return (
+            <div key={folder} className="space-y-4">
+              {/* Folder Header */}
+              <div className="flex items-center gap-3">
+                <h2 className="text-xl font-bold text-gray-800">
+                  {folderDisplayName}
+                </h2>
+                <Chip size="sm" variant="flat" color="default">
+                  {resumes.length} {resumes.length === 1 ? 'resume' : 'resumes'}
+                </Chip>
               </div>
-              <Chip
-                size="sm"
-                variant="flat"
-                color={resume.language === 'en' ? 'primary' : 'secondary'}
-              >
-                {getLanguageFlag(resume.language)}
-              </Chip>
-            </CardHeader>
 
-            <Divider />
-
-            <CardBody className="pt-3">
-              <div className="space-y-2">
-                <div className="flex items-center gap-2 text-sm text-gray-600">
-                  <DocumentIcon className="w-4 h-4 text-gray-400" />
-                  <span className="truncate">{resume.fileName}</span>
-                </div>
-
-                {resume.description && (
-                  <p className="text-sm text-gray-700 line-clamp-2">
-                    {resume.description}
-                  </p>
-                )}
-
-                <div className="flex items-center justify-between pt-2">
-                  <Chip
-                    size="sm"
-                    variant="dot"
-                    color={resume.language === 'en' ? 'primary' : 'secondary'}
+              {/* Resume Grid for this folder */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {resumes.map(resume => (
+                  <Card
+                    key={resume.id}
+                    isPressable
+                    isHoverable
+                    className={`transition-all duration-200 ${
+                      selectedResumeId === resume.id
+                        ? 'ring-2 ring-blue-500 shadow-lg'
+                        : 'hover:shadow-md'
+                    }`}
+                    onPress={() => handleResumeClick(resume)}
                   >
-                    {resume.language.toUpperCase()}
-                  </Chip>
+                    <CardHeader className="flex gap-3">
+                      <Avatar
+                        name={getPersonInitials(resume.personName)}
+                        className="flex-shrink-0"
+                        size="md"
+                      />
+                      <div className="flex flex-col flex-1 min-w-0">
+                        <p className="text-lg font-semibold truncate">
+                          {resume.personName}
+                        </p>
+                        <p className="text-sm text-gray-600 truncate">{resume.title}</p>
+                      </div>
+                      <Chip
+                        size="sm"
+                        variant="flat"
+                        color={resume.language === 'en' ? 'primary' : 'secondary'}
+                      >
+                        {getLanguageFlag(resume.language)}
+                      </Chip>
+                    </CardHeader>
 
-                  <span className="text-xs text-blue-600 font-medium">
-                    Click to view
-                  </span>
-                </div>
+                    <Divider />
+
+                    <CardBody className="pt-3">
+                      <div className="space-y-2">
+                        <div className="flex items-center gap-2 text-sm text-gray-600">
+                          <DocumentIcon className="w-4 h-4 text-gray-400" />
+                          <span className="truncate">{resume.fileName}</span>
+                        </div>
+
+                        {resume.description && (
+                          <p className="text-sm text-gray-700 line-clamp-2">
+                            {resume.description}
+                          </p>
+                        )}
+
+                        <div className="flex items-center justify-between pt-2">
+                          <Chip
+                            size="sm"
+                            variant="dot"
+                            color={resume.language === 'en' ? 'primary' : 'secondary'}
+                          >
+                            {resume.language.toUpperCase()}
+                          </Chip>
+
+                          <span className="text-xs text-blue-600 font-medium">
+                            Click to view
+                          </span>
+                        </div>
+                      </div>
+                    </CardBody>
+                  </Card>
+                ))}
               </div>
-            </CardBody>
-          </Card>
-        ))}
+            </div>
+          );
+        })}
       </div>
 
       {/* No Results */}
@@ -325,71 +343,6 @@ const ResumeList: React.FC<ResumeListProps> = ({
         </Card>
       )}
 
-      {/* Pagination Controls */}
-      {totalPages > 1 && filteredResumes.length > 0 && (
-        <div className="mt-8 mb-8 flex justify-center items-center gap-2">
-          <Button
-            size="sm"
-            variant="flat"
-            isDisabled={currentPage === 1}
-            onPress={() => goToPage(currentPage - 1)}
-            aria-label="Go to previous page"
-          >
-            Previous
-          </Button>
-
-          <div className="flex gap-1" role="group" aria-label="Pagination">
-            {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => {
-              // Show first page, last page, current page, and pages around current
-              const showPage =
-                page === 1 ||
-                page === totalPages ||
-                (page >= currentPage - 1 && page <= currentPage + 1);
-
-              const showEllipsis =
-                (page === currentPage - 2 && currentPage > 3) ||
-                (page === currentPage + 2 && currentPage < totalPages - 2);
-
-              if (showEllipsis) {
-                return (
-                  <span key={page} className="px-2 text-gray-400" aria-hidden="true">
-                    ...
-                  </span>
-                );
-              }
-
-              if (!showPage) {
-                return null;
-              }
-
-              return (
-                <Button
-                  key={page}
-                  size="sm"
-                  variant={currentPage === page ? 'solid' : 'flat'}
-                  color={currentPage === page ? 'primary' : 'default'}
-                  onPress={() => goToPage(page)}
-                  className="min-w-[40px]"
-                  aria-label={`Go to page ${page}`}
-                  aria-current={currentPage === page ? 'page' : undefined}
-                >
-                  {page}
-                </Button>
-              );
-            })}
-          </div>
-
-          <Button
-            size="sm"
-            variant="flat"
-            isDisabled={currentPage === totalPages}
-            onPress={() => goToPage(currentPage + 1)}
-            aria-label="Go to next page"
-          >
-            Next
-          </Button>
-        </div>
-      )}
     </div>
   );
 };

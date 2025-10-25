@@ -24,6 +24,7 @@ export interface ResumeMetadata {
   language: 'en' | 'fr';
   personName: string;
   title: string;
+  folder: 'chris' | 'feisca' | 'florica';
   lastModified?: string;
   description?: string;
 }
@@ -43,6 +44,7 @@ const resumeDataMap = {
       language: 'en' as const,
       personName: 'Claude De-Tchambila',
       title: '.NET Backend Developer',
+      folder: 'chris' as const,
       description: 'Latest resume with comprehensive .NET and Azure experience',
     },
   },
@@ -55,6 +57,7 @@ const resumeDataMap = {
       language: 'en' as const,
       personName: 'Feisca',
       title: 'Call Center Specialist',
+      folder: 'feisca' as const,
       description: 'Customer service and call center operations resume',
     },
   },
@@ -67,6 +70,7 @@ const resumeDataMap = {
       language: 'fr' as const,
       personName: 'Feisca',
       title: "Spécialiste Centre d'Appels",
+      folder: 'feisca' as const,
       description: "CV de service client et opérations de centre d'appels",
     },
   },
@@ -79,6 +83,7 @@ const resumeDataMap = {
       language: 'en' as const,
       personName: 'Feisca',
       title: 'Front Desk Receptionist',
+      folder: 'feisca' as const,
       description: 'Hospitality and front desk operations resume',
     },
   },
@@ -91,6 +96,7 @@ const resumeDataMap = {
       language: 'fr' as const,
       personName: 'Feisca',
       title: 'Réceptionniste',
+      folder: 'feisca' as const,
       description: "CV d'hospitalité et opérations de réception",
     },
   },
@@ -103,6 +109,7 @@ const resumeDataMap = {
       language: 'en' as const,
       personName: 'Feisca',
       title: 'Professional',
+      folder: 'feisca' as const,
       description: 'General professional resume',
     },
   },
@@ -115,6 +122,7 @@ const resumeDataMap = {
       language: 'fr' as const,
       personName: 'Feisca',
       title: 'Professionnel',
+      folder: 'feisca' as const,
       description: 'CV professionnel général',
     },
   },
@@ -127,6 +135,7 @@ const resumeDataMap = {
       language: 'en' as const,
       personName: 'Feisca',
       title: 'Social Media Specialist',
+      folder: 'feisca' as const,
       description: 'Digital marketing and social media management resume',
     },
   },
@@ -139,6 +148,7 @@ const resumeDataMap = {
       language: 'fr' as const,
       personName: 'Feisca',
       title: 'Spécialiste Médias Sociaux',
+      folder: 'feisca' as const,
       description: 'CV de marketing numérique et gestion des médias sociaux',
     },
   },
@@ -151,6 +161,7 @@ const resumeDataMap = {
       language: 'en' as const,
       personName: 'Florica',
       title: 'Professional',
+      folder: 'florica' as const,
       description: 'Professional resume for Florica',
     },
   },
@@ -163,6 +174,7 @@ const resumeDataMap = {
       language: 'en' as const,
       personName: 'Claude De-Tchambila',
       title: '.NET Developer',
+      folder: 'chris' as const,
       description: "Previous version of Claude's resume",
     },
   },
@@ -175,6 +187,7 @@ const resumeDataMap = {
       language: 'fr' as const,
       personName: 'Claude De-Tchambila',
       title: 'Développeur .NET',
+      folder: 'chris' as const,
       description: 'Version française du CV de Claude',
     },
   },
@@ -236,4 +249,27 @@ export const searchResumes = (query: string): ResumeListItem[] => {
       (resume.description &&
         resume.description.toLowerCase().includes(lowercaseQuery)),
   );
+};
+
+/**
+ * Get resumes grouped by folder
+ */
+export const getResumesGroupedByFolder = (): Record<
+  string,
+  ResumeListItem[]
+> => {
+  const allResumes = getAllResumes();
+  const grouped: Record<string, ResumeListItem[]> = {
+    chris: [],
+    feisca: [],
+    florica: [],
+  };
+
+  allResumes.forEach(resume => {
+    if (grouped[resume.folder]) {
+      grouped[resume.folder].push(resume);
+    }
+  });
+
+  return grouped;
 };
