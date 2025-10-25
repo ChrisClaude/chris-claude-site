@@ -25,22 +25,7 @@ export default function RootLayout({
       </head>
       <body suppressHydrationWarning={true}>
         <ThemeProvider>
-          <UIContextProvider>
-            <AppWrapper>
-              <SideNav />
-              <Header />
-              <Main>
-                {children}
-
-                <div
-                  data-component-embed="chat-prompt"
-                  data-enable-chat="true"
-                  id="chat-prompt"
-                />
-                <Footer />
-              </Main>
-            </AppWrapper>
-          </UIContextProvider>
+          <UIContextProvider>{children}</UIContextProvider>
         </ThemeProvider>
       </body>
     </html>
