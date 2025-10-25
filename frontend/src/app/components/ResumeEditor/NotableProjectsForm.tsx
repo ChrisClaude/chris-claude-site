@@ -30,7 +30,11 @@ const NotableProjectsForm: React.FC<NotableProjectsFormProps> = ({
     onChange([...notableProjects, newProject]);
   };
 
-  const updateProject = (index: number, field: keyof NotableProject, value: string) => {
+  const updateProject = (
+    index: number,
+    field: keyof NotableProject,
+    value: string,
+  ) => {
     const updated = [...notableProjects];
     updated[index] = { ...updated[index], [field]: value };
     onChange(updated);
@@ -42,9 +46,11 @@ const NotableProjectsForm: React.FC<NotableProjectsFormProps> = ({
   };
 
   return (
-    <Card className="w-full">
-      <CardHeader className="flex flex-row items-center justify-between">
-        <h3 className="text-xl font-semibold">Notable Projects</h3>
+    <Card className="w-full bg-white">
+      <CardHeader className="flex flex-row items-center justify-between bg-white">
+        <h3 className="text-xl font-semibold text-gray-900">
+          Notable Projects
+        </h3>
         <Button
           color="primary"
           variant="flat"
@@ -54,7 +60,7 @@ const NotableProjectsForm: React.FC<NotableProjectsFormProps> = ({
           Add Project
         </Button>
       </CardHeader>
-      <CardBody className="space-y-6">
+      <CardBody className="space-y-6 bg-white">
         {errors.length > 0 && (
           <div className="bg-red-50 border border-red-200 rounded-md p-3">
             <ul className="text-sm text-red-600 space-y-1">
@@ -66,9 +72,9 @@ const NotableProjectsForm: React.FC<NotableProjectsFormProps> = ({
         )}
 
         {notableProjects.map((project, index) => (
-          <Card key={index} className="border border-gray-200">
-            <CardHeader className="flex flex-row items-center justify-between">
-              <h4 className="text-lg font-medium">
+          <Card key={index} className="border border-gray-200 bg-white">
+            <CardHeader className="flex flex-row items-center justify-between bg-white">
+              <h4 className="text-lg font-medium text-gray-900">
                 Project {index + 1}
                 {project.title && ` - ${project.title}`}
               </h4>
@@ -82,32 +88,61 @@ const NotableProjectsForm: React.FC<NotableProjectsFormProps> = ({
                 Remove
               </Button>
             </CardHeader>
-            <CardBody className="space-y-4">
+            <CardBody className="space-y-4 bg-white">
               <Input
                 label="Project Title"
                 placeholder="e.g., E-commerce Platform"
                 value={project.title}
-                onChange={(e) => updateProject(index, 'title', e.target.value)}
+                onChange={e => updateProject(index, 'title', e.target.value)}
                 isRequired
                 variant="bordered"
+                classNames={{
+                  input: 'text-gray-900',
+                  inputWrapper: 'bg-white border-gray-300 hover:bg-white',
+                  label:
+                    'text-gray-700 !text-sm !font-medium !mb-1.5 !static !transform-none',
+                  base: 'bg-white',
+                  mainWrapper: 'bg-white',
+                }}
+                labelPlacement="outside"
               />
 
               <Input
                 label="Project URL"
                 placeholder="https://github.com/username/project or https://project-demo.com"
                 value={project.url}
-                onChange={(e) => updateProject(index, 'url', e.target.value)}
+                onChange={e => updateProject(index, 'url', e.target.value)}
                 variant="bordered"
+                classNames={{
+                  input: 'text-gray-900',
+                  inputWrapper: 'bg-white border-gray-300 hover:bg-white',
+                  label:
+                    'text-gray-700 !text-sm !font-medium !mb-1.5 !static !transform-none',
+                  base: 'bg-white',
+                  mainWrapper: 'bg-white',
+                }}
+                labelPlacement="outside"
               />
 
               <Textarea
                 label="Project Description"
                 placeholder="Describe the project, technologies used, and your role..."
                 value={project.description}
-                onChange={(e) => updateProject(index, 'description', e.target.value)}
+                onChange={e =>
+                  updateProject(index, 'description', e.target.value)
+                }
                 isRequired
                 variant="bordered"
                 minRows={3}
+                classNames={{
+                  input: 'text-gray-900',
+                  inputWrapper: 'bg-white border-gray-300 hover:bg-white',
+                  label:
+                    'text-gray-700 !text-sm !font-medium !mb-1.5 !static !transform-none',
+                  base: 'bg-white',
+                  mainWrapper: 'bg-white',
+                }}
+                labelPlacement="outside"
               />
             </CardBody>
           </Card>

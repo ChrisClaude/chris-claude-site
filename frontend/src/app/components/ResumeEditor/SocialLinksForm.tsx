@@ -50,10 +50,14 @@ const SocialLinksForm: React.FC<SocialLinksFormProps> = ({
     onChange([...socialLinks, newSocialLink]);
   };
 
-  const updateSocialLink = (index: number, field: keyof SocialLink, value: string) => {
+  const updateSocialLink = (
+    index: number,
+    field: keyof SocialLink,
+    value: string,
+  ) => {
     const updated = [...socialLinks];
     updated[index] = { ...updated[index], [field]: value };
-    
+
     // Auto-update icon when platform changes
     if (field === 'platform') {
       const platform = socialPlatforms.find(p => p.key === value);
@@ -61,7 +65,7 @@ const SocialLinksForm: React.FC<SocialLinksFormProps> = ({
         updated[index].icon = platform.icon;
       }
     }
-    
+
     onChange(updated);
   };
 
@@ -71,9 +75,9 @@ const SocialLinksForm: React.FC<SocialLinksFormProps> = ({
   };
 
   return (
-    <Card className="w-full">
-      <CardHeader className="flex flex-row items-center justify-between">
-        <h3 className="text-xl font-semibold">Social Links</h3>
+    <Card className="w-full bg-white">
+      <CardHeader className="flex flex-row items-center justify-between bg-white">
+        <h3 className="text-xl font-semibold text-gray-900">Social Links</h3>
         <Button
           color="primary"
           variant="flat"
@@ -83,7 +87,7 @@ const SocialLinksForm: React.FC<SocialLinksFormProps> = ({
           Add Social Link
         </Button>
       </CardHeader>
-      <CardBody className="space-y-6">
+      <CardBody className="space-y-6 bg-white">
         {errors.length > 0 && (
           <div className="bg-red-50 border border-red-200 rounded-md p-3">
             <ul className="text-sm text-red-600 space-y-1">
@@ -95,9 +99,9 @@ const SocialLinksForm: React.FC<SocialLinksFormProps> = ({
         )}
 
         {socialLinks.map((link, index) => (
-          <Card key={index} className="border border-gray-200">
-            <CardHeader className="flex flex-row items-center justify-between">
-              <h4 className="text-lg font-medium">
+          <Card key={index} className="border border-gray-200 bg-white">
+            <CardHeader className="flex flex-row items-center justify-between bg-white">
+              <h4 className="text-lg font-medium text-gray-900">
                 Social Link {index + 1}
                 {link.platform && ` - ${link.platform}`}
               </h4>
@@ -111,19 +115,28 @@ const SocialLinksForm: React.FC<SocialLinksFormProps> = ({
                 Remove
               </Button>
             </CardHeader>
-            <CardBody className="space-y-4">
+            <CardBody className="space-y-4 bg-white">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <Select
                   label="Platform"
                   placeholder="Select a platform"
                   selectedKeys={link.platform ? [link.platform] : []}
-                  onSelectionChange={(keys) => {
+                  onSelectionChange={keys => {
                     const selectedKey = Array.from(keys)[0] as string;
                     updateSocialLink(index, 'platform', selectedKey);
                   }}
                   variant="bordered"
+                  classNames={{
+                    input: 'text-gray-900',
+                    inputWrapper: 'bg-white border-gray-300 hover:bg-white',
+                    label:
+                      'text-gray-700 !text-sm !font-medium !mb-1.5 !static !transform-none',
+                    base: 'bg-white',
+                    mainWrapper: 'bg-white',
+                  }}
+                  labelPlacement="outside"
                 >
-                  {socialPlatforms.map((platform) => (
+                  {socialPlatforms.map(platform => (
                     <SelectItem key={platform.key} value={platform.key}>
                       {platform.label}
                     </SelectItem>
@@ -134,26 +147,57 @@ const SocialLinksForm: React.FC<SocialLinksFormProps> = ({
                   label="Display Text"
                   placeholder="How it should appear on your resume"
                   value={link.displayText}
-                  onChange={(e) => updateSocialLink(index, 'displayText', e.target.value)}
+                  onChange={e =>
+                    updateSocialLink(index, 'displayText', e.target.value)
+                  }
                   isRequired
                   variant="bordered"
+                  classNames={{
+                    input: 'text-gray-900',
+                    inputWrapper: 'bg-white border-gray-300 hover:bg-white',
+                    label:
+                      'text-gray-700 !text-sm !font-medium !mb-1.5 !static !transform-none',
+                    base: 'bg-white',
+                    mainWrapper: 'bg-white',
+                  }}
+                  labelPlacement="outside"
                 />
 
                 <Input
                   label="URL"
                   placeholder="https://example.com"
                   value={link.url}
-                  onChange={(e) => updateSocialLink(index, 'url', e.target.value)}
+                  onChange={e => updateSocialLink(index, 'url', e.target.value)}
                   isRequired
                   variant="bordered"
+                  classNames={{
+                    input: 'text-gray-900',
+                    inputWrapper: 'bg-white border-gray-300 hover:bg-white',
+                    label:
+                      'text-gray-700 !text-sm !font-medium !mb-1.5 !static !transform-none',
+                    base: 'bg-white',
+                    mainWrapper: 'bg-white',
+                  }}
+                  labelPlacement="outside"
                 />
 
                 <Input
                   label="Icon (React Icon Name)"
                   placeholder="FaGithub"
                   value={link.icon}
-                  onChange={(e) => updateSocialLink(index, 'icon', e.target.value)}
+                  onChange={e =>
+                    updateSocialLink(index, 'icon', e.target.value)
+                  }
                   variant="bordered"
+                  classNames={{
+                    input: 'text-gray-900',
+                    inputWrapper: 'bg-white border-gray-300 hover:bg-white',
+                    label:
+                      'text-gray-700 !text-sm !font-medium !mb-1.5 !static !transform-none',
+                    base: 'bg-white',
+                    mainWrapper: 'bg-white',
+                  }}
+                  labelPlacement="outside"
                 />
               </div>
             </CardBody>

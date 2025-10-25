@@ -1,12 +1,5 @@
 import React, { useState } from 'react';
-import {
-  Card,
-  CardBody,
-  CardHeader,
-  Input,
-  Button,
-  Chip,
-} from '@heroui/react';
+import { Card, CardBody, CardHeader, Input, Button, Chip } from '@heroui/react';
 import { PlusIcon, TrashIcon } from '@heroicons/react/24/outline';
 
 interface StringArrayFormProps {
@@ -23,8 +16,8 @@ const StringArrayForm: React.FC<StringArrayFormProps> = ({
   items,
   errors = [],
   onChange,
-  placeholder = "Enter an item",
-  addButtonText = "Add Item",
+  placeholder = 'Enter an item',
+  addButtonText = 'Add Item',
 }) => {
   const [newItem, setNewItem] = useState('');
 
@@ -48,11 +41,11 @@ const StringArrayForm: React.FC<StringArrayFormProps> = ({
   };
 
   return (
-    <Card className="w-full">
-      <CardHeader>
-        <h3 className="text-xl font-semibold">{title}</h3>
+    <Card className="w-full bg-white">
+      <CardHeader className="bg-white">
+        <h3 className="text-xl font-semibold text-gray-900">{title}</h3>
       </CardHeader>
-      <CardBody className="space-y-4">
+      <CardBody className="space-y-4 bg-white">
         {errors.length > 0 && (
           <div className="bg-red-50 border border-red-200 rounded-md p-3">
             <ul className="text-sm text-red-600 space-y-1">
@@ -67,10 +60,19 @@ const StringArrayForm: React.FC<StringArrayFormProps> = ({
           <Input
             placeholder={placeholder}
             value={newItem}
-            onChange={(e) => setNewItem(e.target.value)}
+            onChange={e => setNewItem(e.target.value)}
             onKeyPress={handleKeyPress}
             variant="bordered"
             className="flex-1"
+            classNames={{
+              input: 'text-gray-900',
+              inputWrapper: 'bg-white border-gray-300 hover:bg-white',
+              label:
+                'text-gray-700 !text-sm !font-medium !mb-1.5 !static !transform-none',
+              base: 'bg-white',
+              mainWrapper: 'bg-white',
+            }}
+            labelPlacement="outside"
           />
           <Button
             color="primary"
@@ -85,7 +87,7 @@ const StringArrayForm: React.FC<StringArrayFormProps> = ({
 
         {items.length > 0 && (
           <div className="space-y-3">
-            <h4 className="font-medium">Current Items:</h4>
+            <h4 className="font-medium text-gray-900">Current Items:</h4>
             <div className="flex flex-wrap gap-2">
               {items.map((item, index) => (
                 <Chip

@@ -53,9 +53,9 @@ const LanguagesForm: React.FC<LanguagesFormProps> = ({
   };
 
   return (
-    <Card className="w-full">
-      <CardHeader className="flex flex-row items-center justify-between">
-        <h3 className="text-xl font-semibold">Languages</h3>
+    <Card className="w-full bg-white">
+      <CardHeader className="flex flex-row items-center justify-between bg-white">
+        <h3 className="text-xl font-semibold text-gray-900">Languages</h3>
         <Button
           color="primary"
           variant="flat"
@@ -65,7 +65,7 @@ const LanguagesForm: React.FC<LanguagesFormProps> = ({
           Add Language
         </Button>
       </CardHeader>
-      <CardBody className="space-y-6">
+      <CardBody className="space-y-6 bg-white">
         {errors.length > 0 && (
           <div className="bg-red-50 border border-red-200 rounded-md p-3">
             <ul className="text-sm text-red-600 space-y-1">
@@ -77,9 +77,9 @@ const LanguagesForm: React.FC<LanguagesFormProps> = ({
         )}
 
         {languages.map((language, index) => (
-          <Card key={index} className="border border-gray-200">
-            <CardHeader className="flex flex-row items-center justify-between">
-              <h4 className="text-lg font-medium">
+          <Card key={index} className="border border-gray-200 bg-white">
+            <CardHeader className="flex flex-row items-center justify-between bg-white">
+              <h4 className="text-lg font-medium text-gray-900">
                 Language {index + 1}
                 {language.name && ` - ${language.name}`}
               </h4>
@@ -93,28 +93,46 @@ const LanguagesForm: React.FC<LanguagesFormProps> = ({
                 Remove
               </Button>
             </CardHeader>
-            <CardBody className="space-y-4">
+            <CardBody className="space-y-4 bg-white">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <Input
                   label="Language Name"
                   placeholder="e.g., English, Spanish, French"
                   value={language.name}
-                  onChange={(e) => updateLanguage(index, 'name', e.target.value)}
+                  onChange={e => updateLanguage(index, 'name', e.target.value)}
                   isRequired
                   variant="bordered"
+                  classNames={{
+                    input: 'text-gray-900',
+                    inputWrapper: 'bg-white border-gray-300 hover:bg-white',
+                    label:
+                      'text-gray-700 !text-sm !font-medium !mb-1.5 !static !transform-none',
+                    base: 'bg-white',
+                    mainWrapper: 'bg-white',
+                  }}
+                  labelPlacement="outside"
                 />
 
                 <Select
                   label="Proficiency Level"
                   placeholder="Select proficiency level"
                   selectedKeys={language.level ? [language.level] : []}
-                  onSelectionChange={(keys) => {
+                  onSelectionChange={keys => {
                     const selectedKey = Array.from(keys)[0] as string;
                     updateLanguage(index, 'level', selectedKey);
                   }}
                   variant="bordered"
+                  classNames={{
+                    input: 'text-gray-900',
+                    inputWrapper: 'bg-white border-gray-300 hover:bg-white',
+                    label:
+                      'text-gray-700 !text-sm !font-medium !mb-1.5 !static !transform-none',
+                    base: 'bg-white',
+                    mainWrapper: 'bg-white',
+                  }}
+                  labelPlacement="outside"
                 >
-                  {languageLevels.map((level) => (
+                  {languageLevels.map(level => (
                     <SelectItem key={level.key} value={level.key}>
                       {level.label}
                     </SelectItem>
@@ -123,7 +141,7 @@ const LanguagesForm: React.FC<LanguagesFormProps> = ({
               </div>
 
               <div className="space-y-2">
-                <label className="text-sm font-medium">
+                <label className="text-sm font-medium text-gray-900">
                   Proficiency Rating: {language.proficiency}/5
                 </label>
                 <Slider
@@ -133,19 +151,21 @@ const LanguagesForm: React.FC<LanguagesFormProps> = ({
                   showSteps={true}
                   showOutline={true}
                   disableThumbScale={true}
-                  formatOptions={{style: "decimal"}}
-                  tooltipValueFormatOptions={{style: "decimal"}}
+                  formatOptions={{ style: 'decimal' }}
+                  tooltipValueFormatOptions={{ style: 'decimal' }}
                   marks={[
-                    { value: 1, label: "1" },
-                    { value: 2, label: "2" },
-                    { value: 3, label: "3" },
-                    { value: 4, label: "4" },
-                    { value: 5, label: "5" },
+                    { value: 1, label: '1' },
+                    { value: 2, label: '2' },
+                    { value: 3, label: '3' },
+                    { value: 4, label: '4' },
+                    { value: 5, label: '5' },
                   ]}
                   minValue={1}
                   maxValue={5}
                   value={language.proficiency}
-                  onChange={(value) => updateLanguage(index, 'proficiency', value as number)}
+                  onChange={value =>
+                    updateLanguage(index, 'proficiency', value as number)
+                  }
                   className="max-w-md"
                 />
                 <div className="flex justify-between text-xs text-gray-500">

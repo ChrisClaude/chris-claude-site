@@ -35,7 +35,11 @@ const WorkExperienceForm: React.FC<WorkExperienceFormProps> = ({
     onChange([...workExperience, newExperience]);
   };
 
-  const updateWorkExperience = (index: number, field: keyof WorkExperience, value: any) => {
+  const updateWorkExperience = (
+    index: number,
+    field: keyof WorkExperience,
+    value: any,
+  ) => {
     const updated = [...workExperience];
     updated[index] = { ...updated[index], [field]: value };
     onChange(updated);
@@ -52,24 +56,31 @@ const WorkExperienceForm: React.FC<WorkExperienceFormProps> = ({
     onChange(updated);
   };
 
-  const updateResponsibility = (experienceIndex: number, responsibilityIndex: number, value: string) => {
+  const updateResponsibility = (
+    experienceIndex: number,
+    responsibilityIndex: number,
+    value: string,
+  ) => {
     const updated = [...workExperience];
     updated[experienceIndex].responsibilities[responsibilityIndex] = value;
     onChange(updated);
   };
 
-  const removeResponsibility = (experienceIndex: number, responsibilityIndex: number) => {
+  const removeResponsibility = (
+    experienceIndex: number,
+    responsibilityIndex: number,
+  ) => {
     const updated = [...workExperience];
-    updated[experienceIndex].responsibilities = updated[experienceIndex].responsibilities.filter(
-      (_, i) => i !== responsibilityIndex
-    );
+    updated[experienceIndex].responsibilities = updated[
+      experienceIndex
+    ].responsibilities.filter((_, i) => i !== responsibilityIndex);
     onChange(updated);
   };
 
   return (
-    <Card className="w-full">
-      <CardHeader className="flex flex-row items-center justify-between">
-        <h3 className="text-xl font-semibold">Work Experience</h3>
+    <Card className="w-full bg-white">
+      <CardHeader className="flex flex-row items-center justify-between bg-white">
+        <h3 className="text-xl font-semibold text-gray-900">Work Experience</h3>
         <Button
           color="primary"
           variant="flat"
@@ -79,7 +90,7 @@ const WorkExperienceForm: React.FC<WorkExperienceFormProps> = ({
           Add Experience
         </Button>
       </CardHeader>
-      <CardBody className="space-y-6">
+      <CardBody className="space-y-6 bg-white">
         {errors.length > 0 && (
           <div className="bg-red-50 border border-red-200 rounded-md p-3">
             <ul className="text-sm text-red-600 space-y-1">
@@ -91,9 +102,9 @@ const WorkExperienceForm: React.FC<WorkExperienceFormProps> = ({
         )}
 
         {workExperience.map((experience, index) => (
-          <Card key={index} className="border border-gray-200">
-            <CardHeader className="flex flex-row items-center justify-between">
-              <h4 className="text-lg font-medium">
+          <Card key={index} className="border border-gray-200 bg-white">
+            <CardHeader className="flex flex-row items-center justify-between bg-white">
+              <h4 className="text-lg font-medium text-gray-900">
                 Experience {index + 1}
                 {experience.title && ` - ${experience.title}`}
               </h4>
@@ -107,51 +118,106 @@ const WorkExperienceForm: React.FC<WorkExperienceFormProps> = ({
                 Remove
               </Button>
             </CardHeader>
-            <CardBody className="space-y-4">
+            <CardBody className="space-y-4 bg-white">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <Input
                   label="Job Title"
                   placeholder="e.g., Senior .NET Developer"
                   value={experience.title}
-                  onChange={(e) => updateWorkExperience(index, 'title', e.target.value)}
+                  onChange={e =>
+                    updateWorkExperience(index, 'title', e.target.value)
+                  }
                   isRequired
                   variant="bordered"
+                  classNames={{
+                    input: 'text-gray-900',
+                    inputWrapper: 'bg-white border-gray-300 hover:bg-white',
+                    label:
+                      'text-gray-700 !text-sm !font-medium !mb-1.5 !static !transform-none',
+                    base: 'bg-white',
+                    mainWrapper: 'bg-white',
+                  }}
+                  labelPlacement="outside"
                 />
 
                 <Input
                   label="Company"
                   placeholder="Company Name"
                   value={experience.company}
-                  onChange={(e) => updateWorkExperience(index, 'company', e.target.value)}
+                  onChange={e =>
+                    updateWorkExperience(index, 'company', e.target.value)
+                  }
                   isRequired
                   variant="bordered"
+                  classNames={{
+                    input: 'text-gray-900',
+                    inputWrapper: 'bg-white border-gray-300 hover:bg-white',
+                    label:
+                      'text-gray-700 !text-sm !font-medium !mb-1.5 !static !transform-none',
+                    base: 'bg-white',
+                    mainWrapper: 'bg-white',
+                  }}
+                  labelPlacement="outside"
                 />
 
                 <Input
                   label="Start Date"
                   placeholder="MM/YYYY"
                   value={experience.startDate}
-                  onChange={(e) => updateWorkExperience(index, 'startDate', e.target.value)}
+                  onChange={e =>
+                    updateWorkExperience(index, 'startDate', e.target.value)
+                  }
                   isRequired
                   variant="bordered"
+                  classNames={{
+                    input: 'text-gray-900',
+                    inputWrapper: 'bg-white border-gray-300 hover:bg-white',
+                    label:
+                      'text-gray-700 !text-sm !font-medium !mb-1.5 !static !transform-none',
+                    base: 'bg-white',
+                    mainWrapper: 'bg-white',
+                  }}
+                  labelPlacement="outside"
                 />
 
                 <Input
                   label="End Date"
                   placeholder="MM/YYYY or Present"
                   value={experience.endDate}
-                  onChange={(e) => updateWorkExperience(index, 'endDate', e.target.value)}
+                  onChange={e =>
+                    updateWorkExperience(index, 'endDate', e.target.value)
+                  }
                   isRequired
                   variant="bordered"
+                  classNames={{
+                    input: 'text-gray-900',
+                    inputWrapper: 'bg-white border-gray-300 hover:bg-white',
+                    label:
+                      'text-gray-700 !text-sm !font-medium !mb-1.5 !static !transform-none',
+                    base: 'bg-white',
+                    mainWrapper: 'bg-white',
+                  }}
+                  labelPlacement="outside"
                 />
 
                 <Input
                   label="Location"
                   placeholder="City, Country"
                   value={experience.location}
-                  onChange={(e) => updateWorkExperience(index, 'location', e.target.value)}
+                  onChange={e =>
+                    updateWorkExperience(index, 'location', e.target.value)
+                  }
                   isRequired
                   variant="bordered"
+                  classNames={{
+                    input: 'text-gray-900',
+                    inputWrapper: 'bg-white border-gray-300 hover:bg-white',
+                    label:
+                      'text-gray-700 !text-sm !font-medium !mb-1.5 !static !transform-none',
+                    base: 'bg-white',
+                    mainWrapper: 'bg-white',
+                  }}
+                  labelPlacement="outside"
                 />
               </div>
 
@@ -159,15 +225,28 @@ const WorkExperienceForm: React.FC<WorkExperienceFormProps> = ({
                 label="Description"
                 placeholder="Brief description of your role and the company"
                 value={experience.description}
-                onChange={(e) => updateWorkExperience(index, 'description', e.target.value)}
+                onChange={e =>
+                  updateWorkExperience(index, 'description', e.target.value)
+                }
                 isRequired
                 variant="bordered"
                 minRows={2}
+                classNames={{
+                  input: 'text-gray-900',
+                  inputWrapper: 'bg-white border-gray-300 hover:bg-white',
+                  label:
+                    'text-gray-700 !text-sm !font-medium !mb-1.5 !static !transform-none',
+                  base: 'bg-white',
+                  mainWrapper: 'bg-white',
+                }}
+                labelPlacement="outside"
               />
 
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <h5 className="font-medium">Responsibilities</h5>
+                  <h5 className="font-medium text-gray-900">
+                    Responsibilities
+                  </h5>
                   <Button
                     color="primary"
                     variant="light"
@@ -179,30 +258,45 @@ const WorkExperienceForm: React.FC<WorkExperienceFormProps> = ({
                   </Button>
                 </div>
 
-                {experience.responsibilities.map((responsibility, respIndex) => (
-                  <div key={respIndex} className="flex gap-2">
-                    <Input
-                      placeholder="Describe a key responsibility or achievement"
-                      value={responsibility}
-                      onChange={(e) => updateResponsibility(index, respIndex, e.target.value)}
-                      variant="bordered"
-                      className="flex-1"
-                    />
-                    <Button
-                      color="danger"
-                      variant="light"
-                      size="sm"
-                      isIconOnly
-                      onPress={() => removeResponsibility(index, respIndex)}
-                    >
-                      <TrashIcon className="w-4 h-4" />
-                    </Button>
-                  </div>
-                ))}
+                {experience.responsibilities.map(
+                  (responsibility, respIndex) => (
+                    <div key={respIndex} className="flex gap-2">
+                      <Input
+                        placeholder="Describe a key responsibility or achievement"
+                        value={responsibility}
+                        onChange={e =>
+                          updateResponsibility(index, respIndex, e.target.value)
+                        }
+                        variant="bordered"
+                        className="flex-1"
+                        classNames={{
+                          input: 'text-gray-900',
+                          inputWrapper:
+                            'bg-white border-gray-300 hover:bg-white',
+                          label:
+                            'text-gray-700 !text-sm !font-medium !mb-1.5 !static !transform-none',
+                          base: 'bg-white',
+                          mainWrapper: 'bg-white',
+                        }}
+                        labelPlacement="outside"
+                      />
+                      <Button
+                        color="danger"
+                        variant="light"
+                        size="sm"
+                        isIconOnly
+                        onPress={() => removeResponsibility(index, respIndex)}
+                      >
+                        <TrashIcon className="w-4 h-4" />
+                      </Button>
+                    </div>
+                  ),
+                )}
 
                 {experience.responsibilities.length === 0 && (
                   <p className="text-sm text-gray-500 italic">
-                    No responsibilities added yet. Click "Add Responsibility" to get started.
+                    No responsibilities added yet. Click "Add Responsibility" to
+                    get started.
                   </p>
                 )}
               </div>
