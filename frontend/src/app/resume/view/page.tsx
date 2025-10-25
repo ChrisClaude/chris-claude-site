@@ -87,14 +87,14 @@ const ResumeViewPageContent = () => {
 
   // Render based on current view mode
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 pb-32">
       {viewMode === 'list' ? (
         <ResumeList
           onResumeSelect={selectResume}
           selectedResumeId={selectedResume?.id}
         />
       ) : selectedResume ? (
-        <div className="p-4">
+        <div className="p-4 pb-24">
           <ResumeViewer
             resume={selectedResume}
             onBack={goBackToList}

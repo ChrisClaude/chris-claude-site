@@ -40,6 +40,8 @@ const ResumeList: React.FC<ResumeListProps> = ({
   const [languageFilter, setLanguageFilter] = useState<string>('all');
   const [personFilter, setPersonFilter] = useState<string>('all');
   const [isLoading, setIsLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 9; // 3x3 grid
 
   // Get all resumes
   const allResumes = useMemo(() => getAllResumes(), []);
@@ -72,6 +74,17 @@ const ResumeList: React.FC<ResumeListProps> = ({
     return filtered;
   }, [allResumes, searchQuery, languageFilter, personFilter]);
 
+  // Calculate pagination
+  const totalPages = Math.ceil(filteredResumes.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const paginatedResumes = filteredResumes.slice(startIndex, endIndex);
+
+  // Reset to page 1 when filters change
+  useMemo(() => {
+    setCurrentPage(1);
+  }, [searchQuery, languageFilter, personFilter]);
+
   const handleResumeClick = async (resume: ResumeListItem) => {
     setIsLoading(true);
     try {
@@ -87,6 +100,13 @@ const ResumeList: React.FC<ResumeListProps> = ({
     setSearchQuery('');
     setLanguageFilter('all');
     setPersonFilter('all');
+    setCurrentPage(1);
+  };
+
+  const goToPage = (page: number) => {
+    setCurrentPage(page);
+    // Scroll to top of list
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const getPersonInitials = (name: string) => {
@@ -103,7 +123,7 @@ const ResumeList: React.FC<ResumeListProps> = ({
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-6">
+    <div className="w-full max-w-4xl mx-auto p-6 pb-32">
       {/* Header */}
       <div className="mb-6">
         <h1 className="text-3xl font-bold text-gray-800 mb-2">
@@ -199,10 +219,16 @@ const ResumeList: React.FC<ResumeListProps> = ({
       </Card>
 
       {/* Results Count */}
-      <div className="mb-4">
+      <div className="mb-4 flex items-center justify-between">
         <p className="text-sm text-gray-600">
-          Showing {filteredResumes.length} of {allResumes.length} resumes
+          Showing {startIndex + 1}-{Math.min(endIndex, filteredResumes.length)} of {filteredResumes.length} resumes
+          {filteredResumes.length !== allResumes.length && ` (filtered from ${allResumes.length} total)`}
         </p>
+        {totalPages > 1 && (
+          <p className="text-sm text-gray-600">
+            Page {currentPage} of {totalPages}
+          </p>
+        )}
       </div>
 
       {/* Loading State */}
@@ -214,7 +240,7 @@ const ResumeList: React.FC<ResumeListProps> = ({
 
       {/* Resume Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {filteredResumes.map(resume => (
+        {paginatedResumes.map(resume => (
           <Card
             key={resume.id}
             isPressable
@@ -271,14 +297,9 @@ const ResumeList: React.FC<ResumeListProps> = ({
                     {resume.language.toUpperCase()}
                   </Chip>
 
-                  <Button
-                    size="sm"
-                    color="primary"
-                    variant="flat"
-                    className="text-xs"
-                  >
-                    View Resume
-                  </Button>
+                  <span className="text-xs text-blue-600 font-medium">
+                    Click to view
+                  </span>
                 </div>
               </div>
             </CardBody>
@@ -302,6 +323,72 @@ const ResumeList: React.FC<ResumeListProps> = ({
             </Button>
           </CardBody>
         </Card>
+      )}
+
+      {/* Pagination Controls */}
+      {totalPages > 1 && filteredResumes.length > 0 && (
+        <div className="mt-8 mb-8 flex justify-center items-center gap-2">
+          <Button
+            size="sm"
+            variant="flat"
+            isDisabled={currentPage === 1}
+            onPress={() => goToPage(currentPage - 1)}
+            aria-label="Go to previous page"
+          >
+            Previous
+          </Button>
+
+          <div className="flex gap-1" role="group" aria-label="Pagination">
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => {
+              // Show first page, last page, current page, and pages around current
+              const showPage =
+                page === 1 ||
+                page === totalPages ||
+                (page >= currentPage - 1 && page <= currentPage + 1);
+
+              const showEllipsis =
+                (page === currentPage - 2 && currentPage > 3) ||
+                (page === currentPage + 2 && currentPage < totalPages - 2);
+
+              if (showEllipsis) {
+                return (
+                  <span key={page} className="px-2 text-gray-400" aria-hidden="true">
+                    ...
+                  </span>
+                );
+              }
+
+              if (!showPage) {
+                return null;
+              }
+
+              return (
+                <Button
+                  key={page}
+                  size="sm"
+                  variant={currentPage === page ? 'solid' : 'flat'}
+                  color={currentPage === page ? 'primary' : 'default'}
+                  onPress={() => goToPage(page)}
+                  className="min-w-[40px]"
+                  aria-label={`Go to page ${page}`}
+                  aria-current={currentPage === page ? 'page' : undefined}
+                >
+                  {page}
+                </Button>
+              );
+            })}
+          </div>
+
+          <Button
+            size="sm"
+            variant="flat"
+            isDisabled={currentPage === totalPages}
+            onPress={() => goToPage(currentPage + 1)}
+            aria-label="Go to next page"
+          >
+            Next
+          </Button>
+        </div>
       )}
     </div>
   );
