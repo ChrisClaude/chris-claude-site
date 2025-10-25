@@ -26,7 +26,11 @@ import ReferencesForm from './ReferencesForm';
 import SocialLinksForm from './SocialLinksForm';
 import LanguagesForm from './LanguagesForm';
 import NotableProjectsForm from './NotableProjectsForm';
-import { DocumentArrowDownIcon, DocumentArrowUpIcon, CheckCircleIcon } from '@heroicons/react/24/outline';
+import {
+  DocumentArrowDownIcon,
+  DocumentArrowUpIcon,
+  CheckCircleIcon,
+} from '@heroicons/react/24/outline';
 
 interface ResumeEditorProps {
   initialData?: ResumeData;
@@ -68,13 +72,13 @@ const ResumeEditor: React.FC<ResumeEditorProps> = ({ initialData }) => {
     try {
       const validationErrors = validateResumeForm(formData);
       setFormErrors(validationErrors);
-      
+
       // Complete progress
       setTimeout(() => {
         setValidationProgress(100);
         setIsValidating(false);
         clearInterval(progressInterval);
-        
+
         if (Object.keys(validationErrors).length === 0) {
           onOpen(); // Show success modal
         }
@@ -103,14 +107,18 @@ const ResumeEditor: React.FC<ResumeEditorProps> = ({ initialData }) => {
         .then(() => {
           alert('Resume data imported successfully!');
         })
-        .catch((error) => {
+        .catch(error => {
           alert(`Error importing file: ${error.message}`);
         });
     }
   };
 
   const handleReset = () => {
-    if (confirm('Are you sure you want to reset all changes? This action cannot be undone.')) {
+    if (
+      confirm(
+        'Are you sure you want to reset all changes? This action cannot be undone.',
+      )
+    ) {
       resetForm();
     }
   };
@@ -153,7 +161,11 @@ const ResumeEditor: React.FC<ResumeEditorProps> = ({ initialData }) => {
                 variant="flat"
                 onPress={handleValidate}
                 isLoading={isValidating}
-                startContent={!isValidating ? <CheckCircleIcon className="w-4 h-4" /> : undefined}
+                startContent={
+                  !isValidating ? (
+                    <CheckCircleIcon className="w-4 h-4" />
+                  ) : undefined
+                }
               >
                 {isValidating ? 'Validating...' : 'Validate'}
               </Button>
@@ -173,14 +185,20 @@ const ResumeEditor: React.FC<ResumeEditorProps> = ({ initialData }) => {
               <Progress value={validationProgress} className="w-full" />
             </div>
           )}
-          
+
           <Tabs aria-label="Resume sections" className="w-full">
             <Tab key="personal" title="Personal Info">
               <div className="py-4">
                 <PersonalInfoForm
                   personalInfo={formData.personalInfo}
-                  errors={Array.isArray(errors.personalInfo) ? errors.personalInfo : []}
-                  onChange={(personalInfo) => updateSection('personalInfo', personalInfo)}
+                  errors={
+                    Array.isArray(errors.personalInfo)
+                      ? errors.personalInfo
+                      : []
+                  }
+                  onChange={personalInfo =>
+                    updateSection('personalInfo', personalInfo)
+                  }
                 />
               </div>
             </Tab>
@@ -189,18 +207,22 @@ const ResumeEditor: React.FC<ResumeEditorProps> = ({ initialData }) => {
               <div className="py-4">
                 <Card>
                   <CardHeader>
-                    <h3 className="text-xl font-semibold">Professional Summary</h3>
+                    <h3 className="text-xl font-semibold">
+                      Professional Summary
+                    </h3>
                   </CardHeader>
                   <CardBody>
                     {errors.summary && (
                       <div className="bg-red-50 border border-red-200 rounded-md p-3 mb-4">
-                        <p className="text-sm text-red-600">• {errors.summary}</p>
+                        <p className="text-sm text-red-600">
+                          • {errors.summary}
+                        </p>
                       </div>
                     )}
                     <Textarea
                       placeholder="Write a compelling professional summary that highlights your key skills, experience, and career objectives..."
                       value={formData.summary}
-                      onChange={(e) => updateSection('summary', e.target.value)}
+                      onChange={e => updateSection('summary', e.target.value)}
                       variant="bordered"
                       minRows={4}
                       maxRows={8}
@@ -214,8 +236,14 @@ const ResumeEditor: React.FC<ResumeEditorProps> = ({ initialData }) => {
               <div className="py-4">
                 <WorkExperienceForm
                   workExperience={formData.workExperience}
-                  errors={Array.isArray(errors.workExperience) ? errors.workExperience : []}
-                  onChange={(workExperience) => updateSection('workExperience', workExperience)}
+                  errors={
+                    Array.isArray(errors.workExperience)
+                      ? errors.workExperience
+                      : []
+                  }
+                  onChange={workExperience =>
+                    updateSection('workExperience', workExperience)
+                  }
                 />
               </div>
             </Tab>
@@ -224,8 +252,10 @@ const ResumeEditor: React.FC<ResumeEditorProps> = ({ initialData }) => {
               <div className="py-4">
                 <EducationForm
                   education={formData.education}
-                  errors={Array.isArray(errors.education) ? errors.education : []}
-                  onChange={(education) => updateSection('education', education)}
+                  errors={
+                    Array.isArray(errors.education) ? errors.education : []
+                  }
+                  onChange={education => updateSection('education', education)}
                 />
               </div>
             </Tab>
@@ -235,17 +265,23 @@ const ResumeEditor: React.FC<ResumeEditorProps> = ({ initialData }) => {
                 <StringArrayForm
                   title="Technologies"
                   items={formData.technologies}
-                  errors={Array.isArray(errors.technologies) ? errors.technologies : []}
-                  onChange={(technologies) => updateSection('technologies', technologies)}
+                  errors={
+                    Array.isArray(errors.technologies)
+                      ? errors.technologies
+                      : []
+                  }
+                  onChange={technologies =>
+                    updateSection('technologies', technologies)
+                  }
                   placeholder="e.g., C#, .NET Core, React"
                   addButtonText="Add Technology"
                 />
-                
+
                 <StringArrayForm
                   title="Skills"
                   items={formData.skills}
                   errors={Array.isArray(errors.skills) ? errors.skills : []}
-                  onChange={(skills) => updateSection('skills', skills)}
+                  onChange={skills => updateSection('skills', skills)}
                   placeholder="e.g., API Development, Cloud Architecture"
                   addButtonText="Add Skill"
                 />
@@ -256,8 +292,14 @@ const ResumeEditor: React.FC<ResumeEditorProps> = ({ initialData }) => {
               <div className="py-4">
                 <NotableProjectsForm
                   notableProjects={formData.notableProjects}
-                  errors={Array.isArray(errors.notableProjects) ? errors.notableProjects : []}
-                  onChange={(notableProjects) => updateSection('notableProjects', notableProjects)}
+                  errors={
+                    Array.isArray(errors.notableProjects)
+                      ? errors.notableProjects
+                      : []
+                  }
+                  onChange={notableProjects =>
+                    updateSection('notableProjects', notableProjects)
+                  }
                 />
               </div>
             </Tab>
@@ -266,8 +308,10 @@ const ResumeEditor: React.FC<ResumeEditorProps> = ({ initialData }) => {
               <div className="py-4">
                 <LanguagesForm
                   languages={formData.languages}
-                  errors={Array.isArray(errors.languages) ? errors.languages : []}
-                  onChange={(languages) => updateSection('languages', languages)}
+                  errors={
+                    Array.isArray(errors.languages) ? errors.languages : []
+                  }
+                  onChange={languages => updateSection('languages', languages)}
                 />
               </div>
             </Tab>
@@ -276,8 +320,12 @@ const ResumeEditor: React.FC<ResumeEditorProps> = ({ initialData }) => {
               <div className="py-4">
                 <SocialLinksForm
                   socialLinks={formData.socialLinks}
-                  errors={Array.isArray(errors.socialLinks) ? errors.socialLinks : []}
-                  onChange={(socialLinks) => updateSection('socialLinks', socialLinks)}
+                  errors={
+                    Array.isArray(errors.socialLinks) ? errors.socialLinks : []
+                  }
+                  onChange={socialLinks =>
+                    updateSection('socialLinks', socialLinks)
+                  }
                 />
               </div>
             </Tab>
@@ -286,8 +334,12 @@ const ResumeEditor: React.FC<ResumeEditorProps> = ({ initialData }) => {
               <div className="py-4">
                 <ReferencesForm
                   references={formData.references}
-                  errors={Array.isArray(errors.references) ? errors.references : []}
-                  onChange={(references) => updateSection('references', references)}
+                  errors={
+                    Array.isArray(errors.references) ? errors.references : []
+                  }
+                  onChange={references =>
+                    updateSection('references', references)
+                  }
                 />
               </div>
             </Tab>
@@ -305,7 +357,10 @@ const ResumeEditor: React.FC<ResumeEditorProps> = ({ initialData }) => {
             </div>
           </ModalHeader>
           <ModalBody>
-            <p>Your resume data has been validated successfully! All required fields are filled and the data is ready for export.</p>
+            <p>
+              Your resume data has been validated successfully! All required
+              fields are filled and the data is ready for export.
+            </p>
           </ModalBody>
           <ModalFooter>
             <Button color="primary" onPress={onClose}>
