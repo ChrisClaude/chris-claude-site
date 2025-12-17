@@ -1,4 +1,5 @@
 using System;
+using Application.Enums;
 
 namespace Application.Entities;
 
@@ -12,4 +13,8 @@ public interface IAuditable
 
     User CreatedByUser { get; set; }
     User UpdatedByUser { get; set; }
+    AuditActionType AuditAction { get; set; }
+
+    string PreviousState { get; set; }
+    string NewState { get; set; }
 }
