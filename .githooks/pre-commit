@@ -1,0 +1,39 @@
+#!/bin/sh
+
+# Pre-commit hook for .NET solution
+# This hook runs dotnet build and dotnet test before allowing a commit
+
+echo "Running pre-commit checks for .NET solution..."
+
+# Get the root directory of the git repository
+ROOT_DIR=$(git rev-parse --show-toplevel)
+
+# Navigate to the backend directory
+cd "$ROOT_DIR/backend" || exit 1
+
+# Run dotnet build
+echo "Running dotnet build..."
+dotnet build ChrisClaude.sln --no-restore
+BUILD_RESULT=$?
+
+if [ $BUILD_RESULT -ne 0 ]; then
+  echo "❌ Build failed. Commit aborted."
+  exit 1
+fi
+
+echo "✅ Build succeeded."
+
+# Run dotnet test
+echo "Running dotnet test..."
+dotnet test ChrisClaude.sln --no-build --verbosity quiet
+TEST_RESULT=$?
+
+if [ $TEST_RESULT -ne 0 ]; then
+  echo "❌ Tests failed. Commit aborted."
+  exit 1
+fi
+
+echo "✅ All tests passed."
+echo "✅ Pre-commit checks passed. Proceeding with commit..."
+
+exit 0
