@@ -26,4 +26,7 @@ public class Post : BaseEntity, IAuditable, ISoftDeletedEntity
     public IEnumerable<Bookmark> Bookmarks { get; set; }
     public IEnumerable<Tag> Tags { get; set; }
     public IEnumerable<ProcessedNotification> ProcessedNotifications { get; set; }
+    public AuditActionType AuditAction { get; set; }
+    public string PreviousState { get; set; }
+    public string NewState { get; set; }
 }
