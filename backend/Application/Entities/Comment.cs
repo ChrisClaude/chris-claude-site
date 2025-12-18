@@ -1,4 +1,5 @@
 using System;
+using Application.Enums;
 
 namespace Application.Entities;
 
@@ -16,4 +17,7 @@ public class Comment : BaseEntity, IAuditable, ISoftDeletedEntity
     public User CreatedByUser { get; set; }
     public User UpdatedByUser { get; set; }
     public bool IsDeleted { get; set; }
+    public AuditActionType AuditAction { get; set; }
+    public string PreviousState { get; set; }
+    public string NewState { get; set; }
 }
