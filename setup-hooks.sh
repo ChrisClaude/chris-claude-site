@@ -23,6 +23,18 @@ if [ ! -d "$HOOKS_DIR" ]; then
   exit 1
 fi
 
+# Check if git is configured to use a custom hooks path
+CUSTOM_HOOKS_PATH=$(git config --get core.hooksPath 2>/dev/null)
+if [ -n "$CUSTOM_HOOKS_PATH" ]; then
+  echo "⚠️  Warning: Git is configured to use custom hooks path: $CUSTOM_HOOKS_PATH"
+  echo "This will prevent hooks in .git/hooks/ from running."
+  echo ""
+  echo "Removing custom hooks path configuration..."
+  git config --unset core.hooksPath
+  echo "✅ Custom hooks path removed. Now using default .git/hooks/"
+  echo ""
+fi
+
 # Create .git/hooks directory if it doesn't exist
 if [ ! -d "$GIT_HOOKS_DIR" ]; then
   mkdir -p "$GIT_HOOKS_DIR"

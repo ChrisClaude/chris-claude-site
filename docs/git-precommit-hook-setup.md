@@ -170,9 +170,20 @@ git commit --no-verify -m "your commit message"
 
 ### Hook doesn't run
 
+**Check if git is using a custom hooks path:**
+```bash
+git config --get core.hooksPath
+```
+
+If this returns anything (like `.husky`), git is using a custom hooks directory instead of `.git/hooks/`. To fix this:
+```bash
+git config --unset core.hooksPath
+```
+
+Then verify the hook is properly installed:
 - Verify the hook file exists: `ls -la .git/hooks/pre-commit`
-- Verify the hook is executable: `ls -la .git/hooks/pre-commit` (should show `-rwxr-xr-x`)
-- Run: `chmod +x .git/hooks/pre-commit`
+- Verify the hook is executable: `ls -la .git/hooks/pre-commit` (should show `-rwxr-xr-x` or `lrwxr-xr-x` for symlink)
+- Run: `chmod +x .githooks/pre-commit` if needed
 
 ### Build fails in hook but works manually
 
