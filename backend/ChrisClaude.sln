@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application.UnitTests", "te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application.IntegrationTests", "tests\Application.IntegrationTests\Application.IntegrationTests.csproj", "{42912A6D-EB5A-49ED-B517-A06C2AC0F6AD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogAPI", "BlogAPI\BlogAPI.csproj", "{96203023-E938-461F-8FDA-FA8B112BF0C4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +40,10 @@ Global
 		{42912A6D-EB5A-49ED-B517-A06C2AC0F6AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{42912A6D-EB5A-49ED-B517-A06C2AC0F6AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{42912A6D-EB5A-49ED-B517-A06C2AC0F6AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96203023-E938-461F-8FDA-FA8B112BF0C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96203023-E938-461F-8FDA-FA8B112BF0C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96203023-E938-461F-8FDA-FA8B112BF0C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96203023-E938-461F-8FDA-FA8B112BF0C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{0D4AD34D-F763-4B48-812B-A9906E29704B} = {CADEAAA4-5A04-4BEA-9388-078172400115}
