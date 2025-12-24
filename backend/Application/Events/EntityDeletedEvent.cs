@@ -1,15 +1,10 @@
-using System;
 using Application.Entities;
 
 namespace Application.Events;
 
-public class EntityDeletedEvent<TEntity> : IEvent
+public class EntityDeletedEvent<TEntity> : BaseEvent<TEntity>
     where TEntity : BaseEntity
 {
-    public TEntity Entity { get; }
-
     public EntityDeletedEvent(TEntity entity)
-    {
-        Entity = entity;
-    }
+        : base(entity) { }
 }

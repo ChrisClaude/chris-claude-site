@@ -1,4 +1,3 @@
-using System;
 using Application.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -9,6 +8,9 @@ public class PostReactionEntityTypeConfiguration : IEntityTypeConfiguration<Post
 {
     public void Configure(EntityTypeBuilder<PostReaction> builder)
     {
+        ArgumentNullException.ThrowIfNull(builder);
+#pragma warning disable IDE0058
+
         builder.HasKey(x => new { x.PostId, x.UserId });
 
         builder
@@ -22,5 +24,6 @@ public class PostReactionEntityTypeConfiguration : IEntityTypeConfiguration<Post
             .WithMany(x => x.PostReactions)
             .HasForeignKey(x => x.UserId)
             .OnDelete(DeleteBehavior.Cascade);
+#pragma warning restore IDE0058
     }
 }

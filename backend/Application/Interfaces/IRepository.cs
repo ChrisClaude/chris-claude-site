@@ -1,4 +1,3 @@
-using System;
 using System.Linq.Expressions;
 using Application.Caching;
 using Application.Entities;
@@ -12,35 +11,35 @@ public interface IRepository<TEntity>
 
     Task<TEntity> GetByIdAsync(
         Guid? id,
-        string[] includes = null,
-        CacheKey cacheKey = null,
+        string[]? includes = null,
+        CacheKey? cacheKey = null,
         bool includeDeleted = true
     );
 
     Task<IList<TEntity>> GetByIdsAsync(
         IList<Guid> ids,
-        CacheKey cacheKey = null,
+        CacheKey? cacheKey = null,
         bool includeDeleted = true
     );
 
     Task<IList<TEntity>> GetAllAsync(
-        Func<IQueryable<TEntity>, IQueryable<TEntity>> func = null,
-        string[] includes = null,
-        CacheKey cacheKey = null,
+        Func<IQueryable<TEntity>, IQueryable<TEntity>>? func = null,
+        string[]? includes = null,
+        CacheKey? cacheKey = null,
         bool includeDeleted = true
     );
 
     Task<IList<TResult>> GetAllWithSelectorAsync<TResult>(
         Expression<Func<TEntity, TResult>> selector,
-        Func<IQueryable<TEntity>, IQueryable<TEntity>> func = null,
-        string[] includes = null,
-        CacheKey cacheKey = null,
+        Func<IQueryable<TEntity>, IQueryable<TEntity>>? func = null,
+        string[]? includes = null,
+        CacheKey? cacheKey = null,
         bool includeDeleted = true
     );
 
     Task<IPagedList<TEntity>> GetAllPagedAsync(
-        Func<IQueryable<TEntity>, IQueryable<TEntity>> func = null,
-        string[] includes = null,
+        Func<IQueryable<TEntity>, IQueryable<TEntity>>? func = null,
+        string[]? includes = null,
         int pageIndex = 0,
         int pageSize = int.MaxValue,
         bool getOnlyTotalCount = false,

@@ -1,4 +1,3 @@
-using System;
 using Application.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -9,8 +8,13 @@ public class NewsletterSignUpEntityTypeConfiguration : IEntityTypeConfiguration<
 {
     public void Configure(EntityTypeBuilder<NewsletterSignUp> builder)
     {
+        ArgumentNullException.ThrowIfNull(builder);
+#pragma warning disable IDE0058
+
         builder.HasKey(x => x.Id);
         builder.Property(x => x.Id).ValueGeneratedOnAdd();
         builder.Property(x => x.Email).IsRequired();
+
+#pragma warning restore IDE0058
     }
 }

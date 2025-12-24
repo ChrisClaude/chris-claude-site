@@ -1,4 +1,3 @@
-using System;
 using Application.Interfaces;
 
 namespace Application.Common.Dtos;
@@ -19,6 +18,7 @@ public partial class PagedList<T> : List<T>, IPagedList<T>
     /// <param name="totalCount">Total count</param>
     public PagedList(IList<T> source, int pageIndex, int pageSize, int? totalCount = null)
     {
+        ArgumentNullException.ThrowIfNull(source);
         //min allowed page size is 1
         pageSize = Math.Max(pageSize, 1);
 

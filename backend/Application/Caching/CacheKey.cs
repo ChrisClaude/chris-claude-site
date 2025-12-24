@@ -1,5 +1,3 @@
-using System;
-
 namespace Application.Caching;
 
 public class CacheKey

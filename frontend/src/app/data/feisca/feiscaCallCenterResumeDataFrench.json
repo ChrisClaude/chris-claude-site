@@ -15,10 +15,56 @@
   "summary": "Agent de service client dévoué avec d'excellentes compétences en communication et une passion pour aider les clients. Expérimenté dans la gestion des demandes clients, la résolution de problèmes et la fourniture d'un service exceptionnel dans des environnements de centre d'appels dynamiques.",
   "workExperience": [
     {
+      "title": "Agent de ressources humaines",
+      "company": "Trauma Center for Survivors of Violence and Torture",
+      "startDate": "2023",
+      "endDate": "Présent",
+      "location": "Afrique du Sud",
+      "description": "Gestion des opérations de ressources humaines et soutien aux initiatives de développement organisationnel.",
+      "responsibilities": [
+        "Processus de recrutement et d'intégration",
+        "Relations employés et résolution de conflits",
+        "Gestion et évaluation des performances",
+        "Implémentation et conformité des politiques RH"
+      ]
+    },
+    {
+      "title": "Coordinateur des opérations exécutives",
+      "company": "Jaal Riad Resort Marrakech · Full-time",
+      "startDate": "07/2025",
+      "endDate": "Présent",
+      "location": "Marrakesh-Safi, Maroc · Sur site",
+      "description": "En tant que coordinateur des opérations exécutives, j'ai soutenu les opérations exécutives, veillé à ce que la coordination interne se déroule sans accroc et aidé à fournir un service client exceptionnel. En plus d'aider avec les expériences VIP, les rapports internes, le recrutement et la planification stratégique, j'ai supervisé la planification, les communications et les suivis départementaux.",
+      "responsibilities": [
+        "Soutien aux opérations exécutives et garantie d'une coordination interne fluide entre les départements.",
+        "Fourniture d'un service client exceptionnel, en répondant aux préoccupations des clients et en gérant les expériences VIP.",
+        "Coordination des activités de l'hôtel de jour comme de nuit, supervisant une équipe pour assurer une exécution sans faille.",
+        "Gestion des communications internes pour assurer l'alignement entre les équipes et les départements.",
+        "Handled internal reporting, recruitment, and strategic planning.",
+        "Collected and analyzed customer feedback to improve guest experience and followed up on their journey throughout their stay.",
+        "Oversaw scheduling, departmental follow-ups, and ensured timely completion of tasks."
+      ]
+    },
+    {
+      "title": "Agent d'enquêteur opérateur TV",
+      "company": "Profacts",
+      "startDate": "11/2024",
+      "endDate": "06/2025",
+      "location": "Maroc",
+      "description": "Réalisation d'enquêtes téléphoniques pour recueillir des données sur l'audience télévisuelle et les préférences du public.",
+      "responsibilities": [
+        "Initiation des appels : Contacter les personnes sélectionnées pour participer aux enquêtes.",
+        "Administration des enquêtes : Poser des questions prédéterminées, en veillant à la clarté et à la neutralité pour éviter d'influencer les réponses.",
+        "Enregistrement des réponses : Documenter avec précision les réponses des participants, souvent à l'aide de systèmes informatiques ou de logiciels spécialisés.",
+        "Maintien de la confidentialité : Gérer toutes les informations des répondants avec une stricte confidentialité, en respectant les protocoles de protection des données.",
+        "Atteinte des objectifs : Atteindre les objectifs fixés pour le nombre d'enquêtes complétées dans les délais impartis."
+      ]
+    },
+    {
       "title": "Agent de service client",
       "company": "P3 People",
       "startDate": "2023",
-      "endDate": "Présent",
+      "endDate": "11/2024",
       "location": "Afrique du Sud",
       "description": "Fourniture d'un service client exceptionnel et d'un support à travers divers canaux de communication.",
       "responsibilities": [
@@ -31,6 +77,12 @@
   ],
   "references": [
     {
+      "fullName": "Giuseppe Schettino",
+      "role": "Directeur des opérations",
+      "email": "gschettino@hotelsatlas.com",
+      "company": "Jaal Riad Resort Marrakech"
+    },
+    {
       "fullName": "Claude De-Tchambila",
       "role": "Ingénieur logiciel senior",
       "email": "claude-christ.de-tchambila@capgemini.com",
@@ -38,24 +90,16 @@
     },
     {
       "fullName": "Belanganaye",
-      "role": "Agent de service client senior",
+      "role": "Agent principal du centre d'appels",
       "email": "+27 83 859 6609",
       "company": "P3 People"
-    },
-    {
-      "fullName": "Yumna",
-      "role": "Agent de ressources humaines",
-      "email": "+27 65 537 7144",
-      "company": "Trauma Center for Survivors of Violence and Torture"
-    },
-    {
-      "fullName": "Lungi Gxagxisa",
-      "role": "Agent de ventes",
-      "email": "+27 079 223 5053",
-      "company": "Vodacom"
     }
   ],
-  "technologies": ["Microsoft Excel", "Microsoft Word", "Microsoft Office"],
+  "technologies": [
+    "Microsoft Excel",
+    "Microsoft Word",
+    "Microsoft Office"
+  ],
   "skills": [
     "Résolution de problèmes",
     "Assertivité",
@@ -66,8 +110,36 @@
     "Présentation / Parler en public",
     "Gestion des risques"
   ],
-  "education": [],
-  "languages": [],
+  "education": [
+    {
+      "degree": "Bachelor in Business Administration",
+      "institution": "Richfield Graduate Institute of Technology (Pty) Ltd.",
+      "institutionUrl": "https://www.cput.ac.za/",
+      "startDate": "01/2021",
+      "endDate": "12/2023",
+      "location": "Cape Town, South Africa"
+    },
+    {
+      "degree": "High School Certificate",
+      "institution": "Notre Dame de Rosaire",
+      "institutionUrl": "https://www.ctc.edu.za/cape-town-campus/",
+      "startDate": "2017",
+      "endDate": "2017",
+      "location": "Pointe-Noire, Congo-Brazzaville"
+    }
+  ],
+  "languages": [
+    {
+      "name": "English",
+      "level": "Avancé",
+      "proficiency": 5
+    },
+    {
+      "name": "French",
+      "level": "Avancé",
+      "proficiency": 5
+    }
+  ],
   "notableProjects": [],
   "socialLinks": [
     {

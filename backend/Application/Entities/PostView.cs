@@ -1,5 +1,3 @@
-using System;
-
 namespace Application.Entities;
 
 // Note: We might not want to store this table in a relational database
@@ -9,8 +7,8 @@ public class PostView : BaseEntity
     public Guid PostId { get; set; }
     public Guid UserId { get; set; }
     public DateTimeOffset ViewedAt { get; set; }
-    public string UserAgent { get; set; }
-    public string IpAddress { get; set; }
-    public Post Post { get; set; }
-    public User User { get; set; }
+    public string? UserAgent { get; set; }
+    public string? IpAddress { get; set; }
+    public required Post Post { get; set; }
+    public required User User { get; set; }
 }

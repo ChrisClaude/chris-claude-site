@@ -1,4 +1,3 @@
-using System;
 using Application.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -9,6 +8,10 @@ public class PostEntityTypeConfiguration : IEntityTypeConfiguration<Post>
 {
     public void Configure(EntityTypeBuilder<Post> builder)
     {
+        ArgumentNullException.ThrowIfNull(builder);
+
+#pragma warning disable IDE0058
+
         builder.HasKey(x => x.Id);
         builder.Property(x => x.Id).ValueGeneratedOnAdd();
         builder.Property(x => x.Title).HasMaxLength(300).IsRequired();
@@ -19,5 +22,6 @@ public class PostEntityTypeConfiguration : IEntityTypeConfiguration<Post>
         builder.Property(x => x.AuthorId).IsRequired();
         builder.Property(x => x.CreatedAt).IsRequired();
         builder.Property(x => x.CreatedBy).IsRequired();
+#pragma warning restore IDE0058
     }
 }

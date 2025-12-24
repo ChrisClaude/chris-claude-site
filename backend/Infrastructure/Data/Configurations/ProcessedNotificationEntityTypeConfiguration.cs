@@ -1,4 +1,3 @@
-using System;
 using Application.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -10,6 +9,10 @@ public class ProcessedNotificationEntityTypeConfiguration
 {
     public void Configure(EntityTypeBuilder<ProcessedNotification> builder)
     {
+        ArgumentNullException.ThrowIfNull(builder);
+
+#pragma warning disable IDE0058
+
         builder.HasKey(x => new { x.PostId, x.NewsletterSignUpId });
 
         builder
@@ -23,5 +26,6 @@ public class ProcessedNotificationEntityTypeConfiguration
             .WithMany(x => x.ProcessedNotifications)
             .HasForeignKey(x => x.NewsletterSignUpId)
             .OnDelete(DeleteBehavior.Cascade);
+#pragma warning restore IDE0058
     }
 }

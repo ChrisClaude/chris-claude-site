@@ -1,12 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>d094c94f-06c3-4421-b5d4-e1358ce7479d</UserSecretsId>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>CS1591</NoWarn>
   </PropertyGroup>
-
   <ItemGroup>
-    <PackageReference Include="Serilog" Version="4.3.0" />
+    <Folder Include="Configurations/" />
   </ItemGroup>
-
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" />
+  </ItemGroup>
 </Project>

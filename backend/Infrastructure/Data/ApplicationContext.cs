@@ -1,9 +1,10 @@
-using System;
 using Application.Entities;
 using Infrastructure.Data.Configurations;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Data;
+
+#pragma warning disable IDE0058
 
 public class ApplicationContext : DbContext
 {
@@ -22,11 +23,17 @@ public class ApplicationContext : DbContext
     public DbSet<NewsletterSignUp> NewsletterSignUps { get; set; }
     public DbSet<ProcessedNotification> ProcessedNotifications { get; set; }
 
+#pragma warning disable S125  // Sections of code should not be commented out
+#pragma warning disable S1135
     //TODO:  Should we store post views in a NoSQL database?
     // public DbSet<PostView> PostViews { get; set; }
 
+#pragma warning restore S125 // Sections of code should not be commented out
+#pragma warning restore S1135
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        ArgumentNullException.ThrowIfNull(modelBuilder);
         modelBuilder.ApplyConfiguration(new UserEntityTypeConfiguration());
         modelBuilder.ApplyConfiguration(new RoleEntityTypeConfiguration());
         modelBuilder.ApplyConfiguration(new UserRoleEntityTypeConfiguration());
@@ -40,3 +47,4 @@ public class ApplicationContext : DbContext
         modelBuilder.ApplyConfiguration(new ProcessedNotificationEntityTypeConfiguration());
     }
 }
+#pragma warning restore IDE0058

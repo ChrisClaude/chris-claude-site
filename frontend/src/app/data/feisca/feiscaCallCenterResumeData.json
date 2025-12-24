@@ -15,10 +15,42 @@
   "summary": "Dedicated Customer Service Agent with excellent communication skills and a passion for helping customers. Experienced in handling customer inquiries, resolving issues, and providing exceptional service in fast-paced call center environments.",
   "workExperience": [
     {
+      "title": "Executive Officer Coordinator",
+      "company": "Jaal Riad Resort Marrakech · Full-time",
+      "startDate": "07/2025",
+      "endDate": "Present",
+      "location": "Marrakesh-Safi, Morocco · On-site",
+      "description": "As an Executive Officer Coordinator, I supported executive operations, made sure internal coordination ran smoothly, and helped provide outstanding guest service. In addition to helping with VIP experiences, internal reporting, recruiting, and strategic planning, I oversaw scheduling, communications, and departmental follow-ups.",
+      "responsibilities": [
+        "Supported executive operations and ensured smooth internal coordination across departments.",
+        "Delivered outstanding guest service, addressing customer concerns and managing VIP experiences.",
+        "Coordinated hotel activities both day and evening, overseeing a team to ensure seamless execution.",
+        "Managed internal communications to ensure alignment between teams and departments.",
+        "Handled internal reporting, recruitment, and strategic planning.",
+        "Collected and analyzed customer feedback to improve guest experience and followed up on their journey throughout their stay.",
+        "Oversaw scheduling, departmental follow-ups, and ensured timely completion of tasks."
+      ]
+    },
+    {
+      "title": "TV Operator Survey Agent",
+      "company": "Profacts",
+      "startDate": "11/2024",
+      "endDate": "06/2025",
+      "location": "Morrocco",
+      "description": "Conducting telephone surveys to gather data on TV viewership and audience preferences.",
+      "responsibilities": [
+        "Initiating Calls: Reach out to selected individuals to participate in surveys.",
+        "Administering Surveys: Pose predetermined questions, ensuring clarity and neutrality to avoid influencing responses.",
+        "Recording Responses: Accurately document participants' answers, often using computer systems or specialized software.",
+        "Maintaining Confidentiality: Handle all respondent information with strict confidentiality, adhering to data protection protocols.",
+        "Achieving Targets: Meet set goals for the number of completed surveys within specified time frames."
+      ]
+    },
+    {
       "title": "Customer Service Agent",
       "company": "P3 People",
       "startDate": "2023",
-      "endDate": "Present",
+      "endDate": "11/2024",
       "location": "South Africa",
       "description": "Providing exceptional customer service and support through various communication channels.",
       "responsibilities": [
@@ -31,6 +63,12 @@
   ],
   "references": [
     {
+      "fullName": "Giuseppe Schettino",
+      "role": "Director of Operations",
+      "email": "gschettino@hotelsatlas.com",
+      "company": "Jaal Riad Resort Marrakech"
+    },
+    {
       "fullName": "Claude De-Tchambila",
       "role": "Senior Software Engineer",
       "email": "claude-christ.de-tchambila@capgemini.com",
@@ -41,21 +79,13 @@
       "role": "Senior Call Center Agent",
       "email": "+27 83 859 6609",
       "company": "P3 People"
-    },
-    {
-      "fullName": "Yumna",
-      "role": "Human Resource Agent",
-      "email": "+27 65 537 7144",
-      "company": "Trauma Center for Survivors of Violence and Torture"
-    },
-    {
-      "fullName": "Lungi Gxagxisa",
-      "role": "Sales Agent",
-      "email": "+27 079 223 5053",
-      "company": "Vodacom"
     }
   ],
-  "technologies": ["Microsoft Excel", "Microsoft Word", "Microsoft Office"],
+  "technologies": [
+    "Microsoft Excel",
+    "Microsoft Word",
+    "Microsoft Office"
+  ],
   "skills": [
     "Problem solving",
     "Assertiveness",
@@ -66,8 +96,36 @@
     "Presentation / Public speaking",
     "Risk management"
   ],
-  "education": [],
-  "languages": [],
+  "education": [
+    {
+      "degree": "Bachelor in Business Administration",
+      "institution": "Richfield Graduate Institute of Technology (Pty) Ltd.",
+      "institutionUrl": "https://www.cput.ac.za/",
+      "startDate": "01/2021",
+      "endDate": "12/2023",
+      "location": "Cape Town, South Africa"
+    },
+    {
+      "degree": "High School Certificate",
+      "institution": "Notre Dame de Rosaire",
+      "institutionUrl": "https://www.ctc.edu.za/cape-town-campus/",
+      "startDate": "2017",
+      "endDate": "2017",
+      "location": "Pointe-Noire, Congo-Brazzaville"
+    }
+  ],
+  "languages": [
+    {
+      "name": "English",
+      "level": "Advanced",
+      "proficiency": 5
+    },
+    {
+      "name": "French",
+      "level": "Advanced",
+      "proficiency": 5
+    }
+  ],
   "notableProjects": [],
   "socialLinks": [
     {

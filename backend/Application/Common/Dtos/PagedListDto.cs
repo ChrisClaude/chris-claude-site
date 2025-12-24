@@ -1,5 +1,3 @@
-using System;
-
 namespace Application.Common.Dtos;
 
 public record PagedListDto<T>
@@ -37,5 +35,5 @@ public record PagedListDto<T>
     /// <summary>
     /// List of items
     /// </summary>
-    public IEnumerable<T> Items { get; set; }
+    public required IEnumerable<T> Items { get; set; }
 }

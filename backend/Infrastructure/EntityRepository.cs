@@ -1,7 +1,5 @@
-using System;
 using System.Linq.Expressions;
 using Application.Caching;
-using Application.Common;
 using Application.Common.Dtos;
 using Application.Entities;
 using Application.Events;
@@ -9,20 +7,20 @@ using Application.Exceptions;
 using Application.Interfaces;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
 using Serilog;
 
 namespace Infrastructure;
+
+#pragma warning disable IDE0058
 
 public partial class EntityRepository<TEntity> : IRepository<TEntity>
     where TEntity : BaseEntity
 {
     #region Fields
 
-    protected readonly IEventPublisher _eventPublisher;
-    protected readonly ApplicationContext _context;
-    protected readonly ICacheManager _cacheManager;
-    protected readonly bool _usingDistributedCache;
+    private readonly IEventPublisher _eventPublisher;
+    private readonly ApplicationContext _context;
+    private readonly ICacheManager _cacheManager;
 
     #endregion
 
@@ -31,8 +29,7 @@ public partial class EntityRepository<TEntity> : IRepository<TEntity>
     public EntityRepository(
         IEventPublisher eventPublisher,
         ApplicationContext context,
-        ICacheManager cacheManager,
-        IOptionsSnapshot<AppConfigurations> appSettings
+        ICacheManager cacheManager
     )
     {
         _eventPublisher = eventPublisher;
@@ -278,8 +275,7 @@ public partial class EntityRepository<TEntity> : IRepository<TEntity>
 
     public virtual async Task UpdateAsync(IList<TEntity> entities, bool publishEvent = true)
     {
-        if (entities == null)
-            throw new ArgumentNullException(nameof(entities));
+        ArgumentNullException.ThrowIfNull(entities);
 
         try
         {
@@ -309,6 +305,7 @@ public partial class EntityRepository<TEntity> : IRepository<TEntity>
         bool publishEvent = true
     )
     {
+        ArgumentNullException.ThrowIfNull(propertyUpdates);
         try
         {
             var entity = await _context.Set<TEntity>().FindAsync(id);
@@ -343,8 +340,7 @@ public partial class EntityRepository<TEntity> : IRepository<TEntity>
 
     public virtual async Task DeleteAsync(TEntity entity, bool publishEvent = true)
     {
-        if (entity == null)
-            throw new ArgumentNullException(nameof(entity));
+        ArgumentNullException.ThrowIfNull(entity);
 
         try
         {
@@ -418,8 +414,7 @@ public partial class EntityRepository<TEntity> : IRepository<TEntity>
         bool getOnlyTotalCount
     )
     {
-        if (query == null)
-            throw new ArgumentNullException(nameof(query));
+        ArgumentNullException.ThrowIfNull(query);
 
         // Get total count
         var totalCount = await query.CountAsync();
@@ -438,7 +433,7 @@ public partial class EntityRepository<TEntity> : IRepository<TEntity>
 
         // Add default ordering by Id if no ordering is specified
         // Entity Framework Core requires explicit ordering when using  Skip with split queries to ensure consistent results
-        if (!query.Expression.ToString().Contains("OrderBy"))
+        if (!query.Expression.ToString().Contains("OrderBy", StringComparison.OrdinalIgnoreCase))
         {
             query = query.OrderBy(e => e.Id);
         }
@@ -474,3 +469,5 @@ public partial class EntityRepository<TEntity> : IRepository<TEntity>
 
     #endregion
 }
+
+#pragma warning restore IDE0058

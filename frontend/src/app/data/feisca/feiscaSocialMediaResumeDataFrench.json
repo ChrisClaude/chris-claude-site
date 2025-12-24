@@ -77,8 +77,36 @@
     "Présentation / Parler en public",
     "Gestion des risques"
   ],
-  "education": [],
-  "languages": [],
+  "education": [
+    {
+      "degree": "Bachelor in Business Administration",
+      "institution": "Richfield Graduate Institute of Technology (Pty) Ltd.",
+      "institutionUrl": "https://www.cput.ac.za/",
+      "startDate": "01/2021",
+      "endDate": "12/2023",
+      "location": "Cape Town, South Africa"
+    },
+    {
+      "degree": "High School Certificate",
+      "institution": "Notre Dame de Rosaire",
+      "institutionUrl": "https://www.ctc.edu.za/cape-town-campus/",
+      "startDate": "2017",
+      "endDate": "2017",
+      "location": "Pointe-Noire, Congo-Brazzaville"
+    }
+  ],
+  "languages": [
+    {
+      "name": "English",
+      "level": "Advanced",
+      "proficiency": 5
+    },
+    {
+      "name": "French",
+      "level": "Advanced",
+      "proficiency": 5
+    }
+  ],
   "notableProjects": [],
   "socialLinks": [
     {

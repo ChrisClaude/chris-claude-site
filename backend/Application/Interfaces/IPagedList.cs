@@ -1,5 +1,3 @@
-using System;
-
 namespace Application.Interfaces;
 
 public interface IPagedList<T> : IList<T>

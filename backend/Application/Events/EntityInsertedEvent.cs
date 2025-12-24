@@ -1,15 +1,10 @@
-using System;
 using Application.Entities;
 
 namespace Application.Events;
 
-public class EntityInsertedEvent<TEntity> : IEvent
+public class EntityInsertedEvent<TEntity> : BaseEvent<TEntity>
     where TEntity : BaseEntity
 {
-    public TEntity Entity { get; }
-
     public EntityInsertedEvent(TEntity entity)
-    {
-        Entity = entity;
-    }
+        : base(entity) { }
 }

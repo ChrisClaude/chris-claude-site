@@ -1,8 +1,5 @@
-using System;
-
 namespace Application.Exceptions;
 
-[Serializable]
 public class RepositoryException : Exception
 {
     public RepositoryException()
@@ -10,4 +7,7 @@ public class RepositoryException : Exception
 
     public RepositoryException(string message, Exception innerException)
         : base(message, innerException) { }
+
+    public RepositoryException(string message)
+        : base(message) { }
 }
