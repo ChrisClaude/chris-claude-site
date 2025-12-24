@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>d094c94f-06c3-4421-b5d4-e1358ce7479d</UserSecretsId>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
@@ -11,5 +11,6 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="FluentValidation" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
   </ItemGroup>
 </Project>
