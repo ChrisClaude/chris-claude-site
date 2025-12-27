@@ -30,8 +30,85 @@ provider "azuread" {
   alias     = "external"
 }
 
+# ═══════════════════════════════════════════════════════════════════════════════
+# Blog API Application Registration
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# This is an app registration for the backend API
+# It exposes scopes that the frontend app can request access to
+#
+# Key differences from frontend app:
+# - Exposes API scopes (oauth2_permission_scope)
+# - Does NOT need redirect URIs (it validates tokens, not redirect users)
+# - Acts as a resource server in OAuth2 flow
+#
+# Learn more: https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-configure-app-expose-web-apis
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# Generate stable UUIDs for OAuth2 permission scopes
+# These must remain constant across Terraform runs to avoid permission issues
+resource "random_uuid" "blog_read_scope_id" {}
+resource "random_uuid" "blog_write_scope_id" {}
+
+resource "azuread_application" "blog_api" {
+  provider     = azuread.external
+  display_name = "ChrisClaudeBlog API"
+
+  # Only users in this tenant can access the API
+  sign_in_audience = "AzureADMyOrg"
+
+  # Generate a unique identifier URI for the API
+  # This will be used as the audience in access tokens
+  identifier_uris = ["api://${var.app_domain}/blog-api"]
+
+  # Expose API scopes that client applications can request
+  # These define what permissions the frontend can request
+  api {
+    # Define delegated permissions (scopes) for user-based access
+    oauth2_permission_scope {
+      # Unique identifier for this scope (Azure-assigned, stable across runs)
+      id = random_uuid.blog_read_scope_id.result
+
+      # This is what the frontend will request: api://your-domain/blog.read
+      value = "blog.read"
+
+      # Whether admin consent is required (false = user can consent)
+      admin_consent_display_name = "Access Blog API as the read-only user"
+      admin_consent_description  = "Allow the application to access the Blog API on behalf of the signed-in user with read-only permissions."
+
+      # User-facing consent text
+      user_consent_display_name = "Access your blog data with read-only permissions"
+      user_consent_description  = "Allow the application to access the blog API on your behalf with read-only permissions."
+
+      # This scope is enabled and available for use
+      enabled = true
+      type    = "User" # User-delegated permission
+    }
+
+    oauth2_permission_scope {
+      # Unique identifier for this scope (Azure-assigned, stable across runs)
+      id = random_uuid.blog_write_scope_id.result
+
+      # This is what the frontend will request: api://your-domain/blog.write
+      value = "blog.write"
+
+      # Whether admin consent is required (false = user can consent)
+      admin_consent_display_name = "Write access to Blog API"
+      admin_consent_description  = "Allow the application to write data to the Blog API on behalf of the signed-in user."
+
+      # User-facing consent text
+      user_consent_display_name = "Write to your blog data"
+      user_consent_description  = "Allow the application to create, update, and delete blog content on your behalf."
+
+      # This scope is enabled and available for use
+      enabled = true
+      type    = "User" # User-delegated permission
+    }
+  }
+}
+
 # ───────────────────────────────────────────────────────────────────────────────
-# Application Registration in External Tenant
+# Frontend (SPA) Application Registration in External Tenant
 # ───────────────────────────────────────────────────────────────────────────────
 #
 # Create an OAuth2/OpenID Connect application for your web app
@@ -44,7 +121,7 @@ provider "azuread" {
 # - implicit_grant: Enables ID tokens for client-side apps
 #
 # Learn more: https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app
-resource "azuread_application" "blog_app" {
+resource "azuread_application" "blog_spa_app" {
   provider     = azuread.external # Use the external tenant provider
   display_name = "ChrisClaudeBlog"
 
@@ -56,7 +133,7 @@ resource "azuread_application" "blog_app" {
     # OAuth redirect URIs - where auth responses are sent
     # Include both production and local development URLs
     redirect_uris = [
-      "https://${var.app_domain}/auth/callback",
+      "https://${var.spa_domain}/auth/callback",
       "http://localhost:3000/auth/callback"
     ]
 
@@ -68,36 +145,23 @@ resource "azuread_application" "blog_app" {
     }
   }
 
-  # Microsoft Graph API permissions
-  # This declares what permissions your app needs
+  # Permission to access the Blog API
+  # This will be populated after the API app is created
   required_resource_access {
-    # Microsoft Graph API identifier
-    resource_app_id = "00000003-0000-0000-c000-000000000000"
+    resource_app_id = azuread_application.blog_api.client_id
 
-    # User.Read permission - allows app to read user profile
+    # Request blog.read scope
     resource_access {
-      id   = "e1fe6dd8-ba31-4d61-89e7-88639da4683d" # User.Read
-      type = "Scope"                                # Delegated permission (requires user)
+      id   = azuread_application.blog_api.oauth2_permission_scope[0].id
+      type = "Scope"
+    }
+
+    # Request blog.write scope
+    resource_access {
+      id   = azuread_application.blog_api.oauth2_permission_scope[1].id
+      type = "Scope"
     }
   }
-}
-
-# ───────────────────────────────────────────────────────────────────────────────
-# Service Principal
-# ───────────────────────────────────────────────────────────────────────────────
-#
-# A service principal is the local representation of the app in this tenant
-# Think of it as the "instance" of your app registration
-#
-# Why needed?
-# - App registration = global definition
-# - Service principal = local instance for this tenant
-# - Needed for role assignments and access control
-#
-# Learn more: https://learn.microsoft.com/en-us/entra/identity-platform/app-objects-and-service-principals
-resource "azuread_service_principal" "blog_app" {
-  provider  = azuread.external
-  client_id = azuread_application.blog_app.client_id
 }
 
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -112,19 +176,34 @@ resource "azuread_service_principal" "blog_app" {
 # Sensitive outputs are hidden from console by default
 # ═══════════════════════════════════════════════════════════════════════════════
 
-output "external_tenant_id" {
-  value       = var.entra_tenant_id
-  description = "The Entra External ID Tenant ID - use for authentication configuration"
-  sensitive   = true # Don't display in console output
-}
-
-output "external_tenant_domain" {
-  value       = var.entra_tenant_domain
-  description = "The Entra External ID Tenant Domain (e.g., yourname.onmicrosoft.com)"
-}
-
-output "application_client_id" {
-  value       = azuread_application.blog_app.client_id
-  description = "The Application (Client) ID - use in your app configuration"
+output "api_client_id" {
+  value       = azuread_application.blog_api.client_id
+  description = "The API Application (Client) ID - use in your .NET API configuration"
   sensitive   = true
+}
+
+output "frontend_client_id" {
+  value       = azuread_application.blog_spa_app.client_id
+  description = "The Frontend Application (Client) ID - use in your React app configuration"
+  sensitive   = true
+}
+
+output "api_scope_read" {
+  value       = "api://${var.app_domain}/blog-api/blog.read"
+  description = "The API read scope that the frontend should request for read-only operations"
+}
+
+output "api_scope_write" {
+  value       = "api://${var.app_domain}/blog-api/blog.write"
+  description = "The API write scope that the frontend should request for write operations"
+}
+
+output "api_scopes_all" {
+  value       = "api://${var.app_domain}/blog-api/blog.read api://${var.app_domain}/blog-api/blog.write"
+  description = "All API scopes - use this when requesting both read and write permissions"
+}
+
+output "api_audience" {
+  value       = "api://${var.app_domain}/blog-api"
+  description = "The API audience (identifier URI) - use for token validation in the API"
 }

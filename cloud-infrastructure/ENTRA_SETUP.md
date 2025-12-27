@@ -7,7 +7,7 @@
 - [Configuration Guide](#configuration-guide)
 - [Troubleshooting](#troubleshooting)
 - [Security Best Practices](#security-best-practices)
-- [Integration Examples](#integration-examples)
+- [Integration with Your Application](#integration-with-your-application)
 - [References & Further Reading](#references--further-reading)
 
 ## Overview
@@ -29,10 +29,10 @@ This Terraform configuration manages application registrations and resources in 
 
 ### Required Tools
 
-| Tool                                                                           | Version | Installation                         | Purpose                         |
-|--------------------------------------------------------------------------------|---------|--------------------------------------|---------------------------------|
-| [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)    | 2.50+   | `brew install azure-cli` (macOS)     | Azure authentication & API calls |
-| [Terraform](https://www.terraform.io/downloads)                                | 1.1.0+  | `brew install terraform` (macOS)     | Infrastructure orchestration    |
+| Tool                                                                        | Version | Installation                     | Purpose                          |
+| --------------------------------------------------------------------------- | ------- | -------------------------------- | -------------------------------- |
+| [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)  | 2.50+   | `brew install azure-cli` (macOS) | Azure authentication & API calls |
+| [Terraform](https://www.terraform.io/downloads)                             | 1.1.0+  | `brew install terraform` (macOS) | Infrastructure orchestration     |
 
 ## Quick Start
 
@@ -576,4 +576,10 @@ You still need to manually:
 - Create client secrets (security best practice - don't store in Terraform)
 - Configure user flows and branding
 
-## Integration Examples
+## Setting up service principle
+
+```bash
+export ARM_TENANT_ID=<external_tenant_id>
+export ARM_CLIENT_ID=<client_id>
+export ARM_CLIENT_SECRET=<client_secret>
+```

@@ -46,9 +46,14 @@ variable "entra_tenant_domain" {
 }
 
 variable "app_domain" {
-  description = "Your application domain for auth callback URLs"
+  description = "Your api application domain"
   type        = string
   default     = "yourapp.azurewebsites.net"
+}
+
+variable "spa_domain" {
+  description = "Your UI application domain for auth callback URLs"
+  type        = string
 }
 
 variable "country_code" {
