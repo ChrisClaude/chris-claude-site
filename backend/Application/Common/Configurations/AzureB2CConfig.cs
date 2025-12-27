@@ -2,7 +2,6 @@ namespace Application.Common.Configurations;
 
 public record AzureB2CConfig
 {
-    public const string AZUREADB2C = "AzureAdB2C";
     public required string Instance { get; init; }
     public required string Domain { get; init; }
     public required string TenantId { get; init; }

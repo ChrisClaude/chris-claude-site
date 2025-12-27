@@ -319,3 +319,4 @@ obj/
 
 # End of https://www.toptal.com/developers/gitignore/api/dotnetcore,aspnetcore
 docs/.$System_Design.drawio.bkp
+backend/BlogAPI/appsettings.secrets.json
