@@ -576,4 +576,10 @@ You still need to manually:
 - Create client secrets (security best practice - don't store in Terraform)
 - Configure user flows and branding
 
-## Integration Examples
+## Setting up service principle
+
+```bash
+export ARM_TENANT_ID=<external_tenant_id>
+export ARM_CLIENT_ID=<client_id>
+export ARM_CLIENT_SECRET=<client_secret>
+```
