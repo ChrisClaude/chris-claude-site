@@ -1,9 +1,24 @@
 {
   "cSpell.words": [
     "appsettings",
+    "azuread",
+    "chrisclaude",
+    "CIAM",
+    "ciamlogin",
+    "creds",
+    "eastus",
+    "msal",
+    "myapp",
     "Newtonsoft",
     "Npgsql",
+    "onmicrosoft",
     "Serilog",
-    "tailwindcss"
+    "sqladmin",
+    "tailwindcss",
+    "Terratest",
+    "tfstate",
+    "tfvars",
+    "unitedstates",
+    "yourcompany"
   ]
 }

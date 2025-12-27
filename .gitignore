@@ -2,7 +2,6 @@
 
 # Terraform files
 .terraform/
-.terraform.lock.hcl
 terraform.tfstate
 terraform.tfstate.backup
 
@@ -20,6 +19,10 @@ crash.log
 # Terraform variable override files (often contain secrets)
 *.tfvars
 *.tfvars.json
+
+# Tenant output files (contain sensitive tenant information)
+tenant-output.json
+entra-outputs.json
 
 # Sensitive Terraform plan output
 *.plan
