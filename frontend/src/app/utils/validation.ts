@@ -25,16 +25,24 @@ export const validateRequired = (value: string): boolean => {
   return value.trim().length > 0;
 };
 
-export const validateMinLength = (value: string, minLength: number): boolean => {
+export const validateMinLength = (
+  value: string,
+  minLength: number,
+): boolean => {
   return value.trim().length >= minLength;
 };
 
-export const validateMaxLength = (value: string, maxLength: number): boolean => {
+export const validateMaxLength = (
+  value: string,
+  maxLength: number,
+): boolean => {
   return value.trim().length <= maxLength;
 };
 
 // Validate personal information section
-export const validatePersonalInfo = (personalInfo: ResumeFormData['personalInfo']): string[] => {
+export const validatePersonalInfo = (
+  personalInfo: ResumeFormData['personalInfo'],
+): string[] => {
   const errors: string[] = [];
 
   if (!validateRequired(personalInfo.name)) {
@@ -61,7 +69,10 @@ export const validatePersonalInfo = (personalInfo: ResumeFormData['personalInfo'
     errors.push('Location is required');
   }
 
-  if (personalInfo.website.destination && !validateUrl(personalInfo.website.destination)) {
+  if (
+    personalInfo.website.destination &&
+    !validateUrl(personalInfo.website.destination)
+  ) {
     errors.push('Please enter a valid website URL');
   }
 
@@ -69,7 +80,9 @@ export const validatePersonalInfo = (personalInfo: ResumeFormData['personalInfo'
 };
 
 // Validate work experience section
-export const validateWorkExperience = (workExperience: ResumeFormData['workExperience']): string[] => {
+export const validateWorkExperience = (
+  workExperience: ResumeFormData['workExperience'],
+): string[] => {
   const errors: string[] = [];
 
   workExperience.forEach((exp, index) => {
@@ -98,7 +111,9 @@ export const validateWorkExperience = (workExperience: ResumeFormData['workExper
     }
 
     if (exp.responsibilities.length === 0) {
-      errors.push(`Work experience ${index + 1}: At least one responsibility is required`);
+      errors.push(
+        `Work experience ${index + 1}: At least one responsibility is required`,
+      );
     }
   });
 
@@ -106,7 +121,9 @@ export const validateWorkExperience = (workExperience: ResumeFormData['workExper
 };
 
 // Validate education section
-export const validateEducation = (education: ResumeFormData['education']): string[] => {
+export const validateEducation = (
+  education: ResumeFormData['education'],
+): string[] => {
   const errors: string[] = [];
 
   education.forEach((edu, index) => {
@@ -131,7 +148,9 @@ export const validateEducation = (education: ResumeFormData['education']): strin
     }
 
     if (edu.institutionUrl && !validateUrl(edu.institutionUrl)) {
-      errors.push(`Education ${index + 1}: Please enter a valid institution URL`);
+      errors.push(
+        `Education ${index + 1}: Please enter a valid institution URL`,
+      );
     }
   });
 
@@ -139,7 +158,9 @@ export const validateEducation = (education: ResumeFormData['education']): strin
 };
 
 // Validate references section
-export const validateReferences = (references: ResumeFormData['references']): string[] => {
+export const validateReferences = (
+  references: ResumeFormData['references'],
+): string[] => {
   const errors: string[] = [];
 
   references.forEach((ref, index) => {
@@ -166,7 +187,9 @@ export const validateReferences = (references: ResumeFormData['references']): st
 };
 
 // Validate social links section
-export const validateSocialLinks = (socialLinks: ResumeFormData['socialLinks']): string[] => {
+export const validateSocialLinks = (
+  socialLinks: ResumeFormData['socialLinks'],
+): string[] => {
   const errors: string[] = [];
 
   socialLinks.forEach((link, index) => {
@@ -189,7 +212,9 @@ export const validateSocialLinks = (socialLinks: ResumeFormData['socialLinks']):
 };
 
 // Validate notable projects section
-export const validateNotableProjects = (projects: ResumeFormData['notableProjects']): string[] => {
+export const validateNotableProjects = (
+  projects: ResumeFormData['notableProjects'],
+): string[] => {
   const errors: string[] = [];
 
   projects.forEach((project, index) => {
@@ -210,7 +235,9 @@ export const validateNotableProjects = (projects: ResumeFormData['notableProject
 };
 
 // Validate languages section
-export const validateLanguages = (languages: ResumeFormData['languages']): string[] => {
+export const validateLanguages = (
+  languages: ResumeFormData['languages'],
+): string[] => {
   const errors: string[] = [];
 
   languages.forEach((lang, index) => {
@@ -272,7 +299,9 @@ export const validateResumeForm = (formData: ResumeFormData): FormErrors => {
   }
 
   // Validate notable projects
-  const notableProjectsErrors = validateNotableProjects(formData.notableProjects);
+  const notableProjectsErrors = validateNotableProjects(
+    formData.notableProjects,
+  );
   if (notableProjectsErrors.length > 0) {
     errors.notableProjects = notableProjectsErrors;
   }

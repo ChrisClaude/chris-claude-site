@@ -1,14 +1,17 @@
 #!/bin/sh
 
-# Pre-commit hook for .NET solution
-# This hook runs dotnet build and dotnet test before allowing a commit
+# Pre-commit hook for .NET solution and frontend
+# This hook runs dotnet build, dotnet test, and frontend build before allowing a commit
 
-echo "Running pre-commit checks for .NET solution..."
+echo "Running pre-commit checks..."
 
 # Get the root directory of the git repository
 ROOT_DIR=$(git rev-parse --show-toplevel)
 
-# Navigate to the backend directory
+# ==========================================
+# Backend checks (.NET)
+# ==========================================
+echo "\n🔧 Backend checks..."
 cd "$ROOT_DIR/backend" || exit 1
 
 # Run dotnet build
@@ -17,11 +20,11 @@ dotnet build ChrisClaude.sln --no-restore
 BUILD_RESULT=$?
 
 if [ $BUILD_RESULT -ne 0 ]; then
-  echo "❌ Build failed. Commit aborted."
+  echo "❌ Backend build failed. Commit aborted."
   exit 1
 fi
 
-echo "✅ Build succeeded."
+echo "✅ Backend build succeeded."
 
 # Run dotnet test
 echo "Running dotnet test..."
@@ -29,11 +32,33 @@ dotnet test ChrisClaude.sln --no-build --verbosity quiet
 TEST_RESULT=$?
 
 if [ $TEST_RESULT -ne 0 ]; then
-  echo "❌ Tests failed. Commit aborted."
+  echo "❌ Backend tests failed. Commit aborted."
   exit 1
 fi
 
-echo "✅ All tests passed."
-echo "✅ Pre-commit checks passed. Proceeding with commit..."
+echo "✅ Backend tests passed."
+
+# ==========================================
+# Frontend checks
+# ==========================================
+echo "\n🎨 Frontend checks..."
+cd "$ROOT_DIR/frontend" || exit 1
+
+# Run pnpm build
+echo "Running pnpm run build..."
+pnpm run build
+FRONTEND_BUILD_RESULT=$?
+
+if [ $FRONTEND_BUILD_RESULT -ne 0 ]; then
+  echo "❌ Frontend build failed. Commit aborted."
+  exit 1
+fi
+
+echo "✅ Frontend build succeeded."
+
+# ==========================================
+# All checks passed
+# ==========================================
+echo "\n✅ All pre-commit checks passed. Proceeding with commit..."
 
 exit 0

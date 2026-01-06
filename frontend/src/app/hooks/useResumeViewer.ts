@@ -19,20 +19,14 @@ interface UseResumeViewerReturn {
  */
 export const useResumeViewer = (): UseResumeViewerReturn => {
   const [viewMode, setViewMode] = useState<ViewMode>('list');
-  const [selectedResume, setSelectedResume] = useState<ResumeListItem | null>(null);
+  const [selectedResume, setSelectedResume] = useState<ResumeListItem | null>(
+    null,
+  );
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const searchParams = useSearchParams();
   const router = useRouter();
-
-  // Handle URL parameters on component mount
-  useEffect(() => {
-    const resumeId = searchParams.get('resume');
-    if (resumeId) {
-      loadResumeFromUrl(resumeId);
-    }
-  }, [searchParams]);
 
   /**
    * Load resume from URL parameter
@@ -57,6 +51,14 @@ export const useResumeViewer = (): UseResumeViewerReturn => {
       setIsLoading(false);
     }
   }, []);
+
+  // Handle URL parameters on component mount
+  useEffect(() => {
+    const resumeId = searchParams.get('resume');
+    if (resumeId) {
+      loadResumeFromUrl(resumeId);
+    }
+  }, [searchParams, loadResumeFromUrl]);
 
   /**
    * Select a resume and switch to viewer mode
@@ -100,6 +102,6 @@ export const useResumeViewer = (): UseResumeViewerReturn => {
     error,
     selectResume,
     goBackToList,
-    clearError
+    clearError,
   };
 };

@@ -295,8 +295,8 @@ const WorkExperienceForm: React.FC<WorkExperienceFormProps> = ({
 
                 {experience.responsibilities.length === 0 && (
                   <p className="text-sm text-gray-500 italic">
-                    No responsibilities added yet. Click "Add Responsibility" to
-                    get started.
+                    No responsibilities added yet. Click &quot;Add
+                    Responsibility&quot; to get started.
                   </p>
                 )}
               </div>
@@ -307,7 +307,9 @@ const WorkExperienceForm: React.FC<WorkExperienceFormProps> = ({
         {workExperience.length === 0 && (
           <div className="text-center py-8 text-gray-500">
             <p>No work experience added yet.</p>
-            <p className="text-sm">Click "Add Experience" to get started.</p>
+            <p className="text-sm">
+              Click &quot;Add Experience&quot; to get started.
+            </p>
           </div>
         )}
       </CardBody>

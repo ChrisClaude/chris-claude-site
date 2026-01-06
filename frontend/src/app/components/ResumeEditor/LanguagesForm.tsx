@@ -123,8 +123,7 @@ const LanguagesForm: React.FC<LanguagesFormProps> = ({
                   }}
                   variant="bordered"
                   classNames={{
-                    input: 'text-gray-900',
-                    inputWrapper: 'bg-white border-gray-300 hover:bg-white',
+                    trigger: 'bg-white border-gray-300 hover:bg-white',
                     label:
                       'text-gray-700 !text-sm !font-medium !mb-1.5 !static !transform-none',
                     base: 'bg-white',
@@ -133,9 +132,7 @@ const LanguagesForm: React.FC<LanguagesFormProps> = ({
                   labelPlacement="outside"
                 >
                   {languageLevels.map(level => (
-                    <SelectItem key={level.key} value={level.key}>
-                      {level.label}
-                    </SelectItem>
+                    <SelectItem key={level.key}>{level.label}</SelectItem>
                   ))}
                 </Select>
               </div>
@@ -180,7 +177,9 @@ const LanguagesForm: React.FC<LanguagesFormProps> = ({
         {languages.length === 0 && (
           <div className="text-center py-8 text-gray-500">
             <p>No languages added yet.</p>
-            <p className="text-sm">Click "Add Language" to get started.</p>
+            <p className="text-sm">
+              Click &quot;Add Language&quot; to get started.
+            </p>
           </div>
         )}
       </CardBody>

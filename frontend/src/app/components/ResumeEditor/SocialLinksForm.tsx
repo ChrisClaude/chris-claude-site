@@ -127,8 +127,7 @@ const SocialLinksForm: React.FC<SocialLinksFormProps> = ({
                   }}
                   variant="bordered"
                   classNames={{
-                    input: 'text-gray-900',
-                    inputWrapper: 'bg-white border-gray-300 hover:bg-white',
+                    trigger: 'bg-white border-gray-300 hover:bg-white',
                     label:
                       'text-gray-700 !text-sm !font-medium !mb-1.5 !static !transform-none',
                     base: 'bg-white',
@@ -137,9 +136,7 @@ const SocialLinksForm: React.FC<SocialLinksFormProps> = ({
                   labelPlacement="outside"
                 >
                   {socialPlatforms.map(platform => (
-                    <SelectItem key={platform.key} value={platform.key}>
-                      {platform.label}
-                    </SelectItem>
+                    <SelectItem key={platform.key}>{platform.label}</SelectItem>
                   ))}
                 </Select>
 
@@ -207,7 +204,9 @@ const SocialLinksForm: React.FC<SocialLinksFormProps> = ({
         {socialLinks.length === 0 && (
           <div className="text-center py-8 text-gray-500">
             <p>No social links added yet.</p>
-            <p className="text-sm">Click "Add Social Link" to get started.</p>
+            <p className="text-sm">
+              Click &quot;Add Social Link&quot; to get started.
+            </p>
           </div>
         )}
       </CardBody>

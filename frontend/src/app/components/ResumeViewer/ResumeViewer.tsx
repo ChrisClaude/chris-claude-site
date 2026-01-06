@@ -1,8 +1,19 @@
 'use client';
 
 import React from 'react';
-import { Card, CardBody, CardHeader, Button, Divider, Chip } from '@heroui/react';
-import { ArrowLeftIcon, ArrowDownTrayIcon, ShareIcon } from '@heroicons/react/24/outline';
+import {
+  Card,
+  CardBody,
+  CardHeader,
+  Button,
+  Divider,
+  Chip,
+} from '@heroui/react';
+import {
+  ArrowLeftIcon,
+  ArrowDownTrayIcon,
+  ShareIcon,
+} from '@heroicons/react/24/outline';
 import ResumeContent from '@/components/ResumeContent';
 import { ResumeListItem } from '@/utils/resumeLoader';
 
@@ -17,7 +28,7 @@ const ResumeViewer: React.FC<ResumeViewerProps> = ({
   resume,
   onBack,
   onDownload,
-  onShare
+  onShare,
 }) => {
   const getLanguageFlag = (language: 'en' | 'fr') => {
     return language === 'en' ? '🇺🇸' : '🇫🇷';
@@ -39,11 +50,14 @@ const ResumeViewer: React.FC<ResumeViewerProps> = ({
     } else {
       // Default share behavior - copy URL to clipboard
       const shareUrl = `${window.location.origin}/resume/view?resume=${resume.id}`;
-      navigator.clipboard.writeText(shareUrl).then(() => {
-        alert('Resume URL copied to clipboard!');
-      }).catch(() => {
-        alert('Failed to copy URL to clipboard');
-      });
+      navigator.clipboard
+        .writeText(shareUrl)
+        .then(() => {
+          alert('Resume URL copied to clipboard!');
+        })
+        .catch(() => {
+          alert('Failed to copy URL to clipboard');
+        });
     }
   };
 
@@ -76,11 +90,10 @@ const ResumeViewer: React.FC<ResumeViewerProps> = ({
                   variant="flat"
                   color={resume.language === 'en' ? 'primary' : 'secondary'}
                 >
-                  {getLanguageFlag(resume.language)} {resume.language.toUpperCase()}
+                  {getLanguageFlag(resume.language)}{' '}
+                  {resume.language.toUpperCase()}
                 </Chip>
-                <span className="text-sm text-gray-500">
-                  {resume.fileName}
-                </span>
+                <span className="text-sm text-gray-500">{resume.fileName}</span>
               </div>
             </div>
           </div>

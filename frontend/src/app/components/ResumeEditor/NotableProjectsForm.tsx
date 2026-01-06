@@ -151,7 +151,9 @@ const NotableProjectsForm: React.FC<NotableProjectsFormProps> = ({
         {notableProjects.length === 0 && (
           <div className="text-center py-8 text-gray-500">
             <p>No projects added yet.</p>
-            <p className="text-sm">Click "Add Project" to get started.</p>
+            <p className="text-sm">
+              Click &quot;Add Project&quot; to get started.
+            </p>
           </div>
         )}
       </CardBody>

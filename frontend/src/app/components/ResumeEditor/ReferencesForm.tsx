@@ -168,7 +168,9 @@ const ReferencesForm: React.FC<ReferencesFormProps> = ({
         {references.length === 0 && (
           <div className="text-center py-8 text-gray-500">
             <p>No references added yet.</p>
-            <p className="text-sm">Click "Add Reference" to get started.</p>
+            <p className="text-sm">
+              Click &quot;Add Reference&quot; to get started.
+            </p>
           </div>
         )}
       </CardBody>

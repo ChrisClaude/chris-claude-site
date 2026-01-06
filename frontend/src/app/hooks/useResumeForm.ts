@@ -29,7 +29,7 @@ const defaultResumeData: ResumeData = {
 
 export const useResumeForm = (initialData?: ResumeData) => {
   const [formData, setFormData] = useState<ResumeFormData>(
-    initialData || defaultResumeData
+    initialData || defaultResumeData,
   );
   const [errors, setErrors] = useState<FormErrors>({});
   const [isDirty, setIsDirty] = useState(false);
@@ -50,43 +50,42 @@ export const useResumeForm = (initialData?: ResumeData) => {
   }, []);
 
   // Update specific section of form data
-  const updateSection = useCallback((
-    section: keyof ResumeFormData,
-    data: any
-  ) => {
-    updateFormData({ [section]: data });
-  }, [updateFormData]);
+  const updateSection = useCallback(
+    (section: keyof ResumeFormData, data: any) => {
+      updateFormData({ [section]: data });
+    },
+    [updateFormData],
+  );
 
   // Add item to array sections
-  const addArrayItem = useCallback((
-    section: keyof ResumeFormData,
-    item: any
-  ) => {
-    const currentArray = formData[section] as any[];
-    updateSection(section, [...currentArray, item]);
-  }, [formData, updateSection]);
+  const addArrayItem = useCallback(
+    (section: keyof ResumeFormData, item: any) => {
+      const currentArray = formData[section] as any[];
+      updateSection(section, [...currentArray, item]);
+    },
+    [formData, updateSection],
+  );
 
   // Update array item at specific index
-  const updateArrayItem = useCallback((
-    section: keyof ResumeFormData,
-    index: number,
-    item: any
-  ) => {
-    const currentArray = formData[section] as any[];
-    const updatedArray = [...currentArray];
-    updatedArray[index] = item;
-    updateSection(section, updatedArray);
-  }, [formData, updateSection]);
+  const updateArrayItem = useCallback(
+    (section: keyof ResumeFormData, index: number, item: any) => {
+      const currentArray = formData[section] as any[];
+      const updatedArray = [...currentArray];
+      updatedArray[index] = item;
+      updateSection(section, updatedArray);
+    },
+    [formData, updateSection],
+  );
 
   // Remove array item at specific index
-  const removeArrayItem = useCallback((
-    section: keyof ResumeFormData,
-    index: number
-  ) => {
-    const currentArray = formData[section] as any[];
-    const updatedArray = currentArray.filter((_, i) => i !== index);
-    updateSection(section, updatedArray);
-  }, [formData, updateSection]);
+  const removeArrayItem = useCallback(
+    (section: keyof ResumeFormData, index: number) => {
+      const currentArray = formData[section] as any[];
+      const updatedArray = currentArray.filter((_, i) => i !== index);
+      updateSection(section, updatedArray);
+    },
+    [formData, updateSection],
+  );
 
   // Set form errors
   const setFormErrors = useCallback((newErrors: FormErrors) => {
@@ -123,7 +122,7 @@ export const useResumeForm = (initialData?: ResumeData) => {
   const importFromJSON = useCallback((file: File) => {
     return new Promise<void>((resolve, reject) => {
       const reader = new FileReader();
-      reader.onload = (e) => {
+      reader.onload = e => {
         try {
           const jsonData = JSON.parse(e.target?.result as string);
           setFormData(jsonData);
