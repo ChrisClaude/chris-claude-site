@@ -25,6 +25,12 @@ variable "subscription_id" {
   sensitive   = true
 }
 
+variable "tenant_id" {
+  description = "Azure subscription tenant ID (not the Entra External ID tenant)"
+  type        = string
+  sensitive   = true
+}
+
 locals {
   suffix = "${lower(var.environment)}-${lower(var.location)}"
 }
@@ -49,6 +55,18 @@ variable "entra_tenant_id" {
 variable "entra_tenant_domain" {
   description = "The Entra External ID tenant domain (e.g., yourname.onmicrosoft.com)"
   type        = string
+}
+
+variable "entra_client_id" {
+  description = "Service principal client ID for Entra External ID tenant"
+  type        = string
+  sensitive   = true
+}
+
+variable "entra_client_secret" {
+  description = "Service principal client secret for Entra External ID tenant"
+  type        = string
+  sensitive   = true
 }
 
 variable "app_domain" {

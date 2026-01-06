@@ -24,10 +24,14 @@
 # - This alias targets the existing external tenant
 # - Resources can specify which provider instance to use
 #
+# Authentication uses a service principal that exists in the Entra External ID tenant
+#
 # Learn more: https://www.terraform.io/language/providers/configuration#alias
 provider "azuread" {
-  tenant_id = var.entra_tenant_id
-  alias     = "external"
+  tenant_id     = var.entra_tenant_id
+  client_id     = var.entra_client_id
+  client_secret = var.entra_client_secret
+  alias         = "external"
 }
 
 # ═══════════════════════════════════════════════════════════════════════════════
