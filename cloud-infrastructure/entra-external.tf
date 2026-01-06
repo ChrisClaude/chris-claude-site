@@ -152,13 +152,13 @@ resource "azuread_application" "blog_spa_app" {
 
     # Request blog.read scope
     resource_access {
-      id   = azuread_application.blog_api.oauth2_permission_scope[0].id
+      id   = random_uuid.blog_read_scope_id.result
       type = "Scope"
     }
 
     # Request blog.write scope
     resource_access {
-      id   = azuread_application.blog_api.oauth2_permission_scope[1].id
+      id   = random_uuid.blog_write_scope_id.result
       type = "Scope"
     }
   }

@@ -19,6 +19,12 @@ variable "project" {
   type = string
 }
 
+variable "subscription_id" {
+  description = "Azure subscription ID"
+  type        = string
+  sensitive   = true
+}
+
 locals {
   suffix = "${lower(var.environment)}-${lower(var.location)}"
 }
