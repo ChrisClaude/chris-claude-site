@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import ResumeEditor from '../../components/ResumeEditor/ResumeEditor';
+import ResumeEditor from '@/components/ResumeEditor/ResumeEditor';
 import resumeData from '@/data/chris/resumeData_20_aug_2025.json';
 
 const ResumeEditorPage = () => {
