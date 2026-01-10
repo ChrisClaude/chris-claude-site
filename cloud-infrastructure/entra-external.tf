@@ -68,6 +68,9 @@ resource "azuread_application" "blog_api" {
   # Expose API scopes that client applications can request
   # These define what permissions the frontend can request
   api {
+    # Use v2.0 access tokens (required for Entra External ID / CIAM tenants)
+    requested_access_token_version = 2
+
     # Define delegated permissions (scopes) for user-based access
     oauth2_permission_scope {
       # Unique identifier for this scope (Azure-assigned, stable across runs)
@@ -131,6 +134,11 @@ resource "azuread_application" "blog_spa_app" {
 
   # Only users in this tenant can sign in
   sign_in_audience = "AzureADMyOrg"
+
+  # Use v2.0 access tokens (required for Entra External ID / CIAM tenants)
+  api {
+    requested_access_token_version = 2
+  }
 
   # Web application configuration
   web {
