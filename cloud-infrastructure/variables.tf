@@ -31,6 +31,18 @@ variable "tenant_id" {
   sensitive   = true
 }
 
+variable "default_client_id" {
+  description = "Service principal client ID for Azure subscription"
+  type        = string
+  sensitive   = true
+}
+
+variable "default_client_secret" {
+  description = "Service principal client secret for Azure subscription"
+  type        = string
+  sensitive   = true
+}
+
 locals {
   suffix = "${lower(var.environment)}-${lower(var.location)}"
 }
