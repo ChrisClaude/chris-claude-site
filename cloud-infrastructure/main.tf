@@ -2,7 +2,7 @@ terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "~> 3.96.0"
+      version = "~> 4.54"
     }
     azuread = {
       source  = "hashicorp/azuread"
@@ -14,11 +14,11 @@ terraform {
 }
 
 provider "azurerm" {
-  subscription_id = var.subscription_id
-  tenant_id       = var.tenant_id
-  client_id       = var.default_client_id
-  client_secret   = var.default_client_secret
-  alias           = "default-azure-rm"
+  subscription_id            = var.subscription_id
+  tenant_id                  = var.tenant_id
+  client_id                  = var.default_client_id
+  client_secret              = var.default_client_secret
+  skip_provider_registration = true
   features {}
 }
 
