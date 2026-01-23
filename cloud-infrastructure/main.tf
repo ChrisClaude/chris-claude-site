@@ -100,7 +100,7 @@ resource "azurerm_mssql_database" "db" {
   name           = "sqldb-${var.project}-${local.suffix}-001"
   server_id      = azurerm_mssql_server.sql.id
   collation      = "SQL_Latin1_General_CP1_CI_AS"
-  max_size_gb    = 32
+  max_size_gb    = 2
   sku_name       = "Basic"
   zone_redundant = false
 
