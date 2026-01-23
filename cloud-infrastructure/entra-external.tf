@@ -115,6 +115,26 @@ resource "azuread_application" "blog_api" {
 }
 
 # ───────────────────────────────────────────────────────────────────────────────
+# Blog API Service Principal
+# ───────────────────────────────────────────────────────────────────────────────
+#
+# Create a service principal (enterprise application) for the Blog API
+# This is required before admin consent can be granted to API permissions
+#
+# An app registration defines the app's configuration, but the service principal
+# is the actual instance of the app in the directory that users/admins interact with
+#
+# Learn more: https://learn.microsoft.com/en-us/entra/identity-platform/app-objects-and-service-principals
+resource "azuread_service_principal" "blog_api" {
+  provider       = azuread.external
+  client_id      = azuread_application.blog_api.client_id
+  use_existing   = true
+
+  # Make this API visible to users for consent
+  app_role_assignment_required = false
+}
+
+# ───────────────────────────────────────────────────────────────────────────────
 # Frontend (SPA) Application Registration in External Tenant
 # ───────────────────────────────────────────────────────────────────────────────
 #
