@@ -1,6 +1,7 @@
 {
   "cSpell.words": [
     "appsettings",
+    "ASPNETCORE",
     "azuread",
     "chrisclaude",
     "CIAM",
@@ -14,6 +15,7 @@
     "onmicrosoft",
     "Serilog",
     "sqladmin",
+    "sqldb",
     "tailwindcss",
     "Terratest",
     "tfstate",

@@ -1,0 +1,14 @@
+<Project Sdk="Aspire.AppHost.Sdk/13.1.1">
+  <ItemGroup>
+    <ProjectReference Include="..\BlogAPI\BlogAPI.csproj" />
+    <ProjectReference Include="..\tests\Application.IntegrationTests\Application.IntegrationTests.csproj" />
+    <ProjectReference Include="..\tests\Application.UnitTests\Application.UnitTests.csproj" />
+  </ItemGroup>
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <UserSecretsId>4e1cde84-c71b-4732-bcb5-b25562d31c57</UserSecretsId>
+  </PropertyGroup>
+</Project>
