@@ -2,6 +2,12 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Run aspire host",
+      "type": "dotnet",
+      "request": "launch",
+      "projectPath": "${workspaceFolder}/backend/ChrisClaude.AppHost/ChrisClaude.AppHost.csproj"
+    },
+    {
       "name": "Run Frontend",
       "type": "node",
       "request": "launch",
