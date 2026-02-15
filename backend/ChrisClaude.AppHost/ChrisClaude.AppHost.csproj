@@ -4,6 +4,10 @@
     <ProjectReference Include="..\tests\Application.IntegrationTests\Application.IntegrationTests.csproj" />
     <ProjectReference Include="..\tests\Application.UnitTests\Application.UnitTests.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.NodeJs" />
+    <PackageReference Include="Aspire.Hosting.SqlServer" />
+  </ItemGroup>
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net10.0</TargetFramework>
