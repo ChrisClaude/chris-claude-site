@@ -1,6 +1,6 @@
 var builder = DistributedApplication.CreateBuilder(args);
 
-var sqlServer = builder.AddSqlServer("sql-server");
+var sqlServer = builder.AddSqlServer("sql-server").WithDataVolume();
 
 var db = sqlServer.AddDatabase("blog-db");
 
