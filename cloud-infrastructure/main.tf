@@ -177,3 +177,28 @@ resource "azurerm_key_vault" "kv" {
     ]
   }
 }
+
+# Store Entra app registration client IDs and secrets in Key Vault
+resource "azurerm_key_vault_secret" "blog_api_client_id" {
+  name         = "AzureAdB2C--ClientId"
+  value        = azuread_application.blog_api.client_id
+  key_vault_id = azurerm_key_vault.kv.id
+}
+
+resource "azurerm_key_vault_secret" "blog_api_client_secret" {
+  name         = "AzureAdB2C--ClientSecret"
+  value        = azuread_application_password.blog_api_secret.value
+  key_vault_id = azurerm_key_vault.kv.id
+}
+
+resource "azurerm_key_vault_secret" "blog_spa_client_id" {
+  name         = "AzureAdB2C--SpaClientId"
+  value        = azuread_application.blog_spa_app.client_id
+  key_vault_id = azurerm_key_vault.kv.id
+}
+
+resource "azurerm_key_vault_secret" "blog_spa_client_secret" {
+  name         = "AzureAdB2C--SpaClientSecret"
+  value        = azuread_application_password.blog_spa_secret.value
+  key_vault_id = azurerm_key_vault.kv.id
+}

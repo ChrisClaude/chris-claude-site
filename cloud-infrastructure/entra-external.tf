@@ -125,6 +125,13 @@ resource "azuread_application" "blog_api" {
 # is the actual instance of the app in the directory that users/admins interact with
 #
 # Learn more: https://learn.microsoft.com/en-us/entra/identity-platform/app-objects-and-service-principals
+# Client secret for the Blog API application
+resource "azuread_application_password" "blog_api_secret" {
+  provider       = azuread.external
+  application_id = azuread_application.blog_api.id
+  display_name   = "blog API secret"
+}
+
 resource "azuread_service_principal" "blog_api" {
   provider       = azuread.external
   client_id      = azuread_application.blog_api.client_id
@@ -194,6 +201,13 @@ resource "azuread_application" "blog_spa_app" {
       type = "Scope"
     }
   }
+}
+
+# Client secret for the Blog SPA application
+resource "azuread_application_password" "blog_spa_secret" {
+  provider       = azuread.external
+  application_id = azuread_application.blog_spa_app.id
+  display_name   = "blog SPA secret"
 }
 
 # ═══════════════════════════════════════════════════════════════════════════════
