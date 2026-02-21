@@ -139,3 +139,41 @@ resource "azurerm_application_insights" "ai" {
   workspace_id        = azurerm_log_analytics_workspace.law.id
   application_type    = "web"
 }
+
+# Retrieve information about the currently authenticated Azure client/account used by Terraform
+# Required for Key Vault and other AAD-aware resources
+data "azurerm_client_config" "current" {}
+
+# ──────────────────────────────── ⑥  Azure Key Vault  ───────────────────
+resource "azurerm_key_vault" "kv" {
+  name                        = "kv-${var.project}" # shortened name to meet Key Vault naming requirements (3-24 characters, alphanumeric and hyphens, must start with a letter)
+  location                    = azurerm_resource_group.rg.location
+  resource_group_name         = azurerm_resource_group.rg.name
+  tenant_id                   = var.tenant_id
+  sku_name                    = "standard"
+  purge_protection_enabled    = true
+  soft_delete_retention_days = 7
+  enabled_for_template_deployment = true
+
+  access_policy {
+    tenant_id = var.tenant_id
+    object_id = azurerm_linux_web_app.api.identity[0].principal_id
+
+    secret_permissions = [
+      "Get",
+      "List",
+    ]
+  }
+
+  access_policy {
+    tenant_id = data.azurerm_client_config.current.tenant_id
+    object_id = data.azurerm_client_config.current.object_id
+
+    secret_permissions = [
+      "Get",
+      "List",
+      "Set",
+      "Delete",
+    ]
+  }
+}

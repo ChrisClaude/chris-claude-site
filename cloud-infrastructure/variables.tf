@@ -14,7 +14,6 @@ variable "location" {
   }
 }
 
-
 variable "project" {
   type = string
 }

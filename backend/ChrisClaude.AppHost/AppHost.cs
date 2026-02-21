@@ -8,7 +8,7 @@ var api = builder
     .AddProject<Projects.BlogAPI>("blog-api")
     .WithReference(db)
     .WaitFor(db)
-    .WithHttpHealthCheck("/health");
+    .WithHttpHealthCheck("/healthz");
 
 builder
     .AddNpmApp("frontend", "../../frontend", "dev")
