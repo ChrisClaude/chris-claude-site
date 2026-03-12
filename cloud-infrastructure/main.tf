@@ -146,36 +146,29 @@ data "azurerm_client_config" "current" {}
 
 # ──────────────────────────────── ⑥  Azure Key Vault  ───────────────────
 resource "azurerm_key_vault" "kv" {
-  name                        = "kv-${var.project}" # shortened name to meet Key Vault naming requirements (3-24 characters, alphanumeric and hyphens, must start with a letter)
-  location                    = azurerm_resource_group.rg.location
-  resource_group_name         = azurerm_resource_group.rg.name
-  tenant_id                   = var.tenant_id
-  sku_name                    = "standard"
-  purge_protection_enabled    = true
-  soft_delete_retention_days = 7
+  name                            = "kv-${var.project}" # shortened name to meet Key Vault naming requirements (3-24 characters, alphanumeric and hyphens, must start with a letter)
+  location                        = azurerm_resource_group.rg.location
+  resource_group_name             = azurerm_resource_group.rg.name
+  tenant_id                       = var.tenant_id
+  sku_name                        = "standard"
+  purge_protection_enabled        = true
+  soft_delete_retention_days      = 7
   enabled_for_template_deployment = true
+  rbac_authorization_enabled      = true
+}
 
-  access_policy {
-    tenant_id = var.tenant_id
-    object_id = azurerm_linux_web_app.api.identity[0].principal_id
+# Grant the Web App's managed identity read access to secrets at runtime
+resource "azurerm_role_assignment" "kv_secrets_user_api" {
+  scope                = azurerm_key_vault.kv.id
+  role_definition_name = "Key Vault Secrets User"
+  principal_id         = azurerm_linux_web_app.api.identity[0].principal_id
+}
 
-    secret_permissions = [
-      "Get",
-      "List",
-    ]
-  }
-
-  access_policy {
-    tenant_id = data.azurerm_client_config.current.tenant_id
-    object_id = data.azurerm_client_config.current.object_id
-
-    secret_permissions = [
-      "Get",
-      "List",
-      "Set",
-      "Delete",
-    ]
-  }
+# Grant the Terraform service principal write access to manage secrets during deployment
+resource "azurerm_role_assignment" "kv_secrets_officer_terraform" {
+  scope                = azurerm_key_vault.kv.id
+  role_definition_name = "Key Vault Secrets Officer"
+  principal_id         = data.azurerm_client_config.current.object_id
 }
 
 # Store Entra app registration client IDs and secrets in Key Vault
