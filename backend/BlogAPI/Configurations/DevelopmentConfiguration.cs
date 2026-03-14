@@ -1,6 +1,6 @@
-#pragma warning disable S3903
+namespace BlogAPI.Configurations;
+
 internal static class DevelopmentConfiguration
-#pragma warning restore S3903
 {
     public static WebApplicationBuilder AddDevelopmentConfiguration(
         this WebApplicationBuilder builder
