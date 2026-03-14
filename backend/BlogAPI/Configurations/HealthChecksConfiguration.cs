@@ -43,15 +43,32 @@ internal static class HealthChecksConfiguration
         if (
             appConfigurations != null
             && appConfigurations.AzureAdB2C != null
-            && !string.IsNullOrEmpty(appConfigurations.AzureAdB2C.Instance)
-            && !string.IsNullOrEmpty(appConfigurations.AzureAdB2C.Domain)
-            && !string.IsNullOrEmpty(appConfigurations.AzureAdB2C.SignUpSignInPolicyId)
+            && IsValid(
+                appConfigurations.AzureAdB2C.Instance,
+                nameof(appConfigurations.AzureAdB2C.Instance)
+            )
+            && IsValid(
+                appConfigurations.AzureAdB2C.Domain,
+                nameof(appConfigurations.AzureAdB2C.Domain)
+            )
+            && IsValid(
+                appConfigurations.AzureAdB2C.SignUpSignInPolicyId,
+                nameof(appConfigurations.AzureAdB2C.SignUpSignInPolicyId)
+            )
+            && IsValid(
+                appConfigurations.AzureAdB2C.ClientId,
+                nameof(appConfigurations.AzureAdB2C.ClientId)
+            )
+            && IsValid(
+                appConfigurations.AzureAdB2C.ClientSecret,
+                nameof(appConfigurations.AzureAdB2C.ClientSecret)
+            )
         )
         {
             try
             {
                 var uriString =
-                    $"{appConfigurations.AzureAdB2C.Instance}/{appConfigurations.AzureAdB2C.Domain}/{appConfigurations.AzureAdB2C.SignUpSignInPolicyId}/v2.0/.well-known/openid-configuration";
+                    $"{appConfigurations.AzureAdB2C.Instance}/{appConfigurations.AzureAdB2C.TenantId}/v2.0/.well-known/openid-configuration?appid={appConfigurations.AzureAdB2C.ClientId}";
                 var uri = new Uri(uriString);
                 var tags = new[] { "auth" };
 
@@ -70,5 +87,17 @@ internal static class HealthChecksConfiguration
         }
 
         return services;
+    }
+
+    private static bool IsValid(string value, string name)
+    {
+        if (string.IsNullOrEmpty(value))
+        {
+            throw new InvalidOperationException(
+                $"Azure AD B2C configuration value '{name}' is missing or empty."
+            );
+        }
+
+        return true;
     }
 }

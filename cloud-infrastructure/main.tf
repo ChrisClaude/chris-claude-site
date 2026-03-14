@@ -195,3 +195,9 @@ resource "azurerm_key_vault_secret" "blog_spa_client_secret" {
   value        = azuread_application_password.blog_spa_secret.value
   key_vault_id = azurerm_key_vault.kv.id
 }
+
+resource "azurerm_key_vault_secret" "blog_tenant_id" {
+  name         = "AzureAdB2C--TenantId"
+  value        = var.entra_tenant_id
+  key_vault_id = azurerm_key_vault.kv.id
+}
