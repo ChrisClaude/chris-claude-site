@@ -49,12 +49,10 @@ internal static class WebApplicationConfiguration
             .AddApplication()
             .AddInfrastructure(appConfigurations)
             .ConfigureCors(appConfigurations, CORS_POLICY_NAME)
-            .ConfigureAuthentication(
-                configuration
-            )
+            .ConfigureAuthentication(configuration)
+            .ConfigureAuthorization()
         /*
         .ConfigureSerilog(appConfigurations)
-        .ConfigureAuthorization()
         .ConfigureOpenTelemetryTracing(appConfigurations)
         .ConfigureOpenApi(appConfigurations)
         .ConfigureAspNetCoreRateLimit(configuration) */;

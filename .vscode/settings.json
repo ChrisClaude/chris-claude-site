@@ -22,6 +22,7 @@
     "Terratest",
     "tfstate",
     "tfvars",
+    "uninstantiated",
     "unitedstates",
     "westeurope",
     "westus",
