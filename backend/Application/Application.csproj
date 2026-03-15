@@ -7,10 +7,14 @@
     <NoWarn>CS1591</NoWarn>
   </PropertyGroup>
   <ItemGroup>
+    <Folder Include="Commands/" />
+    <Folder Include="Commands/Users/" />
+    <Folder Include="Common/Extensions/" />
     <Folder Include="Configurations/" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="FluentValidation" />
+    <PackageReference Include="MediatR" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
   </ItemGroup>
 </Project>

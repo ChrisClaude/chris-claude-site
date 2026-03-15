@@ -96,6 +96,9 @@ dotnet_naming_style.prefix_interface_with_i_style.capitalization   = pascal_case
 dotnet_naming_style.private_field_style.required_prefix            = _
 dotnet_naming_style.private_field_style.capitalization             = camel_case
 
+# CA1707 conflicts with the all_upper + underscore naming style for constants
+dotnet_diagnostic.CA1707.severity = none
+
 # Use all upper for constant fields
 dotnet_naming_rule.constant_fields_should_be_pascal_case.severity  = warning
 dotnet_naming_rule.constant_fields_should_be_pascal_case.symbols   = constant_fields
