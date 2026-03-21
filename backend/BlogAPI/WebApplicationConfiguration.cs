@@ -61,6 +61,7 @@ internal static class WebApplicationConfiguration
             .ConfigureHealthChecks(appConfigurations)
             .ConfigureRateLimiter()
             .AddEndpointsApiExplorer()
+            .AddOpenApi()
             .AddExceptionHandler<GlobalExceptionHandler>()
             .AddProblemDetails()
             .AddMemoryCache();

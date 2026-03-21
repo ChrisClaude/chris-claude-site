@@ -14,7 +14,11 @@ public abstract class BaseController : ControllerBase
     /// Gets the user from the request context.
     /// </summary>
     /// <exception cref="HttpContextUserLoadingProcessFailureException">Thrown when the user is not found in the request context.</exception>
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1024:Use properties where appropriate", Justification = "Method throws an exception, which is not allowed in property getters (CA1065).")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage(
+        "Design",
+        "CA1024:Use properties where appropriate",
+        Justification = "Method throws an exception, which is not allowed in property getters (CA1065)."
+    )]
     protected UserDto GetContextUser()
     {
         if (HttpContext.Items[Constant.HTTP_CONTEXT_USER_ITEM_KEY] is UserDto userDto)
