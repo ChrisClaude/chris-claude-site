@@ -27,9 +27,7 @@ internal static class WebApplicationConfiguration
             );
 
         services.Configure<AppConfigurations>(configuration.GetSection("AppConfigurations"));
-
         services.AddOptions();
-        services.AddMemoryCache();
 
         services
             .AddControllers(options =>
@@ -45,17 +43,18 @@ internal static class WebApplicationConfiguration
                     .Ignore;
             });
 
-        services.AddEndpointsApiExplorer();
-
         services
             .AddApplication()
             .AddInfrastructure(appConfigurations)
             .ConfigureCors(appConfigurations, CORS_POLICY_NAME)
             .ConfigureAuthentication(configuration)
-            .ConfigureAuthorization();
-        /*
-        .ConfigureAspNetCoreRateLimit(configuration)
-        */
+            .ConfigureAuthorization()
+            .ConfigureHealthChecks(appConfigurations)
+            .ConfigureRateLimiter()
+            .AddEndpointsApiExplorer()
+            .AddExceptionHandler<GlobalExceptionHandler>()
+            .AddProblemDetails()
+            .AddMemoryCache();
 
         builder.Host.UseSerilog(
             (context, _, configuration) =>
@@ -77,10 +76,6 @@ internal static class WebApplicationConfiguration
             writeToProviders: true
         );
 
-        services.AddExceptionHandler<GlobalExceptionHandler>();
-        services.AddProblemDetails();
-        services.ConfigureHealthChecks(appConfigurations);
-
         return builder.Build();
     }
     #endregion
@@ -98,12 +93,9 @@ internal static class WebApplicationConfiguration
         app.UseCors(CORS_POLICY_NAME);
         app.UseSerilogRequestLogging();
 
-#pragma warning disable S1135 // Track uses of "TODO" tags
-        // TODO: Add a rate limiting middleware here https://learn.microsoft.com/en-us/aspnet/core/performance/rate-limit?view=aspnetcore-10.0
-#pragma warning restore S1135
-
         app.UseHttpsRedirection();
         app.UseRouting();
+        app.UseRateLimiter();
         app.UseExceptionHandler();
 
         app.UseAuthentication();
