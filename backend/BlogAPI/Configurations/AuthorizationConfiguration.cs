@@ -22,7 +22,10 @@ internal static class AuthorizationConfiguration
 
         services
             .AddAuthorizationBuilder()
-            .AddPolicy(AuthPolicy.READER, policy => policy.Requirements.Add(new ReaderRequirement()));
+            .AddPolicy(
+                AuthPolicy.READER,
+                policy => policy.Requirements.Add(new ReaderRequirement())
+            );
 
         services.AddSingleton<IAuthorizationHandler, AdminAuthorizationHandler>();
         services.AddSingleton<IAuthorizationHandler, PublisherAuthorizationHandler>();

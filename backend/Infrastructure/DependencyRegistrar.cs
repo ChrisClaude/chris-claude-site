@@ -1,4 +1,5 @@
 using Application.Common.Configurations;
+using Application.Interfaces;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,10 +18,10 @@ public static class DependencyRegistrar
         services.AddDbContextPool<ApplicationContext>(opt =>
             opt.UseNpgsql(appConfigurations.DBConfig.PostgresConnectionString)
         );
-
 #pragma warning restore IDE0058
+
+        services.AddScoped<ITransactionManager, TransactionManager>();
 
         return services;
     }
-
 }
