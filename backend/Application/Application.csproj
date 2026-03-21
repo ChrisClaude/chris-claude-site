@@ -11,6 +11,9 @@
     <Folder Include="Commands/Users/" />
     <Folder Include="Common/Extensions/" />
     <Folder Include="Configurations/" />
+    <Folder Include="Interfaces/Queries/" />
+    <Folder Include="Mappings/" />
+    <Folder Include="Queries/" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="FluentValidation" />

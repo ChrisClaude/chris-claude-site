@@ -18,6 +18,7 @@
   <ItemGroup>
     <Folder Include="Configurations/" />
     <Folder Include="Controllers/" />
+    <Folder Include="Extensions/" />
     <Folder Include="Middleware/" />
   </ItemGroup>
   <ItemGroup>

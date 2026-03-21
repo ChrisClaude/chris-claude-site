@@ -56,9 +56,19 @@ public class Result
         return new Result(false, errors, errorType);
     }
 
+    public static Result Failure(Error error, ErrorType errorType)
+    {
+        return new Result(false, new[] { error }, errorType);
+    }
+
     public static Result<T> Failure<T>(IEnumerable<Error> errors, ErrorType errorType)
     {
         return Result<T>.CreateFailure(errors, errorType);
+    }
+    
+    public static Result<T> Failure<T>(Error error, ErrorType errorType)
+    {
+        return Result<T>.CreateFailure(new[] { error }, errorType);
     }
 }
 
