@@ -23,7 +23,7 @@ internal static class AuthenticationConfiguration
             .AddMicrosoftIdentityWebApi(
                 options =>
                 {
-                    configuration.Bind("AppSettings:AzureAdB2C", options);
+                    configuration.Bind("AppConfigurations:AzureAdB2C", options);
                     options.TokenValidationParameters.NameClaimType = "name";
                     options.Events = new JwtBearerEvents
                     {
@@ -32,7 +32,7 @@ internal static class AuthenticationConfiguration
                 },
                 options =>
                 {
-                    configuration.Bind("AppSettings:AzureAdB2C", options);
+                    configuration.Bind("AppConfigurations:AzureAdB2C", options);
                 }
             );
 

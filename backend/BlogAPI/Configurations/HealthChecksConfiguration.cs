@@ -2,6 +2,7 @@ using System.Text.Json;
 using Application.Common.Configurations;
 using BlogAPI.HealthChecks;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Serilog;
 
 namespace BlogAPI.Configurations;
@@ -73,6 +74,12 @@ internal static class HealthChecksConfiguration
                 var tags = new[] { "auth" };
 
                 healthChecks.AddUrlGroup(uri, name: "azure-b2c", tags: tags);
+                healthChecks.Services.Configure<HealthCheckServiceOptions>(options =>
+                {
+                    var reg = options.Registrations.FirstOrDefault(r => r.Name == "azure-b2c");
+                    if (reg is not null)
+                        reg.Period = TimeSpan.FromMinutes(15);
+                });
             }
             catch (UriFormatException ex)
             {

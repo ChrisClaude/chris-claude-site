@@ -32,7 +32,8 @@ internal static class WebApplicationConfiguration
 
         services.Configure<ForwardedHeadersOptions>(options =>
         {
-            options.ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
+            options.ForwardedHeaders =
+                ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
             options.KnownIPNetworks.Clear();
             options.KnownProxies.Clear();
         });
