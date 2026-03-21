@@ -1,3 +1,4 @@
+using System.Globalization;
 using Application;
 using Application.Common.Configurations;
 using BlogAPI.Configurations;
@@ -6,6 +7,7 @@ using Infrastructure;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Serilog;
+using Serilog.Events;
 
 #pragma warning disable S3903
 internal static class WebApplicationConfiguration
@@ -50,14 +52,30 @@ internal static class WebApplicationConfiguration
             .AddInfrastructure(appConfigurations)
             .ConfigureCors(appConfigurations, CORS_POLICY_NAME)
             .ConfigureAuthentication(configuration)
-            .ConfigureAuthorization()
+            .ConfigureAuthorization();
         /*
-        .ConfigureSerilog(appConfigurations)
-        .ConfigureOpenTelemetryTracing(appConfigurations)
-        .ConfigureOpenApi(appConfigurations)
-        .ConfigureAspNetCoreRateLimit(configuration) */;
+        .ConfigureAspNetCoreRateLimit(configuration)
+        */
 
-        builder.Host.UseSerilog();
+        builder.Host.UseSerilog(
+            (context, _, configuration) =>
+            {
+                var environmentName = context.HostingEnvironment.EnvironmentName;
+                configuration
+                    .MinimumLevel.Information()
+                    .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
+                    .MinimumLevel.Override("System", LogEventLevel.Warning)
+                    .Enrich.FromLogContext()
+                    .Enrich.WithMachineName()
+                    .Enrich.WithEnvironmentName()
+                    .Enrich.WithProperty("Application", "BlogAPI-" + environmentName)
+                    .WriteTo.Console(
+                        formatProvider: CultureInfo.InvariantCulture,
+                        outputTemplate: "[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj} {Properties:j}{NewLine}{Exception}"
+                    );
+            },
+            writeToProviders: true
+        );
 
         services.AddExceptionHandler<GlobalExceptionHandler>();
         services.AddProblemDetails();
