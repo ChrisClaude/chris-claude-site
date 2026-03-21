@@ -5,6 +5,7 @@ using BlogAPI.Configurations;
 using BlogAPI.Middleware;
 using Infrastructure;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Serilog;
 using Serilog.Events;
@@ -28,6 +29,13 @@ internal static class WebApplicationConfiguration
 
         services.Configure<AppConfigurations>(configuration.GetSection("AppConfigurations"));
         services.AddOptions();
+
+        services.Configure<ForwardedHeadersOptions>(options =>
+        {
+            options.ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
+            options.KnownIPNetworks.Clear();
+            options.KnownProxies.Clear();
+        });
 
         services
             .AddControllers(options =>
@@ -84,6 +92,11 @@ internal static class WebApplicationConfiguration
     #region ConfigureRequestPipeline
     public static WebApplication ConfigureRequestPipeline(this WebApplication app)
     {
+        // Must run first so RemoteIpAddress reflects the real client IP (from X-Forwarded-For)
+        // rather than the Azure load balancer IP (or any other proxy). Without this, all requests share the same
+        // rate limiter partition and the limit would apply collectively across all clients.
+        app.UseForwardedHeaders();
+
         if (app.Environment.IsDevelopment())
         {
             app.UseScalar();

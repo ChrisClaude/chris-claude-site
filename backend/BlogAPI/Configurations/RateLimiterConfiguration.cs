@@ -1,4 +1,4 @@
-using System;
+using System.Globalization;
 using System.Threading.RateLimiting;
 using Serilog;
 
@@ -16,9 +16,7 @@ internal static class RateLimiterConfiguration
             options.GlobalLimiter = PartitionedRateLimiter.Create<HttpContext, string>(
                 httpContext =>
                     RateLimitPartition.GetFixedWindowLimiter(
-                        partitionKey: httpContext.Connection.RemoteIpAddress?.ToString()
-                            ?? "unknown"
-                            ?? httpContext.Request.Headers.Host.ToString(),
+                        partitionKey: httpContext.Connection.RemoteIpAddress?.ToString() ?? "unknown",
                         factory: partition => new FixedWindowRateLimiterOptions
                         {
                             AutoReplenishment = true,
@@ -33,7 +31,16 @@ internal static class RateLimiterConfiguration
             {
                 // Custom rejection handling logic
                 context.HttpContext.Response.StatusCode = StatusCodes.Status429TooManyRequests;
-                context.HttpContext.Response.Headers.RetryAfter = "60";
+
+                if (context.Lease.TryGetMetadata(MetadataName.RetryAfter, out var retryAfter))
+                {
+                    context.HttpContext.Response.Headers.RetryAfter =
+                        ((int)retryAfter.TotalSeconds).ToString(CultureInfo.InvariantCulture);
+                }
+                else
+                {
+                    context.HttpContext.Response.Headers.RetryAfter = "60";
+                }
 
                 await context.HttpContext.Response.WriteAsync(
                     "Rate limit exceeded. Please try again later.",
