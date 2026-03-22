@@ -1,4 +1,4 @@
-import { getArticleById } from '@/lib/articles';
+import { getArticleById } from '@/_lib/articles';
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function GET(

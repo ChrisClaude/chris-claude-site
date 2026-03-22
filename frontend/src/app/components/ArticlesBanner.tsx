@@ -1,6 +1,6 @@
 'use client';
 import { ArticleContent } from '@/AppTypes';
-import { ROOT_URL, S3_HOME_MAX_KEYS } from '@/config';
+import { ROOT_URL, S3_HOME_MAX_KEYS } from '@/_config';
 import { useEffect, useState } from 'react';
 import ArticlesBannerItem from './ArticlesBannerItem';
 

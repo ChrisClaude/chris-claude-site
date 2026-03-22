@@ -5,7 +5,7 @@ import {
   S3_Bucket,
   S3_MAX_KEYS,
   S3_REGION,
-} from '@/config';
+} from '@/_config';
 import { sortByDate } from '@/utils/index';
 import {
   GetObjectCommand,

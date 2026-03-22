@@ -1,4 +1,4 @@
-import { EMAIL_ADDRESS, PHONE_NUMBER } from '@/config';
+import { EMAIL_ADDRESS, PHONE_NUMBER } from '@/_config';
 import Image from 'next/image';
 import {
   FaExternalLinkAlt,

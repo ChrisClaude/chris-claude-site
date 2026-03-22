@@ -7,7 +7,7 @@ import {
   YouTubeChannelBanner,
 } from '@/components';
 import Article from '@/components/Article';
-import { ROOT_URL } from '@/config';
+import { ROOT_URL } from '@/_config';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { MutatingDots } from 'react-loader-spinner';

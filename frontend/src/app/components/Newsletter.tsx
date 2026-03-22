@@ -1,5 +1,5 @@
 'use client';
-import { validateEmail } from '@/lib/validator';
+import { validateEmail } from '@/_lib/validator';
 import { useState } from 'react';
 
 const Newsletter = ({ compact = false }: { compact?: boolean }) => {
