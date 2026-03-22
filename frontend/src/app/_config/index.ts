@@ -59,22 +59,9 @@ export const COOKIE_BOT_DOMAIN_GROUP_ID: string = getConfig(
   process.env.COOKIE_BOT_DOMAIN_GROUP_ID,
 );
 
-export const BOOKING_FEATURE_ENABLED: boolean =
-  getConfig(
-    'NEXT_PUBLIC_BOOKING_FEATURE_ENABLED',
-    process.env.NEXT_PUBLIC_BOOKING_FEATURE_ENABLED,
-  ) === 'true';
-
 export const API_BASE_PATH: string = getConfig(
   'NEXT_PUBLIC_API_BASE_PATH',
   process.env.NEXT_PUBLIC_API_BASE_PATH,
-);
-
-export const SLOTS_PER_PAGE_SIZE: number = Number(
-  getConfig(
-    'NEXT_PUBLIC_SLOTS_PER_PAGE_SIZE',
-    process.env.NEXT_PUBLIC_SLOTS_PER_PAGE_SIZE,
-  ),
 );
 
 export const APP_INSIGHTS_CONNECTION_STRING: string = getConfig(
