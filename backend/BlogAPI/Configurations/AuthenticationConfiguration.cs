@@ -1,4 +1,3 @@
-using System;
 using Application.Commands.Users;
 using Application.Common.Dtos;
 using Application.Common.Extensions;

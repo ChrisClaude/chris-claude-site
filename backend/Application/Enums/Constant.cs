@@ -1,5 +1,3 @@
-using System;
-
 namespace Application.Enums;
 
 public static class Constant

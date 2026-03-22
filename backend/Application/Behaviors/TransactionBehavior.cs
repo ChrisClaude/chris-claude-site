@@ -1,4 +1,3 @@
-using System;
 using Application.Interfaces;
 using MediatR;
 using Serilog;
