@@ -17,6 +17,7 @@ public static class UserMapper
             Email = user.Email,
             Image = user.Image,
             UserRoles = user.UserRoles.Select(x => x.MapToDto()).ToList(),
+            Bookmarks = user.Bookmarks?.Select(x => x.MapToDto()).ToList(),
         };
     }
 
