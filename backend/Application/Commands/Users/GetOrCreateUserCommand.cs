@@ -1,4 +1,3 @@
-using System;
 using Application.Common;
 using Application.Common.Dtos;
 using Application.Entities;
@@ -55,15 +54,10 @@ public class GetOrCreateUserCommandHandler(IRepository<User> userRepository)
             Email = request.Email,
             Name = request.Email.Split("@")[0],
             Surname = request.Email.Split("@")[0],
-            Bookmarks = new List<Bookmark>(),
-            Comments = new List<Comment>(),
-            PostReactions = new List<PostReaction>(),
-            Posts = new List<Post>(),
             UserRoles = new List<UserRole>()
             {
                 new() { Role = new Role { Name = RoleName.READER } },
             },
-            Image = "",
         };
 
         await userRepository.InsertAsync(newUser);
