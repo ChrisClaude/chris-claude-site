@@ -1,5 +1,5 @@
 'use client';
-import UIContext from '@/hooks/UIContext';
+import UIContext from '@/_hooks/UIContext';
 import { ReactNode, useContext } from 'react';
 
 const Main = ({ children }: { children: ReactNode }) => {

@@ -2,7 +2,7 @@
 
 import React, { Suspense } from 'react';
 import { Card, CardBody, Spinner } from '@heroui/react';
-import { useResumeViewer } from '@/hooks/useResumeViewer';
+import { useResumeViewer } from '@/_hooks/useResumeViewer';
 import ResumeList from '@/components/ResumeList/ResumeList';
 import ResumeViewer from '@/components/ResumeViewer/ResumeViewer';
 

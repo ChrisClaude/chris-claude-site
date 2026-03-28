@@ -1,9 +1,11 @@
 'use client';
-import UIContext from '@/hooks/UIContext';
+import UIContext from '@/_hooks/UIContext';
 import Link from 'next/link';
 import { useContext } from 'react';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import Logo from './Logo';
+import { Button } from '@heroui/react';
+import { useAuth } from '@/_hooks/useAuth';
 
 const Header = () => {
   const { uiState, setUIState } = useContext(UIContext);
@@ -15,6 +17,8 @@ const Header = () => {
     }
     setUIState?.({ ...uiState, isMobileNavOpen: !uiState.isMobileNavOpen });
   };
+
+  const { login, status } = useAuth();
 
   return (
     <header
@@ -37,6 +41,12 @@ const Header = () => {
             <Link href="/about">About</Link>
           </li>
         </ul>
+        <Button
+          onPress={login}
+          className="ml-2 px-4 py-2 rounded-lg text-sm font-medium bg-gray-900 text-white hover:bg-gray-700 transition-colors duration-200 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-200"
+        >
+          Login
+        </Button>
       </nav>
       <button
         className="md:hidden text-3xl opacity-70"

@@ -4,7 +4,7 @@ import Logo from './Logo';
 import { FaLinkedinIn, FaYoutube, FaInstagram, FaGithub } from 'react-icons/fa';
 import { RiTwitterXFill } from 'react-icons/ri';
 import { useContext } from 'react';
-import UIContext from '@/hooks/UIContext';
+import UIContext from '@/_hooks/UIContext';
 
 const Footer = () => {
   const { uiState } = useContext(UIContext);

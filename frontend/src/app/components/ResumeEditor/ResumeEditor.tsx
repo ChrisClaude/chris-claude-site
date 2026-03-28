@@ -15,7 +15,7 @@ import {
   useDisclosure,
   Progress,
 } from '@heroui/react';
-import { useResumeForm } from '../../hooks/useResumeForm';
+import { useResumeForm } from '../../_hooks/useResumeForm';
 import { validateResumeForm } from '../../utils/validation';
 import { ResumeData } from '../../types/resume';
 import PersonalInfoForm from './PersonalInfoForm';

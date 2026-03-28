@@ -1,5 +1,5 @@
 'use client';
-import UIContext from '@/hooks/UIContext';
+import UIContext from '@/_hooks/UIContext';
 import React, { useContext } from 'react';
 
 const AppWrapper = ({ children }: { children: React.ReactNode }) => {

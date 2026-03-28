@@ -3,7 +3,9 @@ import { Footer, Header, Main, SideNav } from './components';
 import AppWrapper from './components/AppWrapper';
 import ThemeProvider from './components/ThemeProvider';
 import './globals.css';
-import { UIContextProvider } from './hooks/UIContext';
+import { UIContextProvider } from './_hooks/UIContext';
+import { Provider } from 'react-redux';
+import Providers from './components/Providers';
 
 export const metadata = {
   title: 'Chris Claude',
@@ -24,9 +26,7 @@ export default function RootLayout({
         />
       </head>
       <body suppressHydrationWarning={true}>
-        <ThemeProvider>
-          <UIContextProvider>{children}</UIContextProvider>
-        </ThemeProvider>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

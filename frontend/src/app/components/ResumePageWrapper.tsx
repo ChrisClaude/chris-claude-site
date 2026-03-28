@@ -1,5 +1,5 @@
 'use client';
-import UIContext from '@/hooks/UIContext';
+import UIContext from '@/_hooks/UIContext';
 import { useContext, useEffect, Suspense } from 'react';
 import ResumeContent from '@/components/ResumeContent';
 

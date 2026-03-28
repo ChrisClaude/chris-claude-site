@@ -1,5 +1,5 @@
 'use client';
-import UIContext from '@/hooks/UIContext';
+import UIContext from '@/_hooks/UIContext';
 import Link from 'next/link';
 import { useContext } from 'react';
 import { FaGithub, FaInstagram, FaLinkedinIn, FaYoutube } from 'react-icons/fa';
