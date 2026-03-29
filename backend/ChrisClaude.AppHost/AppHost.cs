@@ -10,6 +10,7 @@ var api = builder
     .AddProject<Projects.BlogAPI>("blog-api")
     .WithReference(db)
     .WaitFor(db)
+    .WithHttpEndpoint(port: 5321, env: "API_PORT")
     .WithHttpHealthCheck("/healthz");
 
 var apiEndpoint = api.GetEndpoint("http");
@@ -18,7 +19,7 @@ var frontend = builder
     .AddNpmApp("frontend", "../../frontend", "dev")
     .WithReference(api)
     .WaitFor(api)
-    .WithHttpEndpoint(env: "PORT")
+    .WithHttpEndpoint(port: 3000, env: "PORT")
     .WithEnvironment("NEXT_PUBLIC_API_BASE_PATH", apiEndpoint);
 
 frontend.WithEnvironment("NEXTAUTH_URL", frontend.GetEndpoint("http"));
