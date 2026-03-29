@@ -17,8 +17,5 @@ public record AppConfigurations
 public record DBConfig
 {
     [Required]
-    public required string PostgresConnectionString { get; init; }
-
-    [Required]
     public required string SqlServerConnectionString { get; init; }
 }

@@ -29,7 +29,20 @@ public class CommentEntityTypeConfiguration : IEntityTypeConfiguration<Comment>
             .HasOne(x => x.Author)
             .WithMany(x => x.Comments)
             .HasForeignKey(x => x.AuthorId)
-            .OnDelete(DeleteBehavior.Cascade);
+            .OnDelete(DeleteBehavior.Restrict);
+
+        builder
+            .HasOne(x => x.CreatedByUser)
+            .WithMany()
+            .HasForeignKey(x => x.CreatedBy)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        builder
+            .HasOne(x => x.UpdatedByUser)
+            .WithMany()
+            .HasForeignKey(x => x.UpdatedBy)
+            .IsRequired(false)
+            .OnDelete(DeleteBehavior.Restrict);
 #pragma warning restore IDE0058
     }
 }

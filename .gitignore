@@ -321,3 +321,4 @@ obj/
 docs/.$System_Design.drawio.bkp
 backend/BlogAPI/appsettings.secrets.json
 backend/ChrisClaude.AppHost/.aspire/settings.json
+/.claude

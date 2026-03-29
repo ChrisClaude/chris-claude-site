@@ -23,7 +23,7 @@ public class PostReactionEntityTypeConfiguration : IEntityTypeConfiguration<Post
             .HasOne(x => x.User)
             .WithMany(x => x.PostReactions)
             .HasForeignKey(x => x.UserId)
-            .OnDelete(DeleteBehavior.Cascade);
+            .OnDelete(DeleteBehavior.Restrict);
 #pragma warning restore IDE0058
     }
 }

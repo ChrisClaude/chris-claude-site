@@ -1,6 +1,7 @@
 using Application.Entities;
 using Infrastructure.Data.Configurations;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
 
 namespace Infrastructure.Data;
 
@@ -48,3 +49,13 @@ public class ApplicationContext : DbContext
     }
 }
 #pragma warning restore IDE0058
+
+public class ApplicationContextDesignTimeFactory : IDesignTimeDbContextFactory<ApplicationContext>
+{
+    public ApplicationContext CreateDbContext(string[] args)
+    {
+        var optionsBuilder = new DbContextOptionsBuilder<ApplicationContext>();
+        optionsBuilder.UseSqlServer("Server=localhost;Database=blog-db;Trusted_Connection=True;");
+        return new ApplicationContext(optionsBuilder.Options);
+    }
+}

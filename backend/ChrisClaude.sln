@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChrisClaude.AppHost", "Chri
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChrisClaude.ServiceDefaults", "ChrisClaude.ServiceDefaults\ChrisClaude.ServiceDefaults.csproj", "{6C9499B9-BD89-4A6E-BF67-8C076E6FDF0C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MigrationService", "MigrationService\MigrationService.csproj", "{DD840DE4-6EC1-4587-937E-9731D0336B8A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -113,6 +115,18 @@ Global
 		{6C9499B9-BD89-4A6E-BF67-8C076E6FDF0C}.Release|x64.Build.0 = Release|Any CPU
 		{6C9499B9-BD89-4A6E-BF67-8C076E6FDF0C}.Release|x86.ActiveCfg = Release|Any CPU
 		{6C9499B9-BD89-4A6E-BF67-8C076E6FDF0C}.Release|x86.Build.0 = Release|Any CPU
+		{DD840DE4-6EC1-4587-937E-9731D0336B8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD840DE4-6EC1-4587-937E-9731D0336B8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD840DE4-6EC1-4587-937E-9731D0336B8A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{DD840DE4-6EC1-4587-937E-9731D0336B8A}.Debug|x64.Build.0 = Debug|Any CPU
+		{DD840DE4-6EC1-4587-937E-9731D0336B8A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DD840DE4-6EC1-4587-937E-9731D0336B8A}.Debug|x86.Build.0 = Debug|Any CPU
+		{DD840DE4-6EC1-4587-937E-9731D0336B8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD840DE4-6EC1-4587-937E-9731D0336B8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD840DE4-6EC1-4587-937E-9731D0336B8A}.Release|x64.ActiveCfg = Release|Any CPU
+		{DD840DE4-6EC1-4587-937E-9731D0336B8A}.Release|x64.Build.0 = Release|Any CPU
+		{DD840DE4-6EC1-4587-937E-9731D0336B8A}.Release|x86.ActiveCfg = Release|Any CPU
+		{DD840DE4-6EC1-4587-937E-9731D0336B8A}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

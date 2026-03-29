@@ -2,14 +2,19 @@ using ChrisClaude.AppHost;
 
 var builder = DistributedApplication.CreateBuilder(args);
 
-var postgres = builder.AddPostgres("postgres").WithDataVolume();
+var sqlserver = builder.AddSqlServer("sqlserver").WithDataVolume();
 
-var db = postgres.AddDatabase("blog-db");
+var db = sqlserver.AddDatabase("blog-db");
+
+var migrations = builder
+    .AddProject<Projects.MigrationService>("migrations")
+    .WithReference(db)
+    .WaitFor(db);
 
 var api = builder
     .AddProject<Projects.BlogAPI>("blog-api")
     .WithReference(db)
-    .WaitFor(db)
+    .WaitFor(migrations)
     .WithHttpHealthCheck("/healthz");
 
 var apiEndpoint = api.GetEndpoint("https");

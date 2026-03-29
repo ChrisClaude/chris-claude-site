@@ -15,6 +15,19 @@ public class NewsletterSignUpEntityTypeConfiguration : IEntityTypeConfiguration<
         builder.Property(x => x.Id).ValueGeneratedOnAdd();
         builder.Property(x => x.Email).IsRequired();
 
+        builder
+            .HasOne(x => x.CreatedByUser)
+            .WithMany()
+            .HasForeignKey(x => x.CreatedBy)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        builder
+            .HasOne(x => x.UpdatedByUser)
+            .WithMany()
+            .HasForeignKey(x => x.UpdatedBy)
+            .IsRequired(false)
+            .OnDelete(DeleteBehavior.Restrict);
+
 #pragma warning restore IDE0058
     }
 }

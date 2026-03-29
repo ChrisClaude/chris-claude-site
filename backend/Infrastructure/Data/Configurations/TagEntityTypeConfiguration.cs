@@ -15,6 +15,20 @@ public class TagEntityTypeConfiguration : IEntityTypeConfiguration<Tag>
         builder.Property(x => x.Name).HasMaxLength(100).IsRequired();
         builder.Property(x => x.CreatedAt).IsRequired();
         builder.Property(x => x.CreatedBy).IsRequired();
+
+        builder
+            .HasOne(x => x.CreatedByUser)
+            .WithMany()
+            .HasForeignKey(x => x.CreatedBy)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        builder
+            .HasOne(x => x.UpdatedByUser)
+            .WithMany()
+            .HasForeignKey(x => x.UpdatedBy)
+            .IsRequired(false)
+            .OnDelete(DeleteBehavior.Restrict);
+
 #pragma warning restore IDE0058
     }
 }

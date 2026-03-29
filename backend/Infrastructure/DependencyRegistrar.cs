@@ -16,7 +16,7 @@ public static class DependencyRegistrar
     {
 #pragma warning disable IDE0058
 
-        services.AddDbContextPool<ApplicationContext>(opt => opt.UseNpgsql(connectionString));
+        services.AddDbContextPool<ApplicationContext>(opt => opt.UseSqlServer(connectionString));
 #pragma warning restore IDE0058
 
         services.AddMemoryCache();

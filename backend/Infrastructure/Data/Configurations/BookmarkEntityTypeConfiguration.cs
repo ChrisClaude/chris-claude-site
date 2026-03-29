@@ -23,7 +23,7 @@ public class BookmarkEntityTypeConfiguration : IEntityTypeConfiguration<Bookmark
             .HasOne(x => x.User)
             .WithMany(x => x.Bookmarks)
             .HasForeignKey(x => x.UserId)
-            .OnDelete(DeleteBehavior.Cascade);
+            .OnDelete(DeleteBehavior.Restrict);
 #pragma warning restore IDE0058
     }
 }

@@ -29,9 +29,9 @@ internal static class WebApplicationConfiguration
 
         var connectionString =
             configuration.GetConnectionString("blog-db")
-            ?? appConfigurations.DBConfig?.PostgresConnectionString
+            ?? appConfigurations.DBConfig?.SqlServerConnectionString
             ?? throw new InvalidOperationException(
-                "No PostgreSQL connection string found. Provide 'ConnectionStrings:blog-db' (Aspire) or 'AppConfigurations:DBConfig:PostgresConnectionString'."
+                "No SQL Server connection string found. Provide 'ConnectionStrings:blog-db' (Aspire) or 'AppConfigurations:DBConfig:SqlServerConnectionString'."
             );
 
         services.Configure<AppConfigurations>(configuration.GetSection("AppConfigurations"));

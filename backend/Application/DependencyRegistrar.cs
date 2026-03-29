@@ -1,4 +1,6 @@
 using Application.Behaviors;
+using Application.Interfaces.Queries;
+using Application.Queries;
 using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,6 +19,8 @@ public static class DependencyRegistrar
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidatorBehavior<,>));
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(TransactionBehavior<,>));
+
+        services.AddScoped<IUserQueries, UserQueries>();
 
         services.AddHttpContextAccessor();
 

@@ -1,0 +1,3 @@
+# EF Core generates migration files — treat as generated code to skip analyzers
+[*.cs]
+generated_code = true
