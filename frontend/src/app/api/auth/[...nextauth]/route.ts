@@ -4,6 +4,7 @@ import {
   AZURE_AD_B2C_CLIENT_ID,
   AZURE_AD_B2C_CLIENT_SECRET,
   AZURE_AD_B2C_PRIMARY_USER_FLOW,
+  AZURE_AD_B2C_TENANT_ID,
   AZURE_AD_B2C_TENANT_NAME,
   NEXT_PUBLIC_TENANT_DOMAIN,
 } from '@/_config';
@@ -24,12 +25,12 @@ const handler = NextAuth({
       id: 'azure-ad-b2c',
       name: 'Azure AD B2C',
       type: 'oauth',
-      wellKnown: `https://${NEXT_PUBLIC_TENANT_DOMAIN}/${AZURE_AD_B2C_TENANT_NAME}.onmicrosoft.com/v2.0/.well-known/openid-configuration`,
+      wellKnown: `https://${NEXT_PUBLIC_TENANT_DOMAIN}/${AZURE_AD_B2C_TENANT_ID}/v2.0/.well-known/openid-configuration`,
       clientId: AZURE_AD_B2C_CLIENT_ID,
       clientSecret: AZURE_AD_B2C_CLIENT_SECRET,
       authorization: {
         params: {
-          scope: `offline_access openid https://${AZURE_AD_B2C_TENANT_NAME}.onmicrosoft.com/${AZURE_AD_B2C_API_SCOPE}`,
+          scope: `offline_access openid ${AZURE_AD_B2C_API_SCOPE}`,
         },
       },
       checks: ['pkce'],
@@ -154,13 +155,10 @@ async function refreshAccessToken(token: JWT) {
     params.append('client_id', process.env.AUTH_AZURE_AD_B2C_ID as string);
     params.append('refresh_token', token.refreshToken as string);
     params.append('grant_type', 'refresh_token');
-    params.append(
-      'scope',
-      `openid offline_access https://${AZURE_AD_B2C_TENANT_NAME}.onmicrosoft.com/${AZURE_AD_B2C_API_SCOPE}`,
-    );
+    params.append('scope', `openid offline_access ${AZURE_AD_B2C_API_SCOPE}`);
 
     const response = await fetch(
-      `https://${NEXT_PUBLIC_TENANT_DOMAIN}/${AZURE_AD_B2C_TENANT_NAME}.onmicrosoft.com/oauth2/v2.0/token`,
+      `https://${NEXT_PUBLIC_TENANT_DOMAIN}/${AZURE_AD_B2C_TENANT_ID}/oauth2/v2.0/token`,
       {
         method: 'POST',
         headers: {

@@ -29,6 +29,11 @@ export const AZURE_AD_B2C_TENANT_NAME: string = getConfig(
   process.env.NEXT_PUBLIC_AZURE_AD_B2C_TENANT_NAME,
 );
 
+export const AZURE_AD_B2C_TENANT_ID: string = getConfig(
+  'AZURE_AD_B2C_TENANT_ID',
+  process.env.NEXT_PUBLIC_AZURE_AD_B2C_TENANT_ID,
+);
+
 export const AZURE_AD_B2C_CLIENT_ID: string = getConfig(
   'AZURE_AD_B2C_CLIENT_ID',
   process.env.NEXT_PUBLIC_AZURE_AD_B2C_CLIENT_ID,
