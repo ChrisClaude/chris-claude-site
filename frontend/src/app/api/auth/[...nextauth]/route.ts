@@ -1,4 +1,3 @@
-import AzureADB2CProvider from 'next-auth/providers/azure-ad-b2c';
 import NextAuth, { Account, Profile, Session, User } from 'next-auth';
 import {
   AZURE_AD_B2C_API_SCOPE,
@@ -15,23 +14,34 @@ import { JWT } from 'next-auth/jwt';
 import { AdapterUser } from 'next-auth/adapters';
 import { isANumber } from '@/_lib/common.utils';
 
+console.log(
+  `======> https://${NEXT_PUBLIC_TENANT_DOMAIN}/${AZURE_AD_B2C_TENANT_NAME}.onmicrosoft.com/oauth2/v2.0/authorize?p=${AZURE_AD_B2C_PRIMARY_USER_FLOW}`,
+);
+
 const handler = NextAuth({
   providers: [
-    AzureADB2CProvider({
-      tenantId: AZURE_AD_B2C_TENANT_NAME,
+    {
+      id: 'azure-ad-b2c',
+      name: 'Azure AD B2C',
+      type: 'oauth',
+      wellKnown: `https://${NEXT_PUBLIC_TENANT_DOMAIN}/${AZURE_AD_B2C_TENANT_NAME}.onmicrosoft.com/v2.0/.well-known/openid-configuration`,
       clientId: AZURE_AD_B2C_CLIENT_ID,
       clientSecret: AZURE_AD_B2C_CLIENT_SECRET,
-      primaryUserFlow: AZURE_AD_B2C_PRIMARY_USER_FLOW,
-      issuer: `https://${NEXT_PUBLIC_TENANT_DOMAIN}/${AZURE_AD_B2C_TENANT_NAME}.onmicrosoft.com/${AZURE_AD_B2C_PRIMARY_USER_FLOW}/v2.0`,
       authorization: {
-        url: `https://${NEXT_PUBLIC_TENANT_DOMAIN}/${AZURE_AD_B2C_TENANT_NAME}.onmicrosoft.com/oauth2/v2.0/authorize?p=${AZURE_AD_B2C_PRIMARY_USER_FLOW}`,
         params: {
           scope: `offline_access openid https://${AZURE_AD_B2C_TENANT_NAME}.onmicrosoft.com/${AZURE_AD_B2C_API_SCOPE}`,
-          p: AZURE_AD_B2C_PRIMARY_USER_FLOW,
         },
       },
       checks: ['pkce'],
-    }),
+      idToken: true,
+      profile(profile) {
+        return {
+          id: profile.sub,
+          name: profile.name,
+          email: profile.email,
+        };
+      },
+    },
   ],
 
   pages: {
@@ -150,7 +160,7 @@ async function refreshAccessToken(token: JWT) {
     );
 
     const response = await fetch(
-      `https://${NEXT_PUBLIC_TENANT_DOMAIN}/${AZURE_AD_B2C_TENANT_NAME}.onmicrosoft.com/${AZURE_AD_B2C_PRIMARY_USER_FLOW}/oauth2/v2.0/token`,
+      `https://${NEXT_PUBLIC_TENANT_DOMAIN}/${AZURE_AD_B2C_TENANT_NAME}.onmicrosoft.com/oauth2/v2.0/token`,
       {
         method: 'POST',
         headers: {

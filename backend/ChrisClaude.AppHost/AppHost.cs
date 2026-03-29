@@ -14,12 +14,14 @@ var api = builder
 
 var apiEndpoint = api.GetEndpoint("http");
 
-builder
+var frontend = builder
     .AddNpmApp("frontend", "../../frontend", "dev")
     .WithReference(api)
     .WaitFor(api)
     .WithHttpEndpoint(env: "PORT")
     .WithEnvironment("NEXT_PUBLIC_API_BASE_PATH", apiEndpoint);
+
+frontend.WithEnvironment("NEXTAUTH_URL", frontend.GetEndpoint("http"));
 
 var frontendDir = Path.GetFullPath(Path.Combine(builder.AppHostDirectory, "..", "..", "frontend"));
 
