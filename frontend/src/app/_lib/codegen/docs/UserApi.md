@@ -1,6 +1,6 @@
 # UserApi
 
-All URIs are relative to *https://localhost:52595*
+All URIs are relative to *https://localhost:60135*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
