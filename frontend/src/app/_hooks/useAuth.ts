@@ -93,6 +93,6 @@ export const useAuth = () => {
     isFetchingUserProfile,
     errorFetchingUserProfile,
     isAdmin,
-    isCustomer: isReader,
+    isReader,
   };
 };
