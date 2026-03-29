@@ -45,16 +45,8 @@ internal static class HealthChecksConfiguration
             appConfigurations != null
             && appConfigurations.AzureAdB2C != null
             && IsValid(
-                appConfigurations.AzureAdB2C.Instance,
-                nameof(appConfigurations.AzureAdB2C.Instance)
-            )
-            && IsValid(
-                appConfigurations.AzureAdB2C.Domain,
-                nameof(appConfigurations.AzureAdB2C.Domain)
-            )
-            && IsValid(
-                appConfigurations.AzureAdB2C.SignUpSignInPolicyId,
-                nameof(appConfigurations.AzureAdB2C.SignUpSignInPolicyId)
+                appConfigurations.AzureAdB2C.TenantId,
+                nameof(appConfigurations.AzureAdB2C.TenantId)
             )
             && IsValid(
                 appConfigurations.AzureAdB2C.ClientId,
@@ -68,8 +60,9 @@ internal static class HealthChecksConfiguration
         {
             try
             {
+                var tenantId = appConfigurations.AzureAdB2C.TenantId;
                 var uriString =
-                    $"{appConfigurations.AzureAdB2C.Instance}/{appConfigurations.AzureAdB2C.TenantId}/v2.0/.well-known/openid-configuration?appid={appConfigurations.AzureAdB2C.ClientId}";
+                    $"https://{tenantId}.ciamlogin.com/{tenantId}/v2.0/.well-known/openid-configuration?appid={appConfigurations.AzureAdB2C.ClientId}";
                 var uri = new Uri(uriString);
                 var tags = new[] { "auth" };
 
@@ -85,10 +78,8 @@ internal static class HealthChecksConfiguration
             {
                 Log.Error(
                     ex,
-                    "Invalid Azure AD B2C configuration for health checks: {Instance}, {Domain}, {PolicyId}",
-                    appConfigurations.AzureAdB2C.Instance,
-                    appConfigurations.AzureAdB2C.Domain,
-                    appConfigurations.AzureAdB2C.SignUpSignInPolicyId
+                    "Invalid CIAM configuration for health checks: {TenantId}",
+                    appConfigurations.AzureAdB2C.TenantId
                 );
             }
         }

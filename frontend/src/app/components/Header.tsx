@@ -18,7 +18,7 @@ const Header = () => {
     setUIState?.({ ...uiState, isMobileNavOpen: !uiState.isMobileNavOpen });
   };
 
-  const { login, status } = useAuth();
+  const { login, isUserSignedIn, userProfile } = useAuth();
 
   return (
     <header
@@ -41,12 +41,16 @@ const Header = () => {
             <Link href="/about">About</Link>
           </li>
         </ul>
-        <Button
-          onPress={login}
-          className="ml-2 px-4 py-2 rounded-lg text-sm font-medium bg-gray-900 text-white hover:bg-gray-700 transition-colors duration-200 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-200"
-        >
-          Login
-        </Button>
+        {isUserSignedIn ? (
+          <div>{userProfile?.name}</div>
+        ) : (
+          <Button
+            onPress={login}
+            className="ml-2 px-4 py-2 rounded-lg text-sm font-medium bg-gray-900 text-white hover:bg-gray-700 transition-colors duration-200 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-200"
+          >
+            Login
+          </Button>
+        )}
       </nav>
       <button
         className="md:hidden text-3xl opacity-70"

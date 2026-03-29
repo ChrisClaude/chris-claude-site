@@ -17,12 +17,18 @@ internal static class AuthenticationConfiguration
         ConfigurationManager configuration
     )
     {
+        var tenantId =
+            configuration["AppConfigurations:AzureAdB2C:TenantId"]
+            ?? throw new InvalidOperationException("AzureAdB2C:TenantId is not configured.");
+        var authority = $"https://{tenantId}.ciamlogin.com/{tenantId}/v2.0";
+
         services
             .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddMicrosoftIdentityWebApi(
                 options =>
                 {
                     configuration.Bind("AppConfigurations:AzureAdB2C", options);
+                    options.Authority = authority;
                     options.TokenValidationParameters.NameClaimType = "name";
                     options.Events = new JwtBearerEvents
                     {
@@ -32,6 +38,7 @@ internal static class AuthenticationConfiguration
                 options =>
                 {
                     configuration.Bind("AppConfigurations:AzureAdB2C", options);
+                    options.Authority = authority;
                 }
             );
 

@@ -176,11 +176,15 @@ export class BaseAPI {
       // do not handle correctly sometimes.
       url += '?' + this.configuration.queryParamsStringify(context.query);
     }
-
+    const accessToken = this.configuration.accessToken;
+    const token = accessToken !== undefined ? await accessToken() : undefined;
     const headers = Object.assign(
       {},
       this.configuration.headers,
       context.headers,
+      {
+        Authorization: `Bearer ${token}`,
+      },
     );
     Object.keys(headers).forEach(key =>
       headers[key] === undefined ? delete headers[key] : {},
