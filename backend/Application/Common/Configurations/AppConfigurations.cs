@@ -5,8 +5,7 @@ namespace Application.Common.Configurations;
 
 public record AppConfigurations
 {
-    [Required]
-    public required DBConfig DBConfig { get; init; }
+    public DBConfig? DBConfig { get; init; }
 
     [Required]
     public required Collection<string> AllowedCorsOrigins { get; init; }

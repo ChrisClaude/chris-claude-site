@@ -153,6 +153,7 @@ async function refreshAccessToken(token: JWT) {
   try {
     const params = new URLSearchParams();
     params.append('client_id', process.env.AUTH_AZURE_AD_B2C_ID as string);
+    params.append('client_secret', AZURE_AD_B2C_CLIENT_SECRET);
     params.append('refresh_token', token.refreshToken as string);
     params.append('grant_type', 'refresh_token');
     params.append('scope', `openid offline_access ${AZURE_AD_B2C_API_SCOPE}`);
@@ -170,14 +171,20 @@ async function refreshAccessToken(token: JWT) {
 
     const refreshedTokens = await response.json();
 
+    if (!response.ok) {
+      throw new Error(
+        refreshedTokens.error_description ?? 'Failed to refresh access token',
+      );
+    }
+
     return {
       ...token,
       accessToken: refreshedTokens.access_token,
       accessTokenExpires: Date.now() + refreshedTokens.expires_in * 1000,
       refreshToken: refreshedTokens.refresh_token ?? token.refreshToken, // Fall back to the old refresh token if none is returned
-      refreshTokenExpiresIn: refreshedTokens.refresh_token_expires_in
+      refreshTokenExpires: refreshedTokens.refresh_token_expires_in
         ? Date.now() + refreshedTokens.refresh_token_expires_in * 1000
-        : token.refreshTokenExpiresIn,
+        : token.refreshTokenExpires,
     };
   } catch (error) {
     logError(

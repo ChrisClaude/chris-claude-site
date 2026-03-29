@@ -2,9 +2,9 @@ using ChrisClaude.AppHost;
 
 var builder = DistributedApplication.CreateBuilder(args);
 
-var sqlServer = builder.AddSqlServer("sql-server").WithDataVolume();
+var postgres = builder.AddPostgres("postgres").WithDataVolume();
 
-var db = sqlServer.AddDatabase("blog-db");
+var db = postgres.AddDatabase("blog-db");
 
 var api = builder
     .AddProject<Projects.BlogAPI>("blog-api")

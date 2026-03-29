@@ -27,6 +27,13 @@ internal static class WebApplicationConfiguration
                 "AppConfigurations section is missing in configuration."
             );
 
+        var connectionString =
+            configuration.GetConnectionString("blog-db")
+            ?? appConfigurations.DBConfig?.PostgresConnectionString
+            ?? throw new InvalidOperationException(
+                "No PostgreSQL connection string found. Provide 'ConnectionStrings:blog-db' (Aspire) or 'AppConfigurations:DBConfig:PostgresConnectionString'."
+            );
+
         services.Configure<AppConfigurations>(configuration.GetSection("AppConfigurations"));
         services.AddOptions();
 
@@ -54,7 +61,7 @@ internal static class WebApplicationConfiguration
 
         services
             .AddApplication()
-            .AddInfrastructure(appConfigurations)
+            .AddInfrastructure(connectionString)
             .ConfigureCors(appConfigurations, CORS_POLICY_NAME)
             .ConfigureAuthentication(configuration)
             .ConfigureAuthorization()

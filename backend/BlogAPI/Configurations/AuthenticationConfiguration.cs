@@ -53,8 +53,12 @@ internal static class AuthenticationConfiguration
                 context.HttpContext.RequestServices.GetRequiredService<IMediator>()
                 ?? throw new InvalidOperationException("Could not get service to retrieve user.");
 
-            var userEmail = context
-                ?.Principal?.Claims.FirstOrDefault(claim => claim.Type == "emails")
+            var userEmail = context?.Principal?.Claims
+                .FirstOrDefault(c =>
+                    c.Type == "emails" ||
+                    c.Type == "email" ||
+                    c.Type == "preferred_username" ||
+                    c.Type == "upn")
                 ?.Value;
 
             if (string.IsNullOrEmpty(userEmail))
@@ -69,39 +73,11 @@ internal static class AuthenticationConfiguration
         catch (HttpContextUserLoadingProcessFailureException ex)
         {
             Log.Error(ex, "Error occurred during user loading.");
-
-            context.Response.StatusCode = StatusCodes.Status401Unauthorized;
-
-            if (!context.Response.HasStarted)
-            {
-                context.Response.ContentType = "application/json";
-                await context.Response.StartAsync();
-            }
-
-            await context.Response.WriteAsync("Failed to load user: " + ex.Message);
-
-            await context.Response.CompleteAsync();
-
             context.Fail(ex);
         }
         catch (InvalidOperationException ex)
         {
             Log.Error(ex, "An error occurred during the authentication process.");
-
-            context.Response.StatusCode = StatusCodes.Status500InternalServerError;
-
-            if (!context.Response.HasStarted)
-            {
-                context.Response.ContentType = "application/json";
-                await context.Response.StartAsync();
-            }
-
-            await context.Response.WriteAsync(
-                "An error occurred during the authentication process: " + ex.Message
-            );
-
-            await context.Response.CompleteAsync();
-
             context.Fail(ex);
         }
     }
