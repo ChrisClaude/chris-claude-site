@@ -1,16 +1,15 @@
 import { useSession } from 'next-auth/react';
-import { useMemo } from 'react';
+import { useMemo, useCallback } from 'react';
 import {
   NEXT_PUBLIC_TENANT_DOMAIN,
   AZURE_AD_B2C_TENANT_NAME,
   AZURE_AD_B2C_PRIMARY_USER_FLOW,
 } from '@/_config';
 import { signIn, signOut } from 'next-auth/react';
-import { useCallback } from 'react';
 import { UserSession } from '@/_lib/types/common.types';
-import { useGetUserProfileQuery } from '@/_lib/queries';
-import { UserDto } from '@/_lib/codegen';
-import { QueryResult } from '@/_lib/queries/rtk.types';
+import { useQuery } from '@apollo/client';
+import { GET_ME } from '@/_lib/graphql/queries/user';
+import { UserDto } from '@/_lib/graphql/types';
 import { ROLES } from '@/_lib/enums/constant';
 
 export type Profile = {
@@ -22,13 +21,16 @@ export type Profile = {
 
 export const useAuth = () => {
   const { data, status } = useSession();
+
   const {
-    data: userProfile,
-    isFetching: isFetchingUserProfile,
+    data: meData,
+    loading: isFetchingUserProfile,
     error: errorFetchingUserProfile,
-  } = useGetUserProfileQuery<QueryResult<UserDto>>({
-    keepUnusedDataFor: 10 * 60, // 10 minutes
+  } = useQuery<{ me: UserDto }>(GET_ME, {
+    skip: status !== 'authenticated',
   });
+
+  const userProfile = meData?.me ?? null;
 
   const isUserSignedIn = useMemo(() => {
     return status === 'authenticated';
@@ -68,11 +70,6 @@ export const useAuth = () => {
     );
   }, [userProfile]);
 
-  /**
-   * This method checks if the logged in user has any of the roles provided in the array.
-   * @param roles array of roles to check
-   * @returns true if the logged in user has any of the roles, false otherwise
-   */
   const containsRoles = useCallback(
     (roles: string[]) => {
       return userProfile?.userRoles?.some(userRole =>

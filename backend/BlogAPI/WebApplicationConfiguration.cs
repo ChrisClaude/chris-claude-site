@@ -2,11 +2,10 @@ using System.Globalization;
 using Application;
 using Application.Common.Configurations;
 using BlogAPI.Configurations;
+using BlogAPI.GraphQL.Queries;
 using BlogAPI.Middleware;
 using Infrastructure;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.HttpOverrides;
-using Microsoft.AspNetCore.Mvc.Authorization;
 using Serilog;
 using Serilog.Events;
 
@@ -45,19 +44,7 @@ internal static class WebApplicationConfiguration
             options.KnownProxies.Clear();
         });
 
-        services
-            .AddControllers(options =>
-            {
-                var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
-                options.Filters.Add(new AuthorizeFilter(policy));
-            })
-            .AddNewtonsoftJson(options =>
-            {
-                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft
-                    .Json
-                    .ReferenceLoopHandling
-                    .Ignore;
-            });
+        services.AddHttpContextAccessor();
 
         services
             .AddApplication()
@@ -67,11 +54,15 @@ internal static class WebApplicationConfiguration
             .ConfigureAuthorization()
             .ConfigureHealthChecks(appConfigurations)
             .ConfigureRateLimiter()
-            .AddEndpointsApiExplorer()
-            .AddOpenApi()
             .AddExceptionHandler<GlobalExceptionHandler>()
             .AddProblemDetails()
             .AddMemoryCache();
+
+        services
+            .AddGraphQLServer()
+            .AddQueryType()
+            .AddTypeExtension(typeof(UserQuery))
+            .AddAuthorization();
 
         builder.Host.UseSerilog(
             (context, _, configuration) =>
@@ -106,11 +97,6 @@ internal static class WebApplicationConfiguration
         // rate limiter partition and the limit would apply collectively across all clients.
         app.UseForwardedHeaders();
 
-        if (app.Environment.IsDevelopment())
-        {
-            app.UseScalar();
-        }
-
         app.MapHealthChecks("/healthz", HealthChecksConfiguration.HealthCheckOptions);
         app.UseCors(CORS_POLICY_NAME);
         app.UseSerilogRequestLogging();
@@ -122,7 +108,7 @@ internal static class WebApplicationConfiguration
 
         app.UseAuthentication();
         app.UseAuthorization();
-        app.MapControllers();
+        app.MapGraphQL();
 
         return app;
     }

@@ -30,6 +30,6 @@ frontend.WithEnvironment("NEXTAUTH_URL", frontend.GetEndpoint("http"));
 
 var frontendDir = Path.GetFullPath(Path.Combine(builder.AppHostDirectory, "..", "..", "frontend"));
 
-ApiClientGenerator.SubscribeToApiReady(builder, api, apiEndpoint, frontendDir);
+GraphQLCodeGenerator.SubscribeToApiReady(builder, api, apiEndpoint, frontendDir);
 
 await builder.Build().RunAsync();

@@ -1,6 +1,7 @@
 {
   "extends": ["next/core-web-vitals", "prettier"],
   "plugins": ["prettier"],
+  "ignorePatterns": ["src/**/__generated__/**"],
   "rules": {
     "prettier/prettier": "error",
     "comma-dangle": ["error", "always-multiline"],

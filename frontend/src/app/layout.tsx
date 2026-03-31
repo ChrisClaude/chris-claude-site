@@ -1,10 +1,5 @@
 import Script from 'next/script';
-import { Footer, Header, Main, SideNav } from './components';
-import AppWrapper from './components/AppWrapper';
-import ThemeProvider from './components/ThemeProvider';
 import './globals.css';
-import { UIContextProvider } from './_hooks/UIContext';
-import { Provider } from 'react-redux';
 import Providers from './components/Providers';
 
 export const metadata = {
