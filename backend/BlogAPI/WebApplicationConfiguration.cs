@@ -2,6 +2,7 @@ using System.Globalization;
 using Application;
 using Application.Common.Configurations;
 using BlogAPI.Configurations;
+using BlogAPI.GraphQL;
 using BlogAPI.GraphQL.Queries;
 using BlogAPI.Middleware;
 using Infrastructure;
@@ -57,6 +58,8 @@ internal static class WebApplicationConfiguration
             .AddExceptionHandler<GlobalExceptionHandler>()
             .AddProblemDetails()
             .AddMemoryCache();
+
+        services.AddHttpResponseFormatter<GraphQLHttpResponseFormatter>();
 
         services
             .AddGraphQLServer()
