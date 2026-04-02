@@ -5,7 +5,7 @@ const Logo = () => (
     <Image
       src="/ChrisClaude_logo.svg"
       width={55}
-      height={55}
+      height={41}
       alt="Chris Claude Logo"
       className="mr-2"
     />
