@@ -13,14 +13,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <Script
           src="https://yarrowyard.bily.chat/b.js?shop=chrisclaude.com"
           referrerPolicy="strict-origin-when-cross-origin"
         />
       </head>
-      <body suppressHydrationWarning={true}>
+      <body>
         <Providers>{children}</Providers>
       </body>
     </html>
