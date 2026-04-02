@@ -15,10 +15,6 @@ import { JWT } from 'next-auth/jwt';
 import { AdapterUser } from 'next-auth/adapters';
 import { isANumber } from '@/_lib/common.utils';
 
-console.log(
-  `======> https://${NEXT_PUBLIC_TENANT_DOMAIN}/${AZURE_AD_B2C_TENANT_NAME}.onmicrosoft.com/oauth2/v2.0/authorize?p=${AZURE_AD_B2C_PRIMARY_USER_FLOW}`,
-);
-
 const handler = NextAuth({
   providers: [
     {
