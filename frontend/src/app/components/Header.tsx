@@ -49,24 +49,31 @@ const Header = () => {
           </li>
         </ul>
         {isUserSignedIn ? (
-          <Dropdown placement="bottom-end">
+          <Dropdown>
             <DropdownTrigger>
               <Avatar
-                as="button"
                 className="ml-2 cursor-pointer transition-transform"
                 size="sm"
-                src={userProfile?.image ?? undefined}
-                name={userProfile?.name ?? undefined}
-              />
+              >
+                {userProfile?.image ? (
+                  <Avatar.Image
+                    src={userProfile.image}
+                    alt={userProfile?.name ?? 'User avatar'}
+                  />
+                ) : null}
+                <Avatar.Fallback>
+                  {userProfile?.name?.slice(0, 1)?.toUpperCase() ?? 'U'}
+                </Avatar.Fallback>
+              </Avatar>
             </DropdownTrigger>
             <DropdownMenu aria-label="User menu">
-              <DropdownItem key="profile" href="/profile">
+              <DropdownItem key="profile" id="profile" href="/profile">
                 Profile
               </DropdownItem>
               <DropdownItem
                 key="logout"
+                id="logout"
                 className="text-danger"
-                color="danger"
                 onPress={logout}
               >
                 Log out

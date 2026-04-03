@@ -1,7 +1,7 @@
 'use client';
 import { SessionProvider } from 'next-auth/react';
 import React from 'react';
-import { HeroUIProvider, ToastProvider } from '@heroui/react';
+import { ToastProvider } from '@heroui/react';
 import { ApolloProvider } from '@apollo/client';
 import { apolloClient } from '@/_lib/apollo/client';
 import { UIContextProvider } from '@/_hooks/UIContext';
@@ -9,16 +9,14 @@ import { ThemeProvider } from 'next-themes';
 
 const Providers = ({ children }: { children: React.ReactNode }) => {
   return (
-    <HeroUIProvider>
-      <ApolloProvider client={apolloClient}>
-        <SessionProvider>
-          <ThemeProvider>
-            <ToastProvider />
-            <UIContextProvider>{children}</UIContextProvider>
-          </ThemeProvider>
-        </SessionProvider>
-      </ApolloProvider>
-    </HeroUIProvider>
+    <ApolloProvider client={apolloClient}>
+      <SessionProvider>
+        <ThemeProvider>
+          <ToastProvider />
+          <UIContextProvider>{children}</UIContextProvider>
+        </ThemeProvider>
+      </SessionProvider>
+    </ApolloProvider>
   );
 };
 

@@ -1,14 +1,13 @@
 import React from 'react';
 import {
   Card,
-  CardBody,
+  CardContent,
   CardHeader,
-  Input,
-  Textarea,
   Button,
 } from '@heroui/react';
 import { NotableProject } from '../../types/resume';
 import { PlusIcon, TrashIcon } from '@heroicons/react/24/outline';
+import { Input, TextArea } from './FormFields';
 
 interface NotableProjectsFormProps {
   notableProjects: NotableProject[];
@@ -52,15 +51,14 @@ const NotableProjectsForm: React.FC<NotableProjectsFormProps> = ({
           Notable Projects
         </h3>
         <Button
-          color="primary"
-          variant="flat"
-          startContent={<PlusIcon className="w-4 h-4" />}
+          variant="secondary"
           onPress={addProject}
         >
+          <PlusIcon className="mr-2 h-4 w-4" />
           Add Project
         </Button>
       </CardHeader>
-      <CardBody className="space-y-6 bg-white">
+      <CardContent className="space-y-6 bg-white">
         {errors.length > 0 && (
           <div className="bg-red-50 border border-red-200 rounded-md p-3">
             <ul className="text-sm text-red-600 space-y-1">
@@ -79,16 +77,15 @@ const NotableProjectsForm: React.FC<NotableProjectsFormProps> = ({
                 {project.title && ` - ${project.title}`}
               </h4>
               <Button
-                color="danger"
-                variant="light"
+                variant="ghost"
                 size="sm"
-                startContent={<TrashIcon className="w-4 h-4" />}
                 onPress={() => removeProject(index)}
               >
+                <TrashIcon className="mr-2 h-4 w-4" />
                 Remove
               </Button>
             </CardHeader>
-            <CardBody className="space-y-4 bg-white">
+            <CardContent className="space-y-4 bg-white">
               <Input
                 label="Project Title"
                 placeholder="e.g., E-commerce Platform"
@@ -124,7 +121,7 @@ const NotableProjectsForm: React.FC<NotableProjectsFormProps> = ({
                 labelPlacement="outside"
               />
 
-              <Textarea
+              <TextArea
                 label="Project Description"
                 placeholder="Describe the project, technologies used, and your role..."
                 value={project.description}
@@ -144,7 +141,7 @@ const NotableProjectsForm: React.FC<NotableProjectsFormProps> = ({
                 }}
                 labelPlacement="outside"
               />
-            </CardBody>
+            </CardContent>
           </Card>
         ))}
 
@@ -156,7 +153,7 @@ const NotableProjectsForm: React.FC<NotableProjectsFormProps> = ({
             </p>
           </div>
         )}
-      </CardBody>
+      </CardContent>
     </Card>
   );
 };

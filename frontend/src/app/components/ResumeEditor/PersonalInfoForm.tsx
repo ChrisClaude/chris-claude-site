@@ -1,6 +1,7 @@
 import React from 'react';
-import { Card, CardBody, CardHeader, Input, Textarea } from '@heroui/react';
+import { Card, CardContent, CardHeader } from '@heroui/react';
 import { PersonalInfo } from '../../types/resume';
+import { Input } from './FormFields';
 
 interface PersonalInfoFormProps {
   personalInfo: PersonalInfo;
@@ -40,7 +41,7 @@ const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({
           Personal Information
         </h3>
       </CardHeader>
-      <CardBody className="space-y-4 bg-white">
+      <CardContent className="space-y-4 bg-white">
         {errors.length > 0 && (
           <div className="bg-red-50 border border-red-200 rounded-md p-3">
             <ul className="text-sm text-red-600 space-y-1">
@@ -210,7 +211,7 @@ const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({
             />
           </div>
         </div>
-      </CardBody>
+      </CardContent>
     </Card>
   );
 };

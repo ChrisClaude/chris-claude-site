@@ -1,7 +1,8 @@
 import React from 'react';
-import { Card, CardBody, CardHeader, Input, Button } from '@heroui/react';
+import { Card, CardContent, CardHeader, Button } from '@heroui/react';
 import { Education } from '../../types/resume';
 import { PlusIcon, TrashIcon } from '@heroicons/react/24/outline';
+import { Input } from './FormFields';
 
 interface EducationFormProps {
   education: Education[];
@@ -46,15 +47,14 @@ const EducationForm: React.FC<EducationFormProps> = ({
       <CardHeader className="flex flex-row items-center justify-between bg-white">
         <h3 className="text-xl font-semibold text-gray-900">Education</h3>
         <Button
-          color="primary"
-          variant="flat"
-          startContent={<PlusIcon className="w-4 h-4" />}
+          variant="secondary"
           onPress={addEducation}
         >
+          <PlusIcon className="mr-2 h-4 w-4" />
           Add Education
         </Button>
       </CardHeader>
-      <CardBody className="space-y-6 bg-white">
+      <CardContent className="space-y-6 bg-white">
         {errors.length > 0 && (
           <div className="bg-red-50 border border-red-200 rounded-md p-3">
             <ul className="text-sm text-red-600 space-y-1">
@@ -73,16 +73,15 @@ const EducationForm: React.FC<EducationFormProps> = ({
                 {edu.degree && ` - ${edu.degree}`}
               </h4>
               <Button
-                color="danger"
-                variant="light"
+                variant="ghost"
                 size="sm"
-                startContent={<TrashIcon className="w-4 h-4" />}
                 onPress={() => removeEducation(index)}
               >
+                <TrashIcon className="mr-2 h-4 w-4" />
                 Remove
               </Button>
             </CardHeader>
-            <CardBody className="space-y-4 bg-white">
+            <CardContent className="space-y-4 bg-white">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <Input
                   label="Degree"
@@ -203,7 +202,7 @@ const EducationForm: React.FC<EducationFormProps> = ({
                   labelPlacement="outside"
                 />
               </div>
-            </CardBody>
+            </CardContent>
           </Card>
         ))}
 
@@ -215,7 +214,7 @@ const EducationForm: React.FC<EducationFormProps> = ({
             </p>
           </div>
         )}
-      </CardBody>
+      </CardContent>
     </Card>
   );
 };

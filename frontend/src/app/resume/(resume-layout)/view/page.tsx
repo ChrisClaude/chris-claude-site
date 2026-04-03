@@ -1,7 +1,7 @@
 'use client';
 
 import React, { Suspense } from 'react';
-import { Card, CardBody, Spinner } from '@heroui/react';
+import { Card, CardContent, Spinner } from '@heroui/react';
 import { useResumeViewer } from '@/_hooks/useResumeViewer';
 import ResumeList from '@/components/ResumeList/ResumeList';
 import ResumeViewer from '@/components/ResumeViewer/ResumeViewer';
@@ -55,7 +55,7 @@ const ResumeViewPageContent = () => {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50 p-4">
         <Card className="max-w-md w-full">
-          <CardBody className="text-center py-8">
+          <CardContent className="text-center py-8">
             <div className="bg-red-50 border border-red-200 rounded-lg p-4">
               <h3 className="text-lg font-semibold text-red-800 mb-2">
                 Error Loading Resume
@@ -68,7 +68,7 @@ const ResumeViewPageContent = () => {
                 Dismiss
               </button>
             </div>
-          </CardBody>
+          </CardContent>
         </Card>
       </div>
     );
@@ -78,8 +78,9 @@ const ResumeViewPageContent = () => {
   if (isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
-        <div className="text-center">
-          <Spinner size="lg" label="Loading resume..." />
+        <div className="text-center space-y-2">
+          <Spinner size="lg" />
+          <p className="text-sm text-gray-500">Loading resume...</p>
         </div>
       </div>
     );
@@ -105,7 +106,7 @@ const ResumeViewPageContent = () => {
       ) : (
         <div className="min-h-screen flex items-center justify-center">
           <Card className="max-w-md w-full">
-            <CardBody className="text-center py-8">
+            <CardContent className="text-center py-8">
               <p className="text-gray-600">No resume selected</p>
               <button
                 onClick={goBackToList}
@@ -113,7 +114,7 @@ const ResumeViewPageContent = () => {
               >
                 Back to Resume List
               </button>
-            </CardBody>
+            </CardContent>
           </Card>
         </div>
       )}
@@ -132,8 +133,9 @@ const ResumeViewPage = () => {
     <Suspense
       fallback={
         <div className="min-h-screen flex items-center justify-center bg-gray-50">
-          <div className="text-center">
-            <Spinner size="lg" label="Loading..." />
+          <div className="text-center space-y-2">
+            <Spinner size="lg" />
+            <p className="text-sm text-gray-500">Loading...</p>
           </div>
         </div>
       }

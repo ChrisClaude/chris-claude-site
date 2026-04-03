@@ -1,19 +1,17 @@
 import React, { useState, useRef } from 'react';
 import {
   Card,
-  CardBody,
+  CardContent,
   CardHeader,
   Button,
-  Textarea,
-  Tabs,
-  Tab,
   Modal,
-  ModalContent,
+  ModalBackdrop,
+  ModalContainer,
+  ModalDialog,
   ModalHeader,
   ModalBody,
   ModalFooter,
-  useDisclosure,
-  Progress,
+  ProgressBar,
 } from '@heroui/react';
 import { useResumeForm } from '../../_hooks/useResumeForm';
 import { validateResumeForm } from '../../utils/validation';
@@ -31,6 +29,7 @@ import {
   DocumentArrowUpIcon,
   CheckCircleIcon,
 } from '@heroicons/react/24/outline';
+import { TextArea } from './FormFields';
 
 interface ResumeEditorProps {
   initialData?: ResumeData;
@@ -52,7 +51,9 @@ const ResumeEditor: React.FC<ResumeEditorProps> = ({ initialData }) => {
   const [isValidating, setIsValidating] = useState(false);
   const [validationProgress, setValidationProgress] = useState(0);
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [isOpen, setIsOpen] = useState(false);
+  const onOpen = () => setIsOpen(true);
+  const onClose = () => setIsOpen(false);
 
   const handleValidate = async () => {
     setIsValidating(true);
@@ -139,11 +140,10 @@ const ResumeEditor: React.FC<ResumeEditorProps> = ({ initialData }) => {
               </div>
               <div className="flex flex-wrap gap-2">
                 <Button
-                  color="secondary"
-                  variant="flat"
-                  startContent={<DocumentArrowUpIcon className="w-4 h-4" />}
+                  variant="secondary"
                   onPress={() => fileInputRef.current?.click()}
                 >
+                  <DocumentArrowUpIcon className="mr-2 h-4 w-4" />
                   Import JSON
                 </Button>
                 <input
@@ -154,250 +154,195 @@ const ResumeEditor: React.FC<ResumeEditorProps> = ({ initialData }) => {
                   className="hidden"
                 />
                 <Button
-                  color="warning"
-                  variant="flat"
+                  variant="ghost"
                   onPress={handleReset}
                   isDisabled={!isDirty}
                 >
                   Reset
                 </Button>
                 <Button
-                  color="success"
-                  variant="flat"
+                  variant="secondary"
                   onPress={handleValidate}
-                  isLoading={isValidating}
-                  startContent={
-                    !isValidating ? (
-                      <CheckCircleIcon className="w-4 h-4" />
-                    ) : undefined
-                  }
                 >
+                  {!isValidating ? (
+                    <CheckCircleIcon className="mr-2 h-4 w-4" />
+                  ) : null}
                   {isValidating ? 'Validating...' : 'Validate'}
                 </Button>
                 <Button
-                  color="primary"
                   onPress={handleExport}
-                  startContent={<DocumentArrowDownIcon className="w-4 h-4" />}
                 >
+                  <DocumentArrowDownIcon className="mr-2 h-4 w-4" />
                   Export JSON
                 </Button>
               </div>
             </div>
           </CardHeader>
-          <CardBody>
+          <CardContent>
             {isValidating && (
               <div className="mb-4">
-                <Progress value={validationProgress} className="w-full" />
+                <ProgressBar value={validationProgress} className="w-full" />
               </div>
             )}
 
-            <Tabs
-              aria-label="Resume sections"
-              className="w-full"
-              classNames={{
-                tabList: 'bg-gray-100',
-                tab: 'text-gray-700',
-                cursor: 'bg-white',
-                panel: 'bg-white',
-              }}
-            >
-              <Tab key="personal" title="Personal Info">
-                <div className="py-4">
-                  <PersonalInfoForm
-                    personalInfo={formData.personalInfo}
-                    errors={
-                      Array.isArray(errors.personalInfo)
-                        ? errors.personalInfo
-                        : []
-                    }
-                    onChange={personalInfo =>
-                      updateSection('personalInfo', personalInfo)
-                    }
-                  />
-                </div>
-              </Tab>
+            <div className="space-y-6">
+              <div className="py-4">
+                <PersonalInfoForm
+                  personalInfo={formData.personalInfo}
+                  errors={
+                    Array.isArray(errors.personalInfo) ? errors.personalInfo : []
+                  }
+                  onChange={personalInfo =>
+                    updateSection('personalInfo', personalInfo)
+                  }
+                />
+              </div>
 
-              <Tab key="summary" title="Summary">
-                <div className="py-4">
-                  <Card className="bg-white">
-                    <CardHeader className="bg-white">
-                      <h3 className="text-xl font-semibold text-gray-900">
-                        Professional Summary
-                      </h3>
-                    </CardHeader>
-                    <CardBody className="bg-white">
-                      {errors.summary && (
-                        <div className="bg-red-50 border border-red-200 rounded-md p-3 mb-4">
-                          <p className="text-sm text-red-600">
-                            • {errors.summary}
-                          </p>
-                        </div>
-                      )}
-                      <Textarea
-                        placeholder="Write a compelling professional summary that highlights your key skills, experience, and career objectives..."
-                        value={formData.summary}
-                        onChange={e => updateSection('summary', e.target.value)}
-                        variant="bordered"
-                        minRows={4}
-                        maxRows={8}
-                        classNames={{
-                          input: 'text-gray-900',
-                          inputWrapper:
-                            'bg-white border-gray-300 hover:bg-white',
-                          label:
-                            'text-gray-700 !text-sm !font-medium !mb-1.5 !static !transform-none',
-                          base: 'bg-white',
-                          mainWrapper: 'bg-white',
-                        }}
-                        labelPlacement="outside"
-                      />
-                    </CardBody>
-                  </Card>
-                </div>
-              </Tab>
+              <div className="py-4">
+                <Card className="bg-white">
+                  <CardHeader className="bg-white">
+                    <h3 className="text-xl font-semibold text-gray-900">
+                      Professional Summary
+                    </h3>
+                  </CardHeader>
+                  <CardContent className="bg-white">
+                    {errors.summary && (
+                      <div className="bg-red-50 border border-red-200 rounded-md p-3 mb-4">
+                        <p className="text-sm text-red-600">• {errors.summary}</p>
+                      </div>
+                    )}
+                    <TextArea
+                      placeholder="Write a compelling professional summary that highlights your key skills, experience, and career objectives..."
+                      value={formData.summary}
+                      onChange={e => updateSection('summary', e.target.value)}
+                      variant="bordered"
+                      minRows={4}
+                      maxRows={8}
+                      classNames={{
+                        input: 'text-gray-900',
+                        inputWrapper: 'bg-white border-gray-300 hover:bg-white',
+                        label:
+                          'text-gray-700 !text-sm !font-medium !mb-1.5 !static !transform-none',
+                        base: 'bg-white',
+                        mainWrapper: 'bg-white',
+                      }}
+                      labelPlacement="outside"
+                    />
+                  </CardContent>
+                </Card>
+              </div>
 
-              <Tab key="experience" title="Work Experience">
-                <div className="py-4">
-                  <WorkExperienceForm
-                    workExperience={formData.workExperience}
-                    errors={
-                      Array.isArray(errors.workExperience)
-                        ? errors.workExperience
-                        : []
-                    }
-                    onChange={workExperience =>
-                      updateSection('workExperience', workExperience)
-                    }
-                  />
-                </div>
-              </Tab>
+              <div className="py-4">
+                <WorkExperienceForm
+                  workExperience={formData.workExperience}
+                  errors={
+                    Array.isArray(errors.workExperience) ? errors.workExperience : []
+                  }
+                  onChange={workExperience =>
+                    updateSection('workExperience', workExperience)
+                  }
+                />
+              </div>
 
-              <Tab key="education" title="Education">
-                <div className="py-4">
-                  <EducationForm
-                    education={formData.education}
-                    errors={
-                      Array.isArray(errors.education) ? errors.education : []
-                    }
-                    onChange={education =>
-                      updateSection('education', education)
-                    }
-                  />
-                </div>
-              </Tab>
+              <div className="py-4">
+                <EducationForm
+                  education={formData.education}
+                  errors={Array.isArray(errors.education) ? errors.education : []}
+                  onChange={education => updateSection('education', education)}
+                />
+              </div>
 
-              <Tab key="skills" title="Skills & Tech">
-                <div className="py-4 space-y-6">
-                  <StringArrayForm
-                    title="Technologies"
-                    items={formData.technologies}
-                    errors={
-                      Array.isArray(errors.technologies)
-                        ? errors.technologies
-                        : []
-                    }
-                    onChange={technologies =>
-                      updateSection('technologies', technologies)
-                    }
-                    placeholder="e.g., C#, .NET Core, React"
-                    addButtonText="Add Technology"
-                  />
+              <div className="py-4 space-y-6">
+                <StringArrayForm
+                  title="Technologies"
+                  items={formData.technologies}
+                  errors={
+                    Array.isArray(errors.technologies) ? errors.technologies : []
+                  }
+                  onChange={technologies =>
+                    updateSection('technologies', technologies)
+                  }
+                  placeholder="e.g., C#, .NET Core, React"
+                  addButtonText="Add Technology"
+                />
 
-                  <StringArrayForm
-                    title="Skills"
-                    items={formData.skills}
-                    errors={Array.isArray(errors.skills) ? errors.skills : []}
-                    onChange={skills => updateSection('skills', skills)}
-                    placeholder="e.g., API Development, Cloud Architecture"
-                    addButtonText="Add Skill"
-                  />
-                </div>
-              </Tab>
+                <StringArrayForm
+                  title="Skills"
+                  items={formData.skills}
+                  errors={Array.isArray(errors.skills) ? errors.skills : []}
+                  onChange={skills => updateSection('skills', skills)}
+                  placeholder="e.g., API Development, Cloud Architecture"
+                  addButtonText="Add Skill"
+                />
+              </div>
 
-              <Tab key="projects" title="Projects">
-                <div className="py-4">
-                  <NotableProjectsForm
-                    notableProjects={formData.notableProjects}
-                    errors={
-                      Array.isArray(errors.notableProjects)
-                        ? errors.notableProjects
-                        : []
-                    }
-                    onChange={notableProjects =>
-                      updateSection('notableProjects', notableProjects)
-                    }
-                  />
-                </div>
-              </Tab>
+              <div className="py-4">
+                <NotableProjectsForm
+                  notableProjects={formData.notableProjects}
+                  errors={
+                    Array.isArray(errors.notableProjects)
+                      ? errors.notableProjects
+                      : []
+                  }
+                  onChange={notableProjects =>
+                    updateSection('notableProjects', notableProjects)
+                  }
+                />
+              </div>
 
-              <Tab key="languages" title="Languages">
-                <div className="py-4">
-                  <LanguagesForm
-                    languages={formData.languages}
-                    errors={
-                      Array.isArray(errors.languages) ? errors.languages : []
-                    }
-                    onChange={languages =>
-                      updateSection('languages', languages)
-                    }
-                  />
-                </div>
-              </Tab>
+              <div className="py-4">
+                <LanguagesForm
+                  languages={formData.languages}
+                  errors={Array.isArray(errors.languages) ? errors.languages : []}
+                  onChange={languages => updateSection('languages', languages)}
+                />
+              </div>
 
-              <Tab key="social" title="Social Links">
-                <div className="py-4">
-                  <SocialLinksForm
-                    socialLinks={formData.socialLinks}
-                    errors={
-                      Array.isArray(errors.socialLinks)
-                        ? errors.socialLinks
-                        : []
-                    }
-                    onChange={socialLinks =>
-                      updateSection('socialLinks', socialLinks)
-                    }
-                  />
-                </div>
-              </Tab>
+              <div className="py-4">
+                <SocialLinksForm
+                  socialLinks={formData.socialLinks}
+                  errors={
+                    Array.isArray(errors.socialLinks) ? errors.socialLinks : []
+                  }
+                  onChange={socialLinks => updateSection('socialLinks', socialLinks)}
+                />
+              </div>
 
-              <Tab key="references" title="References">
-                <div className="py-4">
-                  <ReferencesForm
-                    references={formData.references}
-                    errors={
-                      Array.isArray(errors.references) ? errors.references : []
-                    }
-                    onChange={references =>
-                      updateSection('references', references)
-                    }
-                  />
-                </div>
-              </Tab>
-            </Tabs>
-          </CardBody>
+              <div className="py-4">
+                <ReferencesForm
+                  references={formData.references}
+                  errors={Array.isArray(errors.references) ? errors.references : []}
+                  onChange={references => updateSection('references', references)}
+                />
+              </div>
+            </div>
+          </CardContent>
         </Card>
 
         {/* Success Modal */}
-        <Modal isOpen={isOpen} onClose={onClose}>
-          <ModalContent>
-            <ModalHeader className="flex flex-col gap-1">
-              <div className="flex items-center gap-2">
-                <CheckCircleIcon className="w-6 h-6 text-green-500" />
-                Validation Successful
-              </div>
-            </ModalHeader>
-            <ModalBody>
-              <p>
-                Your resume data has been validated successfully! All required
-                fields are filled and the data is ready for export.
-              </p>
-            </ModalBody>
-            <ModalFooter>
-              <Button color="primary" onPress={onClose}>
-                Close
-              </Button>
-            </ModalFooter>
-          </ModalContent>
+        <Modal isOpen={isOpen} onOpenChange={setIsOpen}>
+          <ModalBackdrop />
+          <ModalContainer>
+            <ModalDialog>
+              <ModalHeader className="flex flex-col gap-1">
+                <div className="flex items-center gap-2">
+                  <CheckCircleIcon className="w-6 h-6 text-green-500" />
+                  Validation Successful
+                </div>
+              </ModalHeader>
+              <ModalBody>
+                <p>
+                  Your resume data has been validated successfully! All required
+                  fields are filled and the data is ready for export.
+                </p>
+              </ModalBody>
+              <ModalFooter>
+                <Button onPress={onClose}>
+                  Close
+                </Button>
+              </ModalFooter>
+            </ModalDialog>
+          </ModalContainer>
         </Modal>
       </div>
     </div>

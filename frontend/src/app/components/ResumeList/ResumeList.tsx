@@ -3,15 +3,20 @@
 import React, { useState, useMemo } from 'react';
 import {
   Card,
-  CardBody,
+  CardContent,
   CardHeader,
   Input,
   Select,
-  SelectItem,
+  SelectTrigger,
+  SelectValue,
+  SelectIndicator,
+  SelectPopover,
+  ListBox,
+  ListBoxItem,
   Button,
   Chip,
   Avatar,
-  Divider,
+  Separator,
   Spinner,
 } from '@heroui/react';
 import {
@@ -147,7 +152,7 @@ const ResumeList: React.FC<ResumeListProps> = ({
 
       {/* Search and Filters */}
       <Card className="mb-6">
-        <CardBody className="gap-4">
+        <CardContent className="gap-4">
           <div className="flex flex-col sm:flex-row gap-4">
             {/* Search Input */}
             <Input
@@ -155,55 +160,58 @@ const ResumeList: React.FC<ResumeListProps> = ({
               value={searchQuery}
               onChange={e => setSearchQuery(e.target.value)}
               className="flex-1 text-black"
-              size="lg"
             />
 
             {/* Language Filter */}
             <Select
-              placeholder="Language"
-              selectedKeys={languageFilter ? [languageFilter] : []}
-              onSelectionChange={keys => {
-                const selected = Array.from(keys)[0] as string;
-                setLanguageFilter(selected || 'all');
+              selectedKey={languageFilter || null}
+              onSelectionChange={key => {
+                setLanguageFilter(key ? String(key) : 'all');
               }}
               className="w-full sm:w-48"
-              size="lg"
             >
-              <SelectItem key="all" textValue="All Languages">
-                All Languages
-              </SelectItem>
-              <SelectItem key="en" textValue="🇺🇸 English">
-                🇺🇸 English
-              </SelectItem>
-              <SelectItem key="fr" textValue="🇫🇷 French">
-                🇫🇷 French
-              </SelectItem>
+              <SelectTrigger>
+                <SelectValue />
+                <SelectIndicator />
+              </SelectTrigger>
+              <SelectPopover>
+                <ListBox>
+                  <ListBoxItem key="all" id="all">All Languages</ListBoxItem>
+                  <ListBoxItem key="en" id="en">🇺🇸 English</ListBoxItem>
+                  <ListBoxItem key="fr" id="fr">🇫🇷 French</ListBoxItem>
+                </ListBox>
+              </SelectPopover>
             </Select>
 
             {/* Person Filter */}
             <Select
-              placeholder="Person"
-              selectedKeys={personFilter ? [personFilter] : []}
-              onSelectionChange={keys => {
-                const selected = Array.from(keys)[0] as string;
-                setPersonFilter(selected || 'all');
+              selectedKey={personFilter || null}
+              onSelectionChange={key => {
+                setPersonFilter(key ? String(key) : 'all');
               }}
               className="w-full sm:w-48"
-              size="lg"
             >
-              <SelectItem key="all" textValue="All People">
-                All People
-              </SelectItem>
-              <>
-                {uniquePersons.map(person => (
-                  <SelectItem key={person} textValue={person}>
-                    <div className="flex items-center gap-2">
-                      <Avatar size="sm" name={getPersonInitials(person)} />
-                      {person}
-                    </div>
-                  </SelectItem>
-                ))}
-              </>
+              <SelectTrigger>
+                <SelectValue />
+                <SelectIndicator />
+              </SelectTrigger>
+              <SelectPopover>
+                <ListBox>
+                  <ListBoxItem key="all" id="all">All People</ListBoxItem>
+                  {uniquePersons.map(person => (
+                    <ListBoxItem key={person} id={person}>
+                      <div className="flex items-center gap-2">
+                        <Avatar size="sm">
+                          <Avatar.Fallback>
+                            {getPersonInitials(person)}
+                          </Avatar.Fallback>
+                        </Avatar>
+                        {person}
+                      </div>
+                    </ListBoxItem>
+                  ))}
+                </ListBox>
+              </SelectPopover>
             </Select>
           </div>
 
@@ -213,16 +221,16 @@ const ResumeList: React.FC<ResumeListProps> = ({
             personFilter !== 'all') && (
             <div className="flex justify-end">
               <Button
-                variant="light"
+                variant="ghost"
                 size="sm"
                 onPress={clearFilters}
-                startContent={<FunnelIcon className="w-4 h-4" />}
               >
+                <FunnelIcon className="mr-2 h-4 w-4" />
                 Clear Filters
               </Button>
             </div>
           )}
-        </CardBody>
+        </CardContent>
       </Card>
 
       {/* Results Count */}
@@ -237,8 +245,9 @@ const ResumeList: React.FC<ResumeListProps> = ({
 
       {/* Loading State */}
       {isLoading && (
-        <div className="flex justify-center items-center py-8">
-          <Spinner size="lg" label="Loading resume..." />
+        <div className="flex flex-col justify-center items-center gap-2 py-8">
+          <Spinner size="lg" />
+          <span className="text-sm text-gray-500">Loading resume...</span>
         </div>
       )}
 
@@ -268,7 +277,7 @@ const ResumeList: React.FC<ResumeListProps> = ({
                 <h2 className="text-xl font-bold text-gray-800">
                   {folderDisplayName}
                 </h2>
-                <Chip size="sm" variant="flat" color="default">
+                <Chip size="sm" variant="soft" color="default">
                   {resumes.length} {resumes.length === 1 ? 'resume' : 'resumes'}
                 </Chip>
               </button>
@@ -279,21 +288,19 @@ const ResumeList: React.FC<ResumeListProps> = ({
                   {resumes.map(resume => (
                     <Card
                       key={resume.id}
-                      isPressable
-                      isHoverable
                       className={`transition-all duration-200 ${
                         selectedResumeId === resume.id
                           ? 'ring-2 ring-blue-500 shadow-lg'
                           : 'hover:shadow-md'
                       }`}
-                      onPress={() => handleResumeClick(resume)}
+                      onClick={() => handleResumeClick(resume)}
                     >
                       <CardHeader className="flex gap-3">
-                        <Avatar
-                          name={getPersonInitials(resume.personName)}
-                          className="flex-shrink-0"
-                          size="md"
-                        />
+                        <Avatar className="flex-shrink-0" size="md">
+                          <Avatar.Fallback>
+                            {getPersonInitials(resume.personName)}
+                          </Avatar.Fallback>
+                        </Avatar>
                         <div className="flex flex-col flex-1 min-w-0">
                           <p className="text-lg font-semibold truncate">
                             {resume.personName}
@@ -304,18 +311,18 @@ const ResumeList: React.FC<ResumeListProps> = ({
                         </div>
                         <Chip
                           size="sm"
-                          variant="flat"
+                          variant="soft"
                           color={
-                            resume.language === 'en' ? 'primary' : 'secondary'
+                            resume.language === 'en' ? 'success' : 'warning'
                           }
                         >
                           {getLanguageFlag(resume.language)}
                         </Chip>
                       </CardHeader>
 
-                      <Divider />
+                      <Separator />
 
-                      <CardBody className="pt-3">
+                      <CardContent className="pt-3">
                         <div className="space-y-2">
                           <div className="flex items-center gap-2 text-sm text-gray-600">
                             <DocumentIcon className="w-4 h-4 text-gray-400" />
@@ -331,11 +338,11 @@ const ResumeList: React.FC<ResumeListProps> = ({
                           <div className="flex items-center justify-between pt-2">
                             <Chip
                               size="sm"
-                              variant="dot"
+                              variant="soft"
                               color={
                                 resume.language === 'en'
-                                  ? 'primary'
-                                  : 'secondary'
+                                  ? 'success'
+                                  : 'warning'
                               }
                             >
                               {resume.language.toUpperCase()}
@@ -346,7 +353,7 @@ const ResumeList: React.FC<ResumeListProps> = ({
                             </span>
                           </div>
                         </div>
-                      </CardBody>
+                      </CardContent>
                     </Card>
                   ))}
                 </div>
@@ -359,7 +366,7 @@ const ResumeList: React.FC<ResumeListProps> = ({
       {/* No Results */}
       {filteredResumes.length === 0 && !isLoading && (
         <Card className="mt-8">
-          <CardBody className="text-center py-12">
+          <CardContent className="text-center py-12">
             <DocumentIcon className="w-12 h-12 mx-auto text-gray-400 mb-4" />
             <h3 className="text-lg font-semibold text-gray-700 mb-2">
               No resumes found
@@ -367,10 +374,10 @@ const ResumeList: React.FC<ResumeListProps> = ({
             <p className="text-gray-600 mb-4">
               Try adjusting your search criteria or filters.
             </p>
-            <Button variant="light" onPress={clearFilters}>
+            <Button variant="ghost" onPress={clearFilters}>
               Clear all filters
             </Button>
-          </CardBody>
+          </CardContent>
         </Card>
       )}
     </div>

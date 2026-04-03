@@ -8,7 +8,7 @@ import {
 } from '@/_lib/graphql/mutations/user';
 import { GET_ME } from '@/_lib/graphql/queries/user';
 import { UserDto } from '@/_lib/graphql/types';
-import { Button, Input } from '@heroui/react';
+import { Button } from '@heroui/react';
 import Image from 'next/image';
 import { logError } from '@/_lib/logging.utils';
 
@@ -134,7 +134,7 @@ const ProfileForm = () => {
           </div>
           <Button
             type="button"
-            variant="flat"
+            variant="outline"
             size="sm"
             onPress={() => fileInputRef.current?.click()}
           >
@@ -150,26 +150,43 @@ const ProfileForm = () => {
         </div>
 
         {/* Fields */}
-        <Input
-          label="First name"
-          value={name}
-          onValueChange={setName}
-          isRequired
-          isDisabled={isSubmitting}
-        />
-        <Input
-          label="Last name"
-          value={surname}
-          onValueChange={setSurname}
-          isRequired
-          isDisabled={isSubmitting}
-        />
-        <Input
-          label="Email"
-          value={userProfile?.email ?? ''}
-          isDisabled
-          description="Email cannot be changed here."
-        />
+        <label className="flex flex-col gap-2">
+          <span className="text-sm font-medium text-gray-700 dark:text-gray-200">
+            First name
+          </span>
+          <input
+            value={name}
+            onChange={e => setName(e.target.value)}
+            required
+            disabled={isSubmitting}
+            className="rounded-xl border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 outline-none transition focus:border-gray-900 focus:ring-2 focus:ring-gray-200 disabled:cursor-not-allowed disabled:opacity-60 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100 dark:focus:border-gray-300 dark:focus:ring-gray-700"
+          />
+        </label>
+        <label className="flex flex-col gap-2">
+          <span className="text-sm font-medium text-gray-700 dark:text-gray-200">
+            Last name
+          </span>
+          <input
+            value={surname}
+            onChange={e => setSurname(e.target.value)}
+            required
+            disabled={isSubmitting}
+            className="rounded-xl border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 outline-none transition focus:border-gray-900 focus:ring-2 focus:ring-gray-200 disabled:cursor-not-allowed disabled:opacity-60 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100 dark:focus:border-gray-300 dark:focus:ring-gray-700"
+          />
+        </label>
+        <label className="flex flex-col gap-2">
+          <span className="text-sm font-medium text-gray-700 dark:text-gray-200">
+            Email
+          </span>
+          <input
+            value={userProfile?.email ?? ''}
+            disabled
+            className="rounded-xl border border-gray-300 bg-gray-100 px-3 py-2 text-sm text-gray-700 outline-none disabled:cursor-not-allowed dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300"
+          />
+          <span className="text-xs text-gray-500 dark:text-gray-400">
+            Email cannot be changed here.
+          </span>
+        </label>
 
         {error && <p className="text-sm text-danger">{error}</p>}
         {success && (
@@ -178,11 +195,10 @@ const ProfileForm = () => {
 
         <Button
           type="submit"
-          isLoading={isSubmitting}
           isDisabled={isSubmitting || (!name.trim() || !surname.trim())}
           className="self-start px-8 bg-gray-900 text-white dark:bg-white dark:text-gray-900"
         >
-          Save changes
+          {isSubmitting ? 'Saving...' : 'Save changes'}
         </Button>
       </form>
     </div>

@@ -39,7 +39,7 @@ const RedirectPage = () => {
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-white to-gray-100">
       <div className="text-center space-y-8 p-8 max-w-md">
         <div className="flex justify-center">
-          <Spinner size="lg" color="primary" className="h-16 w-16" />
+          <Spinner size="lg" color="accent" className="h-16 w-16" />
         </div>
         <h1 className="text-3xl font-bold text-gray-800">Just a moment</h1>
         <p className="text-gray-600">{redirectMessage}</p>

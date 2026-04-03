@@ -8,6 +8,11 @@ let appInsights: ApplicationInsights | undefined;
 export const initializeAppInsights = (
   connectionString: string | undefined | null,
 ) => {
+  if (process.env.NODE_ENV === 'development') {
+    console.log('App Insights is disabled in development mode.');
+    return;
+  }
+
   if (
     connectionString !== undefined &&
     connectionString !== '' &&

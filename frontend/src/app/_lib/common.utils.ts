@@ -1,6 +1,6 @@
 import { logWarning } from './logging.utils';
 // import { ModelError as ApiError } from '../codegen';
-import { DateValue } from '@heroui/react';
+import { DateValue } from '@internationalized/date';
 
 export const isNullOrUndefined = <T>(
   value: T | null | undefined,

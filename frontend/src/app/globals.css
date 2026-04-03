@@ -1,6 +1,9 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@import "@heroui/styles";
+
+@theme {
+  --max-w-2xl: 1536px;
+}
 
 /* Print styles for resume PDF generation */
 @media print {

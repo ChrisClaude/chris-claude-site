@@ -1,16 +1,20 @@
 import React from 'react';
 import {
   Card,
-  CardBody,
+  CardContent,
   CardHeader,
-  Input,
   Button,
   Select,
-  SelectItem,
-  Slider,
+  SelectTrigger,
+  SelectValue,
+  SelectIndicator,
+  SelectPopover,
+  ListBox,
+  ListBoxItem,
 } from '@heroui/react';
 import { Language } from '../../types/resume';
 import { PlusIcon, TrashIcon } from '@heroicons/react/24/outline';
+import { Input } from './FormFields';
 
 interface LanguagesFormProps {
   languages: Language[];
@@ -57,15 +61,14 @@ const LanguagesForm: React.FC<LanguagesFormProps> = ({
       <CardHeader className="flex flex-row items-center justify-between bg-white">
         <h3 className="text-xl font-semibold text-gray-900">Languages</h3>
         <Button
-          color="primary"
-          variant="flat"
-          startContent={<PlusIcon className="w-4 h-4" />}
+          variant="secondary"
           onPress={addLanguage}
         >
+          <PlusIcon className="mr-2 h-4 w-4" />
           Add Language
         </Button>
       </CardHeader>
-      <CardBody className="space-y-6 bg-white">
+      <CardContent className="space-y-6 bg-white">
         {errors.length > 0 && (
           <div className="bg-red-50 border border-red-200 rounded-md p-3">
             <ul className="text-sm text-red-600 space-y-1">
@@ -84,16 +87,15 @@ const LanguagesForm: React.FC<LanguagesFormProps> = ({
                 {language.name && ` - ${language.name}`}
               </h4>
               <Button
-                color="danger"
-                variant="light"
+                variant="ghost"
                 size="sm"
-                startContent={<TrashIcon className="w-4 h-4" />}
                 onPress={() => removeLanguage(index)}
               >
+                <TrashIcon className="mr-2 h-4 w-4" />
                 Remove
               </Button>
             </CardHeader>
-            <CardBody className="space-y-4 bg-white">
+            <CardContent className="space-y-4 bg-white">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <Input
                   label="Language Name"
@@ -113,64 +115,50 @@ const LanguagesForm: React.FC<LanguagesFormProps> = ({
                   labelPlacement="outside"
                 />
 
-                <Select
-                  label="Proficiency Level"
-                  placeholder="Select proficiency level"
-                  selectedKeys={language.level ? [language.level] : []}
-                  onSelectionChange={keys => {
-                    const selectedKey = Array.from(keys)[0] as string;
-                    updateLanguage(index, 'level', selectedKey);
-                  }}
-                  variant="bordered"
-                  classNames={{
-                    trigger: 'bg-white border-gray-300 hover:bg-white',
-                    label:
-                      'text-gray-700 !text-sm !font-medium !mb-1.5 !static !transform-none',
-                    base: 'bg-white',
-                    mainWrapper: 'bg-white',
-                  }}
-                  labelPlacement="outside"
-                >
-                  {languageLevels.map(level => (
-                    <SelectItem key={level.key}>{level.label}</SelectItem>
-                  ))}
-                </Select>
+                <div className="flex flex-col gap-1">
+                  <label className="text-sm font-medium text-gray-700">Proficiency Level</label>
+                  <Select
+                    selectedKey={language.level || null}
+                    onSelectionChange={key => {
+                      updateLanguage(index, 'level', key ? String(key) : '');
+                    }}
+                  >
+                    <SelectTrigger>
+                      <SelectValue />
+                      <SelectIndicator />
+                    </SelectTrigger>
+                    <SelectPopover>
+                      <ListBox>
+                        {languageLevels.map(level => (
+                          <ListBoxItem key={level.key} id={level.key}>{level.label}</ListBoxItem>
+                        ))}
+                      </ListBox>
+                    </SelectPopover>
+                  </Select>
+                </div>
               </div>
 
               <div className="space-y-2">
                 <label className="text-sm font-medium text-gray-900">
                   Proficiency Rating: {language.proficiency}/5
                 </label>
-                <Slider
-                  size="sm"
+                <input
+                  type="range"
+                  min={1}
+                  max={5}
                   step={1}
-                  color="primary"
-                  showSteps={true}
-                  showOutline={true}
-                  disableThumbScale={true}
-                  formatOptions={{ style: 'decimal' }}
-                  tooltipValueFormatOptions={{ style: 'decimal' }}
-                  marks={[
-                    { value: 1, label: '1' },
-                    { value: 2, label: '2' },
-                    { value: 3, label: '3' },
-                    { value: 4, label: '4' },
-                    { value: 5, label: '5' },
-                  ]}
-                  minValue={1}
-                  maxValue={5}
                   value={language.proficiency}
-                  onChange={value =>
-                    updateLanguage(index, 'proficiency', value as number)
+                  onChange={e =>
+                    updateLanguage(index, 'proficiency', Number(e.target.value))
                   }
-                  className="max-w-md"
+                  className="max-w-md w-full accent-gray-700"
                 />
                 <div className="flex justify-between text-xs text-gray-500">
                   <span>Basic</span>
                   <span>Native</span>
                 </div>
               </div>
-            </CardBody>
+            </CardContent>
           </Card>
         ))}
 
@@ -182,7 +170,7 @@ const LanguagesForm: React.FC<LanguagesFormProps> = ({
             </p>
           </div>
         )}
-      </CardBody>
+      </CardContent>
     </Card>
   );
 };

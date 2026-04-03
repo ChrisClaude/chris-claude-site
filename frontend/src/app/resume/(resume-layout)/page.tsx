@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Card, CardBody, CardHeader, Button, Divider } from '@heroui/react';
+import { Card, CardContent, CardHeader, Button, Separator } from '@heroui/react';
 import {
   DocumentTextIcon,
   PencilSquareIcon,
@@ -113,9 +113,9 @@ const ResumePage = () => {
                   <p className="text-gray-600">{feature.description}</p>
                 </CardHeader>
 
-                <Divider />
+                <Separator />
 
-                <CardBody className="pt-4">
+                <CardContent className="pt-4">
                   <div className="space-y-4">
                     <div>
                       <h3 className="text-sm font-semibold text-gray-700 mb-2">
@@ -136,21 +136,20 @@ const ResumePage = () => {
 
                     <Link href={feature.path} className="w-full block">
                       <Button
-                        color={feature.color}
-                        variant="shadow"
+                        variant="primary"
                         className={`w-full font-semibold flex ${
                           feature.color === 'primary'
                             ? 'bg-blue-600 text-white hover:bg-blue-700'
                             : 'bg-purple-600 text-white hover:bg-purple-700'
                         }`}
                         size="lg"
-                        startContent={<RocketLaunchIcon className="w-5 h-5" />}
                       >
+                        <RocketLaunchIcon className="mr-2 h-5 w-5" />
                         Go to {feature.title}
                       </Button>
                     </Link>
                   </div>
-                </CardBody>
+                </CardContent>
               </Card>
             );
           })}
@@ -158,7 +157,7 @@ const ResumePage = () => {
 
         {/* Quick Info Section */}
         <Card className="bg-gradient-to-r from-blue-50 to-purple-50">
-          <CardBody className="p-6">
+          <CardContent className="p-6">
             <div className="text-center">
               <h3 className="text-xl font-semibold text-gray-800 mb-3">
                 Getting Started
@@ -186,7 +185,7 @@ const ResumePage = () => {
                 </div>
               </div>
             </div>
-          </CardBody>
+          </CardContent>
         </Card>
       </div>
     </div>

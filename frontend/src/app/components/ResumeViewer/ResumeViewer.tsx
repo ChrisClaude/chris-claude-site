@@ -3,10 +3,10 @@
 import React from 'react';
 import {
   Card,
-  CardBody,
+  CardContent,
   CardHeader,
   Button,
-  Divider,
+  Separator,
   Chip,
 } from '@heroui/react';
 import {
@@ -69,7 +69,7 @@ const ResumeViewer: React.FC<ResumeViewerProps> = ({
           <div className="flex items-center gap-4">
             <Button
               isIconOnly
-              variant="bordered"
+              variant="outline"
               onPress={onBack}
               className="flex-shrink-0 border-gray-300 hover:bg-gray-100"
               aria-label="Back to resume list"
@@ -87,8 +87,8 @@ const ResumeViewer: React.FC<ResumeViewerProps> = ({
               <div className="flex items-center gap-2 mt-1">
                 <Chip
                   size="sm"
-                  variant="flat"
-                  color={resume.language === 'en' ? 'primary' : 'secondary'}
+                  variant="soft"
+                  color={resume.language === 'en' ? 'success' : 'warning'}
                 >
                   {getLanguageFlag(resume.language)}{' '}
                   {resume.language.toUpperCase()}
@@ -100,19 +100,19 @@ const ResumeViewer: React.FC<ResumeViewerProps> = ({
 
           <div className="flex gap-2">
             <Button
-              variant="flat"
-              startContent={<ShareIcon className="w-4 h-4" />}
+              variant="secondary"
               onPress={handleShare}
               size="sm"
             >
+              <ShareIcon className="mr-2 h-4 w-4" />
               Share
             </Button>
             <Button
-              color="primary"
-              startContent={<ArrowDownTrayIcon className="w-4 h-4" />}
+              variant="primary"
               onPress={handleDownload}
               size="sm"
             >
+              <ArrowDownTrayIcon className="mr-2 h-4 w-4" />
               Download PDF
             </Button>
           </div>
@@ -120,10 +120,10 @@ const ResumeViewer: React.FC<ResumeViewerProps> = ({
 
         {resume.description && (
           <>
-            <Divider />
-            <CardBody className="pt-4">
+            <Separator />
+            <CardContent className="pt-4">
               <p className="text-gray-700">{resume.description}</p>
-            </CardBody>
+            </CardContent>
           </>
         )}
       </Card>

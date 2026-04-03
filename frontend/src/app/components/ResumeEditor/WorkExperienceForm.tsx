@@ -1,15 +1,14 @@
 import React from 'react';
 import {
   Card,
-  CardBody,
+  CardContent,
   CardHeader,
-  Input,
-  Textarea,
   Button,
   Chip,
 } from '@heroui/react';
 import { WorkExperience } from '../../types/resume';
 import { PlusIcon, TrashIcon } from '@heroicons/react/24/outline';
+import { Input, TextArea } from './FormFields';
 
 interface WorkExperienceFormProps {
   workExperience: WorkExperience[];
@@ -82,15 +81,14 @@ const WorkExperienceForm: React.FC<WorkExperienceFormProps> = ({
       <CardHeader className="flex flex-row items-center justify-between bg-white">
         <h3 className="text-xl font-semibold text-gray-900">Work Experience</h3>
         <Button
-          color="primary"
-          variant="flat"
-          startContent={<PlusIcon className="w-4 h-4" />}
+          variant="secondary"
           onPress={addWorkExperience}
         >
+          <PlusIcon className="mr-2 h-4 w-4" />
           Add Experience
         </Button>
       </CardHeader>
-      <CardBody className="space-y-6 bg-white">
+      <CardContent className="space-y-6 bg-white">
         {errors.length > 0 && (
           <div className="bg-red-50 border border-red-200 rounded-md p-3">
             <ul className="text-sm text-red-600 space-y-1">
@@ -109,16 +107,15 @@ const WorkExperienceForm: React.FC<WorkExperienceFormProps> = ({
                 {experience.title && ` - ${experience.title}`}
               </h4>
               <Button
-                color="danger"
-                variant="light"
+                variant="ghost"
                 size="sm"
-                startContent={<TrashIcon className="w-4 h-4" />}
                 onPress={() => removeWorkExperience(index)}
               >
+                <TrashIcon className="mr-2 h-4 w-4" />
                 Remove
               </Button>
             </CardHeader>
-            <CardBody className="space-y-4 bg-white">
+            <CardContent className="space-y-4 bg-white">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <Input
                   label="Job Title"
@@ -221,7 +218,7 @@ const WorkExperienceForm: React.FC<WorkExperienceFormProps> = ({
                 />
               </div>
 
-              <Textarea
+              <TextArea
                 label="Description"
                 placeholder="Brief description of your role and the company"
                 value={experience.description}
@@ -248,12 +245,11 @@ const WorkExperienceForm: React.FC<WorkExperienceFormProps> = ({
                     Responsibilities
                   </h5>
                   <Button
-                    color="primary"
-                    variant="light"
+                    variant="ghost"
                     size="sm"
-                    startContent={<PlusIcon className="w-4 h-4" />}
                     onPress={() => addResponsibility(index)}
                   >
+                    <PlusIcon className="mr-2 h-4 w-4" />
                     Add Responsibility
                   </Button>
                 </div>
@@ -281,8 +277,7 @@ const WorkExperienceForm: React.FC<WorkExperienceFormProps> = ({
                         labelPlacement="outside"
                       />
                       <Button
-                        color="danger"
-                        variant="light"
+                        variant="ghost"
                         size="sm"
                         isIconOnly
                         onPress={() => removeResponsibility(index, respIndex)}
@@ -300,7 +295,7 @@ const WorkExperienceForm: React.FC<WorkExperienceFormProps> = ({
                   </p>
                 )}
               </div>
-            </CardBody>
+            </CardContent>
           </Card>
         ))}
 
@@ -312,7 +307,7 @@ const WorkExperienceForm: React.FC<WorkExperienceFormProps> = ({
             </p>
           </div>
         )}
-      </CardBody>
+      </CardContent>
     </Card>
   );
 };

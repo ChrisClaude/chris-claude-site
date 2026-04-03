@@ -1,6 +1,6 @@
-<mxfile host="Electron" modified="2025-12-18T13:59:47.883Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.6.8 Chrome/114.0.5735.289 Electron/25.5.0 Safari/537.36" etag="xd_TDQCgWj2nHMLRuLne" version="21.6.8" type="device" pages="2">
+<mxfile host="Electron" modified="2026-04-03T10:57:51.848Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.6.8 Chrome/114.0.5735.289 Electron/25.5.0 Safari/537.36" etag="TRDjyfTj-ZGzeTAUjNTq" version="21.6.8" type="device" pages="3">
   <diagram name="ERD" id="NuNRSLPOf-0ElVUfBn3v">
-    <mxGraphModel dx="848" dy="561" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2339" pageHeight="3300" math="0" shadow="0">
+    <mxGraphModel dx="1010" dy="564" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2339" pageHeight="3300" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -880,14 +880,14 @@
             <mxPoint x="750" y="850" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="PuA-bGsj9Y9SZjxMIsvE-1" value="Note: The PostReaction entity will help implement a like system. A user can like a post, or react with a different type of reaction" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="PuA-bGsj9Y9SZjxMIsvE-1" value="Note: The PostReaction entity will help implement a like system. A user can like a post, or react with a different type of reaction" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="1490" y="170" width="250" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
   <diagram id="bNZ7SVaErPbBfUSEZGnA" name="System architecture">
-    <mxGraphModel dx="1018" dy="673" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2339" pageHeight="3300" math="0" shadow="0">
+    <mxGraphModel dx="1010" dy="564" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2339" pageHeight="3300" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -1059,8 +1059,34 @@
         <mxCell id="6Kft1QTR6CGI40FKyrSP-53" value="" style="html=1;verticalLabelPosition=bottom;align=center;labelBackgroundColor=#ffffff;verticalAlign=top;strokeWidth=2;strokeColor=#0080F0;shadow=0;dashed=0;shape=mxgraph.ios7.icons.locked;" parent="1" vertex="1">
           <mxGeometry x="846" y="780" width="24" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="qwB8h_7SqdO-iRkCu-k--1" value="API Gateway" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="qwB8h_7SqdO-iRkCu-k--1" value="API Gateway" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="924" y="1850.5" width="60" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="rZxLBITPH3hziLwjTkxp" name="Features Roadmap">
+    <mxGraphModel dx="842" dy="470" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2339" pageHeight="3300" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="eth4riRsAufHeEEZMPYW-2" value="Users" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="90" width="340" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="eth4riRsAufHeEEZMPYW-3" value="1. User can login and logout&lt;br&gt;&lt;br&gt;2. User can update their information, username, name and profile pic&lt;br&gt;3. The Admin can list all users registered&lt;br&gt;4. The Admin can assign roles to other users&lt;br&gt;5. There should be 3 roles, Admin, Writer and Reader" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="210" width="330" height="255" as="geometry" />
+        </mxCell>
+        <mxCell id="eth4riRsAufHeEEZMPYW-4" value="Posts" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="870" y="90" width="340" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="eth4riRsAufHeEEZMPYW-5" value="1. An admin and a writer should be able to add posts, draft them and publish them to make them available for readers&lt;br&gt;2. Readers should be able to access published posts, comment and react on them.&lt;br&gt;3. Articles should be tagged by topic" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="870" y="210" width="330" height="255" as="geometry" />
+        </mxCell>
+        <mxCell id="eth4riRsAufHeEEZMPYW-6" value="Notifications" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1230" y="90" width="340" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="eth4riRsAufHeEEZMPYW-7" value="&lt;br&gt;1. A user can subscribe to a topic or all new articles from a writer" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1240" y="210" width="330" height="255" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
