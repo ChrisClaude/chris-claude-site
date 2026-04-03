@@ -1,4 +1,4 @@
-<mxfile host="Electron" modified="2026-04-03T11:46:16.087Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.6.8 Chrome/114.0.5735.289 Electron/25.5.0 Safari/537.36" etag="bpDFp7VZovzY_9tTfzsI" version="21.6.8" type="device" pages="3">
+<mxfile host="Electron" modified="2026-04-03T13:15:55.909Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.6.8 Chrome/114.0.5735.289 Electron/25.5.0 Safari/537.36" etag="cLu-jd-GfcbKwPE9CBL5" version="21.6.8" type="device" pages="3">
   <diagram name="ERD" id="NuNRSLPOf-0ElVUfBn3v">
     <mxGraphModel dx="1010" dy="564" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2339" pageHeight="3300" math="0" shadow="0">
       <root>
@@ -1073,7 +1073,7 @@
         <mxCell id="eth4riRsAufHeEEZMPYW-2" value="Users" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="480" y="90" width="330" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="eth4riRsAufHeEEZMPYW-3" value="1. User can login and logout&lt;br&gt;&lt;br&gt;2. User can update their information, username, name and profile pic&lt;br&gt;3. The Admin can list all users registered&lt;br&gt;4. The Admin can assign roles to other users&lt;br&gt;5. There should be 3 roles, Admin, Writer and Reader" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="eth4riRsAufHeEEZMPYW-3" value="1. User can login and logout&lt;br&gt;&lt;br&gt;2. User can update their information, username, name and profile pic&lt;br&gt;3. The Admin can list all users registered&lt;br&gt;4. The Admin can assign roles to other users&lt;br&gt;5. There should be 3 roles, Admin, Writer and Reader&lt;br&gt;6. Add ability to remove profile pic&lt;br&gt;7. Add proper management of blob tier. Image remove should be removed from blob. Imaged should be cached in cdn not too frequently read from blob. Store in hot tier for first 1 day after update then move to cool and on and on down the access tier. Prevent more than 3 image uploads per day.&lt;br&gt;8. Customize register, login and logout screens" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="480" y="200" width="330" height="255" as="geometry" />
         </mxCell>
         <mxCell id="eth4riRsAufHeEEZMPYW-4" value="Posts" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">

@@ -3,7 +3,6 @@ import { useMemo, useCallback } from 'react';
 import {
   NEXT_PUBLIC_TENANT_DOMAIN,
   AZURE_AD_B2C_TENANT_NAME,
-  AZURE_AD_B2C_PRIMARY_USER_FLOW,
 } from '@/_config';
 import { signIn, signOut } from 'next-auth/react';
 import { UserSession } from '@/_lib/types/common.types';
@@ -45,9 +44,9 @@ export const useAuth = () => {
 
     signOut({
       redirect: true,
-      callbackUrl: `https://${NEXT_PUBLIC_TENANT_DOMAIN}/${AZURE_AD_B2C_TENANT_NAME}.onmicrosoft.com/${AZURE_AD_B2C_PRIMARY_USER_FLOW}/oauth2/v2.0/logout?post_logout_redirect_uri=${postLogoutRedirectUri}`,
+      callbackUrl: `https://${NEXT_PUBLIC_TENANT_DOMAIN}/${AZURE_AD_B2C_TENANT_NAME}.onmicrosoft.com/oauth2/v2.0/logout?post_logout_redirect_uri=${postLogoutRedirectUri}`,
     }).then(function () {
-      window.location.href = `https://${NEXT_PUBLIC_TENANT_DOMAIN}/${AZURE_AD_B2C_TENANT_NAME}.onmicrosoft.com/${AZURE_AD_B2C_PRIMARY_USER_FLOW}/oauth2/v2.0/logout?post_logout_redirect_uri=${postLogoutRedirectUri}`;
+      window.location.href = `https://${NEXT_PUBLIC_TENANT_DOMAIN}/${AZURE_AD_B2C_TENANT_NAME}.onmicrosoft.com/oauth2/v2.0/logout?post_logout_redirect_uri=${postLogoutRedirectUri}`;
     });
   }, []);
 
