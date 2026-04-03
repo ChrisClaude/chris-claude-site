@@ -1,6 +1,5 @@
-using Application.Common.Dtos;
 using Application.Common.Extensions;
-using Application.Enums;
+using BlogAPI.Extensions;
 using Microsoft.AspNetCore.Authorization;
 
 namespace BlogAPI.Authorization;
@@ -27,10 +26,8 @@ internal sealed class PublisherAuthorizationHandler : AuthorizationHandler<Publi
         PublisherRequirement requirement
     )
     {
-        if (
-            _httpContextAccessor.HttpContext?.Items[Constant.HTTP_CONTEXT_USER_ITEM_KEY]
-            is not UserDto user
-        )
+        var user = _httpContextAccessor.GetUser();
+        if (user is null)
         {
             return Task.CompletedTask;
         }

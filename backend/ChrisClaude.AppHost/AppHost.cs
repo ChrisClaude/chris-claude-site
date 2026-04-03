@@ -6,6 +6,9 @@ var sqlserver = builder.AddSqlServer("sqlserver").WithDataVolume();
 
 var db = sqlserver.AddDatabase("blog-db");
 
+var storage = builder.AddAzureStorage("storage").RunAsEmulator();
+var blobs = storage.AddBlobs("blobs");
+
 var migrations = builder
     .AddProject<Projects.MigrationService>("migrations")
     .WithReference(db)
@@ -14,6 +17,7 @@ var migrations = builder
 var api = builder
     .AddProject<Projects.BlogAPI>("blog-api")
     .WithReference(db)
+    .WithReference(blobs)
     .WaitFor(migrations)
     .WithHttpHealthCheck("/healthz");
 

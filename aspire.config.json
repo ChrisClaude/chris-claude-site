@@ -1,0 +1,5 @@
+{
+  "appHost": {
+    "path": "backend/ChrisClaude.AppHost/ChrisClaude.AppHost.csproj"
+  }
+}

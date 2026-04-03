@@ -44,6 +44,12 @@ variable "default_client_secret" {
 
 locals {
   suffix = "${lower(var.environment)}-${lower(var.location)}"
+  # Storage account names: lowercase alphanumeric only, 3-24 chars.
+  storage_account_name = substr(
+    lower(replace("st${var.project}${var.environment}${var.location}", "-", "")),
+    0,
+    24
+  )
 }
 variable "sql_admin_user" {
   description = "SQL admin user"

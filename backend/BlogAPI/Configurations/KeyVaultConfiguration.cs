@@ -23,16 +23,29 @@ internal static class KeyVaultConfiguration
     }
 }
 
-// Maps Key Vault secret names (e.g. "AzureAdB2C--ClientSecret") into the AppConfigurations
-// config section (e.g. "AppConfigurations:AzureAdB2C:ClientSecret") to match the structure
-// expected by the AppConfigurations record.
+// Maps Key Vault secret names into configuration keys:
+//   "AzureAdB2C--ClientSecret" → "AppConfigurations:AzureAdB2C:ClientSecret"
+//   "ConnectionStrings--blobs"  → "ConnectionStrings:blobs"  (no AppConfigurations prefix,
+//                                  so AddAzureBlobClient("blobs") and EF connection strings resolve correctly)
 internal sealed class AppConfigurationsKeyVaultSecretManager : KeyVaultSecretManager
 {
-    public override string GetKey(KeyVaultSecret secret) =>
-        "AppConfigurations:"
-        + secret.Name.Replace(
+    private const string ConnectionStringsPrefix = "ConnectionStrings--";
+
+    public override string GetKey(KeyVaultSecret secret)
+    {
+        var normalised = secret.Name.Replace(
             "--",
             ConfigurationPath.KeyDelimiter,
             StringComparison.OrdinalIgnoreCase
         );
+
+        // Connection string secrets are placed at the root ConnectionStrings section,
+        // not nested under AppConfigurations.
+        if (secret.Name.StartsWith(ConnectionStringsPrefix, StringComparison.OrdinalIgnoreCase))
+        {
+            return normalised;
+        }
+
+        return "AppConfigurations:" + normalised;
+    }
 }

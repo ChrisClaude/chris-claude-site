@@ -4,7 +4,14 @@ import Link from 'next/link';
 import { useContext } from 'react';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import Logo from './Logo';
-import { Button } from '@heroui/react';
+import {
+  Button,
+  Dropdown,
+  DropdownTrigger,
+  DropdownMenu,
+  DropdownItem,
+  Avatar,
+} from '@heroui/react';
 import { useAuth } from '@/_hooks/useAuth';
 
 const Header = () => {
@@ -18,7 +25,7 @@ const Header = () => {
     setUIState?.({ ...uiState, isMobileNavOpen: !uiState.isMobileNavOpen });
   };
 
-  const { login, isUserSignedIn, userProfile } = useAuth();
+  const { login, logout, isUserSignedIn, userProfile } = useAuth();
 
   return (
     <header
@@ -42,7 +49,30 @@ const Header = () => {
           </li>
         </ul>
         {isUserSignedIn ? (
-          <div>{userProfile?.name}</div>
+          <Dropdown placement="bottom-end">
+            <DropdownTrigger>
+              <Avatar
+                as="button"
+                className="ml-2 cursor-pointer transition-transform"
+                size="sm"
+                src={userProfile?.image ?? undefined}
+                name={userProfile?.name ?? undefined}
+              />
+            </DropdownTrigger>
+            <DropdownMenu aria-label="User menu">
+              <DropdownItem key="profile" href="/profile">
+                Profile
+              </DropdownItem>
+              <DropdownItem
+                key="logout"
+                className="text-danger"
+                color="danger"
+                onPress={logout}
+              >
+                Log out
+              </DropdownItem>
+            </DropdownMenu>
+          </Dropdown>
         ) : (
           <Button
             onPress={login}

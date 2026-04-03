@@ -117,7 +117,35 @@ resource "azurerm_mssql_firewall_rule" "allow_azure_services" {
   end_ip_address   = "0.0.0.0"
 }
 
-# ──────────────────────────────── ④  Cosmos DB (Free tier)  ───────────────────
+# ──────────────────────────────── ④  Azure Blob Storage  ────────────────────
+
+resource "azurerm_storage_account" "storage" {
+  name                            = local.storage_account_name
+  resource_group_name             = azurerm_resource_group.rg.name
+  location                        = azurerm_resource_group.rg.location
+  account_tier                    = "Standard"
+  account_replication_type        = "LRS"
+  https_traffic_only_enabled      = true
+  min_tls_version                 = "TLS1_2"
+  public_network_access_enabled   = true
+  allow_nested_items_to_be_public = true
+}
+
+# Container for user profile images (public blob read so images can be rendered in the browser)
+resource "azurerm_storage_container" "profile_images" {
+  name                  = "profile-images"
+  storage_account_id    = azurerm_storage_account.storage.id
+  container_access_type = "blob"
+}
+
+# Grant the Web App's managed identity write/read access to blobs
+resource "azurerm_role_assignment" "api_storage_blob_contributor" {
+  scope                = azurerm_storage_account.storage.id
+  role_definition_name = "Storage Blob Data Contributor"
+  principal_id         = azurerm_linux_web_app.api.identity[0].principal_id
+}
+
+# ──────────────────────────────── ⑤  Cosmos DB (Free tier)  ───────────────────
 
 
 # ──────────────────────────────── ⑤  Application Insights  ───────────────────
@@ -200,4 +228,14 @@ resource "azurerm_key_vault_secret" "blog_tenant_id" {
   name         = "AzureAdB2C--TenantId"
   value        = var.entra_tenant_id
   key_vault_id = azurerm_key_vault.kv.id
+}
+
+# Blob storage connection string — loaded by KeyVaultSecretManager as
+# "ConnectionStrings:blobs", which is exactly where AddAzureBlobClient("blobs") reads from.
+resource "azurerm_key_vault_secret" "blob_connection_string" {
+  name         = "ConnectionStrings--blobs"
+  value        = azurerm_storage_account.storage.primary_connection_string
+  key_vault_id = azurerm_key_vault.kv.id
+
+  depends_on = [azurerm_role_assignment.kv_secrets_officer_terraform]
 }

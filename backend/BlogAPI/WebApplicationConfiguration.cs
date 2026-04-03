@@ -3,8 +3,10 @@ using Application;
 using Application.Common.Configurations;
 using BlogAPI.Configurations;
 using BlogAPI.GraphQL;
+using BlogAPI.GraphQL.Mutations;
 using BlogAPI.GraphQL.Queries;
 using BlogAPI.Middleware;
+using BlogAPI.Storage;
 using Infrastructure;
 using Microsoft.AspNetCore.HttpOverrides;
 using Serilog;
@@ -59,12 +61,18 @@ internal static class WebApplicationConfiguration
             .AddProblemDetails()
             .AddMemoryCache();
 
+        builder.AddAzureBlobServiceClient("blobs");
+        services.AddScoped<IBlobStorageService, BlobStorageService>();
+
         services.AddHttpResponseFormatter<GraphQLHttpResponseFormatter>();
 
         services
             .AddGraphQLServer()
             .AddQueryType()
             .AddTypeExtension(typeof(UserQuery))
+            .AddMutationType()
+            .AddTypeExtension(typeof(UserMutation))
+            .AddMutationConventions()
             .AddAuthorization();
 
         builder.Host.UseSerilog(

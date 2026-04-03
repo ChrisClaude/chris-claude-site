@@ -1,4 +1,4 @@
-<Project Sdk="Aspire.AppHost.Sdk/13.2.0">
+<Project Sdk="Aspire.AppHost.Sdk/13.2.1">
   <ItemGroup>
     <ProjectReference Include="..\BlogAPI\BlogAPI.csproj" />
     <ProjectReference Include="..\MigrationService\MigrationService.csproj" />
@@ -6,6 +6,7 @@
     <ProjectReference Include="..\tests\Application.UnitTests\Application.UnitTests.csproj" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.Azure.Storage" />
     <PackageReference Include="Aspire.Hosting.NodeJs" />
     <PackageReference Include="Aspire.Hosting.SqlServer" />
   </ItemGroup>

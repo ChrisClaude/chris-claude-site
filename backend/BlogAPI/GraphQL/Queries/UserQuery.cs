@@ -1,7 +1,6 @@
 using Application.Common.Dtos;
-using Application.Enums;
-using Application.Exceptions;
 using Application.Interfaces.Queries;
+using BlogAPI.Extensions;
 using HotChocolate.Authorization;
 
 namespace BlogAPI.GraphQL.Queries;
@@ -18,19 +17,7 @@ internal static class UserQuery
         ArgumentNullException.ThrowIfNull(httpContextAccessor);
         ArgumentNullException.ThrowIfNull(userQueries);
 
-        if (
-            httpContextAccessor.HttpContext?.Items[Constant.HTTP_CONTEXT_USER_ITEM_KEY]
-            is not UserDto contextUser
-        )
-        {
-            throw new GraphQLException(
-                ErrorBuilder
-                    .New()
-                    .SetMessage("User details not found in the request context.")
-                    .SetCode("UNAUTHENTICATED")
-                    .Build()
-            );
-        }
+        var contextUser = httpContextAccessor.GetRequiredUser();
 
         var result = await userQueries.GetUserAsync(contextUser.Id);
 
