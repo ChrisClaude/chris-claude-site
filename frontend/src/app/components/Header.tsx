@@ -3,6 +3,8 @@ import UIContext from '@/_hooks/UIContext';
 import Link from 'next/link';
 import { useContext } from 'react';
 import { RxHamburgerMenu } from 'react-icons/rx';
+import { BsSun, BsMoon } from 'react-icons/bs';
+import { useTheme } from 'next-themes';
 import Logo from './Logo';
 import {
   Button,
@@ -26,6 +28,21 @@ const Header = () => {
   };
 
   const { login, logout, isUserSignedIn, userProfile } = useAuth();
+  const { theme, setTheme } = useTheme();
+
+  const themeToggle = (
+    <button
+      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+      className="p-2 rounded-lg opacity-70 hover:opacity-100 transition-opacity"
+      aria-label="Toggle theme"
+    >
+      {theme === 'dark' ? (
+        <BsSun className="text-xl" />
+      ) : (
+        <BsMoon className="text-xl" />
+      )}
+    </button>
+  );
 
   return (
     <header
@@ -48,6 +65,7 @@ const Header = () => {
             <Link href="/about">About</Link>
           </li>
         </ul>
+        {themeToggle}
         {isUserSignedIn ? (
           <Dropdown>
             <DropdownTrigger>
@@ -89,12 +107,12 @@ const Header = () => {
           </Button>
         )}
       </nav>
-      <button
-        className="md:hidden text-3xl opacity-70"
-        onClick={() => toggleSideNav()}
-      >
-        <RxHamburgerMenu />
-      </button>
+      <div className="flex items-center gap-2 md:hidden">
+        {themeToggle}
+        <button className="text-3xl opacity-70" onClick={() => toggleSideNav()}>
+          <RxHamburgerMenu />
+        </button>
+      </div>
     </header>
   );
 };

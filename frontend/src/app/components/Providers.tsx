@@ -5,7 +5,7 @@ import { ToastProvider } from '@heroui/react';
 import { ApolloProvider } from '@apollo/client';
 import { apolloClient } from '@/_lib/apollo/client';
 import { UIContextProvider } from '@/_hooks/UIContext';
-import { ThemeProvider } from 'next-themes';
+import ThemeProvider from './ThemeProvider';
 
 const Providers = ({ children }: { children: React.ReactNode }) => {
   return (

@@ -1,4 +1,4 @@
-<mxfile host="Electron" modified="2026-04-03T10:57:51.848Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.6.8 Chrome/114.0.5735.289 Electron/25.5.0 Safari/537.36" etag="TRDjyfTj-ZGzeTAUjNTq" version="21.6.8" type="device" pages="3">
+<mxfile host="Electron" modified="2026-04-03T11:46:16.087Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.6.8 Chrome/114.0.5735.289 Electron/25.5.0 Safari/537.36" etag="bpDFp7VZovzY_9tTfzsI" version="21.6.8" type="device" pages="3">
   <diagram name="ERD" id="NuNRSLPOf-0ElVUfBn3v">
     <mxGraphModel dx="1010" dy="564" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2339" pageHeight="3300" math="0" shadow="0">
       <root>
@@ -1071,22 +1071,28 @@
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="eth4riRsAufHeEEZMPYW-2" value="Users" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="480" y="90" width="340" height="50" as="geometry" />
+          <mxGeometry x="480" y="90" width="330" height="50" as="geometry" />
         </mxCell>
         <mxCell id="eth4riRsAufHeEEZMPYW-3" value="1. User can login and logout&lt;br&gt;&lt;br&gt;2. User can update their information, username, name and profile pic&lt;br&gt;3. The Admin can list all users registered&lt;br&gt;4. The Admin can assign roles to other users&lt;br&gt;5. There should be 3 roles, Admin, Writer and Reader" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="480" y="210" width="330" height="255" as="geometry" />
+          <mxGeometry x="480" y="200" width="330" height="255" as="geometry" />
         </mxCell>
         <mxCell id="eth4riRsAufHeEEZMPYW-4" value="Posts" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="870" y="90" width="340" height="50" as="geometry" />
+          <mxGeometry x="870" y="90" width="330" height="50" as="geometry" />
         </mxCell>
         <mxCell id="eth4riRsAufHeEEZMPYW-5" value="1. An admin and a writer should be able to add posts, draft them and publish them to make them available for readers&lt;br&gt;2. Readers should be able to access published posts, comment and react on them.&lt;br&gt;3. Articles should be tagged by topic" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="870" y="210" width="330" height="255" as="geometry" />
+          <mxGeometry x="870" y="200" width="330" height="255" as="geometry" />
         </mxCell>
         <mxCell id="eth4riRsAufHeEEZMPYW-6" value="Notifications" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="1230" y="90" width="340" height="50" as="geometry" />
+          <mxGeometry x="1240" y="90" width="330" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="eth4riRsAufHeEEZMPYW-7" value="&lt;br&gt;1. A user can subscribe to a topic or all new articles from a writer" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="1240" y="210" width="330" height="255" as="geometry" />
+        <mxCell id="eth4riRsAufHeEEZMPYW-7" value="&lt;br&gt;1. A user can subscribe to a topic or all new articles from a writer&lt;br&gt;2. Notifications has sent by email and shown on the website" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1240" y="200" width="330" height="255" as="geometry" />
+        </mxCell>
+        <mxCell id="eth4riRsAufHeEEZMPYW-8" value="Website Generics" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1600" y="90" width="340" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="eth4riRsAufHeEEZMPYW-9" value="&lt;br&gt;1. Ensure dark/white theme shows well for all pages and components" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1600" y="200" width="330" height="255" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

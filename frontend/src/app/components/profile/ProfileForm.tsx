@@ -1,5 +1,5 @@
 'use client';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { useAuth } from '@/_hooks/useAuth';
 import {
@@ -8,7 +8,7 @@ import {
 } from '@/_lib/graphql/mutations/user';
 import { GET_ME } from '@/_lib/graphql/queries/user';
 import { UserDto } from '@/_lib/graphql/types';
-import { Button } from '@heroui/react';
+import { Button, toast } from '@heroui/react';
 import Image from 'next/image';
 import { logError } from '@/_lib/logging.utils';
 
@@ -29,15 +29,24 @@ const ProfileForm = () => {
   const [success, setSuccess] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  useEffect(() => {
+    if (success) {
+      toast.success('Profile updated successfully.');
+    }
+  }, [success]);
+
   const [requestImageUploadUrl] = useMutation<{
     requestImageUploadUrl: {
       imageUploadToken: { uploadUrl: string; blobUrl: string } | null;
     };
   }>(REQUEST_IMAGE_UPLOAD_URL);
 
-  const [updateUser] = useMutation<{ updateUser: { userDto: UserDto | null } }>(UPDATE_USER, {
-    refetchQueries: [{ query: GET_ME }],
-  });
+  const [updateUser] = useMutation<{ updateUser: { userDto: UserDto | null } }>(
+    UPDATE_USER,
+    {
+      refetchQueries: [{ query: GET_ME }],
+    },
+  );
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setError(null);
@@ -97,7 +106,11 @@ const ProfileForm = () => {
 
       await updateUser({
         variables: {
-          input: { name: name.trim(), surname: surname.trim(), image: imageUrl },
+          input: {
+            name: name.trim(),
+            surname: surname.trim(),
+            image: imageUrl,
+          },
         },
       });
 
@@ -189,13 +202,10 @@ const ProfileForm = () => {
         </label>
 
         {error && <p className="text-sm text-danger">{error}</p>}
-        {success && (
-          <p className="text-sm text-success">Profile updated successfully.</p>
-        )}
 
         <Button
           type="submit"
-          isDisabled={isSubmitting || (!name.trim() || !surname.trim())}
+          isDisabled={isSubmitting || !name.trim() || !surname.trim()}
           className="self-start px-8 bg-gray-900 text-white dark:bg-white dark:text-gray-900"
         >
           {isSubmitting ? 'Saving...' : 'Save changes'}
