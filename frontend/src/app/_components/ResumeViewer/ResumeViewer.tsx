@@ -14,7 +14,7 @@ import {
   ArrowDownTrayIcon,
   ShareIcon,
 } from '@heroicons/react/24/outline';
-import ResumeContent from '@/components/ResumeContent';
+import ResumeContent from '@/_components/ResumeContent';
 import { ResumeListItem } from '@/utils/resumeLoader';
 
 interface ResumeViewerProps {

@@ -1,5 +1,5 @@
 'use client';
-import ResumePageWrapper from '@/components/ResumePageWrapper';
+import ResumePageWrapper from '@/_components/ResumePageWrapper';
 import feiscaResumeDataFrench from '@/data/feisca/feiscaResumeDataFrench.json';
 
 const Resume = () => {

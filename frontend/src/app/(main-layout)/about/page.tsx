@@ -1,4 +1,4 @@
-import { GridBgWrapper } from '@/components';
+import { GridBgWrapper } from '@/_components';
 import Image from 'next/image';
 import Link from 'next/link';
 

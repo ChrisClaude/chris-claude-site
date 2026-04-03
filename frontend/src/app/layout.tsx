@@ -1,6 +1,6 @@
 import Script from 'next/script';
 import './globals.css';
-import Providers from './components/Providers';
+import Providers from '@/_components/Providers';
 
 export const metadata = {
   title: 'Chris Claude',

@@ -1,5 +1,5 @@
-import { Footer, Header, Main, SideNav } from '@/components';
-import AppWrapper from '@/components/AppWrapper';
+import { Footer, Header, Main, SideNav } from '@/_components';
+import AppWrapper from '@/_components/AppWrapper';
 import React from 'react';
 
 const MainLayout = ({ children }: { children: React.ReactNode }) => {

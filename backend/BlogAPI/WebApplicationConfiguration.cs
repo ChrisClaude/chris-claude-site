@@ -1,6 +1,8 @@
 using System.Globalization;
 using Application;
 using Application.Common.Configurations;
+using Azure.Storage.Blobs;
+using Azure.Storage.Blobs.Models;
 using BlogAPI.Configurations;
 using BlogAPI.GraphQL;
 using BlogAPI.GraphQL.Mutations;
@@ -107,6 +109,32 @@ internal static class WebApplicationConfiguration
         // rather than the Azure load balancer IP (or any other proxy). Without this, all requests share the same
         // rate limiter partition and the limit would apply collectively across all clients.
         app.UseForwardedHeaders();
+
+        if (app.Environment.IsDevelopment())
+        {
+            app.Lifetime.ApplicationStarted.Register(() =>
+            {
+                try
+                {
+                    var blobServiceClient = app.Services.GetRequiredService<BlobServiceClient>();
+                    var properties = blobServiceClient.GetProperties().Value;
+                    properties.Cors.Clear();
+                    properties.Cors.Add(new BlobCorsRule
+                    {
+                        AllowedOrigins = "*",
+                        AllowedMethods = "PUT,GET,OPTIONS,DELETE,HEAD",
+                        AllowedHeaders = "*",
+                        ExposedHeaders = "*",
+                        MaxAgeInSeconds = 3600
+                    });
+                    blobServiceClient.SetProperties(properties);
+                }
+                catch (Azure.RequestFailedException ex)
+                {
+                    Log.Warning(ex, "Failed to configure Azurite CORS rules");
+                }
+            });
+        }
 
         app.MapHealthChecks("/healthz", HealthChecksConfiguration.HealthCheckOptions);
         app.UseCors(CORS_POLICY_NAME);

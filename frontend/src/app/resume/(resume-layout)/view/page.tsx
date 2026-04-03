@@ -3,8 +3,8 @@
 import React, { Suspense } from 'react';
 import { Card, CardContent, Spinner } from '@heroui/react';
 import { useResumeViewer } from '@/_hooks/useResumeViewer';
-import ResumeList from '@/components/ResumeList/ResumeList';
-import ResumeViewer from '@/components/ResumeViewer/ResumeViewer';
+import ResumeList from '@/_components/ResumeList/ResumeList';
+import ResumeViewer from '@/_components/ResumeViewer/ResumeViewer';
 
 /**
  * Main Resume View Page Component

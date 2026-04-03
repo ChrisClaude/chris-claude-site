@@ -1,4 +1,4 @@
-import { GridBgWrapper } from '@/components';
+import { GridBgWrapper } from '@/_components';
 import Link from 'next/link';
 
 export default function Home() {

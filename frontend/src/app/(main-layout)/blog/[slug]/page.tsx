@@ -1,6 +1,6 @@
 'use client';
 import { ArticleContent } from '@/AppTypes';
-import { ArticleFull } from '@/components';
+import { ArticleFull } from '@/_components';
 import { ROOT_URL } from '@/_config';
 import { useEffect, useState } from 'react';
 

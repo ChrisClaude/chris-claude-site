@@ -1,7 +1,7 @@
 'use client';
 import UIContext from '@/_hooks/UIContext';
 import { useContext, useEffect, Suspense } from 'react';
-import ResumeContent from '@/components/ResumeContent';
+import ResumeContent from '@/_components/ResumeContent';
 
 import { useSearchParams } from 'next/navigation';
 

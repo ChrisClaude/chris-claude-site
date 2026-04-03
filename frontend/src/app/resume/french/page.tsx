@@ -1,5 +1,5 @@
 'use client';
-import ResumePageWrapper from '@/components/ResumePageWrapper';
+import ResumePageWrapper from '@/_components/ResumePageWrapper';
 import resumeDataFrench from '@/data/chris/resumeDataFrench.json';
 
 const Resume = () => {

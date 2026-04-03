@@ -137,7 +137,10 @@ const ProfileForm = () => {
                 alt="Profile picture"
                 fill
                 className="object-cover"
-                unoptimized={previewUrl.startsWith('blob:')}
+                unoptimized={
+                  previewUrl.startsWith('blob:') ||
+                  previewUrl.includes('127.0.0.1')
+                }
               />
             ) : (
               <div className="w-full h-full flex items-center justify-center text-4xl font-semibold text-gray-500 dark:text-gray-300 select-none">

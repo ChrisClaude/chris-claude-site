@@ -1,6 +1,6 @@
 'use client';
 
-import { Footer, Main } from '@/components';
+import { Footer, Main } from '@/_components';
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';

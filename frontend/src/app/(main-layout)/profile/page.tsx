@@ -1,6 +1,6 @@
 'use client';
-import { AuthGuard } from '@/components/auth/AuthGuard';
-import ProfileForm from '@/components/profile/ProfileForm';
+import { AuthGuard } from '@/_components/auth/AuthGuard';
+import ProfileForm from '@/_components/profile/ProfileForm';
 
 const ProfilePage = () => {
   return (

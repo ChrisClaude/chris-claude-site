@@ -6,7 +6,7 @@ import {
   Newsletter,
   SocialMediaBanner,
   YouTubeChannelBanner,
-} from '@/components';
+} from '@/_components';
 
 const Home = () => (
   <>

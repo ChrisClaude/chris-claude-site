@@ -5,8 +5,8 @@ import {
   Newsletter,
   Pagination,
   YouTubeChannelBanner,
-} from '@/components';
-import Article from '@/components/Article';
+} from '@/_components';
+import Article from '@/_components/Article';
 import { ROOT_URL } from '@/_config';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
