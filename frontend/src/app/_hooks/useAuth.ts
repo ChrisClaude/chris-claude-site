@@ -1,9 +1,6 @@
 import { useSession } from 'next-auth/react';
 import { useMemo, useCallback } from 'react';
-import {
-  NEXT_PUBLIC_TENANT_DOMAIN,
-  AZURE_AD_B2C_TENANT_NAME,
-} from '@/_config';
+import { NEXT_PUBLIC_TENANT_DOMAIN, AZURE_AD_B2C_TENANT_NAME } from '@/_config';
 import { signIn, signOut } from 'next-auth/react';
 import { UserSession } from '@/_lib/types/common.types';
 import { useQuery } from '@apollo/client';

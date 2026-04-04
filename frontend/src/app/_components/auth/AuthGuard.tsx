@@ -1,6 +1,6 @@
 'use client';
 
-import React, { ReactNode, useEffect, useState } from 'react';
+import React, { ReactNode, useEffect, useMemo, useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import Loader from '../Loader';
 import { useAuth } from '@/_hooks/useAuth';
@@ -8,7 +8,7 @@ import { UserType } from '@/_lib/types/common.types';
 import { logError } from '@/_lib/logging.utils';
 
 type AuthGuardProps = {
-  userType: UserType;
+  userType: UserType | UserType[];
   children: ReactNode;
   fallbackPath?: string;
   loadingComponent?: ReactNode;
@@ -20,6 +20,10 @@ export const AuthGuard: React.FC<AuthGuardProps> = ({
   fallbackPath = '/',
   loadingComponent = <Loader />,
 }) => {
+  const allowedRoles = useMemo(
+    () => (Array.isArray(userType) ? userType : [userType]),
+    [userType],
+  );
   const { status, userProfile, login, containsRoles, isFetchingUserProfile } =
     useAuth();
   const router = useRouter();
@@ -49,7 +53,7 @@ export const AuthGuard: React.FC<AuthGuardProps> = ({
               throw new Error('User profile is undefined');
             }
 
-            if (containsRoles([userType])) {
+            if (containsRoles(allowedRoles)) {
               setIsAuthorized(true);
               // Restore the intended destination after successful auth
               const returnUrl = sessionStorage.getItem('returnUrl');
@@ -79,7 +83,7 @@ export const AuthGuard: React.FC<AuthGuardProps> = ({
   }, [
     status,
     userProfile,
-    userType,
+    allowedRoles,
     router,
     pathname,
     login,
@@ -105,7 +109,7 @@ export const AuthGuard: React.FC<AuthGuardProps> = ({
 // HOC for wrapping components that need authentication
 export const withAuth = <P extends object>(
   WrappedComponent: React.ComponentType<P>,
-  userType: UserType,
+  userType: UserType | UserType[],
   options: Partial<Omit<AuthGuardProps, 'userType' | 'children'>> = {},
 ) => {
   return function WithAuthComponent(props: P) {

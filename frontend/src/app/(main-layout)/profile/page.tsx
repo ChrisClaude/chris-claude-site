@@ -4,7 +4,7 @@ import ProfileForm from '@/_components/profile/ProfileForm';
 
 const ProfilePage = () => {
   return (
-    <AuthGuard userType="Reader">
+    <AuthGuard userType={['Admin', 'Publisher', 'Reader']}>
       <ProfileForm />
     </AuthGuard>
   );

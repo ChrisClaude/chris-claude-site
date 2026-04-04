@@ -14,13 +14,13 @@ const UsersTable = () => {
   const [editingUser, setEditingUser] = useState<UserDto | null>(null);
 
   const { data, loading, error, refetch } = useQuery<{
-    getUsers: PagedListDto<UserDto>;
+    users: PagedListDto<UserDto>;
   }>(GET_USERS, {
     variables: { page, pageSize: PAGE_SIZE },
     fetchPolicy: 'cache-and-network',
   });
 
-  const users = data?.getUsers;
+  const users = data?.users;
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-12">
