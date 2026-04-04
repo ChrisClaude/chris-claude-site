@@ -1,23 +1,19 @@
 'use client';
 import UIContext from '@/_hooks/UIContext';
 import Link from 'next/link';
-import { useContext } from 'react';
+import { useContext, useRef, useState, useEffect } from 'react';
 import { RxHamburgerMenu } from 'react-icons/rx';
-import { BsSun, BsMoon } from 'react-icons/bs';
+import { BsSun, BsMoon, BsPerson, BsBoxArrowRight } from 'react-icons/bs';
 import { useTheme } from 'next-themes';
 import Logo from './Logo';
-import {
-  Button,
-  Dropdown,
-  DropdownTrigger,
-  DropdownMenu,
-  DropdownItem,
-  Avatar,
-} from '@heroui/react';
+import { Button, Avatar } from '@heroui/react';
 import { useAuth } from '@/_hooks/useAuth';
+import { useRouter } from 'next/navigation';
 
 const Header = () => {
   const { uiState, setUIState } = useContext(UIContext);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   const toggleSideNav = (value?: boolean) => {
     if (value !== undefined) {
@@ -29,6 +25,17 @@ const Header = () => {
 
   const { login, logout, isUserSignedIn, userProfile } = useAuth();
   const { theme, setTheme } = useTheme();
+  const router = useRouter();
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setMenuOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   const themeToggle = (
     <button
@@ -67,12 +74,13 @@ const Header = () => {
         </ul>
         {themeToggle}
         {isUserSignedIn ? (
-          <Dropdown>
-            <DropdownTrigger>
-              <Avatar
-                className="ml-2 cursor-pointer transition-transform"
-                size="sm"
-              >
+          <div ref={menuRef} className="relative ml-3">
+            <button
+              onClick={() => setMenuOpen(o => !o)}
+              className="focus:outline-none"
+              aria-label="User menu"
+            >
+              <Avatar className="cursor-pointer" size="sm">
                 {userProfile?.image ? (
                   <Avatar.Image
                     src={userProfile.image}
@@ -83,21 +91,40 @@ const Header = () => {
                   {userProfile?.name?.slice(0, 1)?.toUpperCase() ?? 'U'}
                 </Avatar.Fallback>
               </Avatar>
-            </DropdownTrigger>
-            <DropdownMenu aria-label="User menu">
-              <DropdownItem key="profile" id="profile" href="/profile">
-                Profile
-              </DropdownItem>
-              <DropdownItem
-                key="logout"
-                id="logout"
-                className="text-danger"
-                onPress={logout}
-              >
-                Log out
-              </DropdownItem>
-            </DropdownMenu>
-          </Dropdown>
+            </button>
+            {menuOpen && (
+              <div className="absolute right-0 mt-2 w-52 rounded-xl border border-default-200 bg-background shadow-lg py-1 z-50">
+                <div className="px-3 py-2 border-b border-default-100 select-none">
+                  <p className="text-sm font-semibold truncate">
+                    {userProfile?.name ?? 'Account'}
+                  </p>
+                  {userProfile?.email && (
+                    <p className="text-xs text-default-400 truncate">
+                      {userProfile.email}
+                    </p>
+                  )}
+                </div>
+                <Link
+                  href="/profile"
+                  onClick={() => setMenuOpen(false)}
+                  className="flex items-center gap-2 w-full px-3 py-2 text-sm hover:bg-default-100 transition-colors"
+                >
+                  <BsPerson className="text-base shrink-0" />
+                  Profile
+                </Link>
+                <button
+                  onClick={() => {
+                    setMenuOpen(false);
+                    logout();
+                  }}
+                  className="flex items-center gap-2 w-full px-3 py-2 text-sm text-danger hover:bg-danger-50 transition-colors"
+                >
+                  <BsBoxArrowRight className="text-base shrink-0" />
+                  Log out
+                </button>
+              </div>
+            )}
+          </div>
         ) : (
           <Button
             onPress={login}
