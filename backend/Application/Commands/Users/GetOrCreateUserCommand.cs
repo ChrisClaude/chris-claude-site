@@ -28,7 +28,10 @@ public class GetOrCreateUserCommandValidator : AbstractValidator<GetOrCreateUser
     }
 }
 
-public class GetOrCreateUserCommandHandler(IRepository<User> userRepository)
+public class GetOrCreateUserCommandHandler(
+    IRepository<User> userRepository,
+    IRepository<Role> roleRepository
+)
     : IRequestHandler<GetOrCreateUserCommand, Result<UserDto>>
 {
     public async Task<Result<UserDto>> Handle(
@@ -49,15 +52,14 @@ public class GetOrCreateUserCommandHandler(IRepository<User> userRepository)
             return Result.Success(user.MapToDto());
         }
 
+        var readerRole = await roleRepository.GetByIdAsync(RoleIds.READER);
+
         var newUser = new User
         {
             Email = request.Email,
             Name = request.Email.Split("@")[0],
             Surname = request.Email.Split("@")[0],
-            UserRoles = new List<UserRole>()
-            {
-                new() { Role = new Role { Name = RoleName.READER } },
-            },
+            UserRoles = [new() { RoleId = readerRole.Id, Role = readerRole }],
         };
 
         await userRepository.InsertAsync(newUser);

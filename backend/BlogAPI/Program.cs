@@ -10,4 +10,4 @@ var app = builder.ConfigureServices();
 
 app.ConfigureRequestPipeline();
 
-app.RunAsync().ConfigureAwait(false).GetAwaiter().GetResult();
+await app.RunAsync();

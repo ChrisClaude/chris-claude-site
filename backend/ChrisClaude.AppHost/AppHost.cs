@@ -6,7 +6,7 @@ var sqlserver = builder.AddSqlServer("sqlserver").WithDataVolume();
 
 var db = sqlserver.AddDatabase("blog-db");
 
-var storage = builder.AddAzureStorage("storage").RunAsEmulator(e => e.WithDataVolume());
+var storage = builder.AddAzureStorage("storage").RunAsEmulator(e => e.WithDataVolume().WithBlobPort(10000));
 var blobs = storage.AddBlobs("blobs");
 
 var migrations = builder

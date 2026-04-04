@@ -18,12 +18,7 @@ public class UpdateUserRolesCommand : IRequest<Result<UserDto>>
 
 public class UpdateUserRolesCommandValidator : AbstractValidator<UpdateUserRolesCommand>
 {
-    private static readonly string[] _validRoles =
-    [
-        RoleName.ADMIN,
-        RoleName.PUBLISHER,
-        RoleName.READER,
-    ];
+    private static readonly IReadOnlyList<string> _validRoles = RoleName.All;
 
     public UpdateUserRolesCommandValidator()
     {
