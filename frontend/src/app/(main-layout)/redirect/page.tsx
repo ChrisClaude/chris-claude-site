@@ -36,7 +36,7 @@ const RedirectPage = () => {
   }, [isAdmin, isReader, router, status, isFetchingUserProfile]);
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-white to-gray-100">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-linear-to-b from-white to-gray-100">
       <div className="text-center space-y-8 p-8 max-w-md">
         <div className="flex justify-center">
           <Spinner size="lg" color="accent" className="h-16 w-16" />

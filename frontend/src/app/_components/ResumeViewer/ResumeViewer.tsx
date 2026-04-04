@@ -71,7 +71,7 @@ const ResumeViewer: React.FC<ResumeViewerProps> = ({
               isIconOnly
               variant="outline"
               onPress={onBack}
-              className="flex-shrink-0 border-gray-300 hover:bg-gray-100"
+              className="shrink-0 border-gray-300 hover:bg-gray-100"
               aria-label="Back to resume list"
             >
               <ArrowLeftIcon className="w-5 h-5 text-gray-700" />
@@ -99,19 +99,11 @@ const ResumeViewer: React.FC<ResumeViewerProps> = ({
           </div>
 
           <div className="flex gap-2">
-            <Button
-              variant="secondary"
-              onPress={handleShare}
-              size="sm"
-            >
+            <Button variant="secondary" onPress={handleShare} size="sm">
               <ShareIcon className="mr-2 h-4 w-4" />
               Share
             </Button>
-            <Button
-              variant="primary"
-              onPress={handleDownload}
-              size="sm"
-            >
+            <Button variant="primary" onPress={handleDownload} size="sm">
               <ArrowDownTrayIcon className="mr-2 h-4 w-4" />
               Download PDF
             </Button>

@@ -1,4 +1,4 @@
-<mxfile host="Electron" modified="2026-04-03T13:15:55.909Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.6.8 Chrome/114.0.5735.289 Electron/25.5.0 Safari/537.36" etag="cLu-jd-GfcbKwPE9CBL5" version="21.6.8" type="device" pages="3">
+<mxfile host="Electron" modified="2026-04-04T16:56:44.077Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.6.8 Chrome/114.0.5735.289 Electron/25.5.0 Safari/537.36" etag="KfNHq9ksxQcXHdoQVAe5" version="21.6.8" type="device" pages="3">
   <diagram name="ERD" id="NuNRSLPOf-0ElVUfBn3v">
     <mxGraphModel dx="1010" dy="564" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2339" pageHeight="3300" math="0" shadow="0">
       <root>
@@ -1079,7 +1079,7 @@
         <mxCell id="eth4riRsAufHeEEZMPYW-4" value="Posts" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="870" y="90" width="330" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="eth4riRsAufHeEEZMPYW-5" value="1. An admin and a writer should be able to add posts, draft them and publish them to make them available for readers&lt;br&gt;2. Readers should be able to access published posts, comment and react on them.&lt;br&gt;3. Articles should be tagged by topic" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="eth4riRsAufHeEEZMPYW-5" value="1. An admin and a writer should be able to add posts, draft them and publish them to make them available for readers&lt;br&gt;2. Readers should be able to access published posts, comment and react on them.&lt;br&gt;3. Articles should be tagged by topic&lt;br&gt;4. Enable paid summary feature with AI" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="870" y="200" width="330" height="255" as="geometry" />
         </mxCell>
         <mxCell id="eth4riRsAufHeEEZMPYW-6" value="Notifications" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">

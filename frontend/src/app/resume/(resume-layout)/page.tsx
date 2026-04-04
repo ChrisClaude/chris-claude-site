@@ -2,7 +2,13 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Card, CardContent, CardHeader, Button, Separator } from '@heroui/react';
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  Button,
+  Separator,
+} from '@heroui/react';
 import {
   DocumentTextIcon,
   PencilSquareIcon,
@@ -156,7 +162,7 @@ const ResumePage = () => {
         </div>
 
         {/* Quick Info Section */}
-        <Card className="bg-gradient-to-r from-blue-50 to-purple-50">
+        <Card className="bg-linear-to-r from-blue-50 to-purple-50">
           <CardContent className="p-6">
             <div className="text-center">
               <h3 className="text-xl font-semibold text-gray-800 mb-3">
