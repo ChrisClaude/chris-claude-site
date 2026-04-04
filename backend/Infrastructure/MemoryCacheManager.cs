@@ -8,9 +8,12 @@ public class MemoryCacheManager(IMemoryCache memoryCache) : ICacheManager
     public Task AddAsync<T>(CacheKey key, T value)
     {
         ArgumentNullException.ThrowIfNull(key);
-        var options = new MemoryCacheEntryOptions();
-        if (key.CacheTime > 0)
-            options.AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(key.CacheTime);
+        var options = new MemoryCacheEntryOptions
+        {
+            AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(
+                key.CacheTime > 0 ? key.CacheTime : 30
+            ),
+        };
 
         memoryCache.Set(key.Key, value, options);
         return Task.CompletedTask;

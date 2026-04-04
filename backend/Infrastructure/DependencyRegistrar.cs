@@ -24,6 +24,7 @@ public static class DependencyRegistrar
         services.AddScoped<IEventPublisher, EventPublisher>();
         services.AddScoped<ICacheManager, MemoryCacheManager>();
         services.AddScoped(typeof(IRepository<>), typeof(EntityRepository<>));
+        services.AddScoped(typeof(IBridgeRepository<>), typeof(BridgeEntityRepository<>));
 
         return services;
     }

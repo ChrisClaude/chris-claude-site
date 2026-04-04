@@ -8,9 +8,11 @@ public class CacheKey
     /// Initialize a new instance with key and prefixes
     /// </summary>
     /// <param name="key">Key</param>
-    public CacheKey(string key)
+    /// <param name="cacheTime">Cache time in minutes</param>
+    public CacheKey(string key, int cacheTime = 30)
     {
         Key = key;
+        CacheTime = cacheTime;
     }
 
     #endregion

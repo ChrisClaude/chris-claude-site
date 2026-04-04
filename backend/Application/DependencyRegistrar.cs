@@ -21,6 +21,7 @@ public static class DependencyRegistrar
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(TransactionBehavior<,>));
 
         services.AddScoped<IUserQueries, UserQueries>();
+        services.AddScoped<IPostQueries, PostQueries>();
 
         services.AddHttpContextAccessor();
 

@@ -1,3 +1,13 @@
+export type PagedListDto<T> = {
+  pageIndex: number;
+  pageSize: number;
+  totalCount: number;
+  totalPages: number;
+  hasNextPage: boolean;
+  hasPreviousPage: boolean;
+  items: T[];
+};
+
 export type RoleDto = {
   name?: string | null;
 };

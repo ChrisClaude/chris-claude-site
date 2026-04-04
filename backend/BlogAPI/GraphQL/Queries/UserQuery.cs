@@ -1,4 +1,5 @@
 using Application.Common.Dtos;
+using Application.Enums;
 using Application.Interfaces.Queries;
 using BlogAPI.Extensions;
 using HotChocolate.Authorization;
@@ -21,17 +22,20 @@ internal static class UserQuery
 
         var result = await userQueries.GetUserAsync(contextUser.Id);
 
-        if (result.IsFailure)
-        {
-            throw new GraphQLException(
-                result
-                    .Errors.Select(e =>
-                        ErrorBuilder.New().SetMessage(e.Description).SetCode(e.Code).Build()
-                    )
-                    .ToList()
-            );
-        }
+        return result.GetValueOrThrow();
+    }
 
-        return result.Value;
+    [Authorize(Policy = AuthPolicy.ADMIN)]
+    public static async Task<PagedListDto<UserDto>> GetUsersAsync(
+        int page,
+        int pageSize,
+        [Service] IUserQueries userQueries
+    )
+    {
+        ArgumentNullException.ThrowIfNull(userQueries);
+
+        var result = await userQueries.GetUsersAsync(page, pageSize);
+
+        return result.GetValueOrThrow();
     }
 }

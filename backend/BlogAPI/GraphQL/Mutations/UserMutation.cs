@@ -1,6 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using Application.Commands.Users;
 using Application.Common.Dtos;
+using Application.Enums;
 using BlogAPI.Extensions;
 using BlogAPI.GraphQL.Errors;
 using BlogAPI.Storage;
@@ -68,13 +69,47 @@ internal static class UserMutation
 
         var result = await mediator.Send(command, cancellationToken);
 
-        if (result.IsFailure)
-        {
-            var firstError = result.Errors.First();
-            throw new DomainException(firstError.Description, firstError.Code);
-        }
+        return result.GetValueOrThrowDomain();
+    }
 
-        return result.Value;
+    [Authorize(Policy = AuthPolicy.ADMIN)]
+    [Error(typeof(DomainError))]
+    public static async Task<UserDto> AdminUpdateUserAsync(
+        AdminUpdateUserInput input,
+        [Service] IMediator mediator,
+        CancellationToken cancellationToken
+    )
+    {
+        ArgumentNullException.ThrowIfNull(input);
+
+        var command = new UpdateUserCommand
+        {
+            UserId = input.UserId,
+            Name = input.Name,
+            Surname = input.Surname,
+            Image = input.Image,
+        };
+
+        var result = await mediator.Send(command, cancellationToken);
+
+        return result.GetValueOrThrowDomain();
+    }
+
+    [Authorize(Policy = AuthPolicy.ADMIN)]
+    [Error(typeof(DomainError))]
+    public static async Task<UserDto> AdminUpdateUserRolesAsync(
+        AdminUpdateUserRolesInput input,
+        [Service] IMediator mediator,
+        CancellationToken cancellationToken
+    )
+    {
+        ArgumentNullException.ThrowIfNull(input);
+
+        var command = new UpdateUserRolesCommand { UserId = input.UserId, Roles = input.Roles };
+
+        var result = await mediator.Send(command, cancellationToken);
+
+        return result.GetValueOrThrowDomain();
     }
 }
 
@@ -101,3 +136,27 @@ public sealed record UpdateUserInput(string Name, string Surname, string? Image)
     Justification = "Must be public for Hot Chocolate schema type inference"
 )]
 public sealed record ImageUploadToken(Uri UploadUrl, Uri BlobUrl);
+
+[SuppressMessage(
+    "CodeQuality",
+    "CA1812:Avoid uninstantiated internal classes",
+    Justification = "Used by Hot Chocolate GraphQL reflection"
+)]
+[SuppressMessage(
+    "Design",
+    "CA1515:Because an application's API isn't typically referenced from outside the assembly, types can be made internal",
+    Justification = "Must be public for Hot Chocolate schema type inference"
+)]
+public sealed record AdminUpdateUserInput(Guid UserId, string Name, string Surname, string? Image);
+
+[SuppressMessage(
+    "CodeQuality",
+    "CA1812:Avoid uninstantiated internal classes",
+    Justification = "Used by Hot Chocolate GraphQL reflection"
+)]
+[SuppressMessage(
+    "Design",
+    "CA1515:Because an application's API isn't typically referenced from outside the assembly, types can be made internal",
+    Justification = "Must be public for Hot Chocolate schema type inference"
+)]
+public sealed record AdminUpdateUserRolesInput(Guid UserId, IEnumerable<string> Roles);
