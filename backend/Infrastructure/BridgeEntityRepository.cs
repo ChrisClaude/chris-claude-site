@@ -6,7 +6,7 @@ namespace Infrastructure;
 
 #pragma warning disable IDE0058
 
-public class BridgeEntityRepository<TEntity>(ApplicationContext context)
+public class BridgeEntityRepository<TEntity>(ApplicationDbContext context)
     : BaseEntityRepository<TEntity>(context),
         IBridgeRepository<TEntity>
     where TEntity : class

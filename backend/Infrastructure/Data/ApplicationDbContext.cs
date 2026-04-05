@@ -7,9 +7,9 @@ namespace Infrastructure.Data;
 
 #pragma warning disable IDE0058
 
-public class ApplicationContext : DbContext
+public class ApplicationDbContext : DbContext
 {
-    public ApplicationContext(DbContextOptions<ApplicationContext> options)
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
         : base(options) { }
 
     public DbSet<User> Users { get; set; }
@@ -50,12 +50,12 @@ public class ApplicationContext : DbContext
 }
 #pragma warning restore IDE0058
 
-public class ApplicationContextDesignTimeFactory : IDesignTimeDbContextFactory<ApplicationContext>
+public class ApplicationContextDesignTimeFactory : IDesignTimeDbContextFactory<ApplicationDbContext>
 {
-    public ApplicationContext CreateDbContext(string[] args)
+    public ApplicationDbContext CreateDbContext(string[] args)
     {
-        var optionsBuilder = new DbContextOptionsBuilder<ApplicationContext>();
+        var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
         optionsBuilder.UseSqlServer("Server=localhost;Database=blog-db;Trusted_Connection=True;");
-        return new ApplicationContext(optionsBuilder.Options);
+        return new ApplicationDbContext(optionsBuilder.Options);
     }
 }

@@ -10,6 +10,7 @@ using BlogAPI.GraphQL.Queries;
 using BlogAPI.Middleware;
 using BlogAPI.Storage;
 using Infrastructure;
+using Infrastructure.Data;
 using Microsoft.AspNetCore.HttpOverrides;
 using Serilog;
 using Serilog.Events;
@@ -70,6 +71,7 @@ internal static class WebApplicationConfiguration
 
         services
             .AddGraphQLServer()
+            .RegisterDbContextFactory<ApplicationDbContext>()
             .AddQueryType()
             .AddTypeExtension(typeof(UserQuery))
             .AddMutationType()
@@ -119,14 +121,16 @@ internal static class WebApplicationConfiguration
                     var blobServiceClient = app.Services.GetRequiredService<BlobServiceClient>();
                     var properties = blobServiceClient.GetProperties().Value;
                     properties.Cors.Clear();
-                    properties.Cors.Add(new BlobCorsRule
-                    {
-                        AllowedOrigins = "*",
-                        AllowedMethods = "PUT,GET,OPTIONS,DELETE,HEAD",
-                        AllowedHeaders = "*",
-                        ExposedHeaders = "*",
-                        MaxAgeInSeconds = 3600
-                    });
+                    properties.Cors.Add(
+                        new BlobCorsRule
+                        {
+                            AllowedOrigins = "*",
+                            AllowedMethods = "PUT,GET,OPTIONS,DELETE,HEAD",
+                            AllowedHeaders = "*",
+                            ExposedHeaders = "*",
+                            MaxAgeInSeconds = 3600,
+                        }
+                    );
                     blobServiceClient.SetProperties(properties);
                 }
                 catch (Azure.RequestFailedException ex)

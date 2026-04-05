@@ -6,11 +6,11 @@ namespace Infrastructure;
 
 public class TransactionManager : ITransactionManager
 {
-    private readonly ApplicationContext _context;
+    private readonly ApplicationDbContext _context;
     private IDbContextTransaction? _transaction;
     private bool _disposed;
 
-    public TransactionManager(ApplicationContext context)
+    public TransactionManager(ApplicationDbContext context)
     {
         _context = context ?? throw new ArgumentNullException(nameof(context));
     }

@@ -12,7 +12,7 @@ var connectionString =
         "No connection string found. Provide 'ConnectionStrings:blog-db'."
     );
 
-builder.Services.AddDbContext<ApplicationContext>(opt => opt.UseSqlServer(connectionString));
+builder.Services.AddDbContext<ApplicationDbContext>(opt => opt.UseSqlServer(connectionString));
 builder.Services.AddHostedService<MigrationWorker>();
 
 var host = builder.Build();

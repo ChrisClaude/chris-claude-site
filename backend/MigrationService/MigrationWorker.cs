@@ -14,7 +14,7 @@ internal sealed partial class MigrationWorker(
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
         using var scope = serviceProvider.CreateScope();
-        var context = scope.ServiceProvider.GetRequiredService<ApplicationContext>();
+        var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
 
         LogApplyingMigrations();
         await context.Database.MigrateAsync(stoppingToken);

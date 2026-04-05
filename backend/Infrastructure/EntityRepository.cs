@@ -15,7 +15,7 @@ namespace Infrastructure;
 
 public partial class EntityRepository<TEntity>(
     IEventPublisher eventPublisher,
-    ApplicationContext context,
+    ApplicationDbContext context,
     ICacheManager cacheManager
 ) : BaseEntityRepository<TEntity>(context), IRepository<TEntity>
     where TEntity : BaseEntity

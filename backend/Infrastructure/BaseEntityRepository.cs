@@ -6,10 +6,10 @@ namespace Infrastructure;
 
 #pragma warning disable IDE0058
 
-public abstract class BaseEntityRepository<TEntity>(ApplicationContext context)
+public abstract class BaseEntityRepository<TEntity>(ApplicationDbContext context)
     where TEntity : class
 {
-    protected ApplicationContext Context => context;
+    protected ApplicationDbContext Context => context;
 
     protected IQueryable<TEntity> Table => context.Set<TEntity>();
 
