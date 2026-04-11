@@ -18,15 +18,16 @@ export const GET_ME = gql`
 `;
 
 export const GET_USERS = gql`
-  query GetUsers($page: Int!, $pageSize: Int!) {
-    users(page: $page, pageSize: $pageSize) {
-      pageIndex
-      pageSize
+  query GetUsers($first: Int, $after: String) {
+    users(first: $first, after: $after) {
       totalCount
-      totalPages
-      hasNextPage
-      hasPreviousPage
-      items {
+      pageInfo {
+        hasNextPage
+        hasPreviousPage
+        startCursor
+        endCursor
+      }
+      nodes {
         id
         email
         name

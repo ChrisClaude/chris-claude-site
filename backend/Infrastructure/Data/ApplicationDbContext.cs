@@ -46,6 +46,12 @@ public class ApplicationDbContext : DbContext
         modelBuilder.ApplyConfiguration(new BookmarkEntityTypeConfiguration());
         modelBuilder.ApplyConfiguration(new NewsletterSignUpEntityTypeConfiguration());
         modelBuilder.ApplyConfiguration(new ProcessedNotificationEntityTypeConfiguration());
+
+        modelBuilder.Entity<Post>().HasQueryFilter(p => !p.IsDeleted);
+        modelBuilder.Entity<Comment>().HasQueryFilter(c => !c.IsDeleted);
+        modelBuilder
+            .Entity<ProcessedNotification>()
+            .HasQueryFilter(n => !n.Post.IsDeleted);
     }
 }
 #pragma warning restore IDE0058

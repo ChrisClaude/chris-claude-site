@@ -1,6 +1,8 @@
-using Application.Common.Dtos;
-using Application.Interfaces.Queries;
-using BlogAPI.Extensions;
+using Application.Entities;
+using Application.Enums;
+using Application.Interfaces;
+using BlogAPI.GraphQL.Filters;
+using BlogAPI.GraphQL.Sorting;
 using HotChocolate.Authorization;
 
 namespace BlogAPI.GraphQL.Queries;
@@ -9,16 +11,12 @@ namespace BlogAPI.GraphQL.Queries;
 internal static class PostQuery
 {
     [Authorize]
-    public static async Task<PagedListDto<PostDto>> GetPostsAsync(
-        int page,
-        int pageSize,
-        [Service] IPostQueries postQueries
-    )
+    [UsePaging(IncludeTotalCount = true)]
+    [UseProjection]
+    [UseFiltering(typeof(PostFilterType))]
+    [UseSorting(typeof(PostSortType))]
+    public static IQueryable<Post> GetPosts([Service] IQueryableSource<Post> source)
     {
-        ArgumentNullException.ThrowIfNull(postQueries);
-
-        var result = await postQueries.GetPostsAsync(page, pageSize);
-
-        return result.GetValueOrThrow();
+        return source.Query().Where(p => p.Status == PostStatus.Published);
     }
 }

@@ -7,6 +7,7 @@ using BlogAPI.Configurations;
 using BlogAPI.GraphQL;
 using BlogAPI.GraphQL.Mutations;
 using BlogAPI.GraphQL.Queries;
+using BlogAPI.GraphQL.Types;
 using BlogAPI.Middleware;
 using BlogAPI.Storage;
 using Infrastructure;
@@ -73,11 +74,16 @@ internal static class WebApplicationConfiguration
             .AddGraphQLServer()
             .RegisterDbContextFactory<ApplicationDbContext>()
             .AddQueryType()
+            .AddTypeExtension(typeof(PostQuery))
             .AddTypeExtension(typeof(UserQuery))
             .AddMutationType()
             .AddTypeExtension(typeof(UserMutation))
             .AddMutationConventions()
-            .AddAuthorization();
+            .AddAuthorization()
+            .AddProjections()
+            .AddFiltering()
+            .AddSorting()
+            .AddTypeExtension(typeof(PostType));
 
         builder.Host.UseSerilog(
             (context, _, configuration) =>

@@ -1,11 +1,12 @@
-export type PagedListDto<T> = {
-  pageIndex: number;
-  pageSize: number;
+export type ConnectionDto<T> = {
   totalCount: number;
-  totalPages: number;
-  hasNextPage: boolean;
-  hasPreviousPage: boolean;
-  items: T[];
+  pageInfo: {
+    hasNextPage: boolean;
+    hasPreviousPage: boolean;
+    startCursor?: string | null;
+    endCursor?: string | null;
+  };
+  nodes: T[];
 };
 
 export type RoleDto = {

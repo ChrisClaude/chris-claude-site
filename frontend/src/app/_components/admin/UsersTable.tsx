@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { GET_USERS } from '@/_lib/graphql/queries/user';
-import { PagedListDto, UserDto } from '@/_lib/graphql/types';
+import { ConnectionDto, UserDto } from '@/_lib/graphql/types';
 import { Button } from '@heroui/react';
 import Image from 'next/image';
 import EditUserModal from './EditUserModal';
@@ -10,17 +10,30 @@ import EditUserModal from './EditUserModal';
 const PAGE_SIZE = 10;
 
 const UsersTable = () => {
-  const [page, setPage] = useState(0);
+  const [cursorStack, setCursorStack] = useState<string[]>([]);
   const [editingUser, setEditingUser] = useState<UserDto | null>(null);
 
+  const after = cursorStack.at(-1) ?? null;
+  const page = cursorStack.length;
+
   const { data, loading, error, refetch } = useQuery<{
-    users: PagedListDto<UserDto>;
+    users: ConnectionDto<UserDto>;
   }>(GET_USERS, {
-    variables: { page, pageSize: PAGE_SIZE },
+    variables: { first: PAGE_SIZE, after },
     fetchPolicy: 'cache-and-network',
   });
 
   const users = data?.users;
+
+  const handleNext = () => {
+    if (users?.pageInfo.endCursor) {
+      setCursorStack(prev => [...prev, users.pageInfo.endCursor!]);
+    }
+  };
+
+  const handlePrevious = () => {
+    setCursorStack(prev => prev.slice(0, -1));
+  };
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-12">
@@ -61,7 +74,7 @@ const UsersTable = () => {
                 </td>
               </tr>
             )}
-            {!loading && !error && users?.items.length === 0 && (
+            {!loading && !error && users?.nodes.length === 0 && (
               <tr>
                 <td
                   colSpan={4}
@@ -71,7 +84,7 @@ const UsersTable = () => {
                 </td>
               </tr>
             )}
-            {users?.items.map(user => (
+            {users?.nodes.map(user => (
               <tr
                 key={user.id}
                 className="bg-white dark:bg-gray-900 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
@@ -128,32 +141,32 @@ const UsersTable = () => {
         </table>
       </div>
 
-      {users && (users.hasPreviousPage || users.hasNextPage) && (
-        <div className="flex items-center justify-between mt-4">
-          <p className="text-sm text-gray-500 dark:text-gray-400">
-            Page {users.pageIndex + 1} of {users.totalPages} &middot;{' '}
-            {users.totalCount} users
-          </p>
-          <div className="flex gap-2">
-            <Button
-              size="sm"
-              variant="outline"
-              isDisabled={!users.hasPreviousPage}
-              onPress={() => setPage(p => p - 1)}
-            >
-              Previous
-            </Button>
-            <Button
-              size="sm"
-              variant="outline"
-              isDisabled={!users.hasNextPage}
-              onPress={() => setPage(p => p + 1)}
-            >
-              Next
-            </Button>
+      {users &&
+        (users.pageInfo.hasPreviousPage || users.pageInfo.hasNextPage) && (
+          <div className="flex items-center justify-between mt-4">
+            <p className="text-sm text-gray-500 dark:text-gray-400">
+              Page {page + 1} &middot; {users.totalCount} users
+            </p>
+            <div className="flex gap-2">
+              <Button
+                size="sm"
+                variant="outline"
+                isDisabled={!users.pageInfo.hasPreviousPage}
+                onPress={handlePrevious}
+              >
+                Previous
+              </Button>
+              <Button
+                size="sm"
+                variant="outline"
+                isDisabled={!users.pageInfo.hasNextPage}
+                onPress={handleNext}
+              >
+                Next
+              </Button>
+            </div>
           </div>
-        </div>
-      )}
+        )}
 
       {editingUser && (
         <EditUserModal

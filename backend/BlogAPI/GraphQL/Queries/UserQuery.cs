@@ -1,7 +1,9 @@
-using Application.Common.Dtos;
+using Application.Entities;
 using Application.Enums;
-using Application.Interfaces.Queries;
+using Application.Interfaces;
 using BlogAPI.Extensions;
+using BlogAPI.GraphQL.Filters;
+using BlogAPI.GraphQL.Sorting;
 using HotChocolate.Authorization;
 
 namespace BlogAPI.GraphQL.Queries;
@@ -10,32 +12,25 @@ namespace BlogAPI.GraphQL.Queries;
 internal static class UserQuery
 {
     [Authorize]
-    public static async Task<UserDto> MeAsync(
-        [Service] IUserQueries userQueries,
+    [UseFirstOrDefault]
+    [UseProjection]
+    public static IQueryable<User> Me(
+        [Service] IQueryableSource<User> source,
         IHttpContextAccessor httpContextAccessor
     )
     {
         ArgumentNullException.ThrowIfNull(httpContextAccessor);
-        ArgumentNullException.ThrowIfNull(userQueries);
-
         var contextUser = httpContextAccessor.GetRequiredUser();
-
-        var result = await userQueries.GetUserAsync(contextUser.Id);
-
-        return result.GetValueOrThrow();
+        return source.Query().Where(u => u.Id == contextUser.Id);
     }
 
     [Authorize(Policy = AuthPolicy.ADMIN)]
-    public static async Task<PagedListDto<UserDto>> GetUsersAsync(
-        int page,
-        int pageSize,
-        [Service] IUserQueries userQueries
-    )
+    [UsePaging(IncludeTotalCount = true)]
+    [UseProjection]
+    [UseFiltering(typeof(UserFilterType))]
+    [UseSorting(typeof(UserSortType))]
+    public static IQueryable<User> GetUsers([Service] IQueryableSource<User> source)
     {
-        ArgumentNullException.ThrowIfNull(userQueries);
-
-        var result = await userQueries.GetUsersAsync(page, pageSize);
-
-        return result.GetValueOrThrow();
+        return source.Query();
     }
 }

@@ -25,6 +25,7 @@ public static class DependencyRegistrar
         services.AddScoped<ICacheManager, MemoryCacheManager>();
         services.AddScoped(typeof(IRepository<>), typeof(EntityRepository<>));
         services.AddScoped(typeof(IBridgeRepository<>), typeof(BridgeEntityRepository<>));
+        services.AddScoped(typeof(IQueryableSource<>), typeof(QueryableSource<>));
 
         return services;
     }
