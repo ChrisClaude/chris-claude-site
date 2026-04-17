@@ -1,3 +1,5 @@
+using Application.Enums;
+
 namespace Application.Entities;
 
 public class User : BaseEntity
@@ -11,4 +13,9 @@ public class User : BaseEntity
     public IEnumerable<PostReaction>? PostReactions { get; set; }
     public IEnumerable<Comment>? Comments { get; set; }
     public IEnumerable<Post>? Posts { get; set; }
+
+    public bool CanPublish =>
+        UserRoles.Any(ur => ur.Role.Name == RoleName.ADMIN || ur.Role.Name == RoleName.PUBLISHER);
+
+    public bool IsAdmin => UserRoles.Any(ur => ur.Role.Name == RoleName.ADMIN);
 }

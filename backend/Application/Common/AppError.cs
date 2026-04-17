@@ -27,7 +27,7 @@ public sealed record AppError(string Code, string Description)
         return new("not-found", exceptionMessage);
     }
 
-    public static AppError NotAuthorized(string? exceptionMessage = null)
+    public static AppError Unauthorized(string? exceptionMessage = null)
     {
         if (string.IsNullOrEmpty(exceptionMessage))
         {

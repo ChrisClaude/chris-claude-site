@@ -44,7 +44,10 @@ public class UpdateUserCommandHandler(IRepository<User> userRepository)
 
         if (user == null)
         {
-            return Result.Failure<UserDto>(AppError.NotFound("User not found."), ErrorType.NotFound);
+            return Result.Failure<UserDto>(
+                AppError.NotFound("User not found."),
+                ErrorType.NotFound
+            );
         }
 
         user.Name = request.Name;

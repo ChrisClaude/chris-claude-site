@@ -31,8 +31,7 @@ public class GetOrCreateUserCommandValidator : AbstractValidator<GetOrCreateUser
 public class GetOrCreateUserCommandHandler(
     IRepository<User> userRepository,
     IRepository<Role> roleRepository
-)
-    : IRequestHandler<GetOrCreateUserCommand, Result<UserDto>>
+) : IRequestHandler<GetOrCreateUserCommand, Result<UserDto>>
 {
     public async Task<Result<UserDto>> Handle(
         GetOrCreateUserCommand request,
