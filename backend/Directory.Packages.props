@@ -4,18 +4,18 @@
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
   </PropertyGroup>
   <ItemGroup>
-    <PackageVersion Include="Aspire.Azure.Storage.Blobs" Version="13.2.1" />
-    <PackageVersion Include="Aspire.Hosting.Azure.Storage" Version="13.2.1" />
+    <PackageVersion Include="Aspire.Azure.Storage.Blobs" Version="13.2.2" />
+    <PackageVersion Include="Aspire.Hosting.Azure.Storage" Version="13.2.2" />
     <PackageVersion Include="Aspire.Hosting.NodeJs" Version="9.5.2" />
-    <PackageVersion Include="Aspire.Hosting.SqlServer" Version="13.2.1" />
+    <PackageVersion Include="Aspire.Hosting.SqlServer" Version="13.2.2" />
     <PackageVersion Include="Azure.Extensions.AspNetCore.Configuration.Secrets" Version="1.5.0" />
     <PackageVersion Include="Azure.Identity" Version="1.19.0" />
     <PackageVersion Include="Azure.Monitor.OpenTelemetry.AspNetCore" Version="1.4.0" />
     <PackageVersion Include="FluentValidation" Version="12.1.1" />
     <PackageVersion Include="FluentValidation.DependencyInjectionExtensions" Version="12.1.1" />
-    <PackageVersion Include="HotChocolate.AspNetCore" Version="15.1.12" />
-    <PackageVersion Include="HotChocolate.AspNetCore.Authorization" Version="15.1.12" />
-    <PackageVersion Include="HotChocolate.Data.EntityFramework" Version="15.1.13" />
+    <PackageVersion Include="HotChocolate.AspNetCore" Version="15.1.14" />
+    <PackageVersion Include="HotChocolate.AspNetCore.Authorization" Version="15.1.14" />
+    <PackageVersion Include="HotChocolate.Data.EntityFramework" Version="15.1.14" />
     <PackageVersion Include="MediatR" Version="14.1.0" />
     <PackageVersion Include="Microsoft.AspNetCore.Http" Version="2.3.9" />
     <PackageVersion Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="9.0.0" />

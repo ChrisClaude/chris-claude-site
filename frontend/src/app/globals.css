@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "@heroui/styles";
+@plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -208,4 +209,82 @@ body {
 
 .scale-1 {
   transform: scale(0.7);
+}
+
+/* TipTap editor styles */
+.tiptap p.is-editor-empty:first-child::before {
+  color: theme(colors.gray.400);
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+
+.dark .tiptap p.is-editor-empty:first-child::before {
+  color: theme(colors.gray.600);
+}
+
+.tiptap {
+  outline: none;
+}
+
+.tiptap blockquote {
+  border-left: 3px solid theme(colors.gray.300);
+  padding-left: 1rem;
+  color: theme(colors.gray.600);
+  font-style: italic;
+}
+
+.dark .tiptap blockquote {
+  border-left-color: theme(colors.gray.600);
+  color: theme(colors.gray.400);
+}
+
+.tiptap pre {
+  background: theme(colors.gray.100);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  overflow-x: auto;
+  font-family: monospace;
+}
+
+.dark .tiptap pre {
+  background: theme(colors.gray.800);
+}
+
+.tiptap code {
+  background: theme(colors.gray.100);
+  border-radius: 0.25rem;
+  padding: 0.125rem 0.25rem;
+  font-family: monospace;
+  font-size: 0.875em;
+}
+
+.dark .tiptap code {
+  background: theme(colors.gray.800);
+}
+
+.tiptap hr {
+  border: none;
+  border-top: 2px solid theme(colors.gray.200);
+  margin: 1.5rem 0;
+}
+
+.dark .tiptap hr {
+  border-top-color: theme(colors.gray.700);
+}
+
+.tiptap img {
+  max-width: 100%;
+  border-radius: 0.5rem;
+}
+
+.tiptap a {
+  color: theme(colors.blue.600);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.dark .tiptap a {
+  color: theme(colors.blue.400);
 }
