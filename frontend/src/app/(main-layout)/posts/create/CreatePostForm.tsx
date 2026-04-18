@@ -1,6 +1,14 @@
 'use client';
 
-import { useState, useRef, useCallback, KeyboardEvent } from 'react';
+import {
+  useState,
+  useRef,
+  useCallback,
+  useContext,
+  useEffect,
+  KeyboardEvent,
+} from 'react';
+import UIContext from '@/_hooks/UIContext';
 import { useMutation } from '@apollo/client';
 import { useEditor, EditorContent } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
@@ -568,6 +576,12 @@ type DocumentEditorProps = {
 
 const DocumentEditor = ({ initialMetadata, onBack }: DocumentEditorProps) => {
   const router = useRouter();
+  const { setUIState } = useContext(UIContext);
+
+  useEffect(() => {
+    setUIState?.(s => ({ ...s, isEditorPage: true }));
+    return () => setUIState?.(s => ({ ...s, isEditorPage: false }));
+  }, [setUIState]);
 
   // Document state
   const [title, setTitle] = useState('');
