@@ -10,6 +10,7 @@ export type Article = {
 export type AppState = {
   isMobileNavOpen: boolean;
   isResumePage: boolean;
+  isEditorPage: boolean;
 };
 
 export type UIContextType = {

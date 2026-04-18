@@ -13,6 +13,7 @@ import { useRouter } from 'next/navigation';
 const Header = () => {
   const { uiState, setUIState } = useContext(UIContext);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
   const toggleSideNav = (value?: boolean) => {
@@ -28,6 +29,10 @@ const Header = () => {
   const router = useRouter();
 
   useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
         setMenuOpen(false);
@@ -37,7 +42,7 @@ const Header = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  const themeToggle = (
+  const themeToggle = mounted ? (
     <button
       onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
       className="p-2 rounded-lg opacity-70 hover:opacity-100 transition-opacity"
@@ -49,7 +54,7 @@ const Header = () => {
         <BsMoon className="text-xl" />
       )}
     </button>
-  );
+  ) : null;
 
   return (
     <header

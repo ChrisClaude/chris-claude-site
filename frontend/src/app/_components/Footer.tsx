@@ -12,7 +12,7 @@ const Footer = () => {
   return (
     <footer
       className={`px-5 py-6 w-screen flex-col-reverse gap-y-4 items-center md:gap-y-0 md:flex-row md:justify-between md:px-20 md:w-full ${
-        uiState.isResumePage ? 'hidden' : 'flex'
+        uiState.isResumePage || uiState.isEditorPage ? 'hidden' : 'flex'
       }`}
     >
       <div>
