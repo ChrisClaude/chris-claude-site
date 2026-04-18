@@ -17,6 +17,20 @@ export type UserRoleDto = {
   role?: RoleDto | null;
 };
 
+export type PostAuthorDto = {
+  id: string;
+  name: string;
+  surname: string;
+  image?: string | null;
+};
+
+export type PostTagItemDto = {
+  tag: {
+    id: string;
+    name: string;
+  };
+};
+
 export type PostDto = {
   id: string;
   title: string;
@@ -25,6 +39,12 @@ export type PostDto = {
   slug: string;
   status: string;
   authorId: string;
+  content?: string | null;
+  createdAt?: string | null;
+  updatedAt?: string | null;
+  publishedAt?: string | null;
+  author?: PostAuthorDto | null;
+  postTags?: PostTagItemDto[] | null;
 };
 
 export type CommentDto = {

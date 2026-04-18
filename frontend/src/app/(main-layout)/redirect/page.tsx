@@ -23,7 +23,12 @@ const RedirectPage = () => {
     let destination = '/';
 
     if (status === 'authenticated') {
-      setRedirectMessage('Redirecting you to admin dashboard...');
+      if (isAdmin) {
+        destination = '/admin/dashboard';
+        setRedirectMessage('Redirecting you to admin dashboard...');
+      } else {
+        setRedirectMessage('Redirecting you to the homepage...');
+      }
     } else {
       setRedirectMessage('Redirecting you to the homepage...');
     }
