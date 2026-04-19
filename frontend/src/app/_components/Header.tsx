@@ -1,9 +1,15 @@
 'use client';
 import UIContext from '@/_hooks/UIContext';
 import Link from 'next/link';
-import { useContext, useRef, useState, useEffect } from 'react';
+import { useContext, useRef, useState, useEffect, useMemo } from 'react';
 import { RxHamburgerMenu } from 'react-icons/rx';
-import { BsSun, BsMoon, BsPerson, BsBoxArrowRight } from 'react-icons/bs';
+import {
+  BsSun,
+  BsMoon,
+  BsPerson,
+  BsBoxArrowRight,
+  BsGrid,
+} from 'react-icons/bs';
 import { useTheme } from 'next-themes';
 import Logo from './Logo';
 import { Button, Avatar } from '@heroui/react';
@@ -24,7 +30,8 @@ const Header = () => {
     setUIState?.({ ...uiState, isMobileNavOpen: !uiState.isMobileNavOpen });
   };
 
-  const { login, logout, isUserSignedIn, userProfile } = useAuth();
+  const { login, logout, isUserSignedIn, userProfile, isAdmin, isPublisher } =
+    useAuth();
   const { theme, setTheme } = useTheme();
   const router = useRouter();
 
@@ -55,6 +62,14 @@ const Header = () => {
       )}
     </button>
   ) : null;
+
+  const getDashboardPath = useMemo(() => {
+    return isAdmin
+      ? '/admin/dashboard'
+      : isPublisher
+        ? '/publisher/dashboard'
+        : '/reader/dashboard';
+  }, [isAdmin, isPublisher]);
 
   return (
     <header
@@ -109,6 +124,14 @@ const Header = () => {
                     </p>
                   )}
                 </div>
+                <Link
+                  href={getDashboardPath}
+                  onClick={() => setMenuOpen(false)}
+                  className="flex items-center gap-2 w-full px-3 py-2 text-sm hover:bg-default-100 transition-colors"
+                >
+                  <BsGrid className="text-base shrink-0" />
+                  Dashboard
+                </Link>
                 <Link
                   href="/profile"
                   onClick={() => setMenuOpen(false)}
