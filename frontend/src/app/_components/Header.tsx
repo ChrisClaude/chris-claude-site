@@ -130,14 +130,14 @@ const Header = () => {
               </div>
             )}
           </div>
-        ) : (
+        ) : mounted ? (
           <Button
             onPress={login}
             className="ml-2 px-4 py-2 rounded-lg text-sm font-medium bg-gray-900 text-white hover:bg-gray-700 transition-colors duration-200 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-200"
           >
             Login
           </Button>
-        )}
+        ) : null}
       </nav>
       <div className="flex items-center gap-2 md:hidden">
         {themeToggle}

@@ -20,7 +20,7 @@ export default function RootLayout({
           referrerPolicy="strict-origin-when-cross-origin"
         />
       </head>
-      <body>
+      <body suppressHydrationWarning>
         <Providers>{children}</Providers>
       </body>
     </html>
