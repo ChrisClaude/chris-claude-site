@@ -11,6 +11,7 @@ const navItems = [
   { label: 'My Articles', href: '/admin/my-articles' },
   { label: 'All Articles', href: '/admin/all-articles' },
   { label: 'Users', href: '/admin/users' },
+  { label: 'Profile', href: '/admin/profile' },
 ];
 
 const AdminSidebar = () => {

@@ -9,6 +9,7 @@ import { useAuth } from '@/_hooks/useAuth';
 const navItems = [
   { label: 'Dashboard', href: '/reader/dashboard' },
   { label: 'Library', href: '/reader/library' },
+  { label: 'Profile', href: '/reader/profile' },
 ];
 
 const ReaderSidebar = () => {

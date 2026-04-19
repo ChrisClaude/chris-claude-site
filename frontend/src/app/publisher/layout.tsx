@@ -9,6 +9,7 @@ import { useAuth } from '@/_hooks/useAuth';
 const navItems = [
   { label: 'Dashboard', href: '/publisher/dashboard' },
   { label: 'My Articles', href: '/publisher/my-articles' },
+  { label: 'Profile', href: '/publisher/profile' },
 ];
 
 const PublisherSidebar = () => {
