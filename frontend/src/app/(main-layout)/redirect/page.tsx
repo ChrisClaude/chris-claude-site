@@ -7,7 +7,14 @@ import { useEffect, useState } from 'react';
 
 const RedirectPage = () => {
   const router = useRouter();
-  const { status, isAdmin, containsRoles, isReader, isFetchingUserProfile } = useAuth();
+  const {
+    status,
+    isAdmin,
+    containsRoles,
+    isReader,
+    isPublisher,
+    isFetchingUserProfile,
+  } = useAuth();
   const [redirectMessage, setRedirectMessage] = useState(
     'Redirecting you to the appropriate page...',
   );
@@ -26,9 +33,12 @@ const RedirectPage = () => {
       if (isAdmin) {
         destination = '/admin/dashboard';
         setRedirectMessage('Redirecting you to admin dashboard...');
-      } else if (containsRoles(['Publisher'])) {
+      } else if (isPublisher) {
         destination = '/publisher/dashboard';
         setRedirectMessage('Redirecting you to publisher dashboard...');
+      } else if (isReader) {
+        destination = '/reader/dashboard';
+        setRedirectMessage('Redirecting you to reader dashboard...');
       } else {
         setRedirectMessage('Redirecting you to the homepage...');
       }
@@ -41,7 +51,7 @@ const RedirectPage = () => {
     }, 1500);
 
     return () => clearTimeout(redirectTimer);
-  }, [isAdmin, containsRoles, isReader, router, status, isFetchingUserProfile]);
+  }, [isAdmin, isPublisher, isReader, router, status, isFetchingUserProfile]);
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-linear-to-b from-white to-gray-100">

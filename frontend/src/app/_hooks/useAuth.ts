@@ -66,6 +66,12 @@ export const useAuth = () => {
     );
   }, [userProfile]);
 
+  const isPublisher = useMemo(() => {
+    return userProfile?.userRoles?.some(
+      userRole => userRole.role?.name === ROLES.PUBLISHER,
+    );
+  }, [userProfile]);
+
   const containsRoles = useCallback(
     (roles: string[]) => {
       return userProfile?.userRoles?.some(userRole =>
@@ -87,5 +93,6 @@ export const useAuth = () => {
     errorFetchingUserProfile,
     isAdmin,
     isReader,
+    isPublisher,
   };
 };
