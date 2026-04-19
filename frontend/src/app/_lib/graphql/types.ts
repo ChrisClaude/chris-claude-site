@@ -1,3 +1,5 @@
+import { PostStatus } from './__generated__/graphql';
+
 export type ConnectionDto<T> = {
   totalCount: number;
   pageInfo: {
@@ -37,7 +39,7 @@ export type PostDto = {
   excerpt?: string | null;
   thumbnail?: string | null;
   slug: string;
-  status: string;
+  status: PostStatus;
   authorId: string;
   content?: string | null;
   createdAt?: string | null;

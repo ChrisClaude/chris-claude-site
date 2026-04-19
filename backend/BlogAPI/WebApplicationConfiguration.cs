@@ -78,6 +78,7 @@ internal static class WebApplicationConfiguration
             .AddTypeExtension(typeof(UserQuery))
             .AddMutationType()
             .AddTypeExtension(typeof(UserMutation))
+            .AddTypeExtension(typeof(PostMutation))
             .AddMutationConventions()
             .AddAuthorization()
             .AddProjections()

@@ -18,11 +18,10 @@ import Image from '@tiptap/extension-image';
 import TextAlign from '@tiptap/extension-text-align';
 import Placeholder from '@tiptap/extension-placeholder';
 import { useRouter } from 'next/navigation';
-import { CREATE_POST } from '@/_lib/graphql/mutations/post';
+import { CreatePostDocument } from '@/_lib/graphql/__generated__/graphql';
 import {
   ArrowLeftIcon,
   XMarkIcon,
-  PlusIcon,
   PhotoIcon,
   TagIcon,
   Cog6ToothIcon,
@@ -41,13 +40,6 @@ import { CheckCircleIcon } from '@heroicons/react/24/solid';
 // ─── Types ───────────────────────────────────────────────────────────────────
 
 type Metadata = { thumbnail: string; excerpt: string; tags: string[] };
-
-type CreatePostPayload = {
-  createPost: {
-    postDto: { id: string; slug: string } | null;
-    errors: Array<{ message: string; code?: string }>;
-  };
-};
 
 // ─── Shared styles ────────────────────────────────────────────────────────────
 
@@ -597,7 +589,7 @@ const DocumentEditor = ({ initialMetadata, onBack }: DocumentEditorProps) => {
 
   const titleRef = useRef<HTMLTextAreaElement>(null);
 
-  const [createPost] = useMutation<CreatePostPayload>(CREATE_POST);
+  const [createPost] = useMutation(CreatePostDocument);
 
   const editor = useEditor({
     extensions: [

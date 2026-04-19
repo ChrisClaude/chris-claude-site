@@ -2,7 +2,10 @@
 
 import { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { UPDATE_POST } from '@/_lib/graphql/mutations/post';
+import {
+  UpdatePostDocument,
+  PostStatus,
+} from '@/_lib/graphql/__generated__/graphql';
 import { PostDto } from '@/_lib/graphql/types';
 import { Button } from '@heroui/react';
 
@@ -12,17 +15,21 @@ type Props = {
   onSaved: () => void;
 };
 
-const STATUS_OPTIONS = ['Draft', 'Published', 'Archived'];
+const STATUS_OPTIONS: Array<{ label: string; value: PostStatus }> = [
+  { label: 'Draft', value: PostStatus.Draft },
+  { label: 'Published', value: PostStatus.Published },
+  { label: 'Archived', value: PostStatus.Archived },
+];
 
 const EditPostModal = ({ post, onClose, onSaved }: Props) => {
   const [title, setTitle] = useState(post.title);
   const [excerpt, setExcerpt] = useState(post.excerpt ?? '');
   const [thumbnail, setThumbnail] = useState(post.thumbnail ?? '');
   const [content, setContent] = useState(post.content ?? '');
-  const [status, setStatus] = useState(post.status);
+  const [status, setStatus] = useState<PostStatus>(post.status);
   const [error, setError] = useState<string | null>(null);
 
-  const [updatePost, { loading }] = useMutation(UPDATE_POST);
+  const [updatePost, { loading }] = useMutation(UpdatePostDocument);
 
   const handleSave = async () => {
     setError(null);
@@ -116,12 +123,12 @@ const EditPostModal = ({ post, onClose, onSaved }: Props) => {
             </label>
             <select
               value={status}
-              onChange={e => setStatus(e.target.value)}
+              onChange={e => setStatus(e.target.value as PostStatus)}
               className="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
-              {STATUS_OPTIONS.map(s => (
-                <option key={s} value={s}>
-                  {s}
+              {STATUS_OPTIONS.map(option => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
                 </option>
               ))}
             </select>
