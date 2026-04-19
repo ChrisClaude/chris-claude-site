@@ -20,6 +20,7 @@ import {
 import { CheckCircleIcon } from '@heroicons/react/24/solid';
 import Toolbar from './Toolbar';
 import Sidebar from './Sidebar';
+import { Metadata } from './shared';
 
 type DocumentEditorProps = {
   initialMetadata: Metadata;

@@ -7,6 +7,7 @@ import {
   TagIcon,
 } from '@heroicons/react/24/outline';
 import TagInput from './TagInput';
+import { inputClass, Metadata } from './shared';
 
 type MetadataStepProps = {
   onStart: (data: Metadata) => void;
