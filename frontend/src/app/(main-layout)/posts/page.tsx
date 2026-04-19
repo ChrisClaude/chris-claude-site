@@ -9,7 +9,12 @@ import { format } from 'date-fns';
 import { PencilSquareIcon } from '@heroicons/react/24/solid';
 
 type Tag = { id: string; name: string };
-type Author = { id: string; name: string; surname: string; image: string | null };
+type Author = {
+  id: string;
+  name: string;
+  surname: string;
+  image: string | null;
+};
 type PostNode = {
   id: string;
   title: string;
@@ -25,7 +30,12 @@ type PostNode = {
 type PostsData = {
   posts: {
     totalCount: number;
-    pageInfo: { hasNextPage: boolean; hasPreviousPage: boolean; startCursor: string | null; endCursor: string | null };
+    pageInfo: {
+      hasNextPage: boolean;
+      hasPreviousPage: boolean;
+      startCursor: string | null;
+      endCursor: string | null;
+    };
     nodes: PostNode[];
   };
 };
@@ -140,10 +150,13 @@ const PostsPage = () => {
       {/* Header */}
       <div className="flex items-end justify-between mb-10">
         <div>
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100">Posts</h1>
+          <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100">
+            Posts
+          </h1>
           {posts && (
             <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
-              {posts.totalCount} {posts.totalCount === 1 ? 'post' : 'posts'} published
+              {posts.totalCount} {posts.totalCount === 1 ? 'post' : 'posts'}{' '}
+              published
             </p>
           )}
         </div>
@@ -188,7 +201,9 @@ const PostsPage = () => {
       {/* Empty state */}
       {!loading && posts?.nodes.length === 0 && (
         <div className="text-center py-24">
-          <p className="text-gray-400 dark:text-gray-500 text-lg mb-4">No posts published yet.</p>
+          <p className="text-gray-400 dark:text-gray-500 text-lg mb-4">
+            No posts published yet.
+          </p>
           {canCreate && (
             <Link
               href="/posts/create"
