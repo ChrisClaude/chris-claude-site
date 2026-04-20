@@ -12,6 +12,7 @@ import TextAlign from '@tiptap/extension-text-align';
 import Placeholder from '@tiptap/extension-placeholder';
 import { useRouter } from 'next/navigation';
 import { CreatePostDocument } from '@/_lib/graphql/__generated__/graphql';
+import { useAuth } from '@/_hooks/useAuth';
 import {
   ArrowLeftIcon,
   XMarkIcon,
@@ -30,6 +31,7 @@ type DocumentEditorProps = {
 const DocumentEditor = ({ initialMetadata, onBack }: DocumentEditorProps) => {
   const router = useRouter();
   const { setUIState } = useContext(UIContext);
+  const { isAdmin } = useAuth();
 
   useEffect(() => {
     setUIState?.(s => ({ ...s, isEditorPage: true }));
@@ -248,6 +250,7 @@ const DocumentEditor = ({ initialMetadata, onBack }: DocumentEditorProps) => {
             onTagAdd={addTag}
             onTagRemove={removeTag}
             onClose={() => setSidebarOpen(false)}
+            isAdmin={isAdmin}
           />
         )}
       </div>

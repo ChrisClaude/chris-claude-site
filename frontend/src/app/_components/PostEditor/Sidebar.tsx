@@ -20,6 +20,7 @@ type SidebarProps = {
   onTagAdd: (v: string) => void;
   onTagRemove: (v: string) => void;
   onClose: () => void;
+  isAdmin?: boolean;
 };
 
 const Sidebar = ({
@@ -33,6 +34,7 @@ const Sidebar = ({
   onTagAdd,
   onTagRemove,
   onClose,
+  isAdmin = false,
 }: SidebarProps) => (
   <aside className="w-72 shrink-0 overflow-y-auto border-l border-gray-200 dark:border-gray-700 bg-white dark:bg-neutral-900">
     <div className="sticky top-0 z-10 flex items-center justify-between border-b border-gray-100 dark:border-gray-700 bg-white dark:bg-neutral-900 px-4 py-3">
@@ -108,6 +110,7 @@ const Sidebar = ({
           setTagInput={onTagInputChange}
           onAdd={onTagAdd}
           onRemove={onTagRemove}
+          isAdmin={isAdmin}
         />
       </div>
     </div>

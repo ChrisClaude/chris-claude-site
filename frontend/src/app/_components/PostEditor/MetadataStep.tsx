@@ -8,6 +8,7 @@ import {
 } from '@heroicons/react/24/outline';
 import TagInput from './TagInput';
 import { inputClass, Metadata } from './shared';
+import { useAuth } from '@/_hooks/useAuth';
 
 type MetadataStepProps = {
   onStart: (data: Metadata) => void;
@@ -15,6 +16,7 @@ type MetadataStepProps = {
 
 const MetadataStep = ({ onStart }: MetadataStepProps) => {
   const router = useRouter();
+  const { isAdmin } = useAuth();
   const [thumbnail, setThumbnail] = useState('');
   const [excerpt, setExcerpt] = useState('');
   const [tags, setTags] = useState<string[]>([]);
@@ -121,6 +123,7 @@ const MetadataStep = ({ onStart }: MetadataStepProps) => {
                 setTagInput={setTagInput}
                 onAdd={addTag}
                 onRemove={removeTag}
+                isAdmin={isAdmin}
               />
               <p className="text-[11px] text-gray-400">
                 Press Enter or comma to add. Max 10.

@@ -114,6 +114,8 @@ public class CreatePostCommandHandler(
                 .Select(name => new Tag
                 {
                     Name = name,
+                    CreatedAt = DateTimeOffset.UtcNow,
+                    CreatedBy = request.AuthorId,
                     CreatedByUser = null!,
                     UpdatedByUser = null!,
                     PostTags = [],
@@ -143,6 +145,8 @@ public class CreatePostCommandHandler(
             AuthorId = request.AuthorId,
             Slug = GenerateSlug(request.Title),
             Status = PostStatus.Draft,
+            CreatedAt = DateTimeOffset.UtcNow,
+            CreatedBy = request.AuthorId,
             PostTags = postTags,
             Author = null!,
             CreatedByUser = null!,
