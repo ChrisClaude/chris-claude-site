@@ -1,4 +1,3 @@
-using System.Diagnostics.CodeAnalysis;
 using Application.Commands.Posts;
 using Application.Common.Dtos;
 using Application.Enums;
@@ -9,8 +8,8 @@ using MediatR;
 
 namespace BlogAPI.GraphQL.Mutations;
 
-[MutationType]
-internal static class PostMutation
+[MutationType(IncludeStaticMembers = true)]
+public sealed class PostMutation
 {
     [Authorize]
     [Error(typeof(UserContextError))]
@@ -18,7 +17,7 @@ internal static class PostMutation
     public static async Task<PostDto> CreatePostAsync(
         CreatePostInput input,
         [Service] IMediator mediator,
-        IHttpContextAccessor httpContextAccessor,
+        [Service] IHttpContextAccessor httpContextAccessor,
         CancellationToken cancellationToken
     )
     {
@@ -47,7 +46,7 @@ internal static class PostMutation
     public static async Task<PostDto> UpdatePostAsync(
         UpdatePostInput input,
         [Service] IMediator mediator,
-        IHttpContextAccessor httpContextAccessor,
+        [Service] IHttpContextAccessor httpContextAccessor,
         CancellationToken cancellationToken
     )
     {
@@ -77,7 +76,7 @@ internal static class PostMutation
     public static async Task<PostDto> AdminUpdatePostStatusAsync(
         AdminUpdatePostStatusInput input,
         [Service] IMediator mediator,
-        IHttpContextAccessor httpContextAccessor,
+        [Service] IHttpContextAccessor httpContextAccessor,
         CancellationToken cancellationToken
     )
     {
@@ -98,16 +97,6 @@ internal static class PostMutation
     }
 }
 
-[SuppressMessage(
-    "CodeQuality",
-    "CA1812:Avoid uninstantiated internal classes",
-    Justification = "Used by Hot Chocolate GraphQL reflection"
-)]
-[SuppressMessage(
-    "Design",
-    "CA1515:Because an application's API isn't typically referenced from outside the assembly, types can be made internal",
-    Justification = "Must be public for Hot Chocolate schema type inference"
-)]
 public sealed record CreatePostInput(
     string Title,
     string Thumbnail,
@@ -116,16 +105,6 @@ public sealed record CreatePostInput(
     IEnumerable<string> Tags
 );
 
-[SuppressMessage(
-    "CodeQuality",
-    "CA1812:Avoid uninstantiated internal classes",
-    Justification = "Used by Hot Chocolate GraphQL reflection"
-)]
-[SuppressMessage(
-    "Design",
-    "CA1515:Because an application's API isn't typically referenced from outside the assembly, types can be made internal",
-    Justification = "Must be public for Hot Chocolate schema type inference"
-)]
 public sealed record UpdatePostInput(
     Guid PostId,
     string Title,
@@ -135,14 +114,4 @@ public sealed record UpdatePostInput(
     PostStatus Status
 );
 
-[SuppressMessage(
-    "CodeQuality",
-    "CA1812:Avoid uninstantiated internal classes",
-    Justification = "Used by Hot Chocolate GraphQL reflection"
-)]
-[SuppressMessage(
-    "Design",
-    "CA1515:Because an application's API isn't typically referenced from outside the assembly, types can be made internal",
-    Justification = "Must be public for Hot Chocolate schema type inference"
-)]
 public sealed record AdminUpdatePostStatusInput(Guid PostId, PostStatus Status);

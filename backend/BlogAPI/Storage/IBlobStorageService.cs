@@ -1,6 +1,6 @@
 namespace BlogAPI.Storage;
 
-internal interface IBlobStorageService
+public interface IBlobStorageService
 {
     /// <summary>
     /// Generates a short-lived SAS URI for the client to upload a blob directly.
@@ -18,4 +18,4 @@ internal interface IBlobStorageService
     Task DeleteBlobAsync(Uri blobUrl, CancellationToken cancellationToken = default);
 }
 
-internal sealed record BlobUploadToken(Uri UploadUrl, Uri BlobUrl);
+public sealed record BlobUploadToken(Uri UploadUrl, Uri BlobUrl);

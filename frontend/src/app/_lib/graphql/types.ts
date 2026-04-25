@@ -61,6 +61,12 @@ export type BookmarkDto = {
   userId: string;
 };
 
+export type BookmarkWithPostDto = {
+  postId: string;
+  userId: string;
+  post?: PostDto | null;
+};
+
 export type PostReactionDto = {
   postId: string;
 };

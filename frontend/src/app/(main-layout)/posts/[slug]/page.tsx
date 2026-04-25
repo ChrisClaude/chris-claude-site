@@ -8,6 +8,7 @@ import { format } from 'date-fns';
 import DOMPurify from 'dompurify';
 import { ArrowLeftIcon, CalendarIcon, UserIcon } from '@heroicons/react/24/outline';
 import { TagIcon } from '@heroicons/react/24/solid';
+import BookmarkButton from '@/_components/BookmarkButton';
 
 type Tag = { id: string; name: string };
 type Author = { id: string; name: string; surname: string; image: string | null };
@@ -123,6 +124,9 @@ const PostReaderPage = () => {
         <span className="flex items-center gap-1.5">
           <CalendarIcon className="w-4 h-4" />
           {format(new Date(date), 'MMMM d, yyyy')}
+        </span>
+        <span className="ml-auto">
+          <BookmarkButton postId={post.id} />
         </span>
       </div>
 

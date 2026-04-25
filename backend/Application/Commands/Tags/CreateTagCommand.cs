@@ -58,6 +58,8 @@ public class CreateTagCommandHandler(IRepository<Tag> tagRepository)
         var tag = new Tag
         {
             Name = normalizedName,
+            CreatedAt = DateTimeOffset.UtcNow,
+            CreatedBy = request.CreatedByUserId,
             CreatedByUser = null!,
             UpdatedByUser = null!,
             PostTags = [],

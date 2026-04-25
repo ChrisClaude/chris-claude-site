@@ -8,15 +8,15 @@ using HotChocolate.Authorization;
 
 namespace BlogAPI.GraphQL.Queries;
 
-[QueryType]
-internal static class UserQuery
+[QueryType(IncludeStaticMembers = true)]
+public sealed class UserQuery
 {
     [Authorize]
     [UseFirstOrDefault]
     [UseProjection]
     public static IQueryable<User> Me(
         [Service] IQueryableSource<User> source,
-        IHttpContextAccessor httpContextAccessor
+        [Service] IHttpContextAccessor httpContextAccessor
     )
     {
         ArgumentNullException.ThrowIfNull(httpContextAccessor);

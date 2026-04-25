@@ -4,8 +4,8 @@ using Tag = Application.Entities.Tag;
 
 namespace BlogAPI.GraphQL.Queries;
 
-[QueryType]
-internal static class TagQuery
+[QueryType(IncludeStaticMembers = true)]
+public sealed class TagQuery
 {
     [Authorize]
     [UsePaging(IncludeTotalCount = true)]

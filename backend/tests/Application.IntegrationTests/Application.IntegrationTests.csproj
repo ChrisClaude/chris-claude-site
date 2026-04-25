@@ -9,12 +9,14 @@
 
   <ItemGroup>
      <PackageReference Include="coverlet.collector" />
+     <PackageReference Include="HotChocolate.AspNetCore" />
      <PackageReference Include="Microsoft.NET.Test.Sdk" />
      <PackageReference Include="xunit" />
      <PackageReference Include="xunit.runner.visualstudio" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="../../BlogAPI/BlogAPI.csproj" />
     <ProjectReference Include="../../Application/Application.csproj" />
     <ProjectReference Include="..\..\ChrisClaude.ServiceDefaults\ChrisClaude.ServiceDefaults.csproj" />
   </ItemGroup>

@@ -32,10 +32,16 @@ const AdminTagsPage = () => {
     const trimmed = name.trim().toLowerCase();
     if (!trimmed) return setFormError('Tag name is required.');
 
-    const { data: result } = await createTag({ variables: { input: { name: trimmed } } });
-    const errors = result?.createTag?.errors;
-    if (errors?.length) {
-      setFormError(errors[0].message);
+    try {
+      const { data: result } = await createTag({ variables: { input: { name: trimmed } } });
+      const errors = result?.createTag?.errors;
+      if (errors?.length) {
+        setFormError(errors[0].message);
+        return;
+      }
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : 'Failed to create tag.';
+      setFormError(message);
       return;
     }
 

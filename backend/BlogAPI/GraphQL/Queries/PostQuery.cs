@@ -8,8 +8,8 @@ using HotChocolate.Authorization;
 
 namespace BlogAPI.GraphQL.Queries;
 
-[QueryType]
-internal static class PostQuery
+[QueryType(IncludeStaticMembers = true)]
+public sealed class PostQuery
 {
     [Authorize]
     [UsePaging(IncludeTotalCount = true)]
@@ -28,7 +28,7 @@ internal static class PostQuery
     [UseSorting(typeof(PostSortType))]
     public static IQueryable<Post> GetMyPosts(
         [Service] IQueryableSource<Post> source,
-        IHttpContextAccessor httpContextAccessor
+        [Service] IHttpContextAccessor httpContextAccessor
     )
     {
         ArgumentNullException.ThrowIfNull(httpContextAccessor);

@@ -5,9 +5,6 @@ using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
 using BlogAPI.Configurations;
 using BlogAPI.GraphQL;
-using BlogAPI.GraphQL.Mutations;
-using BlogAPI.GraphQL.Queries;
-using BlogAPI.GraphQL.Types;
 using BlogAPI.Middleware;
 using BlogAPI.Storage;
 using Infrastructure;
@@ -73,18 +70,13 @@ internal static class WebApplicationConfiguration
         services
             .AddGraphQLServer()
             .RegisterDbContextFactory<ApplicationDbContext>()
-            .AddQueryType()
-            .AddTypeExtension(typeof(PostQuery))
-            .AddTypeExtension(typeof(UserQuery))
-            .AddMutationType()
-            .AddTypeExtension(typeof(UserMutation))
-            .AddTypeExtension(typeof(PostMutation))
+            .AddGraphQLTypeExtensions(typeof(WebApplicationConfiguration).Assembly)
             .AddMutationConventions()
             .AddAuthorization()
             .AddProjections()
             .AddFiltering()
             .AddSorting()
-            .AddTypeExtension(typeof(PostType));
+            .InitializeOnStartup();
 
         builder.Host.UseSerilog(
             (context, _, configuration) =>

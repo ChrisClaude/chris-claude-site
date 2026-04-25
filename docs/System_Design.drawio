@@ -1,6 +1,6 @@
-<mxfile host="Electron" modified="2026-04-04T17:51:56.769Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.6.8 Chrome/114.0.5735.289 Electron/25.5.0 Safari/537.36" etag="O-QCUtb5e393UEsWUGcW" version="21.6.8" type="device" pages="3">
+<mxfile host="Electron" modified="2026-04-24T06:48:40.832Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.6.8 Chrome/114.0.5735.289 Electron/25.5.0 Safari/537.36" etag="DcLk45-n-IUHeMljDFvG" version="21.6.8" type="device" pages="3">
   <diagram name="ERD" id="NuNRSLPOf-0ElVUfBn3v">
-    <mxGraphModel dx="1010" dy="564" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2339" pageHeight="3300" math="0" shadow="0">
+    <mxGraphModel dx="1018" dy="673" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2339" pageHeight="3300" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -1066,32 +1066,32 @@
     </mxGraphModel>
   </diagram>
   <diagram id="rZxLBITPH3hziLwjTkxp" name="Features Roadmap">
-    <mxGraphModel dx="842" dy="470" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2339" pageHeight="3300" math="0" shadow="0">
+    <mxGraphModel dx="1010" dy="765" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2339" pageHeight="3300" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="eth4riRsAufHeEEZMPYW-2" value="Users" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="eth4riRsAufHeEEZMPYW-2" value="Users" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="480" y="90" width="330" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="eth4riRsAufHeEEZMPYW-3" value="1. User can login and logout&lt;br&gt;&lt;br&gt;2. User can update their information, username, name and profile pic&lt;br&gt;3. The Admin can list all users registered&lt;br&gt;4. The Admin can assign roles to other users&lt;br&gt;5. There should be 3 roles, Admin, Publisher and Reader&lt;br&gt;6. Add ability to remove profile pic&lt;br&gt;7. Add proper management of blob tier. Image remove should be removed from blob. Imaged should be cached in cdn not too frequently read from blob. Store in hot tier for first 1 day after update then move to cool and on and on down the access tier. Prevent more than 3 image uploads per day.&lt;br&gt;8. Customize register, login and logout screens" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="eth4riRsAufHeEEZMPYW-3" value="1. User can login and logout&lt;br&gt;&lt;br&gt;2. User can update their information, username, name and profile pic&lt;br&gt;3. The Admin can list all users registered&lt;br&gt;4. The Admin can assign roles to other users&lt;br&gt;5. There should be 3 roles, Admin, Publisher and Reader&lt;br&gt;6. Add ability to remove profile pic&lt;br&gt;7. Add proper management of blob tier. Image remove should be removed from blob. Imaged should be cached in cdn not too frequently read from blob. Store in hot tier for first 1 day after update then move to cool and on and on down the access tier. Prevent more than 3 image uploads per day.&lt;br&gt;8. Customize register, login and logout screens" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="480" y="200" width="330" height="255" as="geometry" />
         </mxCell>
-        <mxCell id="eth4riRsAufHeEEZMPYW-4" value="Posts" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="eth4riRsAufHeEEZMPYW-4" value="Posts" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="870" y="90" width="330" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="eth4riRsAufHeEEZMPYW-5" value="1. An admin and a writer should be able to add posts, draft them and publish them to make them available for readers&lt;br&gt;2. Readers should be able to access published posts, comment and react on them.&lt;br&gt;3. Articles should be tagged by topic&lt;br&gt;4. Enable paid summary feature with AI" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="eth4riRsAufHeEEZMPYW-5" value="1. An admin and a writer should be able to add posts, draft them and publish them to make them available for readers&lt;br&gt;2. Readers should be able to access published posts, comment and react on them.&lt;br&gt;3. Articles should be tagged by topic&lt;br&gt;4. Enable paid summary feature with AI" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="870" y="200" width="330" height="255" as="geometry" />
         </mxCell>
-        <mxCell id="eth4riRsAufHeEEZMPYW-6" value="Notifications" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="eth4riRsAufHeEEZMPYW-6" value="Notifications" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="1240" y="90" width="330" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="eth4riRsAufHeEEZMPYW-7" value="&lt;br&gt;1. A user can subscribe to a topic or all new articles from a writer&lt;br&gt;2. Notifications has sent by email and shown on the website" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="eth4riRsAufHeEEZMPYW-7" value="&lt;br&gt;1. A user can subscribe to a topic or all new articles from a writer&lt;br&gt;2. Notifications has sent by email and shown on the website" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="1240" y="200" width="330" height="255" as="geometry" />
         </mxCell>
-        <mxCell id="eth4riRsAufHeEEZMPYW-8" value="Website Generics" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="eth4riRsAufHeEEZMPYW-8" value="Website Generics" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="1600" y="90" width="340" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="eth4riRsAufHeEEZMPYW-9" value="&lt;br&gt;1. Ensure dark/white theme shows well for all pages and components" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="eth4riRsAufHeEEZMPYW-9" value="&lt;br&gt;1. Ensure dark/white theme shows well for all pages and components" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="1600" y="200" width="330" height="255" as="geometry" />
         </mxCell>
       </root>

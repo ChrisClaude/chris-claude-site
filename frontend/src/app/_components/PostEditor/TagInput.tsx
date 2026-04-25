@@ -120,7 +120,9 @@ const TagInput = ({
           value={tagInput}
           onChange={e => setTagInput(e.target.value)}
           onKeyDown={handleKeyDown}
-          onFocus={() => tagInput.length > 0 && suggestions.length > 0 && setOpen(true)}
+          onFocus={() =>
+            tagInput.length > 0 && suggestions.length > 0 && setOpen(true)
+          }
           onBlur={() => {
             // Delay close so click on suggestion registers first
             setTimeout(() => setOpen(false), 150);
@@ -149,18 +151,26 @@ const TagInput = ({
               </button>
             </li>
           ))}
-          {isAdmin && tagInput.trim() && !suggestions.some(s => s.name === tagInput.trim().toLowerCase()) && (
-            <li>
-              <button
-                type="button"
-                onMouseDown={e => e.preventDefault()}
-                onClick={() => { onAdd(tagInput); setOpen(false); ref.current?.focus(); }}
-                className="w-full text-left px-3 py-2 text-blue-600 dark:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors border-t border-gray-100 dark:border-gray-700"
-              >
-                Create &ldquo;{tagInput.trim().toLowerCase()}&rdquo;
-              </button>
-            </li>
-          )}
+          {isAdmin &&
+            tagInput.trim() &&
+            !suggestions.some(
+              s => s.name === tagInput.trim().toLowerCase(),
+            ) && (
+              <li>
+                <button
+                  type="button"
+                  onMouseDown={e => e.preventDefault()}
+                  onClick={() => {
+                    onAdd(tagInput);
+                    setOpen(false);
+                    ref.current?.focus();
+                  }}
+                  className="w-full text-left px-3 py-2 text-blue-600 dark:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors border-t border-gray-100 dark:border-gray-700"
+                >
+                  Create &ldquo;{tagInput.trim().toLowerCase()}&rdquo;
+                </button>
+              </li>
+            )}
         </ul>
       )}
 

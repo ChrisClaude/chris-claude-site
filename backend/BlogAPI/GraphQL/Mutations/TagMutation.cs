@@ -1,4 +1,3 @@
-using System.Diagnostics.CodeAnalysis;
 using Application.Commands.Tags;
 using Application.Common.Dtos;
 using Application.Enums;
@@ -9,8 +8,8 @@ using MediatR;
 
 namespace BlogAPI.GraphQL.Mutations;
 
-[MutationType]
-internal static class TagMutation
+[MutationType(IncludeStaticMembers = true)]
+public sealed class TagMutation
 {
     [Authorize(Policy = AuthPolicy.ADMIN)]
     [Error(typeof(UserContextError))]
@@ -18,7 +17,7 @@ internal static class TagMutation
     public static async Task<TagDto> CreateTagAsync(
         CreateTagInput input,
         [Service] IMediator mediator,
-        IHttpContextAccessor httpContextAccessor,
+        [Service] IHttpContextAccessor httpContextAccessor,
         CancellationToken cancellationToken
     )
     {
@@ -35,14 +34,4 @@ internal static class TagMutation
     }
 }
 
-[SuppressMessage(
-    "CodeQuality",
-    "CA1812:Avoid uninstantiated internal classes",
-    Justification = "Used by Hot Chocolate GraphQL reflection"
-)]
-[SuppressMessage(
-    "Design",
-    "CA1515:Because an application's API isn't typically referenced from outside the assembly, types can be made internal",
-    Justification = "Must be public for Hot Chocolate schema type inference"
-)]
 public sealed record CreateTagInput(string Name);

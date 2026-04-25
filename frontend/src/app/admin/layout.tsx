@@ -12,6 +12,7 @@ const navItems = [
   { label: 'All Articles', href: '/admin/all-articles' },
   { label: 'Users', href: '/admin/users' },
   { label: 'Tags', href: '/admin/tags' },
+  { label: 'Bookmarks', href: '/admin/bookmarks' },
   { label: 'Profile', href: '/admin/profile' },
 ];
 

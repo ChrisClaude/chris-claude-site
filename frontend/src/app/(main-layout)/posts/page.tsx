@@ -24,7 +24,7 @@ type PostNode = {
   status: string;
   publishedAt: string | null;
   createdAt: string;
-  author: Author;
+  author: Author | null;
   postTags: { tag: Tag }[];
 };
 type PostsData = {
@@ -92,7 +92,7 @@ const PostCard = ({ post }: { post: PostNode }) => {
         {/* Author & date */}
         <div className="flex items-center gap-2.5 pt-1 mt-auto border-t border-gray-100 dark:border-gray-800">
           <div className="w-7 h-7 rounded-full bg-gray-200 dark:bg-gray-700 overflow-hidden shrink-0">
-            {post.author.image ? (
+            {post.author?.image ? (
               // eslint-disable-next-line @next/next/no-img-element
               <img
                 src={post.author.image}
@@ -101,12 +101,12 @@ const PostCard = ({ post }: { post: PostNode }) => {
               />
             ) : (
               <span className="w-full h-full flex items-center justify-center text-xs font-semibold text-gray-500 dark:text-gray-400">
-                {post.author.name?.[0]}
+                {post.author?.name?.[0]}
               </span>
             )}
           </div>
           <span className="text-xs text-gray-500 dark:text-gray-400">
-            {post.author.name} {post.author.surname}
+            {post.author?.name} {post.author?.surname}
           </span>
           <span className="ml-auto text-xs text-gray-400 dark:text-gray-500">
             {format(new Date(date), 'MMM d, yyyy')}

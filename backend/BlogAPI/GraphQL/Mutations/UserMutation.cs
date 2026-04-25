@@ -1,4 +1,3 @@
-using System.Diagnostics.CodeAnalysis;
 using Application.Commands.Users;
 using Application.Common.Dtos;
 using Application.Enums;
@@ -10,8 +9,8 @@ using MediatR;
 
 namespace BlogAPI.GraphQL.Mutations;
 
-[MutationType]
-internal static class UserMutation
+[MutationType(IncludeStaticMembers = true)]
+public sealed class UserMutation
 {
     /// <summary>
     /// Returns a short-lived SAS upload URL so the client can PUT the image
@@ -23,7 +22,7 @@ internal static class UserMutation
         string fileName,
         string contentType,
         [Service] IBlobStorageService blobStorageService,
-        IHttpContextAccessor httpContextAccessor,
+        [Service] IHttpContextAccessor httpContextAccessor,
         CancellationToken cancellationToken
     )
     {
@@ -50,7 +49,7 @@ internal static class UserMutation
     public static async Task<UserDto> UpdateUserAsync(
         UpdateUserInput input,
         [Service] IMediator mediator,
-        IHttpContextAccessor httpContextAccessor,
+        [Service] IHttpContextAccessor httpContextAccessor,
         CancellationToken cancellationToken
     )
     {
@@ -113,50 +112,10 @@ internal static class UserMutation
     }
 }
 
-[SuppressMessage(
-    "CodeQuality",
-    "CA1812:Avoid uninstantiated internal classes",
-    Justification = "Used by Hot Chocolate GraphQL reflection"
-)]
-[SuppressMessage(
-    "Design",
-    "CA1515:Because an application's API isn't typically referenced from outside the assembly, types can be made internal",
-    Justification = "Must be public for Hot Chocolate schema type inference"
-)]
 public sealed record UpdateUserInput(string Name, string Surname, string? Image);
 
-[SuppressMessage(
-    "CodeQuality",
-    "CA1812:Avoid uninstantiated internal classes",
-    Justification = "Used by Hot Chocolate GraphQL reflection"
-)]
-[SuppressMessage(
-    "Design",
-    "CA1515:Because an application's API isn't typically referenced from outside the assembly, types can be made internal",
-    Justification = "Must be public for Hot Chocolate schema type inference"
-)]
 public sealed record ImageUploadToken(Uri UploadUrl, Uri BlobUrl);
 
-[SuppressMessage(
-    "CodeQuality",
-    "CA1812:Avoid uninstantiated internal classes",
-    Justification = "Used by Hot Chocolate GraphQL reflection"
-)]
-[SuppressMessage(
-    "Design",
-    "CA1515:Because an application's API isn't typically referenced from outside the assembly, types can be made internal",
-    Justification = "Must be public for Hot Chocolate schema type inference"
-)]
 public sealed record AdminUpdateUserInput(Guid UserId, string Name, string Surname, string? Image);
 
-[SuppressMessage(
-    "CodeQuality",
-    "CA1812:Avoid uninstantiated internal classes",
-    Justification = "Used by Hot Chocolate GraphQL reflection"
-)]
-[SuppressMessage(
-    "Design",
-    "CA1515:Because an application's API isn't typically referenced from outside the assembly, types can be made internal",
-    Justification = "Must be public for Hot Chocolate schema type inference"
-)]
 public sealed record AdminUpdateUserRolesInput(Guid UserId, IEnumerable<string> Roles);
