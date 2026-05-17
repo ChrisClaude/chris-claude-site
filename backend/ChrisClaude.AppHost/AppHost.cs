@@ -1,23 +1,19 @@
 using ChrisClaude.AppHost;
+using ChrisClaude.Aspire;
 
 var builder = DistributedApplication.CreateBuilder(args);
 
-var sqlserver = builder.AddSqlServer("sqlserver").WithDataVolume();
-
-var db = sqlserver.AddDatabase("blog-db");
-
-var storage = builder.AddAzureStorage("storage").RunAsEmulator(e => e.WithDataVolume().WithBlobPort(10000));
-var blobs = storage.AddBlobs("blobs");
+var infra = builder.AddChrisClaudeInfrastructure();
 
 var migrations = builder
-    .AddProject<Projects.MigrationService>("migrations")
-    .WithReference(db)
-    .WaitFor(db);
+    .AddProject<Projects.MigrationService>(ChrisClaudeResourceNames.MIGRATIONS)
+    .WithReference(infra.Database)
+    .WaitFor(infra.Database);
 
 var api = builder
-    .AddProject<Projects.BlogAPI>("blog-api")
-    .WithReference(db)
-    .WithReference(blobs)
+    .AddProject<Projects.BlogAPI>(ChrisClaudeResourceNames.BLOG_API)
+    .WithReference(infra.Database)
+    .WithReference(infra.Blobs)
     .WaitFor(migrations)
     .WithHttpHealthCheck("/healthz");
 

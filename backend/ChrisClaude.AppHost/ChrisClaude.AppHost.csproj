@@ -1,5 +1,9 @@
-<Project Sdk="Aspire.AppHost.Sdk/13.2.2">
+<Project Sdk="Aspire.AppHost.Sdk/13.3.3">
   <ItemGroup>
+    <ProjectReference
+      Include="..\Shared.Aspire\Shared.Aspire.csproj"
+      IsAspireProjectResource="false"
+    />
     <ProjectReference Include="..\BlogAPI\BlogAPI.csproj" />
     <ProjectReference Include="..\MigrationService\MigrationService.csproj" />
     <ProjectReference Include="..\tests\Application.IntegrationTests\Application.IntegrationTests.csproj" />
