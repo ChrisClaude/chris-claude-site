@@ -36,7 +36,7 @@ const Footer = () => {
           </li>
           <li>
             <a
-              href="https://www.linkedin.com/in/claude-de-tchambila-a720ba143"
+              href="https://www.linkedin.com/in/claude-c-d-a720ba143/"
               className="text-2xl"
               target="_blank"
             >
