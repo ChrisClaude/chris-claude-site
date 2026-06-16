@@ -89,6 +89,7 @@ const ResumeList: React.FC<ResumeListProps> = ({
       chris: [],
       feisca: [],
       florica: [],
+      fredina: [],
     };
 
     filteredResumes.forEach(resume => {
