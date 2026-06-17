@@ -3,29 +3,71 @@
     "name": "Murielle Fredina Ayale",
     "title": "Sales Agent",
     "phone": "+48 579 314 238",
-    "email": "murielle.fredina.ayale@gmail.com",
+    "email": "murielleayale@gmail.com",
     "website": {
       "label": "LinkedIn",
       "destination": "https://www.linkedin.com/in/murielle-fredina-ayale-223188323/"
     },
     "location": "Krakow, Poland",
-    "image": "/fredina_ayale.jpeg",
+    "image": "/fredina_ayale.png",
     "imageAlt": "Murielle Fredina Ayale"
   },
-  "summary": "Professional sales agent with excellent customer service skills and attention to detail. Experienced in managing front office operations, handling guest inquiries, and ensuring smooth daily operations in hospitality and service environments.",
+  "summary": "Motivated and customer-focused professional with experience in front office operations, client communication, and customer service. Skilled in handling inquiries, resolving issues, managing administrative tasks, and supporting daily operations. French native speaker with advanced English, adaptable and committed to delivering high-quality service. Experienced in both retail and corporate environments, with strong communication and problem-solving skills. Based in Kraków, open to opportunities in customer service, front office, administration, hospitality, retail, and call centers.",
   "workExperience": [
     {
       "title": "Front Office Receptionist",
       "company": "Atrans & Service-NG",
-      "startDate": "2023",
-      "endDate": "Present",
-      "location": "Republic of Congo",
-      "description": "Managing front desk operations and providing exceptional guest service.",
+      "startDate": "01/2022",
+      "endDate": "07/2023",
+      "location": "Republic of the Congo",
+      "description": "Full-time front office role managing reception operations and providing exceptional service to visitors and clients.",
       "responsibilities": [
-        "Greeting and assisting guests with check-in and check-out procedures",
-        "Managing reservations and handling booking inquiries",
-        "Coordinating with housekeeping and maintenance teams",
-        "Processing payments and maintaining accurate records"
+        "Welcomed and assisted visitors and clients at the company premises",
+        "Managed incoming and outgoing phone calls and handled mail processing",
+        "Coordinated with internal departments to ensure proper follow-up of files and requests",
+        "Organized appointments, maintained records, and supported administrative operations"
+      ]
+    },
+    {
+      "title": "Customer Service Agent",
+      "company": "Airtel",
+      "startDate": "06/2020",
+      "endDate": "09/2021",
+      "location": "Republic of the Congo",
+      "description": "Part-time customer service role handling client inquiries and improving service delivery.",
+      "responsibilities": [
+        "Handled customer complaints and provided appropriate solutions",
+        "Collaborated with internal teams to optimize service delivery times",
+        "Promoted new services to improve customer engagement and retention",
+        "Updated customer files and ensured accurate follow-up of requests"
+      ]
+    },
+    {
+      "title": "Cashier",
+      "company": "Groupe Casino (Casino Supermarket)",
+      "startDate": "02/2020",
+      "endDate": "06/2020",
+      "location": "Republic of the Congo",
+      "description": "Part-time cashier role in a supermarket environment.",
+      "responsibilities": [
+        "Processed customer transactions accurately at the checkout",
+        "Handled cash and electronic payments",
+        "Assisted customers with product queries and ensured a smooth checkout experience",
+        "Maintained a clean and organized checkout area"
+      ]
+    },
+    {
+      "title": "Retail Sales Assistant",
+      "company": "Addict Code",
+      "startDate": "01/2019",
+      "endDate": "12/2019",
+      "location": "Republic of the Congo",
+      "description": "Part-time retail sales role focused on customer assistance and product knowledge.",
+      "responsibilities": [
+        "Assisted customers in finding products and making purchasing decisions",
+        "Maintained product displays and ensured store presentation standards",
+        "Handled customer inquiries and resolved complaints professionally",
+        "Supported daily retail operations and stock management"
       ]
     }
   ],
@@ -33,30 +75,21 @@
     {
       "fullName": "Claude De-Tchambila",
       "role": "Senior Software Engineer",
-      "email": "claude-christ.de-tchambila@capgemini.com",
-      "company": "Capgemini"
-    },
-    {
-      "fullName": "Belanganaye",
-      "role": "Senior Call Center Agent",
-      "email": "+27 83 859 6609",
-      "company": "P3 People"
-    },
-    {
-      "fullName": "Yumna",
-      "role": "Human Resource Agent",
-      "email": "+27 65 537 7144",
-      "company": "Trauma Center for Survivors of Violence and Torture"
-    },
-    {
-      "fullName": "Lungi Gxagxisa",
-      "role": "Sales Agent",
-      "email": "+27 079 223 5053",
-      "company": "Vodacom"
+      "email": "christ.tchambila@gmail.com",
+      "company": "Euroclear"
     }
   ],
-  "technologies": ["Microsoft Excel", "Microsoft Word", "Microsoft Office"],
+  "technologies": [
+    "Microsoft Excel",
+    "Microsoft Word",
+    "Microsoft Office"
+  ],
   "skills": [
+    "Client Relations",
+    "Office Administration",
+    "Front Office Management",
+    "Customer Service Excellence",
+    "Communication & Problem Solving",
     "Problem solving",
     "Assertiveness",
     "Creativity",
@@ -68,40 +101,56 @@
   ],
   "education": [
     {
-      "degree": "Bachelor in Business Administration",
-      "institution": "Richfield Graduate Institute of Technology (Pty) Ltd.",
-      "institutionUrl": "https://www.cput.ac.za/",
-      "startDate": "01/2021",
-      "endDate": "12/2023",
-      "location": "Cape Town, South Africa"
+      "degree": "High School Diploma, English Language and Literature",
+      "institution": "Faith of Heart School",
+      "institutionUrl": "",
+      "startDate": "10/2022",
+      "endDate": "07/2023",
+      "location": "Republic of the Congo"
     },
     {
-      "degree": "High School Certificate",
-      "institution": "Notre Dame de Rosaire",
-      "institutionUrl": "https://www.ctc.edu.za/cape-town-campus/",
-      "startDate": "2017",
-      "endDate": "2017",
-      "location": "Pointe-Noire, Congo-Brazzaville"
+      "degree": "Certificate, Customer Service",
+      "institution": "Alison",
+      "institutionUrl": "https://alison.com",
+      "startDate": "01/2026",
+      "endDate": "01/2026",
+      "location": "Online"
     }
   ],
   "languages": [
     {
       "name": "English",
-      "level": "Advanced",
-      "proficiency": 5
+      "level": "Intermediate",
+      "proficiency": 4
     },
     {
       "name": "French",
-      "level": "Advanced",
+      "level": "Native",
       "proficiency": 5
     }
   ],
-  "notableProjects": [],
+  "notableProjects": [
+    {
+      "title": "Retail Management Certification – Alison",
+      "url": "https://alison.com",
+      "description": "Completed a certified training program in Retail Management: Merchandising, Sales and Customer Communications. Strengthened skills in organizing and managing in-store operations, merchandising techniques, product presentation, sales strategies, and optimizing the customer shopping experience."
+    },
+    {
+      "title": "Customer Service Excellence Certification – Alison",
+      "url": "https://alison.com",
+      "description": "Completed a certified Customer Service training focused on core service skills including call handling, customer satisfaction, problem-solving, and CRM tools. Enhanced adaptability and the ability to respond effectively to customer needs across various service environments."
+    },
+    {
+      "title": "Front Office Operations Improvement – Atrans & Service-NG",
+      "url": "",
+      "description": "Streamlined front office workflows by improving appointment scheduling and file-tracking processes, reducing response times for client requests. Acted as the primary point of contact between clients and internal departments, contributing to smoother daily operations over a 1.5-year tenure."
+    }
+  ],
   "socialLinks": [
     {
       "platform": "LinkedIn",
       "icon": "FaLinkedinIn",
-      "url": "https://www.linkedin.com/in/julien-koukodila-469838220/",
+      "url": "https://www.linkedin.com/in/murielle-fredina-ayale-223188323/",
       "displayText": "LinkedIn Profile"
     }
   ],

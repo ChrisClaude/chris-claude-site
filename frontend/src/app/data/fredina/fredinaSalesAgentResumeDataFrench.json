@@ -1,0 +1,169 @@
+{
+  "personalInfo": {
+    "name": "Murielle Fredina Ayale",
+    "title": "Agente Commerciale",
+    "phone": "+48 579 314 238",
+    "email": "murielleayale@gmail.com",
+    "website": {
+      "label": "LinkedIn",
+      "destination": "https://www.linkedin.com/in/murielle-fredina-ayale-223188323/"
+    },
+    "location": "Cracovie, Pologne",
+    "image": "/fredina_ayale.png",
+    "imageAlt": "Murielle Fredina Ayale"
+  },
+  "summary": "Professionnelle motivée et orientée client, avec une expérience dans les opérations de front office, la communication client et le service à la clientèle. Compétente dans la gestion des demandes, la résolution de problèmes, les tâches administratives et le soutien aux opérations quotidiennes. Locutrice native du français avec un niveau avancé en anglais, adaptable et engagée à fournir un service de haute qualité. Expérimentée dans les environnements de vente au détail et en entreprise, avec de solides compétences en communication et en résolution de problèmes. Basée à Cracovie, ouverte aux opportunités dans le service client, le front office, l'administration, l'hôtellerie, la vente au détail et les centres d'appels.",
+  "workExperience": [
+    {
+      "title": "Réceptionniste Front Office",
+      "company": "Atrans & Service-NG",
+      "startDate": "01/2022",
+      "endDate": "07/2023",
+      "location": "République du Congo",
+      "description": "Poste à temps plein au sein du front office, gérant les opérations d'accueil et assurant un service exceptionnel aux visiteurs et clients.",
+      "responsibilities": [
+        "Accueil et assistance des visiteurs et clients dans les locaux de l'entreprise",
+        "Gestion des appels téléphoniques entrants et sortants et traitement du courrier",
+        "Coordination avec les départements internes pour assurer le suivi des dossiers et des demandes",
+        "Organisation des rendez-vous, tenue des registres et soutien aux opérations administratives"
+      ]
+    },
+    {
+      "title": "Agente de Service Client",
+      "company": "Airtel",
+      "startDate": "06/2020",
+      "endDate": "09/2021",
+      "location": "République du Congo",
+      "description": "Poste à temps partiel dans le service client, traitant les demandes des clients et améliorant la qualité du service.",
+      "responsibilities": [
+        "Traitement des réclamations clients et proposition de solutions adaptées",
+        "Collaboration avec les équipes internes pour optimiser les délais de traitement",
+        "Promotion des nouveaux services pour améliorer l'engagement et la fidélisation des clients",
+        "Mise à jour des dossiers clients et suivi précis des demandes"
+      ]
+    },
+    {
+      "title": "Caissière",
+      "company": "Groupe Casino (Supermarché Casino)",
+      "startDate": "02/2020",
+      "endDate": "06/2020",
+      "location": "République du Congo",
+      "description": "Poste à temps partiel en caisse dans un environnement de supermarché.",
+      "responsibilities": [
+        "Traitement précis des transactions clients en caisse",
+        "Gestion des paiements en espèces et par voie électronique",
+        "Assistance aux clients pour leurs questions produits et garantie d'une expérience de paiement fluide",
+        "Maintien d'une caisse propre et organisée"
+      ]
+    },
+    {
+      "title": "Assistante de Vente au Détail",
+      "company": "Addict Code",
+      "startDate": "01/2019",
+      "endDate": "12/2019",
+      "location": "République du Congo",
+      "description": "Poste à temps partiel dans la vente au détail, axé sur l'assistance client et la connaissance des produits.",
+      "responsibilities": [
+        "Aide aux clients pour trouver des produits et prendre des décisions d'achat",
+        "Entretien des présentoirs et respect des normes de présentation en magasin",
+        "Traitement des demandes clients et résolution professionnelle des réclamations",
+        "Soutien aux opérations quotidiennes et à la gestion des stocks"
+      ]
+    }
+  ],
+  "references": [
+    {
+      "fullName": "Claude De-Tchambila",
+      "role": "Ingénieur Logiciel Senior",
+      "email": "christ.tchambila@gmail.com",
+      "company": "Euroclear"
+    }
+  ],
+  "technologies": [
+    "Microsoft Excel",
+    "Microsoft Word",
+    "Microsoft Office"
+  ],
+  "skills": [
+    "Relations clients",
+    "Administration de bureau",
+    "Gestion du front office",
+    "Excellence du service client",
+    "Communication & Résolution de problèmes",
+    "Résolution de problèmes",
+    "Assertivité",
+    "Créativité",
+    "Esprit critique",
+    "Travail en équipe",
+    "Management d'équipe",
+    "Présentation / Prise de parole en public",
+    "Gestion des risques"
+  ],
+  "education": [
+    {
+      "degree": "Diplôme de Lycée, Langue et Littérature Anglaise",
+      "institution": "Faith of Heart School",
+      "institutionUrl": "",
+      "startDate": "10/2022",
+      "endDate": "07/2023",
+      "location": "République du Congo"
+    },
+    {
+      "degree": "Certificat, Service Client",
+      "institution": "Alison",
+      "institutionUrl": "https://alison.com",
+      "startDate": "01/2026",
+      "endDate": "01/2026",
+      "location": "En ligne"
+    }
+  ],
+  "languages": [
+    {
+      "name": "Français",
+      "level": "Natif",
+      "proficiency": 5
+    },
+    {
+      "name": "Anglais",
+      "level": "Intermédiaire",
+      "proficiency": 4
+    }
+  ],
+  "notableProjects": [
+    {
+      "title": "Certification Gestion de la Vente au Détail – Alison",
+      "url": "https://alison.com",
+      "description": "Programme de formation certifié en Gestion de la Vente au Détail : Merchandising, Vente et Communication Client. Renforcement des compétences en organisation et gestion des opérations en magasin, techniques de merchandising, présentation des produits, stratégies de vente et optimisation de l'expérience d'achat."
+    },
+    {
+      "title": "Certification Excellence du Service Client – Alison",
+      "url": "https://alison.com",
+      "description": "Formation certifiée en service client axée sur les compétences fondamentales : gestion des appels, satisfaction client, résolution de problèmes et outils CRM. Renforcement de l'adaptabilité et de la capacité à répondre efficacement aux besoins des clients dans divers environnements de service."
+    },
+    {
+      "title": "Amélioration des Opérations Front Office – Atrans & Service-NG",
+      "url": "",
+      "description": "Optimisation des workflows du front office en améliorant la planification des rendez-vous et les processus de suivi des dossiers, réduisant les délais de réponse aux demandes clients. Agit en tant que point de contact principal entre les clients et les départements internes, contribuant à un fonctionnement quotidien plus fluide sur une période de 1,5 an."
+    }
+  ],
+  "socialLinks": [
+    {
+      "platform": "LinkedIn",
+      "icon": "FaLinkedinIn",
+      "url": "https://www.linkedin.com/in/murielle-fredina-ayale-223188323/",
+      "displayText": "Profil LinkedIn"
+    }
+  ],
+  "sections": {
+    "summary": "Profil Professionnel",
+    "workExperience": "Expérience Professionnelle",
+    "references": "Références",
+    "toolbox": "Boîte à outils",
+    "technologies": "Technologies",
+    "professionalSkills": "Compétences Professionnelles",
+    "education": "Formation",
+    "languages": "Langues",
+    "notableProjects": "Projets Notables",
+    "findMeOnline": "Me Retrouver en Ligne"
+  }
+}

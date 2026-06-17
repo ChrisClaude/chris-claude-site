@@ -1,9 +1,9 @@
 'use client';
 import ResumePageWrapper from '@/_components/ResumePageWrapper';
-import feiscaCallCenterResumeDataFrench from '@/data/feisca/feiscaCallCenterResumeDataFrench.json';
+import fredinaSalesAgentResumeDataFrench from '@/data/fredina/fredinaSalesAgentResumeDataFrench.json';
 
 const Resume = () => {
-  return <ResumePageWrapper resumeData={feiscaCallCenterResumeDataFrench} />;
+  return <ResumePageWrapper resumeData={fredinaSalesAgentResumeDataFrench} />;
 };
 
 export default Resume;

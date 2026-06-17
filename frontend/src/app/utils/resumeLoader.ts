@@ -13,6 +13,7 @@ import feiscaResumeDataFrench from '../data/feisca/feiscaResumeDataFrench.json';
 import feiscaSocialMediaResumeData from '../data/feisca/feiscaSocialMediaResumeData.json';
 import feiscaSocialMediaResumeDataFrench from '../data/feisca/feiscaSocialMediaResumeDataFrench.json';
 import floricaResumeData from '../data/florica/floricaResumeData.json';
+import fredinaSalesAgentResumeData from '../data/fredina/fredinaSalesAgentResumeData.json';
 import resumeData from '../data/chris/resumeData.json';
 import resumeDataFrench from '../data/chris/resumeDataFrench.json';
 
@@ -24,7 +25,7 @@ export interface ResumeMetadata {
   language: 'en' | 'fr';
   personName: string;
   title: string;
-  folder: 'chris' | 'feisca' | 'florica';
+  folder: 'chris' | 'feisca' | 'florica' | 'fredina';
   lastModified?: string;
   description?: string;
 }
@@ -163,6 +164,19 @@ const resumeDataMap = {
       title: 'Professional',
       folder: 'florica' as const,
       description: 'Professional resume for Florica',
+    },
+  },
+  fredinaSalesAgentResumeData: {
+    data: fredinaSalesAgentResumeData,
+    metadata: {
+      id: 'fredinaSalesAgentResumeData',
+      fileName: 'fredinaSalesAgentResumeData.json',
+      displayName: 'Murielle Fredina Ayale - Sales Agent',
+      language: 'en' as const,
+      personName: 'Murielle Fredina Ayale',
+      title: 'Sales Agent',
+      folder: 'fredina' as const,
+      description: 'Sales agent and front office resume',
     },
   },
   resumeData: {
