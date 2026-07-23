@@ -173,7 +173,8 @@ resource "azuread_application" "blog_spa_app" {
     # Include both production and local development URLs
     redirect_uris = [
       "https://${var.spa_domain}/auth/callback",
-      "http://localhost:3000/auth/callback"
+      "http://localhost:3000/auth/callback",
+      "http://localhost:3000"
     ]
 
     # Implicit grant flow settings

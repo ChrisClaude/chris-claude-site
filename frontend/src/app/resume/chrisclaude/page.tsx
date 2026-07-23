@@ -1,6 +1,6 @@
 'use client';
 import ResumePageWrapper from '@/_components/ResumePageWrapper';
-import resumeData from '@/data/chris/resumeData_20_aug_2025.json';
+import resumeData from '@/data/chris/resumeData.json';
 
 const Resume = () => {
   return <ResumePageWrapper resumeData={resumeData} />;

@@ -21,6 +21,8 @@ public sealed class UserQuery
     {
         ArgumentNullException.ThrowIfNull(httpContextAccessor);
         var contextUser = httpContextAccessor.GetRequiredUser();
+        
+        // We're returning the entity but project is used to avoid overfetching at db level
         return source.Query().Where(u => u.Id == contextUser.Id);
     }
 

@@ -5,6 +5,7 @@ using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
 using BlogAPI.Configurations;
 using BlogAPI.GraphQL;
+using BlogAPI.GraphQL.Errors;
 using BlogAPI.Middleware;
 using BlogAPI.Storage;
 using Infrastructure;
@@ -76,6 +77,7 @@ internal static class WebApplicationConfiguration
             .AddProjections()
             .AddFiltering()
             .AddSorting()
+            .AddErrorFilter<GraphQLErrorFilter>()
             .InitializeOnStartup();
 
         builder.Host.UseSerilog(

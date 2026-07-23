@@ -460,11 +460,11 @@ const ResumeContent = ({
                 </ul>
               </div>
 
-              {/* Notable Projects */}
+              {/* Notable Public Projects */}
               <div className="section mb-6">
                 <div className="mb-3">
                   <h2 className="text-xl font-semibold uppercase">
-                    {resumeData.sections?.notableProjects || 'Notable Projects'}
+                    {resumeData.sections?.notableProjects || 'Notable Public Projects'}
                   </h2>
                   <div className="bg-gray-800 w-full h-1 rounded-full"></div>
                 </div>

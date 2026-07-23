@@ -48,7 +48,7 @@ const NotableProjectsForm: React.FC<NotableProjectsFormProps> = ({
     <Card className="w-full bg-white">
       <CardHeader className="flex flex-row items-center justify-between bg-white">
         <h3 className="text-xl font-semibold text-gray-900">
-          Notable Projects
+          Notable Public Projects
         </h3>
         <Button
           variant="secondary"

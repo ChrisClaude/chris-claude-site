@@ -8,24 +8,40 @@
       "label": "Website",
       "destination": "https://chrisclaude.com"
     },
-    "location": "Poznan, Poland",
+    "location": "Kraków, Poland",
     "image": "/about_me.png",
-    "imageAlt": "Chris Claude"
+    "imageAlt": "Claude De-Tchambila"
   },
-  "summary": "I am a senior software engineer specializing in designing distributed systems and implementing enterprise-grade software solutions. With extensive experience building scalable full-stack web applications, cloud infrastructure, and mobile solutions, I've developed strong problem-solving skills and a passion for continuous learning. My technical expertise spans multiple domains including financial services, insurance, and document processing with a focus on delivering high-quality, secure, and reliable software that positively impacts users' lives.",
+  "summary": "Senior Software Engineer with 5+ years of experience designing, building, and maintaining distributed systems and enterprise-grade web applications. Specialized in C#/.NET, React, Angular, Microsoft Azure, and cloud-based architectures, with experience delivering scalable solutions across financial services, insurance, logistics, and document-processing domains. Experienced in full-stack development, cloud migration, CI/CD, infrastructure automation, automated testing, and secure systems handling sensitive data.",
   "workExperience": [
     {
       "title": "Senior Software Engineer",
-      "company": "Firma Dla Kazdego",
-      "startDate": "01/2025",
+      "company": "Euroclear",
+      "startDate": "01/2026",
       "endDate": "Present",
-      "location": "Poznan, Poland",
-      "description": "Leading software development initiatives as a senior engineer, focusing on enterprise-scale applications and cloud architecture. Key responsibilities:",
+      "location": "Kraków, Poland",
+      "description": "Designing, implementing, and maintaining distributed systems supporting enterprise financial services applications, while contributing to the migration and rehosting of existing workloads to cloud environments.",
       "responsibilities": [
-        "Architecting and developing full-stack web applications using C#/.NET, React/Angular 13+, and cloud services (Azure PaaS, AWS)",
-        "Implementing CI/CD pipelines and infrastructure-as-code for reliable, scalable deployments",
-        "Establishing comprehensive testing strategies including unit, integration, and E2E testing frameworks",
-        "Implementing security best practices and compliance measures for sensitive data handling"
+        "Designing and developing full-stack applications using C#/.NET, React, Angular, and Microsoft Azure services.",
+        "Contributing to the migration and rehosting of existing workloads to Microsoft Azure cloud environments.",
+        "Implementing CI/CD pipelines in Azure DevOps to automate build, test, and deployment workflows.",
+        "Developing unit, integration, and end-to-end tests to improve software reliability and release confidence.",
+        "Applying security and compliance practices to systems handling sensitive data."
+      ]
+    },
+    {
+      "title": "Senior Software Engineer",
+      "company": "Cleverbit Malta",
+      "startDate": "01/2025",
+      "endDate": "12/2025",
+      "location": "Poznań, Poland",
+      "description": "Led software development initiatives as a Senior Software Engineer, focusing on enterprise-scale applications, cloud architecture, and reliable software delivery.",
+      "responsibilities": [
+        "Architected and developed enterprise-scale full-stack applications using C#/.NET, React, Angular, Microsoft Azure, and AWS.",
+        "Designed cloud infrastructure and deployment workflows using infrastructure-as-code and CI/CD automation.",
+        "Established comprehensive testing strategies covering unit, integration, and end-to-end testing.",
+        "Contributed to architectural decisions and provided technical guidance across software development initiatives.",
+        "Implemented security best practices and compliance measures for systems handling sensitive data."
       ]
     },
     {
@@ -33,12 +49,13 @@
       "company": "Capgemini",
       "startDate": "07/2022",
       "endDate": "12/2024",
-      "location": "Poznan, Poland",
-      "description": "I have been working on architecting and implementing software solutions for clients in the financial services sector. The list of clients I have worked with includes (but is not limited to) Nationale Nederlanden, one of the biggest insurance providers in the Netherlands. I have designed and implemented features that have improved the business processes of my clients. The technologies I have used so far include C#, SQL Server, Microsoft Azure, Azure PaaS, React JS, Angular 13+, TypeScript and AzureDevOps. The following are a few of the features I have worked on:",
+      "location": "Poznań, Poland",
+      "description": "Architected and implemented software solutions for clients in the financial services and insurance sectors, including Nationale-Nederlanden. Designed and delivered features that improved business processes and supported secure data management across enterprise systems.",
       "responsibilities": [
-        "Slowly changing dimension type 2 for a data warehouse system",
-        "Cross environment and secure data import and export",
-        "Data row level security integrated with Azure RBAC"
+        "Designed and implemented Slowly Changing Dimension Type 2 (SCD Type 2) functionality for a data warehouse system.",
+        "Developed secure cross-environment data import and export workflows.",
+        "Implemented row-level data security integrated with Azure Role-Based Access Control (RBAC).",
+        "Developed enterprise applications using C#, .NET, SQL Server, Microsoft Azure, React, Angular, TypeScript, and Azure DevOps."
       ]
     },
     {
@@ -47,11 +64,11 @@
       "startDate": "02/2021",
       "endDate": "06/2022",
       "location": "Johannesburg, South Africa",
-      "description": "I have worked with a number of clients on multiple projects in the financial service sector. My clients included Sasfin Bank and Safrican Insurance, which is now part of Sanlam, the largest insurance provider in South Africa. The following are a few of the projects I have contributed to:",
+      "description": "Contributed to the development of software systems for clients in the financial services, insurance, and logistics sectors, including Sasfin Bank and Safrican Insurance.",
       "responsibilities": [
-        "A Forex exchange trading platform. The technologies used were C#, TypeScript, ASP.NET Core, Angular 13+, AzureDevOps, RabbitMQ and Azure PaaS",
-        "Insurance sales system. The technologies used were C#, TypeScript, ASP.NET Core, Angular, React, AzureDevOps",
-        "A weighbridge management software system in the logistic industry. The technologies used were C#, TypeScript, ASP.NET Core, Angular, Jira, Jenkins, RabbitMQ"
+        "Contributed to the development of a foreign exchange trading platform using C#, ASP.NET Core, Angular, RabbitMQ, Azure DevOps, and Azure PaaS.",
+        "Developed features for an insurance sales platform using C#, ASP.NET Core, Angular, React, and Azure DevOps.",
+        "Contributed to the development of a weighbridge management system for the logistics industry using C#, ASP.NET Core, Angular, RabbitMQ, Jenkins, and Jira."
       ]
     },
     {
@@ -60,8 +77,12 @@
       "startDate": "11/2020",
       "endDate": "02/2021",
       "location": "Cape Town, South Africa",
-      "description": "I mainly worked on a project that was aimed at creating a software system that would help process large amounts of documents (company contracts, bills, legal agreements) using machine learning and providing critical insights to clients. I worked on backend and frontend features and integration with ML tools. The technologies used were Python, Django, Keras, PyTorch, and React JS.",
-      "responsibilities": []
+      "description": "Contributed to the development of a document-processing platform designed to extract insights from contracts, bills, and legal agreements using machine learning technologies.",
+      "responsibilities": [
+        "Developed backend and frontend features for a document-processing platform handling large volumes of business and legal documents.",
+        "Integrated machine-learning capabilities into application workflows using Python, Keras, and PyTorch.",
+        "Developed web application features using Django and React."
+      ]
     }
   ],
   "references": [
@@ -86,45 +107,41 @@
   ],
   "technologies": [
     "C#",
-    "C++",
-    "JavaScript",
-    "Next JS",
-    "React JS",
+    ".NET",
+    "ASP.NET Core",
+    "React",
     "Angular",
-    "Python",
-    "TensorFlow",
-    "Java",
+    "TypeScript",
+    "JavaScript",
+    "Microsoft Azure",
+    "AWS",
+    "SQL Server",
+    "PostgreSQL",
     "Docker",
     "Kubernetes",
     "Apache Kafka",
-    "Microsoft Azure",
-    "AWS"
+    "RabbitMQ",
+    "Terraform",
+    "Azure DevOps",
+    "Python"
   ],
   "skills": [
+    "Technical leadership",
     "Problem solving",
-    "Assertiveness",
-    "Creativity",
     "Critical thinking",
-    "Teamwork",
-    "Team management",
-    "Presentation / Public speaking",
+    "Stakeholder communication",
+    "Team collaboration",
+    "Technical presentations",
+    "Mentoring",
     "Risk management"
   ],
   "education": [
     {
-      "degree": "Diploma in Application Development",
+      "degree": "Bachelor of Technology in Application Development",
       "institution": "Cape Peninsula University of Technology",
       "institutionUrl": "https://www.cput.ac.za/",
       "startDate": "01/2018",
       "endDate": "12/2020",
-      "location": "Cape Town, South Africa"
-    },
-    {
-      "degree": "Chemical Engineering",
-      "institution": "Central Technical College",
-      "institutionUrl": "https://www.ctc.edu.za/cape-town-campus/",
-      "startDate": "2017",
-      "endDate": "2017",
       "location": "Cape Town, South Africa"
     }
   ],
@@ -142,14 +159,14 @@
   ],
   "notableProjects": [
     {
-      "title": "Keepmeposted.com.mt",
+      "title": "Keep Me Posted",
       "url": "https://keepmeposted.com.mt/",
-      "description": "Led full-stack development for this enterprise communication platform. Designed and implemented RESTful APIs, responsive UI components, and established CI/CD pipelines on Azure DevOps. Technologies: .NET Core, Next.js, Azure, SQL Server, and Redis for caching."
+      "description": "Led full-stack development of an enterprise communication platform. Designed and implemented RESTful APIs and responsive web interfaces, established CI/CD pipelines using Azure DevOps, and implemented caching with Redis to support application performance and scalability. Technologies: .NET Core, Next.js, Azure, SQL Server, and Redis."
     },
     {
-      "title": "Personal Portfolio",
-      "url": "https://github.com/ChrisClaude",
-      "description": "Designed and developed my personal website using Next.js, featuring a responsive design, blog functionality with Markdown support, and custom animations. Implemented SEO best practices and performance optimizations."
+      "title": "Personal Portfolio and Blog",
+      "url": "https://chrisclaude.com",
+      "description": "Designed and developed a personal portfolio and blog platform using Next.js. Implemented Markdown-based content management, responsive UI components, custom animations, SEO optimizations, and performance improvements."
     }
   ],
   "socialLinks": [
