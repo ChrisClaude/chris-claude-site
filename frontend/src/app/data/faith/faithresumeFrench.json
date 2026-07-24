@@ -1,0 +1,197 @@
+{
+        "personalInfo": {
+                "name": "Faith Exaucée TSIYEDI",
+                "title": "Secrétaire médicale | Entrepreneure | Gestionnaire de stocks et de caisse",
+                "email": "faithtsiyedi@gmail.com",
+                "phone": "+48 787 390 046",
+                "location": "Cracovie, Poland"
+        },
+        "summary": "Professionnelle polyvalente disposant d'une expérience dans le secrétariat médical, l'entrepreneuriat, la vente et le marketing, la gestion des stocks, la gestion de caisse et le service à la clientèle. Expérimentée dans la gestion des tâches administratives, la manipulation des espèces, le suivi des stocks, le soutien aux activités commerciales et le développement d'une marque de produits alimentaires spécialisée dans les épices et les jus de fruits. Dotée d'un esprit entrepreneurial et ayant suivi des formations complémentaires en gestion commerciale, logistique, ressources humaines, entrepreneuriat, pâtisserie et gestion de caisse.",
+        "workExperience": [
+                {
+                        "title": "Secrétaire médicale",
+                        "company": "Maison France-Congo",
+                        "startDate": "05/2025",
+                        "endDate": "03/2026",
+                        "location": "Congo",
+                        "description": "Assurer le soutien administratif et le secrétariat dans un environnement médical, en contribuant à la bonne coordination des activités quotidiennes et à la gestion des tâches administratives.",
+                        "responsibilities": [
+                                "Gérer les tâches administratives et de secrétariat dans un environnement médical.",
+                                "Participer à l'organisation et à la coordination des activités quotidiennes.",
+                                "Assurer la communication et le suivi administratif.",
+                                "Gérer et maintenir une documentation et des dossiers à jour."
+                        ]
+                },
+                {
+                        "title": "Productrice et fondatrice",
+                        "company": "SAMINOU",
+                        "startDate": "01/2023",
+                        "endDate": "04/2025",
+                        "location": "Congo",
+                        "description": "Création et gestion de SAMINOU, une marque de produits alimentaires spécialisée dans les épices et les jus de fruits, avec la responsabilité de la production, du développement des produits et des opérations commerciales.",
+                        "responsibilities": [
+                                "Créer et développer une marque spécialisée dans les épices et les jus de fruits.",
+                                "Gérer la production et la préparation des produits alimentaires.",
+                                "Superviser les opérations quotidiennes de l'entreprise.",
+                                "Participer au développement des produits et à la croissance de la marque.",
+                                "Gérer la relation avec les clients et les activités commerciales."
+                        ]
+                },
+                {
+                        "title": "Caissière",
+                        "company": "Secrétariat JS Concept, pour le compte de DV Loterie",
+                        "startDate": "09/2021",
+                        "endDate": "05/2022",
+                        "location": "Congo",
+                        "description": "Assurer la gestion des opérations de caisse et contribuer aux opérations financières quotidiennes en tant que caissière pour DV Loterie.",
+                        "responsibilities": [
+                                "Effectuer les transactions en espèces avec précision.",
+                                "Gérer les opérations quotidiennes de caisse.",
+                                "Tenir les registres des transactions et participer au contrôle de caisse.",
+                                "Assurer l'accueil et le service à la clientèle."
+                        ]
+                },
+                {
+                        "title": "Gestionnaire de stock",
+                        "company": "IST SARLU",
+                        "startDate": "07/2019",
+                        "endDate": "07/2019",
+                        "location": "Congo",
+                        "description": "Assurer la gestion des activités liées aux stocks et participer aux opérations de contrôle et de suivi des inventaires.",
+                        "responsibilities": [
+                                "Suivre les niveaux de stock et les mouvements de marchandises.",
+                                "Participer à l'organisation et au rangement des produits.",
+                                "Contribuer au contrôle des stocks et à la gestion des inventaires."
+                        ]
+                },
+                {
+                        "title": "Stagiaire en assistance commerciale",
+                        "company": "Imprimerie Nationale du Congo",
+                        "startDate": "08/2017",
+                        "endDate": "11/2017",
+                        "location": "Congo",
+                        "description": "Effectuer un stage au sein de la Direction commerciale et marketing en contribuant aux activités commerciales et aux opérations liées à la clientèle.",
+                        "responsibilities": [
+                                "Participer aux activités commerciales et marketing.",
+                                "Assister dans les tâches administratives commerciales et liées à la clientèle.",
+                                "Contribuer aux activités quotidiennes de la Direction commerciale et marketing."
+                        ]
+                }
+        ],
+        "references": [],
+        "technologies": [
+                "Microsoft Word",
+                "Microsoft Excel",
+                "Gestion de caisse",
+                "Gestion des stocks",
+                "Gestion des inventaires"
+        ],
+        "skills": [
+                "Assistance administrative",
+                "Secrétariat médical",
+                "Gestion de caisse",
+                "Gestion des stocks",
+                "Contrôle des inventaires",
+                "Vente et marketing",
+                "Entrepreneuriat",
+                "Gestion d'entreprise",
+                "Service à la clientèle",
+                "Communication",
+                "Organisation",
+                "Travail en équipe"
+        ],
+        "education": [
+                {
+                        "degree": "Licence en gestion commerciale et commerce international",
+                        "institution": "Non précisé",
+                        "startDate": "01/2015",
+                        "endDate": "12/2018",
+                        "location": "Congo"
+                },
+                {
+                        "degree": "Baccalauréat technique en comptabilité",
+                        "institution": "Non précisé",
+                        "startDate": "01/2015",
+                        "endDate": "12/2015",
+                        "location": "Congo"
+                }
+        ],
+        "training": [
+                {
+                        "title": "Formation en outils informatiques",
+                        "institution": "Non précisé",
+                        "startDate": "01/2015",
+                        "endDate": "12/2018",
+                        "description": "Formation en gestion commerciale et maîtrise de Microsoft Excel et Microsoft Word."
+                },
+                {
+                        "title": "Formation en entrepreneuriat",
+                        "institution": "Villa Washington",
+                        "startDate": "05/2017",
+                        "endDate": "05/2017",
+                        "description": "Formation en entrepreneuriat."
+                },
+                {
+                        "title": "Séminaire de sensibilisation à l'auto-emploi par la création d'entreprise",
+                        "institution": "Université de la Francophonie",
+                        "startDate": "10/2017",
+                        "endDate": "10/2017",
+                        "description": "Séminaire consacré à l'auto-emploi et à la création d'entreprise."
+                },
+                {
+                        "title": "Séminaire de logistique et de gestion des stocks",
+                        "institution": "Université Libre du Congo",
+                        "startDate": "11/2018",
+                        "endDate": "11/2018",
+                        "description": "Formation en logistique et en gestion des stocks."
+                },
+                {
+                        "title": "Formation en gestion de caisse",
+                        "institution": "Centre Le Printemps",
+                        "startDate": "10/2019",
+                        "endDate": "10/2019",
+                        "description": "Formation en gestion de caisse."
+                },
+                {
+                        "title": "Formation en pâtisserie et gestion de caisse",
+                        "institution": "Eloko Shop",
+                        "startDate": "09/2019",
+                        "endDate": "09/2020",
+                        "description": "Formation en pâtisserie et en gestion de caisse."
+                },
+                {
+                        "title": "Formation en ressources humaines",
+                        "institution": "Instruments Scientifiques et Métrologie de Dakar",
+                        "startDate": "09/2023",
+                        "endDate": "11/2023",
+                        "description": "Formation en ressources humaines."
+                },
+                {
+                        "title": "Formation sur le mindset du succès",
+                        "institution": "Hôtel Saphir",
+                        "startDate": "11/2025",
+                        "endDate": "11/2025",
+                        "description": "Formation axée sur le développement d'un état d'esprit orienté vers la réussite."
+                }
+        ],
+        "languages": [
+                {
+                        "name": "Français",
+                        "level": "Courant",
+                        "proficiency": 5
+                },
+                {
+                        "name": "Anglais",
+                        "level": "Intermédiaire",
+                        "proficiency": 3
+                }
+        ],
+        "interests": [
+                "Musique",
+                "Lecture",
+                "Découverte",
+                "Prière"
+        ],
+        "notableProjects": [],
+        "socialLinks": []
+}

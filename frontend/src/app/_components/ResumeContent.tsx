@@ -280,11 +280,10 @@ const ResumeContent = ({
                 {resumeData.workExperience.map((job, index) => (
                   <div
                     key={index}
-                    className={`job-item ${
-                      index < resumeData.workExperience.length - 1
-                        ? 'mb-4 border-b-2 border-dashed border-gray-400 pb-4'
-                        : ''
-                    }`}
+                    className={`job-item ${index < resumeData.workExperience.length - 1
+                      ? 'mb-4 border-b-2 border-dashed border-gray-400 pb-4'
+                      : ''
+                      }`}
                   >
                     <h3 className="text-lg font-medium">{job.title}</h3>
                     <p className="text-blue-500">{job.company}</p>
@@ -311,32 +310,33 @@ const ResumeContent = ({
               </div>
 
               {/* References  */}
-              <div className="section">
-                <div className="mb-3">
-                  <h2 className="text-xl font-semibold uppercase">
-                    {resumeData.sections?.references || 'References'}
-                  </h2>
-                  <div className="bg-gray-800 w-full h-1 rounded-full"></div>
-                </div>
-                <div className="flex flex-col gap-y-3">
-                  {resumeData.references.map((reference, index) => (
-                    <div key={index}>
-                      <p>
-                        <span className="text-blue-500 font-medium">
-                          {reference.fullName}
-                        </span>
-                        <span className="ml-2 bg-slate-800 text-white p-1 rounded-md text-xs relative -top-1">
-                          {reference.role}
-                        </span>
-                        <span className="ml-1 bg-gray-500 text-white p-1 rounded-md text-xs relative -top-1">
-                          {reference.company}
-                        </span>
-                      </p>
-                      <p>{reference.email}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
+              {resumeData.references && resumeData.references.length > 0 && (
+                <div className="section">
+                  <div className="mb-3">
+                    <h2 className="text-xl font-semibold uppercase">
+                      {resumeData.sections?.references || 'References'}
+                    </h2>
+                    <div className="bg-gray-800 w-full h-1 rounded-full"></div>
+                  </div>
+                  <div className="flex flex-col gap-y-3">
+                    {resumeData.references.map((reference, index) => (
+                      <div key={index}>
+                        <p>
+                          <span className="text-blue-500 font-medium">
+                            {reference.fullName}
+                          </span>
+                          <span className="ml-2 bg-slate-800 text-white p-1 rounded-md text-xs relative -top-1">
+                            {reference.role}
+                          </span>
+                          <span className="ml-1 bg-gray-500 text-white p-1 rounded-md text-xs relative -top-1">
+                            {reference.company}
+                          </span>
+                        </p>
+                        <p>{reference.email}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>)}
             </div>
 
             {/* Second Main Column */}
@@ -397,11 +397,10 @@ const ResumeContent = ({
                   {resumeData.education.map((edu, index) => (
                     <li
                       key={index}
-                      className={`education-item ${
-                        index < resumeData.education.length - 1
-                          ? 'border-b-2 border-dashed border-gray-400 pb-4'
-                          : ''
-                      } ${index > 0 ? 'mt-2' : ''}`}
+                      className={`education-item ${index < resumeData.education.length - 1
+                        ? 'border-b-2 border-dashed border-gray-400 pb-4'
+                        : ''
+                        } ${index > 0 ? 'mt-2' : ''}`}
                     >
                       <p className="text-lg">{edu.degree}</p>
                       <p className="text-blue-500">
@@ -447,11 +446,10 @@ const ResumeContent = ({
                         {Array.from({ length: 5 }, (_, i) => (
                           <div
                             key={i}
-                            className={`h-8 w-2 rounded-full ${
-                              i < language.proficiency
-                                ? 'bg-blue-500'
-                                : 'bg-gray-300'
-                            }`}
+                            className={`h-8 w-2 rounded-full ${i < language.proficiency
+                              ? 'bg-blue-500'
+                              : 'bg-gray-300'
+                              }`}
                           />
                         ))}
                       </div>
@@ -461,7 +459,7 @@ const ResumeContent = ({
               </div>
 
               {/* Notable Public Projects */}
-              <div className="section mb-6">
+              {resumeData.notableProjects && resumeData.notableProjects.length > 0 && (<div className="section mb-6">
                 <div className="mb-3">
                   <h2 className="text-xl font-semibold uppercase">
                     {resumeData.sections?.notableProjects || 'Notable Public Projects'}
@@ -486,10 +484,10 @@ const ResumeContent = ({
                     </li>
                   ))}
                 </ul>
-              </div>
+              </div>)}
 
               {/* Find me online  */}
-              <div className="section mb-6">
+              {(resumeData.sections?.findMeOnline || resumeData.socialLinks.length > 0) && (<div className="section mb-6">
                 <div className="mb-3">
                   <h2 className="text-xl font-semibold uppercase">
                     {resumeData.sections?.findMeOnline || 'Find me online'}
@@ -520,7 +518,7 @@ const ResumeContent = ({
                     );
                   })}
                 </ul>
-              </div>
+              </div>)}
             </div>
           </div>
         </div>

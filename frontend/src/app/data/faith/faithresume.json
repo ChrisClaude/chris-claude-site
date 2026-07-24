@@ -1,0 +1,197 @@
+{
+    "personalInfo": {
+        "name": "Faith Exaucée TSIYEDI",
+        "title": "Medical Secretary | Entrepreneur | Stock and Cash Management",
+        "email": "faithtsiyedi@gmail.com",
+        "phone": "+48 787 390 046",
+    "location": "Kraków, Poland"
+    },
+    "summary": "Versatile professional with experience in medical administration, entrepreneurship, sales and marketing, stock management, cash management, and customer service. Experienced in managing administrative tasks, handling cash transactions, monitoring inventory, supporting business operations, and developing a food brand specializing in spices and fruit juices. Strong entrepreneurial mindset with additional training in commercial management, logistics, human resources, entrepreneurship, pastry, and cash management.",
+    "workExperience": [
+        {
+            "title": "Medical Secretary",
+            "company": "Maison France-Congo",
+            "startDate": "05/2025",
+            "endDate": "03/2026",
+            "location": "Congo",
+            "description": "Provided administrative and secretarial support in a medical environment, contributing to the smooth coordination of daily activities and the management of administrative tasks.",
+            "responsibilities": [
+                "Managed administrative and secretarial tasks in a medical environment.",
+                "Supported the organization and coordination of daily activities.",
+                "Handled communication and administrative follow-up.",
+                "Maintained accurate documentation and records."
+            ]
+        },
+        {
+            "title": "Producer and Founder",
+            "company": "SAMINOU",
+            "startDate": "01/2023",
+            "endDate": "04/2025",
+            "location": "Congo",
+            "description": "Founded and managed SAMINOU, a food brand specializing in spices and fruit juices, overseeing production, product development, and business operations.",
+            "responsibilities": [
+                "Created and developed a brand specializing in spices and fruit juices.",
+                "Managed the production and preparation of food products.",
+                "Oversaw day-to-day business operations.",
+                "Contributed to product development and brand growth.",
+                "Managed customer relationships and sales activities."
+            ]
+        },
+        {
+            "title": "Cashier",
+            "company": "Secrétariat JS Concept, for DV Loterie",
+            "startDate": "09/2021",
+            "endDate": "05/2022",
+            "location": "Congo",
+            "description": "Managed cash transactions and supported daily financial operations while working as a cashier for DV Loterie.",
+            "responsibilities": [
+                "Processed customer cash transactions accurately.",
+                "Managed daily cash handling activities.",
+                "Maintained transaction records and supported cash reconciliation.",
+                "Provided customer service and assistance."
+            ]
+        },
+        {
+            "title": "Stock Manager",
+            "company": "IST SARLU",
+            "startDate": "07/2019",
+            "endDate": "07/2019",
+            "location": "Congo",
+            "description": "Managed stock-related activities and supported inventory control operations.",
+            "responsibilities": [
+                "Monitored inventory levels and stock movements.",
+                "Supported the organization and storage of products.",
+                "Participated in stock control and inventory management activities."
+            ]
+        },
+        {
+            "title": "Commercial Assistant Intern",
+            "company": "Imprimerie Nationale du Congo",
+            "startDate": "08/2017",
+            "endDate": "11/2017",
+            "location": "Congo",
+            "description": "Completed an internship within the Commercial and Marketing Department, supporting commercial activities and customer-related operations.",
+            "responsibilities": [
+                "Supported commercial and marketing activities.",
+                "Assisted with customer and commercial administrative tasks.",
+                "Contributed to the daily activities of the Commercial and Marketing Department."
+            ]
+        }
+    ],
+    "references": [],
+    "technologies": [
+        "Microsoft Word",
+        "Microsoft Excel",
+        "Cash Management",
+        "Stock Management",
+        "Inventory Management"
+    ],
+    "skills": [
+        "Administrative Support",
+        "Medical Secretarial Work",
+        "Cash Management",
+        "Stock Management",
+        "Inventory Control",
+        "Sales and Marketing",
+        "Entrepreneurship",
+        "Business Management",
+        "Customer Service",
+        "Communication",
+        "Organization",
+        "Teamwork"
+    ],
+    "education": [
+        {
+            "degree": "Bachelor's Degree in Commercial Management and International Trade",
+            "institution": "Université Marien Ngouabi",
+            "startDate": "01/2015",
+            "endDate": "12/2018",
+            "location": "Congo"
+        },
+        {
+            "degree": "Technical Baccalaureate in Accounting",
+            "institution": "Université Marien Ngouabi",
+            "startDate": "01/2015",
+            "endDate": "12/2015",
+            "location": "Congo"
+        }
+    ],
+    "training": [
+        {
+            "title": "Computer Tools Training",
+            "institution": "Université Marien Ngouabi",
+            "startDate": "01/2015",
+            "endDate": "12/2018",
+            "description": "Training in commercial management and proficiency in Microsoft Excel and Microsoft Word."
+        },
+        {
+            "title": "Entrepreneurship Training",
+            "institution": "Villa Washington",
+            "startDate": "05/2017",
+            "endDate": "05/2017",
+            "description": "Training in entrepreneurship."
+        },
+        {
+            "title": "Entrepreneurship Awareness Seminar",
+            "institution": "Université de la Francophonie",
+            "startDate": "10/2017",
+            "endDate": "10/2017",
+            "description": "Seminar focused on self-employment through business creation."
+        },
+        {
+            "title": "Logistics and Stock Management Seminar",
+            "institution": "Université Libre du Congo",
+            "startDate": "11/2018",
+            "endDate": "11/2018",
+            "description": "Training in logistics and stock management."
+        },
+        {
+            "title": "Cash Management Training",
+            "institution": "Centre Le Printemps",
+            "startDate": "10/2019",
+            "endDate": "10/2019",
+            "description": "Training in cash management."
+        },
+        {
+            "title": "Pastry and Cash Management Training",
+            "institution": "Eloko Shop",
+            "startDate": "09/2019",
+            "endDate": "09/2020",
+            "description": "Training in pastry and cash management."
+        },
+        {
+            "title": "Human Resources Training",
+            "institution": "Instruments Scientifiques et Métrologie de Dakar",
+            "startDate": "09/2023",
+            "endDate": "11/2023",
+            "description": "Training in human resources."
+        },
+        {
+            "title": "Success Mindset Training",
+            "institution": "Hôtel Saphir",
+            "startDate": "11/2025",
+            "endDate": "11/2025",
+            "description": "Training focused on developing a success-oriented mindset."
+        }
+    ],
+    "languages": [
+        {
+            "name": "French",
+            "level": "Fluent",
+            "proficiency": 5
+        },
+        {
+            "name": "English",
+            "level": "Intermediate",
+            "proficiency": 3
+        }
+    ],
+    "interests": [
+        "Music",
+        "Reading",
+        "Discovery",
+        "Prayer"
+    ],
+    "notableProjects": [],
+    "socialLinks": []
+}
