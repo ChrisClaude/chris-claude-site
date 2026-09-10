@@ -1,0 +1,61 @@
+name: Backend Tests
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "backend/**"
+      - ".github/workflows/backend-tests.yml"
+  pull_request:
+    paths:
+      - "backend/**"
+      - ".github/workflows/backend-tests.yml"
+
+defaults:
+  run:
+    working-directory: backend
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: backend/global.json
+
+      - name: Restore
+        run: dotnet restore ChrisClaude.sln
+
+      - name: Build
+        run: dotnet build ChrisClaude.sln --no-restore --configuration Release
+
+      - name: Unit tests
+        run: >
+          dotnet test ChrisClaude.sln
+          --no-build --configuration Release
+          --filter "Category!=Integration"
+          --logger "trx;LogFileName=unit.trx"
+          --results-directory TestResults
+
+      # GitHub-hosted Ubuntu runners ship Docker, which the Aspire AppHost needs
+      # to start the SQL Server and Azure Storage emulator containers.
+      - name: Integration tests
+        run: >
+          dotnet test tests/Application.IntegrationTests/Application.IntegrationTests.csproj
+          --no-build --configuration Release
+          --filter "Category=Integration"
+          --logger "trx;LogFileName=integration.trx"
+          --results-directory TestResults
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: backend/TestResults/*.trx
+          if-no-files-found: ignore

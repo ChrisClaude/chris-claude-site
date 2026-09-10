@@ -1,5 +1,6 @@
 using ChrisClaude.AppHost;
 using ChrisClaude.Aspire;
+using Microsoft.Extensions.Configuration;
 
 var builder = DistributedApplication.CreateBuilder(args);
 
@@ -17,19 +18,28 @@ var api = builder
     .WaitFor(migrations)
     .WithHttpHealthCheck("/healthz");
 
-var apiEndpoint = api.GetEndpoint("https");
+// The Next.js dev server and GraphQL codegen need Node/npm and write into the
+// frontend directory, so they are skipped when the AppHost is booted from the
+// integration tests (which set IncludeFrontend=false).
+var includeFrontend = builder.Configuration.GetValue("IncludeFrontend", true);
 
-var frontend = builder
-    .AddNpmApp("frontend", "../../frontend", "dev")
-    .WithReference(api)
-    .WaitFor(api)
-    .WithHttpEndpoint(port: 3000, env: "PORT")
-    .WithEnvironment("NEXT_PUBLIC_API_BASE_PATH", apiEndpoint);
+if (includeFrontend)
+{
+    var apiEndpoint = api.GetEndpoint("https");
 
-frontend.WithEnvironment("NEXTAUTH_URL", frontend.GetEndpoint("http"));
+    var frontend = builder
+        .AddNpmApp("frontend", "../../frontend", "dev")
+        .WithReference(api)
+        .WaitFor(api)
+        .WithHttpEndpoint(port: 3000, env: "PORT")
+        .WithEnvironment("NEXT_PUBLIC_API_BASE_PATH", apiEndpoint);
 
-var frontendDir = Path.GetFullPath(Path.Combine(builder.AppHostDirectory, "..", "..", "frontend"));
+    frontend.WithEnvironment("NEXTAUTH_URL", frontend.GetEndpoint("http"));
 
-GraphQLCodeGenerator.SubscribeToApiReady(builder, api, apiEndpoint, frontendDir);
+    var frontendDir = Path.GetFullPath(
+        Path.Combine(builder.AppHostDirectory, "..", "..", "frontend"));
+
+    GraphQLCodeGenerator.SubscribeToApiReady(builder, api, apiEndpoint, frontendDir);
+}
 
 await builder.Build().RunAsync();

@@ -1,13 +1,15 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
   </PropertyGroup>
 
   <ItemGroup>
+     <PackageReference Include="Aspire.Hosting.Testing" />
      <PackageReference Include="coverlet.collector" />
      <PackageReference Include="HotChocolate.AspNetCore" />
      <PackageReference Include="Microsoft.NET.Test.Sdk" />
@@ -16,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\ChrisClaude.AppHost\ChrisClaude.AppHost.csproj" />
     <ProjectReference Include="../../BlogAPI/BlogAPI.csproj" />
     <ProjectReference Include="../../Application/Application.csproj" />
     <ProjectReference Include="..\..\ChrisClaude.ServiceDefaults\ChrisClaude.ServiceDefaults.csproj" />
@@ -23,6 +26,7 @@
 
   <ItemGroup>
     <Using Include="Xunit" />
+    <Using Include="Aspire.Hosting.Testing" />
   </ItemGroup>
 
 </Project>

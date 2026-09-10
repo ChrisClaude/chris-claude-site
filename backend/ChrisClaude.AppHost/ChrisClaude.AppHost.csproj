@@ -6,8 +6,6 @@
     />
     <ProjectReference Include="..\BlogAPI\BlogAPI.csproj" />
     <ProjectReference Include="..\MigrationService\MigrationService.csproj" />
-    <ProjectReference Include="..\tests\Application.IntegrationTests\Application.IntegrationTests.csproj" />
-    <ProjectReference Include="..\tests\Application.UnitTests\Application.UnitTests.csproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Aspire.Hosting.Azure.Storage" />

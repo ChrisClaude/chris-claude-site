@@ -27,8 +27,11 @@ fi
 echo "✅ Backend build succeeded."
 
 # Run dotnet test
+# Integration tests (Category=Integration) boot the Aspire AppHost and need a
+# running container runtime, so they are excluded here. Run them explicitly with:
+#   dotnet test ChrisClaude.sln --filter "Category=Integration"
 echo "Running dotnet test..."
-dotnet test ChrisClaude.sln --no-build --verbosity quiet
+dotnet test ChrisClaude.sln --no-build --verbosity quiet --filter "Category!=Integration"
 TEST_RESULT=$?
 
 if [ $TEST_RESULT -ne 0 ]; then

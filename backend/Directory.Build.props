@@ -8,6 +8,13 @@
     <CodeAnalysisTreatWarningsAsErrors>true</CodeAnalysisTreatWarningsAsErrors>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <!--
+      Audit only the packages we reference directly. The Aspire tooling graph
+      (dashboard, DCP, testing host) drags in transitive packages such as
+      MessagePack that we cannot upgrade independently, and TreatWarningsAsErrors
+      would otherwise turn those advisories into hard build failures.
+    -->
+    <NuGetAuditMode>direct</NuGetAuditMode>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="SonarAnalyzer.CSharp">

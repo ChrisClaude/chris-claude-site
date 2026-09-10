@@ -1,7 +1,7 @@
 {
   "personalInfo": {
     "name": "Murielle Fredina Ayale",
-    "title": "Sales Agent",
+    "title": "Customer Service Agent",
     "phone": "+48 579 314 238",
     "email": "murielleayale@gmail.com",
     "website": {
@@ -90,30 +90,34 @@
     "Front Office Management",
     "Customer Service Excellence",
     "Communication & Problem Solving",
-    "Problem solving",
     "Assertiveness",
-    "Creativity",
     "Critical thinking",
     "Teamwork",
-    "Team management",
-    "Presentation / Public speaking",
-    "Risk management"
+    "Active Listening",
+    "Conflict Resolution",
+    "Complaint Handling",
+    "Multichannel Support (Phone, Email, In-Person)",
+    "CRM & Customer Data Management",
+    "Empathy & Patience",
+    "Time Management & Multitasking",
+    "Upselling & Cross-selling",
+    "Fast Learner / Adaptability"
   ],
   "education": [
     {
       "degree": "High School Diploma, English Language and Literature",
       "institution": "Faith of Heart School",
       "institutionUrl": "",
-      "startDate": "10/2022",
-      "endDate": "07/2023",
+      "startDate": "10/2021",
+      "endDate": "07/2022",
       "location": "Republic of the Congo"
     },
     {
-      "degree": "Certificate, Customer Service",
+      "degree": "Bachelor's Degree, Commerce",
       "institution": "Alison",
       "institutionUrl": "https://alison.com",
-      "startDate": "01/2026",
-      "endDate": "01/2026",
+      "startDate": "2023",
+      "endDate": "2025",
       "location": "Online"
     }
   ],
