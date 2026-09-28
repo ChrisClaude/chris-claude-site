@@ -72,12 +72,6 @@
     }
   ],
   "references": [
-    {
-      "fullName": "Claude De-Tchambila",
-      "role": "Ingénieur Logiciel Senior",
-      "email": "christ.tchambila@gmail.com",
-      "company": "Euroclear"
-    }
   ],
   "technologies": [
     "Microsoft Excel",
@@ -108,16 +102,16 @@
       "degree": "Diplôme de Lycée, Langue et Littérature Anglaise",
       "institution": "Faith of Heart School",
       "institutionUrl": "",
-      "startDate": "10/2021",
-      "endDate": "07/2022",
+      "startDate": "10/2023",
+      "endDate": "07/2023",
       "location": "République du Congo"
     },
     {
-      "degree": "Licence, Commerce",
+      "degree": "Certificat, Service Client",
       "institution": "Alison",
       "institutionUrl": "https://alison.com",
-      "startDate": "2023",
-      "endDate": "2025",
+      "startDate": "2026",
+      "endDate": "2026",
       "location": "En ligne"
     }
   ],
